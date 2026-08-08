@@ -1,0 +1,15 @@
+{
+  "excluded_patterns": [
+    "analytics.google.com",
+    "clarity.ms",
+    "crazyegg",
+    "sentry.io",
+    "langgraph.app",
+    "aha-chatbot-app",
+    "ai.ahaslides.com",
+    "mt2",
+    "stripe",
+    "cloudfront.net",
+    "brevo"
+  ]
+}
