@@ -26,7 +26,8 @@ All scripts performing HTTP requests to AhaSlides APIs **MUST** use the shared A
 1. **Scripts Guide**:
    - Refer to [`scripts/AGENTS.md`](scripts/AGENTS.md) for the complete registry of scripts, usage examples, and argument details.
    - Slide management scripts [`scripts/read_slide.py`](scripts/read_slide.py) and [`scripts/update_slide.py`](scripts/update_slide.py) allow reading slide-level properties (`baseColour`, `textColour`, `backgroundImage`, `visibility`, `elements_count`) and updating slide properties with optional auto-resolution of presentation ID and global application (`--apply-to-all`).
-   - Slide element manipulation scripts [`scripts/list_slide_elements.py`](scripts/list_slide_elements.py), [`scripts/insert_slide_element.py`](scripts/insert_slide_element.py), and [`scripts/update_slide_element.py`](scripts/update_slide_element.py) allow listing, inserting, and updating `:::text` / `:::shape` directive blocks in slide v2 DSL attributes.
+   - Slide element manipulation scripts [`scripts/list_slide_elements.py`](scripts/list_slide_elements.py), [`scripts/insert_slide_element.py`](scripts/insert_slide_element.py), and [`scripts/update_slide_element.py`](scripts/update_slide_element.py) allow listing, inserting, and updating `:::text`, `:::image`, and `:::shape` directive blocks in slide v2 DSL attributes with automatic CDN image upload via [`scripts/upload_image.py`](scripts/upload_image.py).
+   - Image upload tool [`scripts/upload_image.py`](scripts/upload_image.py) uploads local files or external URLs to `POST /api/upload/image/` and returns official signed AhaSlides CDN URLs (`https://assets-cdn.ahaslides.com/...`).
    - HAR exploration script [`scripts/explore_har_request.py`](scripts/explore_har_request.py) supports HTTP method matching (`POST`, `GET`, etc.), method filtering (`-m/--method`), listing requests sequentially (`-l/--list`), and payload inspection (`--json`).
 
 2. **Mandatory Script Documentation Rule**:

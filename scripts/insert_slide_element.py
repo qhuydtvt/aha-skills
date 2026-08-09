@@ -86,6 +86,12 @@ def insert_slide_element(
     if is_image and not src:
         src = "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=800&q=80"
 
+    # Auto-upload to AhaSlides CDN if src is external or local file path
+    if is_image and src and not src.startswith("https://assets-cdn.ahaslides.com/"):
+        from scripts.upload_image import upload_image
+        upload_res = upload_image(src, client=client)
+        src = upload_res.get("location", src)
+
     # 1. Fetch existing DSL
     existing_dsl = ""
     try:

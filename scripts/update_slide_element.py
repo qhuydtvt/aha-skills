@@ -136,6 +136,11 @@ def update_slide_element(
 
     # 3. Update header attributes
     if src is not None:
+        if not str(src).startswith("https://assets-cdn.ahaslides.com/"):
+            from scripts.upload_image import upload_image
+            upload_res = upload_image(str(src), client=client)
+            src = upload_res.get("location", src)
+
         attr_map["src"] = str(src)
         if "fit" not in attr_map:
             attr_map["fit"] = "contain"
