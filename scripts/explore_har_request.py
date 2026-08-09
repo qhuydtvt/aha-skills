@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
+import argparse
 import json
 import sys
-import argparse
 from pathlib import Path
-from typing import Dict, Any, List
-from urllib.parse import urlparse, parse_qs
+from typing import Any
+from urllib.parse import parse_qs, urlparse
+
 
 def load_config(config_path: Path) -> dict:
     if config_path.exists():
@@ -12,14 +13,14 @@ def load_config(config_path: Path) -> dict:
             return json.load(f)
     return {}
 
-def is_excluded(url: str, excluded_patterns: List[str]) -> bool:
+def is_excluded(url: str, excluded_patterns: list[str]) -> bool:
     url_lower = url.lower()
     for pattern in excluded_patterns:
         if pattern.lower() in url_lower:
             return True
     return False
 
-def sanitize_headers(headers: List[Dict[str, str]]) -> Dict[str, str]:
+def sanitize_headers(headers: list[dict[str, str]]) -> dict[str, str]:
     sanitized = {}
     for h in headers:
         name = h.get("name", "")
@@ -48,7 +49,7 @@ def get_default_har_file(artifacts_dir: Path) -> Path:
     har_files.sort(key=lambda f: f.stat().st_mtime, reverse=True)
     return har_files[0]
 
-def inspect_request(entry: Dict[str, Any]) -> Dict[str, Any]:
+def inspect_request(entry: dict[str, Any]) -> dict[str, Any]:
     req = entry.get("request", {})
     res = entry.get("response", {})
     
@@ -67,7 +68,7 @@ def inspect_request(entry: Dict[str, Any]) -> Dict[str, Any]:
         if text:
             try:
                 body_json = json.loads(text)
-            except Exception:
+            except Exception: # noqa: BLE001
                 body_content = text
                 
     response_info = {
@@ -89,21 +90,78 @@ def inspect_request(entry: Dict[str, Any]) -> Dict[str, Any]:
     }
 
 def main():
-    parser = argparse.ArgumentParser(description="Explore request shape from HAR file safely.")
-    parser.add_argument("query", help="URL pattern or keyword to search for in HAR requests (e.g. 'slide/create' or 'attributes')")
-    parser.add_argument("har_file", nargs="?", help="Path to HAR file")
-    parser.add_argument("-n", "--index", type=int, default=1, help="Which match index to display if multiple found (1-based, default: 1)")
-    parser.add_argument("--json", action="store_true", help="Output request specification in JSON format")
-    parser.add_argument("--include-excluded", action="store_true", help="Do not apply pattern exclusions from config.json")
+    parser = argparse.ArgumentParser(
+        description="Explore request shape, parameters, headers, and body payloads from HAR files safely."
+    )
+    parser.add_argument(
+        "query",
+        nargs="?",
+        default=None,
+        help="Search query: HTTP method (e.g. 'POST'), URL pattern (e.g. 'slide/create'), or 'all'/'*' to match all requests. Defaults to '*'."
+    )
+    parser.add_argument(
+        "har_file",
+        nargs="?",
+        default=None,
+        help="Path to HAR file (defaults to presenter HAR or latest HAR in artifacts/)"
+    )
+    parser.add_argument(
+        "-m", "--method",
+        type=str,
+        default=None,
+        help="Filter requests specifically by HTTP method (case-insensitive, e.g. POST, GET, PUT, PATCH, DELETE)"
+    )
+    parser.add_argument(
+        "-l", "--list",
+        action="store_true",
+        help="List all matching requests sequentially with index numbers, HTTP methods, and URLs"
+    )
+    parser.add_argument(
+        "-n", "--index",
+        type=int,
+        default=1,
+        help="Which match index to display if multiple found (1-based, default: 1)"
+    )
+    parser.add_argument(
+        "--json",
+        action="store_true",
+        help="Output request specification in JSON format"
+    )
+    parser.add_argument(
+        "--include-excluded",
+        action="store_true",
+        help="Do not apply pattern exclusions from config.json"
+    )
 
     args = parser.parse_args()
 
     base_dir = Path(__file__).resolve().parent.parent
     artifacts_dir = base_dir / "artifacts"
     config_path = base_dir / "configs" / "config.json"
-    
-    har_path = Path(args.har_file) if args.har_file else get_default_har_file(artifacts_dir)
-    
+
+    # Smart positional argument resolution
+    query_str = "*"
+    har_path = None
+
+    if args.query and not args.har_file:
+        query_arg = args.query.strip()
+        # Check if single positional argument is actually a HAR file path
+        if Path(query_arg).exists() or query_arg.endswith(".har"):
+            har_path = Path(query_arg)
+            query_str = "*"
+        else:
+            query_str = query_arg
+            har_path = get_default_har_file(artifacts_dir)
+    elif args.query and args.har_file:
+        query_str = args.query.strip()
+        har_path = Path(args.har_file)
+    elif not args.query and args.har_file:
+        query_str = "*"
+        har_path = Path(args.har_file)
+    else:
+        query_str = "*"
+        har_path = get_default_har_file(artifacts_dir)
+
     if not har_path.exists():
         print(f"Error: HAR file not found: {har_path}", file=sys.stderr)
         sys.exit(1)
@@ -117,31 +175,59 @@ def main():
         har_data = json.load(f)
 
     entries = har_data.get("log", {}).get("entries", [])
-    matches = []
-    
+    matches: list[tuple[int, dict[str, Any]]] = []
+
+    is_all_query = query_str in ("", "*") or query_str.lower() == "all"
+    method_filter = args.method.strip().lower() if args.method else None
+
     for idx, entry in enumerate(entries):
-        url = entry.get("request", {}).get("url", "")
-        if is_excluded(url, excluded_patterns):
+        req = entry.get("request", {})
+        url = req.get("url", "")
+        method = req.get("method", "")
+
+        if not args.include_excluded and is_excluded(url, excluded_patterns):
             continue
-        if args.query.lower() in url.lower():
-            matches.append((idx, entry))
+
+        if method_filter and method.lower() != method_filter:
+            continue
+
+        if not is_all_query:
+            q_lower = query_str.lower()
+            method_match = q_lower == method.lower() or q_lower in method.lower()
+            url_match = q_lower in url.lower()
+            if not (method_match or url_match):
+                continue
+
+        matches.append((idx, entry))
 
     if not matches:
-        print(f"No non-excluded requests matching query '{args.query}' found in {har_path.name}", file=sys.stderr)
+        filter_info = f" with method '{args.method}'" if args.method else ""
+        print(f"No non-excluded requests matching query '{query_str}'{filter_info} found in {har_path.name}", file=sys.stderr)
         sys.exit(1)
 
-    print(f"Found {len(matches)} matching request(s) for '{args.query}'.", file=sys.stderr)
-    
+    if args.list:
+        print(f"Found {len(matches)} matching request(s) in {har_path.name}:")
+        for i, (orig_idx, entry) in enumerate(matches, 1):
+            req_m = entry.get("request", {}).get("method", "")
+            req_u = entry.get("request", {}).get("url", "")
+            print(f"  [{i:3d}] (HAR entry #{orig_idx + 1:3d}) {req_m:6s} {req_u}")
+        return
+
     target_idx = max(0, min(args.index - 1, len(matches) - 1))
     original_idx, selected_entry = matches[target_idx]
-    
+
+    if len(matches) > 1 and not args.json:
+        print(f"Found {len(matches)} matching request(s). Showing match {target_idx + 1} of {len(matches)} (use -n INDEX to select, or -l to list all).", file=sys.stderr)
+    elif len(matches) > 1 and args.json:
+        print(f"Found {len(matches)} matching request(s). Showing match {target_idx + 1} of {len(matches)}.", file=sys.stderr)
+
     spec = inspect_request(selected_entry)
 
     if args.json:
         print(json.dumps(spec, indent=2))
     else:
         print("\n" + "=" * 60)
-        print(f"REQUEST SHAPE (Match {target_idx + 1} of {len(matches)})")
+        print(f"REQUEST SHAPE (Match {target_idx + 1} of {len(matches)}, HAR entry #{original_idx + 1})")
         print("=" * 60)
         print(f"Method:  {spec['method']}")
         print(f"URL:     {spec['url']}")
@@ -170,3 +256,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
