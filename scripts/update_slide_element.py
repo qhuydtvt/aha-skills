@@ -35,32 +35,34 @@ def update_slide_element(
     background: str | None = None,
     border_radius: Any | None = None,
     padding: Any | None = None,
+    src: str | None = None,
     extra_attrs: str | None = None,
     client: AhaApiClient | None = None,
 ) -> dict[str, Any]:
-    """Update an existing :::text or :::shape element block in a slide's DSL content.
+    """Find and update an existing directive element (:::text, :::image, :::shape, :::icon) in a slide's DSL.
 
     Args:
-        slide_id: ID of the slide containing the element.
-        element_id: ID of the element to update.
-        text: New body text content for the element (if None, keep existing text).
-        x: X coordinate / position attribute.
-        y: Y coordinate / position attribute.
-        w: Width (w) attribute.
-        h: Height (h) attribute.
-        at: Element position alignment ('center', etc.).
-        width: Element width string ('80%', etc.).
-        offset_x: Horizontal offset (offset-x).
-        offset_y: Vertical offset (offset-y).
-        color: Text/font color.
+        slide_id: Target slide ID.
+        element_id: Target element ID to modify.
+        text: New body text content (if None, existing text is retained).
+        x: Explicit X coordinate.
+        y: Explicit Y coordinate.
+        w: Explicit width.
+        h: Explicit height.
+        at: Relative alignment ('center', etc.).
+        width: Relative width ('80%', etc.).
+        offset_x: Relative horizontal offset ('offset-x').
+        offset_y: Relative vertical offset ('offset-y').
+        color: Text color hex/name.
         background: Background style/color.
         border_radius: Border radius value.
         padding: Padding value.
-        extra_attrs: Additional raw attribute key=value string to merge.
+        src: Image URL string.
+        extra_attrs: Key=value pairs to add or override.
         client: Optional AhaApiClient instance.
 
     Returns:
-        Dict[str, Any]: Update metadata and API response.
+        Dict[str, Any]: Execution summary, changed attributes, updated DSL, and API response.
     """
     if client is None:
         client = AhaApiClient()
@@ -98,7 +100,7 @@ def update_slide_element(
 
     # 2. Parse DSL blocks to locate target element
     pattern = re.compile(
-        r"(:::(text|shape)([^\n]*)\n(.*?)(?:\n:::\s*|\Z))", re.DOTALL
+        r"(:::(text|shape|image|icon)([^\n]*)\n(.*?)(?:\n:::\s*|\Z))", re.DOTALL
     )
     attr_kv_pattern = re.compile(r'([\w-]+)=(?:"([^"]*)"|\'([^\']*)\'|(\S+))')
 
@@ -133,6 +135,10 @@ def update_slide_element(
         )
 
     # 3. Update header attributes
+    if src is not None:
+        attr_map["src"] = str(src)
+        if "fit" not in attr_map:
+            attr_map["fit"] = "contain"
     if x is not None:
         attr_map["x"] = str(x)
     if y is not None:
@@ -322,6 +328,11 @@ def main():
         help="Padding value.",
     )
     parser.add_argument(
+        "--src",
+        default=None,
+        help="Image URL string (e.g. Unsplash URL).",
+    )
+    parser.add_argument(
         "--extra-attrs",
         default=None,
         help="Additional key=value header attributes.",
@@ -362,6 +373,7 @@ def main():
             background=args.background,
             border_radius=args.border_radius,
             padding=args.padding,
+            src=args.src,
             extra_attrs=args.extra_attrs,
         )
     except Exception as e:  # noqa: BLE001
