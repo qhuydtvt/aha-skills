@@ -192,7 +192,7 @@ def main():
         other_attrs = {
             k: v
             for k, v in elem.get("attributes", {}).items()
-            if k not in ("id", "preset", "at", "width", "offset-x", "offset-y", "offset_x", "offset_y")
+            if k not in ("id", "preset", "at", "width", "offset-x", "offset-y", "offset_x", "offset_y", "offsetX", "offsetY")
         }
         if other_attrs:
             attr_str = ", ".join(f"{k}={v}" for k, v in other_attrs.items())
