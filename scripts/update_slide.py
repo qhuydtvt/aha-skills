@@ -62,7 +62,10 @@ def update_slide(
     else:
         parsed_pid, _ = _resolve_presentation_id(parsed_slide_id, client)
 
-    slide_update: dict[str, Any] = {"id": parsed_slide_id}
+    slide_update: dict[str, Any] = {
+        "id": parsed_slide_id,
+        "presentationId": parsed_pid,
+    }
 
     if base_colour is not None:
         slide_update["baseColour"] = base_colour
@@ -76,7 +79,7 @@ def update_slide(
         except (ValueError, TypeError):
             slide_update["visibility"] = visibility
 
-    if len(slide_update) == 1:
+    if len(slide_update) == 2:
         raise ValueError("At least one property must be specified for update.")
 
     payload: dict[str, Any] = {

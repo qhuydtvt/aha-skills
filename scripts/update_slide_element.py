@@ -195,10 +195,17 @@ def update_slide_element(
             header_parts.append(f"{k}={v}")
 
     header_line = " ".join(header_parts)
-    new_block = f"{header_line}\n{updated_text}\n:::"
-
+    
+    # Ensure there is always a newline after ::: before the next directive block starts
     start_idx, end_idx = target_match.span(1)
-    updated_dsl = dsl_text[:start_idx] + new_block + dsl_text[end_idx:]
+    following_text = dsl_text[end_idx:]
+    if following_text.startswith(":::"):
+        suffix = "\n:::\n"
+    else:
+        suffix = "\n:::"
+
+    new_block = f"{header_line}\n{updated_text}{suffix}"
+    updated_dsl = dsl_text[:start_idx] + new_block + following_text
 
     # 5. Post updated DSL to API
     update_path = UPDATE_ATTRIBUTES_PATH.format(slide_id=slide_id)

@@ -36,14 +36,14 @@ def _parse_num(val: Any) -> Any:
 
 def list_slide_elements(
     slide_id: Any,
-    element_id: str | None = None,
+    target_element_id: str | None = None,
     client: AhaApiClient | None = None,
 ) -> list[dict[str, Any]]:
     """Query slide attributes API and parse all element blocks (text, image, video, timer, etc.) from DSL.
 
     Args:
         slide_id: ID of the slide to inspect.
-        element_id: Optional element ID to filter results.
+        target_element_id: Optional element ID to filter results.
         client: Optional AhaApiClient instance.
 
     Returns:
@@ -94,7 +94,7 @@ def list_slide_elements(
             attributes[k] = v
 
         elem_id = attributes.get("id")
-        if element_id and str(elem_id) != str(element_id):
+        if target_element_id and str(elem_id) != str(target_element_id):
             continue
 
         preset = attributes.get("preset")
@@ -163,7 +163,7 @@ def main():
         sys.exit(1)
 
     try:
-        elements = list_slide_elements(args.slide_id, element_id=args.element_id)
+        elements = list_slide_elements(args.slide_id, target_element_id=args.element_id)
     except Exception as e:  # noqa: BLE001
         print(f"Error listing slide elements: {e}", file=sys.stderr)
         sys.exit(1)
