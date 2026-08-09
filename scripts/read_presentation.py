@@ -17,6 +17,7 @@ from scripts.shared.api import AhaApiClient
 
 DETAIL_PATH_TEMPLATE = "/api/presentation/detail/{presentation_id}"
 CANVAS_BLOCKS_PATH = "/api/slide/canvas-blocks"
+SLIDE_ATTRIBUTES_PATH = "/api/v2/slides/attributes"
 
 
 def fetch_presentation_detail(client: AhaApiClient, presentation_id: str) -> Dict[str, Any]:
@@ -27,7 +28,49 @@ def fetch_presentation_detail(client: AhaApiClient, presentation_id: str) -> Dic
 
 def fetch_slide_canvas_blocks(client: AhaApiClient, slide_id: Any) -> Any:
     """Fetch canvas blocks content for a specific slide ID from AhaSlides API."""
-    return client.get(CANVAS_BLOCKS_PATH, params={"slideId": slide_id})
+    try:
+        return client.get(CANVAS_BLOCKS_PATH, params={"slideId": slide_id})
+    except Exception:
+        return None
+
+
+def fetch_slide_v2_attributes(client: AhaApiClient, slide_ids: List[Any]) -> Dict[str, Any]:
+    """Fetch v2 DSL slide attributes for slide IDs."""
+    if not slide_ids:
+        return {}
+    try:
+        slide_ids_str = ",".join(str(s) for s in slide_ids)
+        res = client.get(SLIDE_ATTRIBUTES_PATH, params={"slideIds": slide_ids_str})
+        result = {}
+        if isinstance(res, list):
+            for item in res:
+                sid = str(item.get("slideId"))
+                result[sid] = item.get("attributes")
+        return result
+    except Exception:
+        return {}
+
+
+def parse_dsl_content(dsl_text: str) -> Dict[str, str]:
+    """Parse title, body, and text blocks from content-v2 DSL string."""
+    if not dsl_text or not isinstance(dsl_text, str):
+        return {}
+
+    parsed = {}
+    title_match = re.search(r":::text[^\n]*preset=title[^\n]*\n([^\n]+)", dsl_text)
+    if title_match:
+        parsed["title"] = title_match.group(1).strip()
+
+    body_match = re.search(r":::text[^\n]*preset=body[^\n]*\n([^\n]+)", dsl_text)
+    if body_match:
+        parsed["body"] = body_match.group(1).strip()
+
+    # Extract all text block content
+    text_blocks = re.findall(r":::text[^\n]*\n([^\n]+)", dsl_text)
+    if text_blocks:
+        parsed["all_text"] = "\n".join([t.strip() for t in text_blocks if t.strip()])
+
+    return parsed
 
 
 def parse_slide_indices(slide_arg: str, total_slides: int) -> List[int]:
@@ -144,7 +187,15 @@ def print_markdown_summary(
         slide_id = slide.get("id") or slide.get("_id") or "N/A"
         slide_type = slide.get("type") or slide.get("slideType") or "N/A"
         heading = slide.get("title") or slide.get("heading") or slide.get("question") or slide.get("sanitizedTitle") or "N/A"
+
+        dsl_data = parse_dsl_content(slide.get("dslAttributes") or "")
+        if heading == "N/A" and dsl_data.get("title"):
+            heading = dsl_data.get("title")
+
         subheading = slide.get("subheading") or slide.get("description") or slide.get("titleDesc") or "N/A"
+        if subheading == "N/A" and dsl_data.get("body"):
+            subheading = dsl_data.get("body")
+
         notes = slide.get("notes") or slide.get("presenterNotes") or slide.get("speakerNotes") or "None"
 
         print(f"\n### Slide #{slide_num} (ID: {slide_id})")
@@ -165,27 +216,18 @@ def print_markdown_summary(
         notes_str = str(notes).strip() if notes else "None"
         print(f"- **Presenter Notes**: {notes_str if notes_str else 'None'}")
 
-        canvas_data = slide.get("canvasBlocks")
-        print("- **Canvas Blocks**:")
-        blocks_formatted = format_canvas_blocks(canvas_data)
-        if "\n" in blocks_formatted:
-            print(blocks_formatted)
-        else:
-            print(f"  {blocks_formatted}")
-
-
-def print_single_slide_markdown(slide_id: Any, canvas_blocks: Any) -> None:
-    """Print formatted markdown summary for a standalone slide fetched by slide_id."""
-    print("==================================================")
-    print(f"# Slide Canvas Content (Slide ID: {slide_id})")
-    print("==================================================")
-    print("- **Slide ID**: {}".format(slide_id))
-    print("- **Canvas Blocks**:")
-    blocks_formatted = format_canvas_blocks(canvas_blocks)
-    if "\n" in blocks_formatted:
-        print(blocks_formatted)
-    else:
-        print(f"  {blocks_formatted}")
+        if slide.get("dslAttributes"):
+            print("- **DSL Content**:")
+            print("```dsl")
+            print(slide["dslAttributes"])
+            print("```")
+        elif slide.get("canvasBlocks"):
+            print("- **Canvas Blocks**:")
+            blocks_formatted = format_canvas_blocks(slide.get("canvasBlocks"))
+            if "\n" in blocks_formatted:
+                print(blocks_formatted)
+            else:
+                print(f"  {blocks_formatted}")
 
 
 def main():
@@ -234,11 +276,20 @@ def main():
     # Case 1: Standalone --slide-id without presentation_id
     if not args.presentation_id and args.slide_id:
         canvas_data = fetch_slide_canvas_blocks(client, args.slide_id)
+        dsl_map = fetch_slide_v2_attributes(client, [args.slide_id])
         if args.json:
-            result = {"slideId": args.slide_id, "canvasBlocks": canvas_data}
+            result = {
+                "slideId": args.slide_id,
+                "canvasBlocks": canvas_data,
+                "dslAttributes": dsl_map.get(str(args.slide_id)),
+            }
             print(json.dumps(result, indent=2, ensure_ascii=False))
         else:
-            print_single_slide_markdown(args.slide_id, canvas_data)
+            print(f"# Slide Canvas Content (Slide ID: {args.slide_id})")
+            if dsl_map.get(str(args.slide_id)):
+                print("```dsl\n{}\n```".format(dsl_map[str(args.slide_id)]))
+            else:
+                print(format_canvas_blocks(canvas_data))
         return
 
     # Case 2: Reading presentation with presentation_id
@@ -260,11 +311,16 @@ def main():
         indices = parse_slide_indices(args.slide, len(slides_list))
         filtered_slides = [s for s in filtered_slides if s.get("_slide_num") in indices]
 
-    # Fetch canvas blocks for selected slides unless --meta/--summary is active
+    # Fetch canvas blocks and v2 DSL attributes for selected slides
     if not args.meta_only:
+        selected_ids = [s.get("id") or s.get("_id") for s in filtered_slides if s.get("id") or s.get("_id")]
+        dsl_map = fetch_slide_v2_attributes(client, selected_ids)
+
         for slide in filtered_slides:
-            slide_id = slide.get("id") or slide.get("_id")
-            if slide_id:
+            slide_id = str(slide.get("id") or slide.get("_id"))
+            if slide_id in dsl_map:
+                slide["dslAttributes"] = dsl_map[slide_id]
+            else:
                 slide["canvasBlocks"] = fetch_slide_canvas_blocks(client, slide_id)
 
     if args.json:
