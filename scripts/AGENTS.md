@@ -61,9 +61,11 @@
   - **Example**: `python3 scripts/list_slide_types.py "word cloud"`
 
 - **[`scripts/list_slide_elements.py`](list_slide_elements.py)**:
-  - **Purpose**: Lists all directive elements (`:::text` blocks) from a slide's v2 DSL content, parsing attributes (`id`, `preset`, `at`, `width`, `offset_x`, `offset_y`, etc.) and text snippets.
-  - **Usage**: `python3 scripts/list_slide_elements.py <slide_id> [--json]`
-  - **Example**: `python3 scripts/list_slide_elements.py 156929519 --json`
+  - **Purpose**: Lists directive elements (`:::text` or `:::shape` blocks) from a slide's v2 DSL content, parsing attributes (`id`, `preset`, `at`, `width`, `offset_x`, `offset_y`, etc.) and text snippets. Supports filtering by element ID (`-e`/`--element-id`).
+  - **Usage**: `python3 scripts/list_slide_elements.py <slide_id> [-e ELEMENT_ID] [--json]`
+  - **Examples**:
+    - `python3 scripts/list_slide_elements.py 156929519 --json`
+    - `python3 scripts/list_slide_elements.py 156929519 -e A5kqSFkqgR`
 
 - **[`scripts/insert_slide_element.py`](insert_slide_element.py)**:
   - **Purpose**: Inserts a new directive element (`:::text` block) into a slide's v2 DSL content with optional preset positioning, custom styling, or raw DSL.
@@ -71,6 +73,13 @@
   - **Examples**:
     - `python3 scripts/insert_slide_element.py 156929519 "Hello World" -p title`
     - `python3 scripts/insert_slide_element.py 156929519 "Custom Body Text" -p body -x 0 -y 20 --color "#ffffff"`
+
+- **[`scripts/update_slide_element.py`](update_slide_element.py)**:
+  - **Purpose**: Updates an existing directive element (`:::text` or `:::shape` block) in a slide's v2 DSL content by modifying header attributes (`x`, `y`, `w`, `h`, `at`, `width`, `offset_x`, `offset_y`, `color`, `background`, `border_radius`, `padding`, `extra_attrs`) and/or body text content.
+  - **Usage**: `python3 scripts/update_slide_element.py <slide_id> <element_id> [-t TEXT] [--x X] [--y Y] [--w W] [--h H] [--at AT] [-w WIDTH] [-x OFFSET_X] [-y OFFSET_Y] [--color COLOR] [--bg BG] [-r RADIUS] [--padding PADDING] [--extra-attrs EXTRA_ATTRS] [--json]`
+  - **Examples**:
+    - `python3 scripts/update_slide_element.py 156929519 elem123456 -t "Updated Title" --color "#ff0000"`
+    - `python3 scripts/update_slide_element.py 156929519 elem123456 -x 0 -y 50 --bg "#000000"`
 
 ---
 
