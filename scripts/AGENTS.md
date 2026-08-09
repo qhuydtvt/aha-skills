@@ -98,14 +98,18 @@
     - `python3 scripts/update_slide_element.py 156929519 elem123456 --src "https://images.unsplash.com/photo-bg.jpg"`
 
 - **[`scripts/lint_slide.py`](lint_slide.py)**:
-  - **Purpose**: Lints a slide's v2 DSL content by calculating bounding boxes for all elements, detecting layout overlaps, checking for canvas overflows (elements bleeding off 1280x720 canvas), and auditing raw DSL and element text for leaked syntax or malformed directive boundaries (e.g. `::::::text` or `<br>`).
-  - **Usage**: `python3 scripts/lint_slide.py <slide_id>`
-  - **Example**: `python3 scripts/lint_slide.py 156929519`
+  - **Purpose**: Lints a slide's v2 DSL content by calculating bounding boxes for all elements, detecting layout overlaps, checking for canvas overflows (elements bleeding off 1280x720 canvas), auditing raw DSL/element text for syntax leaks, and evaluating WCAG 2.1 color contrast (AA/AAA) between foreground text and container/canvas backgrounds (using spatial container overlap resolution).
+  - **Usage**: `python3 scripts/lint_slide.py <slide_id> [--contrast-level AA|AAA] [--strict-contrast]`
+  - **Examples**:
+    - `python3 scripts/lint_slide.py 156929519`
+    - `python3 scripts/lint_slide.py 156929519 --contrast-level AAA --strict-contrast`
 
 - **[`scripts/upload_image.py`](upload_image.py)**:
   - **Purpose**: Uploads a local image file or HTTP/HTTPS image URL to AhaSlides CDN via `POST /api/upload/image/` and returns the official signed CDN URL (`https://assets-cdn.ahaslides.com/...`).
   - **Usage**: `python3 scripts/upload_image.py <image_source> [-a ACCESS_CODE] [--json]`
   - **Example**: `python3 scripts/upload_image.py "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"`
+
+
 
 ---
 
@@ -133,7 +137,7 @@
   - **Flags**:
     - `-s / --slides`: Comma-separated slide IDs to watch (default: all slides)
     - `-i / --interval`: Poll interval in seconds (default: 2)
-  - **Stop**: `Ctrl+C` — exits cleanly.
+    - **Stop**: `Ctrl+C` — exits cleanly.
   - **Examples**:
     - `python3 scripts/watch_presentation.py 9826054` — watch all slides
     - `python3 scripts/watch_presentation.py 9826054 -s 156938195,156938333` — watch specific slides
@@ -141,8 +145,11 @@
 
 ---
 
-
+### 4. Shared Libraries
 - **[`scripts/token_manager.py`](token_manager.py)**:
   - **Purpose**: `TokenManager` class for safely retrieving authentication tokens.
 - **[`scripts/shared/api/aha_client.py`](shared/api/aha_client.py)**:
   - **Purpose**: `AhaApiClient` shared HTTP API client wrapper.
+- **[`scripts/shared/lib/contrast.py`](shared/lib/contrast.py)**:
+  - **Purpose**: `parse_color`, `blend_colors`, `relative_luminance`, `contrast_ratio`, and `evaluate_contrast` functions for WCAG 2.1 color contrast calculation and evaluation.
+

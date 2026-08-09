@@ -9,7 +9,9 @@ if str(BASE_DIR) not in sys.path:
     sys.path.insert(0, str(BASE_DIR))
 
 from scripts.list_slide_elements import list_slide_elements
+from scripts.read_slide import read_slide
 from scripts.shared.api import AhaApiClient
+from scripts.shared.lib.contrast import evaluate_contrast, parse_color
 
 CANVAS_WIDTH = 1280
 CANVAS_HEIGHT = 720
@@ -98,16 +100,58 @@ def check_overlap(box1: tuple[float, float, float, float], box2: tuple[float, fl
     l2, t2, r2, b2 = box2
     return not (r1 <= l2 or l1 >= r2 or b1 <= t2 or t1 >= b2)
 
-def lint_slide(slide_id: str, client: AhaApiClient | None = None) -> tuple[dict[str, tuple[float, float, float, float]], list[tuple[str, str]], list[tuple[str, str]], list[tuple[str, str]]]:
+def is_contained(inner: tuple[float, float, float, float], outer: tuple[float, float, float, float]) -> bool:
+    """Check if inner box is contained within or substantially overlaps outer box."""
+    l1, t1, r1, b1 = inner
+    l2, t2, r2, b2 = outer
+    cx, cy = (l1 + r1) / 2.0, (t1 + b1) / 2.0
+    if l2 <= cx <= r2 and t2 <= cy <= b2:
+        return True
+    
+    inter_l = max(l1, l2)
+    inter_r = min(r1, r2)
+    inter_t = max(t1, t2)
+    inter_b = min(b1, b2)
+    if inter_r > inter_l and inter_b > inter_t:
+        inter_area = (inter_r - inter_l) * (inter_b - inter_t)
+        inner_area = max(1.0, (r1 - l1) * (b1 - t1))
+        if inter_area / inner_area >= 0.5:
+            return True
+    return False
+
+def lint_slide(
+    slide_id: str,
+    client: AhaApiClient | None = None,
+    contrast_level: str = "AA",
+) -> tuple[
+    dict[str, tuple[float, float, float, float]],
+    list[tuple[str, str]],
+    list[tuple[str, str]],
+    list[tuple[str, str]],
+    list[tuple[str, str]],
+]:
     elements = list_slide_elements(slide_id, client=client)
     boxes = {}
     syntax_errors = []
     overflows = []
+    contrast_errors = []
     
-    # Raw DSL Lint: Check raw DSL text for malformed directives like :::::: or missing newline block breaks
     if client is None:
         client = AhaApiClient()
 
+    # Retrieve slide base and text colors
+    slide_base_color = "#ffffff"
+    slide_text_color = "#000000"
+    try:
+        slide_info = read_slide(slide_id, client=client)
+        if slide_info.get("baseColour"):
+            slide_base_color = slide_info["baseColour"]
+        if slide_info.get("textColour"):
+            slide_text_color = slide_info["textColour"]
+    except Exception:
+        pass
+
+    # Raw DSL Lint: Check raw DSL text for malformed directives like :::::: or missing newline block breaks
     try:
         res = client.get("/api/v2/slides/attributes", params={"slideIds": str(slide_id)})
         dsl_text = ""
@@ -136,7 +180,88 @@ def lint_slide(slide_id: str, client: AhaApiClient | None = None) -> tuple[dict[
         l, t, r, b = boxes[eid]
         if t < 0 or b > CANVAS_HEIGHT or l < 0 or r > CANVAS_WIDTH:
             overflows.append((eid, f"Element bounding box ({l:.1f}, {t:.1f}, {r:.1f}, {b:.1f}) overflows canvas (1280x720)."))
-            
+
+    # Identify potential container elements (shapes/boxes with background/bg/fill)
+    containers = []
+    for elem in elements:
+        attrs = elem.get("attributes", {})
+        bg_val = attrs.get("background") or attrs.get("bg") or attrs.get("fill")
+        if bg_val:
+            containers.append((elem, bg_val))
+
+    # Contrast Lint (Option 2: Spatial Container Overlap Aware)
+    for elem in elements:
+        eid = elem.get("id")
+        attrs = elem.get("attributes", {})
+        text = elem.get("text", "").strip()
+        
+        # Skip contrast check for non-text or empty text elements
+        elem_type = elem.get("type", "text")
+        if elem_type in ["image", "video", "timer"] and not text:
+            continue
+
+        # 1. Resolve Foreground Text Color
+        fg_color = attrs.get("color") or attrs.get("textColour") or attrs.get("text-color")
+        if not fg_color:
+            import re
+            color_match = re.search(r'(?:color|style=["\'][^"\']*color):\s*([^"\';\s>]+)', text, re.IGNORECASE)
+            if color_match:
+                fg_color = color_match.group(1)
+        if not fg_color:
+            fg_color = slide_text_color
+
+        # 2. Resolve Background Container Color
+        bg_color = attrs.get("background") or attrs.get("bg") or attrs.get("fill")
+        if not bg_color:
+            # Spatial search for container enclosure
+            elem_box = boxes[eid]
+            best_container_area = float("inf")
+            for cont_elem, cont_bg in containers:
+                cont_id = cont_elem.get("id")
+                if cont_id == eid:
+                    continue
+                cont_box = boxes[cont_id]
+                if is_contained(elem_box, cont_box):
+                    cont_area = (cont_box[2] - cont_box[0]) * (cont_box[3] - cont_box[1])
+                    if cont_area < best_container_area:
+                        best_container_area = cont_area
+                        bg_color = cont_bg
+
+        if not bg_color:
+            bg_color = slide_base_color
+
+        # 3. Determine text size (Large vs Normal)
+        preset = elem.get("preset", "body")
+        font_size = 30
+        if preset in ["title", "heading"]:
+            font_size = 60
+        elif preset == "subtitle":
+            font_size = 40
+
+        fs_attr = attrs.get("fontSize") or attrs.get("font-size")
+        if fs_attr:
+            try:
+                font_size = float(re.sub(r"[^\d\.]", "", str(fs_attr)))
+            except ValueError:
+                pass
+
+        is_large_text = font_size >= 24.0
+
+        eval_res = evaluate_contrast(
+            fg_val=fg_color,
+            bg_val=bg_color,
+            canvas_bg_val=slide_base_color,
+            is_large_text=is_large_text,
+            level=contrast_level,
+        )
+
+        if not eval_res["pass"]:
+            contrast_errors.append((
+                eid,
+                f"Low contrast ratio {eval_res['ratio']}:1 (fg: '{fg_color}', bg: '{bg_color}'). "
+                f"Minimum required for WCAG {eval_res['level']} {'large' if is_large_text else 'normal'} text is {eval_res['required']}:1."
+            ))
+
     overlaps = []
     eids = list(boxes.keys())
     for i in range(len(eids)):
@@ -145,15 +270,17 @@ def lint_slide(slide_id: str, client: AhaApiClient | None = None) -> tuple[dict[
             if check_overlap(boxes[id1], boxes[id2]):
                 overlaps.append((id1, id2))
                 
-    return boxes, overlaps, syntax_errors, overflows
+    return boxes, overlaps, syntax_errors, overflows, contrast_errors
 
 def main():
-    parser = argparse.ArgumentParser(description="Lint a slide for overlapping elements, leaks, and overflows.")
+    parser = argparse.ArgumentParser(description="Lint a slide for overlapping elements, leaks, overflows, and color contrast.")
     parser.add_argument("slide_id", help="ID of the target slide.")
+    parser.add_argument("--contrast-level", choices=["AA", "AAA"], default="AA", help="WCAG contrast compliance level (default: AA).")
+    parser.add_argument("--strict-contrast", action="store_true", help="Fail with non-zero exit code on contrast errors.")
     args = parser.parse_args()
     
     client = AhaApiClient()
-    boxes, overlaps, syntax_errors, overflows = lint_slide(args.slide_id, client=client)
+    boxes, overlaps, syntax_errors, overflows, contrast_errors = lint_slide(args.slide_id, client=client, contrast_level=args.contrast_level)
     
     print(f"Linting slide: {args.slide_id}")
     print(f"Found {len(boxes)} elements.")
@@ -179,12 +306,20 @@ def main():
         for id1, id2 in overlaps:
             print(f"  Element {id1} overlaps with {id2}")
         failed = True
+
+    if contrast_errors:
+        print("\nWARNING/ERROR: Low color contrast detected!")
+        for eid, err in contrast_errors:
+            print(f"  Element {eid}: {err}")
+        if args.strict_contrast:
+            failed = True
         
     if failed:
         sys.exit(1)
     else:
-        print("\nSUCCESS: No overlaps, overflows, or syntax leaks detected.")
+        print("\nSUCCESS: No overlaps, overflows, syntax leaks, or severe errors detected.")
         sys.exit(0)
 
 if __name__ == "__main__":
     main()
+
