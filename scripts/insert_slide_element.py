@@ -122,13 +122,19 @@ def insert_slide_element(
         if isinstance(res, list):
             for item in res:
                 if str(item.get("slideId")) == str(slide_id) or len(res) == 1:
-                    attrs = item.get("attributes", {})
-                    if isinstance(attrs, dict) and "dsl" in attrs:
+                    attrs = item.get("attributes")
+                    if isinstance(attrs, str):
+                        existing_dsl = attrs
+                        break
+                    elif isinstance(attrs, dict) and "dsl" in attrs:
                         existing_dsl = attrs["dsl"]
                         break
         elif isinstance(res, dict):
-            attrs = res.get("attributes", {}) if isinstance(res.get("attributes"), dict) else res
-            existing_dsl = attrs.get("dsl", "") if isinstance(attrs, dict) else ""
+            attrs = res.get("attributes")
+            if isinstance(attrs, str):
+                existing_dsl = attrs
+            elif isinstance(attrs, dict):
+                existing_dsl = attrs.get("dsl", "")
     except Exception:  # noqa: BLE001
         existing_dsl = ""
 

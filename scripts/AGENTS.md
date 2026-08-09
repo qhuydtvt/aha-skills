@@ -97,6 +97,11 @@
     - `python3 scripts/update_slide_element.py 156929519 elem123456 -t "Updated Title" --color "#ff0000"`
     - `python3 scripts/update_slide_element.py 156929519 elem123456 --src "https://images.unsplash.com/photo-bg.jpg"`
 
+- **[`scripts/lint_slide.py`](lint_slide.py)**:
+  - **Purpose**: Lints a slide's v2 DSL content by calculating bounding boxes for all elements, detecting layout overlaps, checking for canvas overflows (elements bleeding off 1280x720 canvas), and auditing raw DSL and element text for leaked syntax or malformed directive boundaries (e.g. `::::::text` or `<br>`).
+  - **Usage**: `python3 scripts/lint_slide.py <slide_id>`
+  - **Example**: `python3 scripts/lint_slide.py 156929519`
+
 - **[`scripts/upload_image.py`](upload_image.py)**:
   - **Purpose**: Uploads a local image file or HTTP/HTTPS image URL to AhaSlides CDN via `POST /api/upload/image/` and returns the official signed CDN URL (`https://assets-cdn.ahaslides.com/...`).
   - **Usage**: `python3 scripts/upload_image.py <image_source> [-a ACCESS_CODE] [--json]`
