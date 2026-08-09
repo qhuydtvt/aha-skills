@@ -79,7 +79,7 @@ def list_slide_elements(
         return []
 
     elements: list[dict[str, Any]] = []
-    pattern = re.compile(r"(:::(?:text|shape)([^\n]*)\n(.*?)(?:\n:::\s*|\Z))", re.DOTALL)
+    pattern = re.compile(r"(:::(?:text|shape|image|icon)([^\n]*)\n(.*?)(?:\n:::\s*|\Z))", re.DOTALL)
     attr_kv_pattern = re.compile(r'([\w-]+)=(?:"([^"]*)"|\'([^\']*)\'|(\S+))')
 
     for match in pattern.finditer(dsl_text):

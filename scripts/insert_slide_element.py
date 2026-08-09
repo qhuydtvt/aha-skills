@@ -49,17 +49,18 @@ def insert_slide_element(
     background: str | None = None,
     border_radius: Any | None = None,
     padding: Any | None = None,
+    src: str | None = None,
     extra_attrs: str | None = None,
     raw_dsl: str | None = None,
     element_id: str | None = None,
     client: AhaApiClient | None = None,
 ) -> dict[str, Any]:
-    """Insert a new :::text element block into the target slide's DSL content.
+    """Insert a new element (:::text or :::image directive block) into the target slide's DSL content.
 
     Args:
         slide_id: Target slide ID.
         text: Text content of the element.
-        preset: Preset type ('body', 'title', 'bullet', 'quote', 'tip', etc.).
+        preset: Preset type ('body', 'title', 'bullet', 'quote', 'tip', 'image', etc.).
         at: Position alignment ('center', etc.).
         width: Element width ('80%', etc.).
         offset_x: Horizontal offset.
@@ -68,6 +69,7 @@ def insert_slide_element(
         background: Background color/style.
         border_radius: Border radius value.
         padding: Padding value.
+        src: Image URL for image elements.
         extra_attrs: Additional raw attribute key=value strings.
         raw_dsl: Complete custom raw DSL block to insert (overrides building block).
         element_id: Specific 10-char element ID (auto-generated if None).
@@ -78,6 +80,11 @@ def insert_slide_element(
     """
     if client is None:
         client = AhaApiClient()
+
+    # If preset is image or src is provided, ensure src default
+    is_image = preset == "image" or src is not None
+    if is_image and not src:
+        src = "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=800&q=80"
 
     # 1. Fetch existing DSL
     existing_dsl = ""
@@ -120,7 +127,7 @@ def insert_slide_element(
         new_block = raw_dsl.strip()
     else:
         attr_parts = [f"id={element_id}"]
-        if preset:
+        if preset and not is_image:
             attr_parts.append(f"preset={preset}")
         if at:
             attr_parts.append(f"at={at}")
@@ -130,6 +137,8 @@ def insert_slide_element(
             attr_parts.append(f"offset-x={offset_x}")
         if offset_y is not None:
             attr_parts.append(f"offset-y={offset_y}")
+        if src:
+            attr_parts.append(f'src="{src}"')
         if color:
             attr_parts.append(f"color={color}")
         if background:
@@ -141,8 +150,10 @@ def insert_slide_element(
         if extra_attrs:
             attr_parts.append(extra_attrs.strip())
 
-        header = ":::text " + " ".join(attr_parts)
-        new_block = f"{header}\n{text}\n:::"
+        directive_type = "image" if is_image else "text"
+        header = f":::{directive_type} " + " ".join(attr_parts)
+        body = text if text else ""
+        new_block = f"{header}\n{body}\n:::".strip() if not body else f"{header}\n{body}\n:::"
 
     # 5. Append to existing DSL
     clean_dsl = existing_dsl.rstrip()
@@ -250,6 +261,11 @@ def main():
         help="Padding value.",
     )
     parser.add_argument(
+        "--src",
+        default=None,
+        help="Image URL string for image elements (e.g. Unsplash URL).",
+    )
+    parser.add_argument(
         "--extra-attrs",
         default=None,
         help="Extra raw attributes string.",
@@ -292,6 +308,7 @@ def main():
             background=args.background,
             border_radius=args.border_radius,
             padding=args.padding,
+            src=args.src,
             extra_attrs=args.extra_attrs,
             raw_dsl=args.raw_dsl,
             element_id=args.element_id,
