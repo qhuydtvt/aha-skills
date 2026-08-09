@@ -21,3 +21,10 @@ All scripts performing HTTP requests to AhaSlides APIs **MUST** use the shared A
    - Do not manually attach authorization headers or write raw `requests` calls in individual script files.
    - `AhaApiClient` automatically attaches headers retrieved from `TokenManager` and handles standard HTTP operations (`get`, `post`, `put`, `delete`).
 
+## Scripts Directory Guide & Maintenance Rule
+
+1. **Scripts Guide**:
+   - Refer to [`scripts/AGENTS.md`](scripts/AGENTS.md) for the complete registry of scripts, usage examples, and argument details.
+
+2. **Mandatory Script Documentation Rule**:
+   - **SYNCHRONIZATION REQUIREMENT**: Each time a script in `scripts/` is added, edited, or removed, both [`scripts/AGENTS.md`](scripts/AGENTS.md) and [`AGENTS.md`](AGENTS.md) **MUST** be updated to accurately reflect the scripts reality.
