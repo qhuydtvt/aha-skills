@@ -35,12 +35,15 @@ def _parse_num(val: Any) -> Any:
 
 
 def list_slide_elements(
-    slide_id: Any, client: AhaApiClient | None = None
+    slide_id: Any,
+    element_id: str | None = None,
+    client: AhaApiClient | None = None,
 ) -> list[dict[str, Any]]:
-    """Query slide attributes API and parse all :::text element blocks from DSL.
+    """Query slide attributes API and parse all :::text or :::shape element blocks from DSL.
 
     Args:
         slide_id: ID of the slide to inspect.
+        element_id: Optional element ID to filter results.
         client: Optional AhaApiClient instance.
 
     Returns:
@@ -58,19 +61,25 @@ def list_slide_elements(
     if isinstance(res, list):
         for item in res:
             if str(item.get("slideId")) == str(slide_id) or len(res) == 1:
-                attrs = item.get("attributes", {})
-                if isinstance(attrs, dict) and "dsl" in attrs:
-                    dsl_text = attrs["dsl"]
+                attrs = item.get("attributes")
+                if isinstance(attrs, str):
+                    dsl_text = attrs
+                    break
+                elif isinstance(attrs, dict) and "dsl" in attrs:
+                    dsl_text = str(attrs["dsl"])
                     break
     elif isinstance(res, dict):
-        attrs = res.get("attributes", {}) if isinstance(res.get("attributes"), dict) else res
-        dsl_text = attrs.get("dsl", "") if isinstance(attrs, dict) else ""
+        attrs = res.get("attributes")
+        if isinstance(attrs, str):
+            dsl_text = attrs
+        elif isinstance(attrs, dict):
+            dsl_text = str(attrs.get("dsl", ""))
 
     if not dsl_text or not isinstance(dsl_text, str):
         return []
 
     elements: list[dict[str, Any]] = []
-    pattern = re.compile(r"(:::text([^\n]*)\n(.*?)(?:\n:::\s*|\Z))", re.DOTALL)
+    pattern = re.compile(r"(:::(?:text|shape)([^\n]*)\n(.*?)(?:\n:::\s*|\Z))", re.DOTALL)
     attr_kv_pattern = re.compile(r'([\w-]+)=(?:"([^"]*)"|\'([^\']*)\'|(\S+))')
 
     for match in pattern.finditer(dsl_text):
@@ -85,12 +94,23 @@ def list_slide_elements(
             attributes[k] = v
 
         elem_id = attributes.get("id")
+        if element_id and str(elem_id) != str(element_id):
+            continue
+
         preset = attributes.get("preset")
         at = attributes.get("at")
         width = attributes.get("width")
 
-        raw_off_x = attributes.get("offset_x") if "offset_x" in attributes else attributes.get("offset-x")
-        raw_off_y = attributes.get("offset_y") if "offset_y" in attributes else attributes.get("offset-y")
+        raw_off_x = (
+            attributes.get("offsetX")
+            or attributes.get("offset_x")
+            or attributes.get("offset-x")
+        )
+        raw_off_y = (
+            attributes.get("offsetY")
+            or attributes.get("offset_y")
+            or attributes.get("offset-y")
+        )
 
         offset_x = _parse_num(raw_off_x)
         offset_y = _parse_num(raw_off_y)
@@ -122,6 +142,13 @@ def main():
         help="ID of the target slide (required).",
     )
     parser.add_argument(
+        "-e",
+        "--element-id",
+        dest="element_id",
+        default=None,
+        help="Specific element ID to inspect/explore.",
+    )
+    parser.add_argument(
         "--json",
         action="store_true",
         help="Output results in JSON format.",
@@ -135,7 +162,7 @@ def main():
         sys.exit(1)
 
     try:
-        elements = list_slide_elements(args.slide_id)
+        elements = list_slide_elements(args.slide_id, element_id=args.element_id)
     except Exception as e:  # noqa: BLE001
         print(f"Error listing slide elements: {e}", file=sys.stderr)
         sys.exit(1)

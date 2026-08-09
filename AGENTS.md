@@ -25,7 +25,7 @@ All scripts performing HTTP requests to AhaSlides APIs **MUST** use the shared A
 
 1. **Scripts Guide**:
    - Refer to [`scripts/AGENTS.md`](scripts/AGENTS.md) for the complete registry of scripts, usage examples, and argument details.
-   - Slide element manipulation scripts [`scripts/list_slide_elements.py`](scripts/list_slide_elements.py) and [`scripts/insert_slide_element.py`](scripts/insert_slide_element.py) allow listing and inserting `:::text` directive blocks into slide v2 DSL attributes.
+   - Slide element manipulation scripts [`scripts/list_slide_elements.py`](scripts/list_slide_elements.py), [`scripts/insert_slide_element.py`](scripts/insert_slide_element.py), and [`scripts/update_slide_element.py`](scripts/update_slide_element.py) allow listing, inserting, and updating `:::text` / `:::shape` directive blocks in slide v2 DSL attributes.
    - HAR exploration script [`scripts/explore_har_request.py`](scripts/explore_har_request.py) supports HTTP method matching (`POST`, `GET`, etc.), method filtering (`-m/--method`), listing requests sequentially (`-l/--list`), and payload inspection (`--json`).
 
 2. **Mandatory Script Documentation Rule**:
