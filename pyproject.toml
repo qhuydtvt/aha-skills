@@ -1,0 +1,21 @@
+[tool.ruff]
+target-version = "py310"
+
+exclude = [
+    ".git",
+    ".venv",
+    "venv",
+    "__pycache__",
+    "build",
+    "dist",
+]
+
+[tool.ruff.lint]
+# Select ONLY critical safety rules: syntax errors (E9) and Pyflakes (F)
+# Minimal linting to avoid obstructing development flow
+select = [
+    "E9", # Syntax errors, IndentationError, IOError
+    "F",  # Pyflakes (undefined names, invalid syntax)
+]
+
+ignore = []

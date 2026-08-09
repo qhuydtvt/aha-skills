@@ -86,7 +86,7 @@ def main():
     else:
         try:
             har_path = get_default_har_file(artifacts_dir)
-        except FileNotFoundError as e:
+        except FileNotFoundError:
             har_path = get_default_har_file(Path.cwd() / "artifacts")
 
     if not har_path.exists():
