@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Script to list elements (:::text directive blocks) from a slide's DSL content on AhaSlides."""
+"""Script to list elements (:::text, :::image, :::video, :::timer, etc.) from a slide's DSL content."""
 
 import argparse
 import json
@@ -39,7 +39,7 @@ def list_slide_elements(
     element_id: str | None = None,
     client: AhaApiClient | None = None,
 ) -> list[dict[str, Any]]:
-    """Query slide attributes API and parse all :::text or :::shape element blocks from DSL.
+    """Query slide attributes API and parse all element blocks (text, image, video, timer, etc.) from DSL.
 
     Args:
         slide_id: ID of the slide to inspect.
@@ -79,7 +79,7 @@ def list_slide_elements(
         return []
 
     elements: list[dict[str, Any]] = []
-    pattern = re.compile(r"(:::(?:text|shape|image|icon)([^\n]*)\n(.*?)(?:\n:::\s*|\Z))", re.DOTALL)
+    pattern = re.compile(r"(:::(?:text|shape|image|icon|video|timer)([^\n]*)\n(.*?)(?:\n:::\s*|\Z))", re.DOTALL)
     attr_kv_pattern = re.compile(r'([\w-]+)=(?:"([^"]*)"|\'([^\']*)\'|(\S+))')
 
     for match in pattern.finditer(dsl_text):
@@ -126,6 +126,7 @@ def list_slide_elements(
                 "attributes": attributes,
                 "text": body_text,
                 "raw_dsl": raw_dsl,
+                "type": match.group(1).split()[0].replace(":::", ""),
             }
         )
 
@@ -134,7 +135,7 @@ def list_slide_elements(
 
 def main():
     parser = argparse.ArgumentParser(
-        description="List elements (:::text directive blocks) from a slide's DSL content."
+        description="List elements (:::text, :::image, :::video, :::timer, etc.) from a slide's DSL content."
     )
     parser.add_argument(
         "slide_id",
@@ -173,12 +174,13 @@ def main():
 
     print(f"=== Slide Elements for Slide '{args.slide_id}' (Total: {len(elements)}) ===")
     if not elements:
-        print("No :::text elements found on this slide.")
+        print("No elements found on this slide.")
         return
 
     for idx, elem in enumerate(elements, 1):
-        print(f"\n[{idx}] Element ID: {elem.get('id') or 'N/A'}")
-        print(f"    Preset:     {elem.get('preset') or 'N/A'}")
+        print(f"\n[{idx}] Element ID: {elem.get('id') or 'N/A'} (Type: {elem.get('type') or 'N/A'})")
+        if elem.get('preset'):
+            print(f"    Preset:     {elem.get('preset')}")
         pos_parts = []
         if elem.get("at"):
             pos_parts.append(f"at={elem['at']}")

@@ -30,6 +30,7 @@ PRESET_DEFAULTS: dict[str, dict[str, Any]] = {
     "heading": {"at": "center", "width": "80%", "offset_x": 0, "offset_y": -30},
     "image": {"at": "center", "width": "50%", "offset_x": 0, "offset_y": -8},
     "video": {"at": "center", "width": "60%"},
+    "timer": {"at": "center", "width": 360, "height": 360},
 }
 
 
@@ -51,28 +52,36 @@ def insert_slide_element(
     background: str | None = None,
     border_radius: Any | None = None,
     padding: Any | None = None,
+    height: Any | None = None,
+    duration: int | None = None,
+    display: str | None = None,
+    done: str | None = None,
     src: str | None = None,
     extra_attrs: str | None = None,
     raw_dsl: str | None = None,
     element_id: str | None = None,
     client: AhaApiClient | None = None,
 ) -> dict[str, Any]:
-    """Insert a new element (:::text, :::image, or :::video directive block) into the target slide's DSL.
+    """Insert a new element (:::text, :::image, :::video, or :::timer directive) into the target slide's DSL.
 
     Args:
         slide_id: Target slide ID.
-        text: Text content of the element.
-        preset: Preset type ('body', 'title', 'bullet', 'quote', 'tip', 'image', 'video', etc.).
+        text: Text content / body label of the element.
+        preset: Preset type ('body', 'title', 'bullet', 'image', 'video', 'timer', etc.).
         at: Position alignment ('center', etc.).
-        width: Element width ('80%', etc.).
+        width: Element width. % string for text/image/video; px integer for timer.
         offset_x: Horizontal offset (camelCase offsetX in DSL).
         offset_y: Vertical offset (camelCase offsetY in DSL).
         color: Font/text color.
         background: Background color/style.
         border_radius: Border radius value.
         padding: Padding value.
-        src: Media URL. For images: local path or external URL (auto-uploaded to CDN).
-             For videos: YouTube/Vimeo URL used directly (no upload).
+        height: Element height in px (timer only).
+        duration: Timer duration in seconds (timer only, default 600).
+        display: Timer display style e.g. 'ring' (timer only).
+        done: Message shown when timer finishes (timer only).
+        src: Media URL. Images: local path or URL (auto-uploaded to CDN).
+             Videos: YouTube/Vimeo URL used directly (no upload).
         extra_attrs: Additional raw attribute key=value strings.
         raw_dsl: Complete custom raw DSL block to insert (overrides building block).
         element_id: Specific 10-char element ID (auto-generated if None).
@@ -86,6 +95,14 @@ def insert_slide_element(
 
     is_image = preset == "image" or (src is not None and preset not in ("video",))
     is_video = preset == "video"
+    is_timer = preset == "timer"
+
+    # Timer preset defaults
+    if is_timer:
+        if duration is None:
+            duration = 600
+        if display is None:
+            display = "ring"
 
     # Image: provide default src and upload to CDN
     if is_image:
@@ -139,16 +156,30 @@ def insert_slide_element(
         new_block = raw_dsl.strip()
     else:
         attr_parts = [f"id={element_id}"]
-        if preset and not is_image and not is_video:
+        if preset and not is_image and not is_video and not is_timer:
             attr_parts.append(f"preset={preset}")
         if at:
             attr_parts.append(f"at={at}")
-        if width:
+        if width is not None:
             attr_parts.append(f"width={width}")
+        if height is not None:
+            attr_parts.append(f"height={height}")
+        elif is_timer:
+            # Apply timer preset height default
+            attr_parts.append(f"height={PRESET_DEFAULTS['timer']['height']}")
         if offset_x is not None:
             attr_parts.append(f"offsetX={offset_x}")
         if offset_y is not None:
             attr_parts.append(f"offsetY={offset_y}")
+        # Timer-specific attrs
+        if is_timer:
+            if duration is not None:
+                attr_parts.append(f"duration={duration}")
+            if display is not None:
+                attr_parts.append(f"display={display}")
+            if done is not None:
+                v = f'"{done}"' if " " in done else done
+                attr_parts.append(f"done={v}")
         if src:
             attr_parts.append(f"src={src}")
             # fit=contain only for images, not video
@@ -169,6 +200,8 @@ def insert_slide_element(
             directive_type = "image"
         elif is_video:
             directive_type = "video"
+        elif is_timer:
+            directive_type = "timer"
         else:
             directive_type = "text"
         header = f":::{directive_type} " + " ".join(attr_parts)
@@ -283,7 +316,28 @@ def main():
     parser.add_argument(
         "--src",
         default=None,
-        help="Image URL string for image elements (e.g. Unsplash URL).",
+        help="Media URL string. For images: Unsplash URL. For videos: YouTube URL.",
+    )
+    parser.add_argument(
+        "--height",
+        default=None,
+        help="Element height in px (timer only).",
+    )
+    parser.add_argument(
+        "--duration",
+        type=int,
+        default=None,
+        help="Timer duration in seconds (timer only).",
+    )
+    parser.add_argument(
+        "--display",
+        default=None,
+        help="Timer display style e.g., 'ring' (timer only).",
+    )
+    parser.add_argument(
+        "--done",
+        default=None,
+        help="Message shown when timer finishes (timer only).",
     )
     parser.add_argument(
         "--extra-attrs",
@@ -328,6 +382,10 @@ def main():
             background=args.background,
             border_radius=args.border_radius,
             padding=args.padding,
+            height=args.height,
+            duration=args.duration,
+            display=args.display,
+            done=args.done,
             src=args.src,
             extra_attrs=args.extra_attrs,
             raw_dsl=args.raw_dsl,
