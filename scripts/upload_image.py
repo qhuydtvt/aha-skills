@@ -82,6 +82,19 @@ def upload_image(
         location = file_info.get("location")
         key = file_info.get("key")
 
+        # Invoke resize-images API to generate WebP CDN origin URL
+        if location:
+            try:
+                ext = "png" if filename.endswith(".png") else "jpg"
+                resize_res = client.post(
+                    "https://presenter.ahaslides.com/api/upload/resize-images/",
+                    json_data={"extension": ext, "imageUrl": location},
+                )
+                if isinstance(resize_res, dict) and "origin" in resize_res:
+                    location = resize_res["origin"]
+            except Exception as resize_err:  # noqa: BLE001
+                print(f"Warning: resize-images step failed, using raw upload URL: {resize_err}", file=sys.stderr)
+
         return {
             "location": location,
             "key": key,
