@@ -11,7 +11,7 @@ if str(BASE_DIR) not in sys.path:
 from scripts.list_slide_elements import list_slide_elements
 from scripts.read_slide import read_slide
 from scripts.shared.api import AhaApiClient
-from scripts.shared.lib.contrast import evaluate_contrast, parse_color
+from scripts.shared.lib.contrast import evaluate_contrast
 
 CANVAS_WIDTH = 1280
 CANVAS_HEIGHT = 720
@@ -148,7 +148,7 @@ def lint_slide(
             slide_base_color = slide_info["baseColour"]
         if slide_info.get("textColour"):
             slide_text_color = slide_info["textColour"]
-    except Exception:
+    except Exception:  # noqa: BLE001, S110
         pass
 
     # Raw DSL Lint: Check raw DSL text for malformed directives like :::::: or missing newline block breaks
@@ -256,11 +256,12 @@ def lint_slide(
         )
 
         if not eval_res["pass"]:
-            contrast_errors.append((
-                eid,
+            text_kind = "large" if is_large_text else "normal"
+            msg = (
                 f"Low contrast ratio {eval_res['ratio']}:1 (fg: '{fg_color}', bg: '{bg_color}'). "
-                f"Minimum required for WCAG {eval_res['level']} {'large' if is_large_text else 'normal'} text is {eval_res['required']}:1."
-            ))
+                f"Minimum required for WCAG {eval_res['level']} {text_kind} text is {eval_res['required']}:1."
+            )
+            contrast_errors.append((eid, msg))
 
     overlaps = []
     eids = list(boxes.keys())

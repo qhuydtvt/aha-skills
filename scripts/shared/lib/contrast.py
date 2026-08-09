@@ -1,7 +1,7 @@
 """WCAG 2.1 Color Contrast calculation and evaluation utilities."""
 
 import re
-from typing import Any, Tuple, Union
+from typing import Any
 
 # Common CSS named colors map (normalized 0.0 - 1.0 sRGB)
 NAMED_COLORS: dict[str, tuple[float, float, float, float]] = {
@@ -102,7 +102,7 @@ def blend_colors(
         tuple[float, float, float]: Opaque RGB tuple (0.0 - 1.0).
     """
     r_f, g_f, b_f, a_f = fg_rgba
-    r_b, g_b, b_b, a_b = bg_rgba
+    r_b, g_b, b_b, _a_b = bg_rgba
 
     r_out = a_f * r_f + (1.0 - a_f) * r_b
     g_out = a_f * g_f + (1.0 - a_f) * g_b
