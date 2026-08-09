@@ -89,11 +89,16 @@
     - `python3 scripts/insert_slide_element.py 156929519 "Custom Body Text" -p body -x 0 -y 20 --color "#ffffff"`
 
 - **[`scripts/update_slide_element.py`](update_slide_element.py)**:
-  - **Purpose**: Updates an existing directive element (`:::text` or `:::shape` block) in a slide's v2 DSL content by modifying header attributes (`x`, `y`, `w`, `h`, `at`, `width`, `offset_x`, `offset_y`, `color`, `background`, `border_radius`, `padding`, `extra_attrs`) and/or body text content.
-  - **Usage**: `python3 scripts/update_slide_element.py <slide_id> <element_id> [-t TEXT] [--x X] [--y Y] [--w W] [--h H] [--at AT] [-w WIDTH] [-x OFFSET_X] [-y OFFSET_Y] [--color COLOR] [--bg BG] [-r RADIUS] [--padding PADDING] [--extra-attrs EXTRA_ATTRS] [--json]`
+  - **Purpose**: Updates an existing directive element (`:::text`, `:::image`, or `:::shape` block) in a slide's v2 DSL content by modifying header attributes (`x`, `y`, `w`, `h`, `at`, `width`, `offset_x`, `offset_y`, `color`, `background`, `border_radius`, `padding`, `src`, `extra_attrs`) and/or body text content. Auto-uploads external or local images to AhaSlides CDN if needed.
+  - **Usage**: `python3 scripts/update_slide_element.py <slide_id> <element_id> [-t TEXT] [--x X] [--y Y] [--w W] [--h H] [--at AT] [-w WIDTH] [-x OFFSET_X] [-y OFFSET_Y] [--color COLOR] [--bg BG] [-r RADIUS] [--padding PADDING] [--src SRC] [--extra-attrs EXTRA_ATTRS] [--json]`
   - **Examples**:
     - `python3 scripts/update_slide_element.py 156929519 elem123456 -t "Updated Title" --color "#ff0000"`
-    - `python3 scripts/update_slide_element.py 156929519 elem123456 -x 0 -y 50 --bg "#000000"`
+    - `python3 scripts/update_slide_element.py 156929519 elem123456 --src "https://images.unsplash.com/photo-bg.jpg"`
+
+- **[`scripts/upload_image.py`](upload_image.py)**:
+  - **Purpose**: Uploads a local image file or HTTP/HTTPS image URL to AhaSlides CDN via `POST /api/upload/image/` and returns the official signed CDN URL (`https://assets-cdn.ahaslides.com/...`).
+  - **Usage**: `python3 scripts/upload_image.py <image_source> [-a ACCESS_CODE] [--json]`
+  - **Example**: `python3 scripts/upload_image.py "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"`
 
 ---
 
