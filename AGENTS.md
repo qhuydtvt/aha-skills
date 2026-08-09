@@ -5,7 +5,7 @@
 All AI agents and scripts in this workspace **MUST** adhere to the following rules regarding authentication tokens:
 
 1. **Exclusive Token Retriever**:
-   - Always retrieve the AhaSlides authentication token through `TokenManager` in [`scripts/token_manager.py`](file:///Users/huynq/Learn/aha-skills/scripts/token_manager.py) (e.g., `manager = TokenManager(); token = manager.get_token()`).
+   - Always retrieve the AhaSlides authentication token through `TokenManager` in [`scripts/token_manager.py`](scripts/token_manager.py) (e.g., `manager = TokenManager(); token = manager.get_token()`).
    - `TokenManager` is the **only** authorized token retriever in this codebase.
 
 2. **Strict Security & No Exposure**:
