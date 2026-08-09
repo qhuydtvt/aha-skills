@@ -1,9 +1,9 @@
-#!/usr/bin/env python3
 """Shared AhaSlides API Client."""
 
 import sys
 from pathlib import Path
-from typing import Any, Dict, Optional
+from typing import Any
+
 import requests
 
 # Ensure project root is in sys.path
@@ -23,7 +23,7 @@ class AhaApiClient:
         self.base_url = base_url.rstrip("/")
         self.token_manager = TokenManager()
 
-    def _get_headers(self) -> Dict[str, str]:
+    def _get_headers(self) -> dict[str, str]:
         token = self.token_manager.get_token()
         if not token:
             print("Error: AhaSlides authentication token is not available.", file=sys.stderr)
@@ -36,7 +36,7 @@ class AhaApiClient:
         }
 
     def _build_url(self, path: str) -> str:
-        if path.startswith("http://") or path.startswith("https://"):
+        if path.startswith(("http://", "https://")):
             return path
         return f"{self.base_url}/{path.lstrip('/')}"
 
@@ -44,8 +44,8 @@ class AhaApiClient:
         self,
         method: str,
         path: str,
-        params: Optional[Dict[str, Any]] = None,
-        json_data: Optional[Dict[str, Any]] = None,
+        params: dict[str, Any] | None = None,
+        json_data: dict[str, Any] | None = None,
     ) -> Any:
         url = self._build_url(path)
         headers = self._get_headers()
@@ -69,14 +69,17 @@ class AhaApiClient:
                 print(f"Response Body: {e.response.text}", file=sys.stderr)
             sys.exit(1)
 
-    def get(self, path: str, params: Optional[Dict[str, Any]] = None) -> Any:
+    def get(self, path: str, params: dict[str, Any] | None = None) -> Any:
         return self.request("GET", path, params=params)
 
-    def post(self, path: str, json_data: Optional[Dict[str, Any]] = None, params: Optional[Dict[str, Any]] = None) -> Any:
+    def post(self, path: str, json_data: dict[str, Any] | None = None, params: dict[str, Any] | None = None) -> Any:
         return self.request("POST", path, params=params, json_data=json_data)
 
-    def put(self, path: str, json_data: Optional[Dict[str, Any]] = None, params: Optional[Dict[str, Any]] = None) -> Any:
+    def put(self, path: str, json_data: dict[str, Any] | None = None, params: dict[str, Any] | None = None) -> Any:
         return self.request("PUT", path, params=params, json_data=json_data)
 
-    def delete(self, path: str, params: Optional[Dict[str, Any]] = None, json_data: Optional[Dict[str, Any]] = None) -> Any:
+    def patch(self, path: str, json_data: dict[str, Any] | None = None, params: dict[str, Any] | None = None) -> Any:
+        return self.request("PATCH", path, params=params, json_data=json_data)
+
+    def delete(self, path: str, params: dict[str, Any] | None = None, json_data: dict[str, Any] | None = None) -> Any:
         return self.request("DELETE", path, params=params, json_data=json_data)

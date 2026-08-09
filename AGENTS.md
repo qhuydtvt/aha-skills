@@ -19,7 +19,7 @@ All scripts performing HTTP requests to AhaSlides APIs **MUST** use the shared A
 1. **Shared Client Usage**:
    - Use `AhaApiClient` from [`scripts/shared/api/aha_client.py`](scripts/shared/api/aha_client.py) (e.g., `from scripts.shared.api import AhaApiClient; client = AhaApiClient()`).
    - Do not manually attach authorization headers or write raw `requests` calls in individual script files.
-   - `AhaApiClient` automatically attaches headers retrieved from `TokenManager` and handles standard HTTP operations (`get`, `post`, `put`, `delete`).
+   - `AhaApiClient` automatically attaches headers retrieved from `TokenManager` and handles standard HTTP operations (`get`, `post`, `put`, `patch`, `delete`).
 
 ## Scripts Directory Guide & Maintenance Rule
 

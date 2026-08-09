@@ -15,7 +15,7 @@
 
 2. **HTTP API Requests**:
    - **MUST** use `AhaApiClient` from [`scripts/shared/api/aha_client.py`](shared/api/aha_client.py).
-   - `AhaApiClient` handles standard headers, automatic bearer token attachment, and HTTP methods (`get`, `post`, `put`, `delete`).
+   - `AhaApiClient` handles standard headers, automatic bearer token attachment, and HTTP methods (`get`, `post`, `put`, `patch`, `delete`).
 
 ---
 
@@ -49,6 +49,11 @@
   - **Purpose**: Creates a new slide of a specified type in an AhaSlides presentation.
   - **Usage**: `python3 scripts/create_slide.py <presentation_id> [type] [order] [-t TYPE] [-o ORDER] [--json]`
   - **Example**: `python3 scripts/create_slide.py 9826054 wordCloud -o 2`
+
+- **[`scripts/delete_slide.py`](delete_slide.py)**:
+  - **Purpose**: Deletes one or more slides from an AhaSlides presentation.
+  - **Usage**: `python3 scripts/delete_slide.py <presentation_id> <slide_id ...> [--json]`
+  - **Example**: `python3 scripts/delete_slide.py 9826054 156929519`
 
 - **[`scripts/list_slide_types.py`](list_slide_types.py)**:
   - **Purpose**: Lists and searches available slide types from the AhaSlides Marketplace API.
