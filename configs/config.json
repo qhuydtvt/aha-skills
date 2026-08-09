@@ -1,4 +1,5 @@
 {
+  "token_env_var": "AH_TOKEN",
   "excluded_patterns": [
     "analytics.google.com",
     "clarity.ms",
