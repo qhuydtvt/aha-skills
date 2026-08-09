@@ -18,7 +18,7 @@ from scripts.shared.api import AhaApiClient
 
 SLIDE_ATTRIBUTES_PATH = "/api/v2/slides/attributes"
 UPDATE_ATTRIBUTES_PATH = "/api/v2/slides/{slide_id}/attributes"
-DEFAULT_FRONTMATTER = "----\ncontent-v2: 1280x720\nversion: 1\n----"
+DEFAULT_FRONTMATTER = "---\ncontent-v2: 1280x720\nversion: 1\n---"
 
 PRESET_DEFAULTS: dict[str, dict[str, Any]] = {
     "title": {"at": "center", "width": "80%", "offset_x": 0, "offset_y": -50},
