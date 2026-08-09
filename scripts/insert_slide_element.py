@@ -28,6 +28,7 @@ PRESET_DEFAULTS: dict[str, dict[str, Any]] = {
     "tip": {"at": "center", "width": "75%", "offset_x": 0, "offset_y": 20},
     "subtitle": {"at": "center", "width": "80%", "offset_x": 0, "offset_y": -20},
     "heading": {"at": "center", "width": "80%", "offset_x": 0, "offset_y": -30},
+    "image": {"at": "center", "width": "50%", "offset_x": 0, "offset_y": -8},
 }
 
 
@@ -140,9 +141,9 @@ def insert_slide_element(
         if width:
             attr_parts.append(f"width={width}")
         if offset_x is not None:
-            attr_parts.append(f"offset-x={offset_x}")
+            attr_parts.append(f"offsetX={offset_x}")
         if offset_y is not None:
-            attr_parts.append(f"offset-y={offset_y}")
+            attr_parts.append(f"offsetY={offset_y}")
         if src:
             attr_parts.append(f"src={src}")
             if "fit=" not in (extra_attrs or ""):

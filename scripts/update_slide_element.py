@@ -158,11 +158,11 @@ def update_slide_element(
         attr_map["width"] = str(width)
 
     if offset_x is not None:
-        attr_map["offset-x"] = str(offset_x)
-        attr_map.pop("offsetX", None)
+        attr_map["offsetX"] = str(offset_x)
+        attr_map.pop("offset-x", None)
     if offset_y is not None:
-        attr_map["offset-y"] = str(offset_y)
-        attr_map.pop("offsetY", None)
+        attr_map["offsetY"] = str(offset_y)
+        attr_map.pop("offset-y", None)
     if color is not None:
         attr_map["color"] = str(color)
     if background is not None:
