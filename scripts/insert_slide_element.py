@@ -29,6 +29,7 @@ PRESET_DEFAULTS: dict[str, dict[str, Any]] = {
     "subtitle": {"at": "center", "width": "80%", "offset_x": 0, "offset_y": -20},
     "heading": {"at": "center", "width": "80%", "offset_x": 0, "offset_y": -30},
     "image": {"at": "center", "width": "50%", "offset_x": 0, "offset_y": -8},
+    "video": {"at": "center", "width": "60%"},
 }
 
 
@@ -56,21 +57,22 @@ def insert_slide_element(
     element_id: str | None = None,
     client: AhaApiClient | None = None,
 ) -> dict[str, Any]:
-    """Insert a new element (:::text or :::image directive block) into the target slide's DSL content.
+    """Insert a new element (:::text, :::image, or :::video directive block) into the target slide's DSL.
 
     Args:
         slide_id: Target slide ID.
         text: Text content of the element.
-        preset: Preset type ('body', 'title', 'bullet', 'quote', 'tip', 'image', etc.).
+        preset: Preset type ('body', 'title', 'bullet', 'quote', 'tip', 'image', 'video', etc.).
         at: Position alignment ('center', etc.).
         width: Element width ('80%', etc.).
-        offset_x: Horizontal offset.
-        offset_y: Vertical offset.
+        offset_x: Horizontal offset (camelCase offsetX in DSL).
+        offset_y: Vertical offset (camelCase offsetY in DSL).
         color: Font/text color.
         background: Background color/style.
         border_radius: Border radius value.
         padding: Padding value.
-        src: Image URL for image elements.
+        src: Media URL. For images: local path or external URL (auto-uploaded to CDN).
+             For videos: YouTube/Vimeo URL used directly (no upload).
         extra_attrs: Additional raw attribute key=value strings.
         raw_dsl: Complete custom raw DSL block to insert (overrides building block).
         element_id: Specific 10-char element ID (auto-generated if None).
@@ -82,16 +84,19 @@ def insert_slide_element(
     if client is None:
         client = AhaApiClient()
 
-    # If preset is image or src is provided, ensure src default
-    is_image = preset == "image" or src is not None
-    if is_image and not src:
-        src = "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=800&q=80"
+    is_image = preset == "image" or (src is not None and preset not in ("video",))
+    is_video = preset == "video"
 
-    # Auto-upload to AhaSlides CDN if src is external or local file path
-    if is_image and src and not src.startswith("https://assets-cdn.ahaslides.com/"):
-        from scripts.upload_image import upload_image
-        upload_res = upload_image(src, client=client)
-        src = upload_res.get("location", src)
+    # Image: provide default src and upload to CDN
+    if is_image:
+        if not src:
+            src = "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=800&q=80"
+        if not src.startswith("https://assets-cdn.ahaslides.com/") and not src.startswith("https://dpttlcqctc0a1.cloudfront.net/"):
+            from scripts.upload_image import upload_image
+            upload_res = upload_image(src, client=client)
+            src = upload_res.get("location", src)
+
+    # Video: src used directly — no upload, no CDN conversion
 
     # 1. Fetch existing DSL
     existing_dsl = ""
@@ -134,7 +139,7 @@ def insert_slide_element(
         new_block = raw_dsl.strip()
     else:
         attr_parts = [f"id={element_id}"]
-        if preset and not is_image:
+        if preset and not is_image and not is_video:
             attr_parts.append(f"preset={preset}")
         if at:
             attr_parts.append(f"at={at}")
@@ -146,7 +151,8 @@ def insert_slide_element(
             attr_parts.append(f"offsetY={offset_y}")
         if src:
             attr_parts.append(f"src={src}")
-            if "fit=" not in (extra_attrs or ""):
+            # fit=contain only for images, not video
+            if is_image and "fit=" not in (extra_attrs or ""):
                 attr_parts.append("fit=contain")
         if color:
             attr_parts.append(f"color={color}")
@@ -159,7 +165,12 @@ def insert_slide_element(
         if extra_attrs:
             attr_parts.append(extra_attrs.strip())
 
-        directive_type = "image" if is_image else "text"
+        if is_image:
+            directive_type = "image"
+        elif is_video:
+            directive_type = "video"
+        else:
+            directive_type = "text"
         header = f":::{directive_type} " + " ".join(attr_parts)
         body = text if text else ""
         new_block = f"{header}\n{body}\n:::".strip() if not body else f"{header}\n{body}\n:::"
