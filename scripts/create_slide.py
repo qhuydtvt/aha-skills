@@ -42,23 +42,41 @@ def create_slide(
     except (ValueError, TypeError):
         pid = presentation_id
 
-    if at_end or order == -1:
-        try:
-            from scripts.read_presentation import read_presentation
-            pres_info = read_presentation(pid)
-            slides = pres_info.get("slides") or pres_info.get("slide_details") or []
-            order = len(slides) + 1
-        except Exception:  # noqa: BLE001
-            order = None
+    # 1. Fetch presentation detail to get current slide order before creation
+    slides_before: list[dict[str, Any]] = []
+    try:
+        from scripts.read_presentation import fetch_presentation_detail
+        pres_detail = fetch_presentation_detail(client, str(pid))
+        slides_before = pres_detail.get("Slides") or pres_detail.get("slides") or []
+    except Exception:  # noqa: BLE001
+        slides_before = []
+
+    target_order = order
+    if at_end or order == -1 or target_order is None:
+        target_order = len(slides_before) + 1
 
     payload: dict[str, Any] = {
         "presentationId": pid,
         "type": slide_type,
+        "order": target_order,
     }
-    if order is not None and order > 0:
-        payload["order"] = order
 
-    return client.post(CREATE_SLIDE_PATH, json_data=payload)
+    res = client.post(CREATE_SLIDE_PATH, json_data=payload)
+
+    # 2. Update slide sorting order via PUT /api/slide/sort-slide/{presentation_id}
+    new_slide_id = res.get("id") or res.get("_id") if isinstance(res, dict) else None
+    if new_slide_id:
+        try:
+            existing_ids = [s.get("id") for s in slides_before if s.get("id") and s.get("id") != new_slide_id]
+            idx = target_order - 1 if target_order and target_order <= len(existing_ids) else len(existing_ids)
+            existing_ids.insert(idx, new_slide_id)
+
+            sort_payload = [{"order": i + 1, "id": sid} for i, sid in enumerate(existing_ids)]
+            client.put(f"/api/slide/sort-slide/{pid}", json_data={"sort": sort_payload})
+        except Exception:  # noqa: BLE001, S110
+            pass
+
+    return res
 
 
 def main():
