@@ -5,7 +5,7 @@ import argparse
 import json
 import sys
 from pathlib import Path
-from typing import Any, Dict, Optional
+from typing import Any
 
 # Ensure project root is in sys.path
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,17 +20,19 @@ CREATE_SLIDE_PATH = "/api/slide/create/"
 def create_slide(
     presentation_id: Any,
     slide_type: str = "content-v2",
-    order: Optional[int] = None,
-) -> Dict[str, Any]:
+    order: int | None = None,
+    at_end: bool = False,
+) -> dict[str, Any]:
     """Create a new slide in the specified presentation.
 
     Args:
         presentation_id: ID of the target presentation.
         slide_type: Type of slide to create (default: 'content-v2').
         order: Optional integer order position for the slide.
+        at_end: If True (or order == -1), append slide at the end of the presentation.
 
     Returns:
-        Dict[str, Any]: API response object containing created slide details.
+        dict[str, Any]: API response object containing created slide details.
     """
     client = AhaApiClient()
 
@@ -40,11 +42,20 @@ def create_slide(
     except (ValueError, TypeError):
         pid = presentation_id
 
-    payload: Dict[str, Any] = {
+    if at_end or order == -1:
+        try:
+            from scripts.read_presentation import read_presentation
+            pres_info = read_presentation(pid)
+            slides = pres_info.get("slides") or pres_info.get("slide_details") or []
+            order = len(slides) + 1
+        except Exception:  # noqa: BLE001
+            order = None
+
+    payload: dict[str, Any] = {
         "presentationId": pid,
         "type": slide_type,
     }
-    if order is not None:
+    if order is not None and order > 0:
         payload["order"] = order
 
     return client.post(CREATE_SLIDE_PATH, json_data=payload)
@@ -70,7 +81,7 @@ def main():
         nargs="?",
         type=int,
         default=None,
-        help="Optional slide position/order (integer).",
+        help="Optional slide position/order (integer, or -1 for end).",
     )
     parser.add_argument(
         "--type",
@@ -86,6 +97,13 @@ def main():
         type=int,
         default=None,
         help="Slide order (overrides positional argument if set).",
+    )
+    parser.add_argument(
+        "--at-end",
+        "--end",
+        "-e",
+        action="store_true",
+        help="Append new slide at the end of the presentation.",
     )
     parser.add_argument(
         "--json",
@@ -104,8 +122,8 @@ def main():
     order = args.flag_order if args.flag_order is not None else args.order
 
     try:
-        result = create_slide(args.presentation_id, slide_type=slide_type, order=order)
-    except Exception as e:
+        result = create_slide(args.presentation_id, slide_type=slide_type, order=order, at_end=args.at_end)
+    except Exception as e:  # noqa: BLE001
         print(f"Error creating slide: {e}", file=sys.stderr)
         sys.exit(1)
 

@@ -46,9 +46,11 @@
 
 ### 2. Slide & Slide Type Scripts
 - **[`scripts/create_slide.py`](create_slide.py)**:
-  - **Purpose**: Creates a new slide of a specified type in an AhaSlides presentation.
-  - **Usage**: `python3 scripts/create_slide.py <presentation_id> [type] [order] [-t TYPE] [-o ORDER] [--json]`
-  - **Example**: `python3 scripts/create_slide.py 9826054 wordCloud -o 2`
+  - **Purpose**: Creates a new slide of a specified type in an AhaSlides presentation. Supports appending at the end of presentation via `--at-end` / `--end` / `-e` flag.
+  - **Usage**: `python3 scripts/create_slide.py <presentation_id> [type] [order] [-t TYPE] [-o ORDER] [--at-end] [--json]`
+  - **Examples**:
+    - `python3 scripts/create_slide.py 9826054 wordCloud -o 2`
+    - `python3 scripts/create_slide.py 9826054 content-v2 --at-end`
 
 - **[`scripts/read_slide.py`](read_slide.py)**:
   - **Purpose**: Reads slide details, properties (`id`, `type`, `order`, `baseColour`, `textColour`, `backgroundImage`, `visibility`, `elements_count`), and modifiable slide-level attributes. Auto-resolves presentation ID if omitted.
