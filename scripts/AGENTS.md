@@ -122,9 +122,21 @@
   - **Purpose**: Safely checks whether the token environment variable is set without printing its value.
   - **Usage**: `python3 scripts/check_token.py`
 
+- **[`scripts/watch_presentation.py`](watch_presentation.py)**:
+  - **Purpose**: Live-watches an AhaSlides presentation for any state changes (slide DSL elements, slide properties, slide additions/removals), printing coloured unified diffs in real-time. Primary dev tool for reverse-engineering new element types — run it, make a change in the UI, read the exact DSL diff.
+  - **Usage**: `python3 scripts/watch_presentation.py <presentation_id> [-s SLIDE_IDS] [-i INTERVAL]`
+  - **Flags**:
+    - `-s / --slides`: Comma-separated slide IDs to watch (default: all slides)
+    - `-i / --interval`: Poll interval in seconds (default: 2)
+  - **Stop**: `Ctrl+C` — exits cleanly.
+  - **Examples**:
+    - `python3 scripts/watch_presentation.py 9826054` — watch all slides
+    - `python3 scripts/watch_presentation.py 9826054 -s 156938195,156938333` — watch specific slides
+    - `python3 scripts/watch_presentation.py 9826054 -i 1` — poll every second
+
 ---
 
-### 4. Core Shared Infrastructure
+
 - **[`scripts/token_manager.py`](token_manager.py)**:
   - **Purpose**: `TokenManager` class for safely retrieving authentication tokens.
 - **[`scripts/shared/api/aha_client.py`](shared/api/aha_client.py)**:
