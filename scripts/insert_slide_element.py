@@ -138,7 +138,9 @@ def insert_slide_element(
         if offset_y is not None:
             attr_parts.append(f"offset-y={offset_y}")
         if src:
-            attr_parts.append(f'src="{src}"')
+            attr_parts.append(f"src={src}")
+            if "fit=" not in (extra_attrs or ""):
+                attr_parts.append("fit=contain")
         if color:
             attr_parts.append(f"color={color}")
         if background:
