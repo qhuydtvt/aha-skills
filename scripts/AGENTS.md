@@ -50,6 +50,20 @@
   - **Usage**: `python3 scripts/create_slide.py <presentation_id> [type] [order] [-t TYPE] [-o ORDER] [--json]`
   - **Example**: `python3 scripts/create_slide.py 9826054 wordCloud -o 2`
 
+- **[`scripts/read_slide.py`](read_slide.py)**:
+  - **Purpose**: Reads slide details, properties (`id`, `type`, `order`, `baseColour`, `textColour`, `backgroundImage`, `visibility`, `elements_count`), and modifiable slide-level attributes. Auto-resolves presentation ID if omitted.
+  - **Usage**: `python3 scripts/read_slide.py <slide_id> [-p PRESENTATION_ID] [--json]`
+  - **Examples**:
+    - `python3 scripts/read_slide.py 156934061`
+    - `python3 scripts/read_slide.py 156934061 -p 9826054 --json`
+
+- **[`scripts/update_slide.py`](update_slide.py)**:
+  - **Purpose**: Updates slide-level properties (`baseColour`, `textColour`, `backgroundImage`, `visibility`) via `PATCH /api/slide/`. Supports auto-resolving presentation ID and applying changes to all slides (`--apply-to-all`).
+  - **Usage**: `python3 scripts/update_slide.py <slide_id> [-p PRESENTATION_ID] [--base-color BASE_COLOR] [--text-color TEXT_COLOR] [--background-image IMAGE_URL] [--visibility VISIBILITY] [--apply-to-all] [--json]`
+  - **Examples**:
+    - `python3 scripts/update_slide.py 156934061 --base-color "#1e293b" --text-color "#ffffff"`
+    - `python3 scripts/update_slide.py 156934061 -p 9826054 --base-color "#0f172a" --apply-to-all`
+
 - **[`scripts/delete_slide.py`](delete_slide.py)**:
   - **Purpose**: Deletes one or more slides from an AhaSlides presentation.
   - **Usage**: `python3 scripts/delete_slide.py <presentation_id> <slide_id ...> [--json]`
