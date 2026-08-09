@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import json
 import sys
+import os
 import argparse
 from pathlib import Path
 from typing import List, Set
@@ -78,7 +79,7 @@ def main():
     
     base_dir = Path(__file__).resolve().parent.parent
     artifacts_dir = base_dir / "artifacts"
-    default_config_path = base_dir / "configs" / "parser_config.json"
+    default_config_path = base_dir / "configs" / "config.json"
     
     if args.har_file:
         har_path = Path(args.har_file)
@@ -97,6 +98,11 @@ def main():
         config_path = Path(args.config) if args.config else default_config_path
         config_data = load_config(config_path)
         excluded_patterns = config_data.get("excluded_patterns", [])
+        token_env_var = config_data.get("token_env_var")
+        if token_env_var:
+            token_val = os.environ.get(token_env_var)
+            if token_val:
+                print(f"Using token from environment variable '{token_env_var}'", file=sys.stderr)
         if excluded_patterns:
             print(f"Loaded {len(excluded_patterns)} exclusion patterns from {config_path.name}", file=sys.stderr)
         
