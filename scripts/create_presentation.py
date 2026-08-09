@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Script to create a new presentation on AhaSlides."""
+"""Script to create a new presentation on AhaSlides using the shared API client."""
 
 import argparse
 import sys
@@ -10,40 +10,19 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 if str(BASE_DIR) not in sys.path:
     sys.path.insert(0, str(BASE_DIR))
 
-import requests
-from scripts.token_manager import TokenManager
+from scripts.shared.api import AhaApiClient
 
-CREATE_ENDPOINT = "https://presenter.ahaslides.com/api/presentation/create/"
+CREATE_PATH = "/api/presentation/create/"
 
 
 def create_presentation(name: str = "My Presentation") -> dict:
-    manager = TokenManager()
-    token = manager.get_token()
-    if not token:
-        print("Error: AhaSlides authentication token is not available.", file=sys.stderr)
-        sys.exit(1)
-
-    headers = {
-        "Authorization": f"Bearer {token}",
-        "Content-Type": "application/json;charset=UTF-8",
-        "Accept": "application/json, text/plain, */*",
-    }
+    client = AhaApiClient()
     payload = {
         "name": name,
         "hasDefaultSlide": True,
         "language": "en"
     }
-
-    try:
-        response = requests.post(CREATE_ENDPOINT, headers=headers, json=payload)
-        response.raise_for_status()
-        return response.json()
-    except requests.exceptions.RequestException as e:
-        print(f"Error creating presentation: {e}", file=sys.stderr)
-        if hasattr(e, "response") and e.response is not None:
-            print(f"Response status: {e.response.status_code}", file=sys.stderr)
-            print(f"Response body: {e.response.text}", file=sys.stderr)
-        sys.exit(1)
+    return client.post(CREATE_PATH, json_data=payload)
 
 
 def main():
