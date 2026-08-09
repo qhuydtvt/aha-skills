@@ -60,6 +60,18 @@
   - **Usage**: `python3 scripts/list_slide_types.py [query] [-c CATEGORY] [-q QUERY] [--json]`
   - **Example**: `python3 scripts/list_slide_types.py "word cloud"`
 
+- **[`scripts/list_slide_elements.py`](list_slide_elements.py)**:
+  - **Purpose**: Lists all directive elements (`:::text` blocks) from a slide's v2 DSL content, parsing attributes (`id`, `preset`, `at`, `width`, `offset_x`, `offset_y`, etc.) and text snippets.
+  - **Usage**: `python3 scripts/list_slide_elements.py <slide_id> [--json]`
+  - **Example**: `python3 scripts/list_slide_elements.py 156929519 --json`
+
+- **[`scripts/insert_slide_element.py`](insert_slide_element.py)**:
+  - **Purpose**: Inserts a new directive element (`:::text` block) into a slide's v2 DSL content with optional preset positioning, custom styling, or raw DSL.
+  - **Usage**: `python3 scripts/insert_slide_element.py <slide_id> [text] [-p PRESET] [--at AT] [-w WIDTH] [-x OFFSET_X] [-y OFFSET_Y] [--color COLOR] [--bg BG] [-r RADIUS] [--padding PADDING] [--raw-dsl RAW_DSL] [--json]`
+  - **Examples**:
+    - `python3 scripts/insert_slide_element.py 156929519 "Hello World" -p title`
+    - `python3 scripts/insert_slide_element.py 156929519 "Custom Body Text" -p body -x 0 -y 20 --color "#ffffff"`
+
 ---
 
 ### 3. HAR Analysis & Debugging Tools
@@ -69,9 +81,12 @@
   - **Example**: `python3 scripts/parse_har_urls.py artifacts/list.presenter.ahaslides.com.har -u -m`
 
 - **[`scripts/explore_har_request.py`](explore_har_request.py)**:
-  - **Purpose**: Explores and displays request shapes, parameters, headers (sanitizing tokens), and body payloads from HAR files.
-  - **Usage**: `python3 scripts/explore_har_request.py <query> [har_file] [-n INDEX] [--json] [--include-excluded]`
-  - **Example**: `python3 scripts/explore_har_request.py slide/create artifacts/create-slide.presenter.ahaslides.com.har`
+  - **Purpose**: Explores and displays request shapes, parameters, headers (sanitizing tokens), and body payloads from HAR files safely. Supports querying by HTTP method or URL substring, filtering by method, and listing all requests with index numbers.
+  - **Usage**: `python3 scripts/explore_har_request.py [query] [har_file] [-m METHOD] [-l] [-n INDEX] [--json] [--include-excluded]`
+  - **Examples**:
+    - `python3 scripts/explore_har_request.py POST artifacts/insert-slide-element.presenter.ahaslides.com.har --json`
+    - `python3 scripts/explore_har_request.py artifacts/insert-slide-element.presenter.ahaslides.com.har -m POST -l`
+    - `python3 scripts/explore_har_request.py slide/create artifacts/create-slide.presenter.ahaslides.com.har`
 
 - **[`scripts/check_token.py`](check_token.py)**:
   - **Purpose**: Safely checks whether the token environment variable is set without printing its value.
