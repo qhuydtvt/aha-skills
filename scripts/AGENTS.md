@@ -5,6 +5,11 @@
 > [!IMPORTANT]
 > **SYNCHRONIZATION RULE**: Every time a script in `scripts/` is added, modified, or removed, **`scripts/AGENTS.md` MUST be updated immediately** to reflect the exact current reality of all scripts, arguments, and usage patterns.
 
+## Workflow Documentation Rule
+
+> [!NOTE]
+> **WORKFLOW RECORD REQUIREMENT**: Upon finishing a slide creation workflow (from source material to slide planning, fixture creation, live presentation creation, and linting verification), agents **MUST** record the whole end-to-end process in `workflows/<name>/<workflow-name>.md`.
+
 ---
 
 ## Shared Architecture & Security Guidelines
@@ -103,6 +108,37 @@
   - **Examples**:
     - `python3 scripts/lint_slide.py 156929519`
     - `python3 scripts/lint_slide.py 156929519 --contrast-level AAA --strict-contrast`
+
+- **[`scripts/scaffold_slides_content.py`](scaffold_slides_content.py)**:
+  - **Purpose**: Scaffolds and generates the vendor-independent `slides_content.json` specification file from source material (e.g. `artifacts/inputs/manual_of_me.md` or a slide plan).
+  - **Usage**: `python3 scripts/scaffold_slides_content.py <input_file> [-o OUTPUT_JSON_PATH]`
+  - **Examples**:
+    - `python3 scripts/scaffold_slides_content.py artifacts/inputs/manual_of_me.md`
+    - `python3 scripts/scaffold_slides_content.py artifacts/inputs/manual_of_me.md -o artifacts/slide-plans/manual_of_me/slides_content.json`
+
+- **[`scripts/lint_slide_content.py`](lint_slide_content.py)**:
+  - **Purpose**: Lints and validates a vendor-independent `slides_content.json` specification file itself. Verifies JSON pretty-print & formatting uniformity (2-space indentation with a trailing newline), root schema, vendor independence (zero platform-specific internal keys), slide schema & field key order uniformity (`slide_number`, `slide_id_key`, `title`, `subtitle` (if present), `slide_type`, `required_keywords`, `key_content`, `expected_elements_count`), value whitespace & type uniformity (no un-trimmed string values), sequential slide numbering, unique `slide_id_key`s, non-empty titles/keywords, and valid `expected_elements_count` bounds (`min > 0`, `max >= min`). Returns exit code 0 on PASS, 1 on FAIL.
+  - **Usage**: `python3 scripts/lint_slide_content.py <json_path> [--json]`
+  - **Examples**:
+    - `python3 scripts/lint_slide_content.py artifacts/slide-plans/manual_of_me/slides_content.json`
+    - `python3 scripts/lint_slide_content.py artifacts/slide-plans/manual_of_me/slides_content.json --json`
+
+- **[`scripts/verify_presentation_content.py`](verify_presentation_content.py)**:
+  - **Purpose**: Verifies live AhaSlides presentation content against a vendor-independent `slides_content.json` specification file slide-by-slide. Checks slide count matching, slide title matching, all `required_keywords` presence, `expected_elements_count` bounds (`min`..`max`), and `key_content` completeness. Outputs a clean colorized report or JSON payload (`--json`). Returns exit code 0 on PASS, 1 on FAIL.
+  - **Usage**: `python3 scripts/verify_presentation_content.py <presentation_id> [json_spec_path] [--json]`
+  - **Examples**:
+    - `python3 scripts/verify_presentation_content.py 9828288 artifacts/slide-plans/manual_of_me/slides_content.json`
+    - `python3 scripts/verify_presentation_content.py 9828288 artifacts/slide-plans/manual_of_me/slides_content.json --json`
+
+- **[`scripts/list_slide_layouts.py`](list_slide_layouts.py)**:
+  - **Purpose**: Lists pre-built v2 DSL layout presets and extracts layout DSL templates directly from any live presentation ID.
+  - **Usage**: `python3 scripts/list_slide_layouts.py [--all] [--categories] [-c CATEGORY] [-p PRESENTATION_ID] [-l LAYOUT_KEY] [--json]`
+  - **Examples**:
+    - `python3 scripts/list_slide_layouts.py` — lists built-in layout presets
+    - `python3 scripts/list_slide_layouts.py --categories` — dynamically extracts and lists all layout categories from the API
+    - `python3 scripts/list_slide_layouts.py --all` — fetches all layout templates dynamically from AhaSlides API
+    - `python3 scripts/list_slide_layouts.py --category Compare` — filters layout templates by category
+    - `python3 scripts/list_slide_layouts.py -p 9828288` — extracts layout DSLs from live presentation
 
 - **[`scripts/upload_image.py`](upload_image.py)**:
   - **Purpose**: Uploads a local image file or HTTP/HTTPS image URL to AhaSlides CDN via `POST /api/upload/image/` and returns the official signed CDN URL (`https://assets-cdn.ahaslides.com/...`).

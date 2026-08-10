@@ -5,7 +5,7 @@ import argparse
 import json
 import sys
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any
 
 # Ensure project root is in sys.path
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -17,7 +17,7 @@ from scripts.shared.api import AhaApiClient
 SLIDE_TYPES_URL = "https://slides-marketplace.ahaslides.io/api/slide-types"
 
 
-def get_slide_types(client: Optional[AhaApiClient] = None) -> List[Dict[str, Any]]:
+def get_slide_types(client: AhaApiClient | None = None) -> list[dict[str, Any]]:
     """Fetch slide types from the AhaSlides Marketplace API."""
     if client is None:
         client = AhaApiClient()
@@ -32,10 +32,10 @@ def get_slide_types(client: Optional[AhaApiClient] = None) -> List[Dict[str, Any
 
 
 def filter_slide_types(
-    slide_types: List[Dict[str, Any]],
-    category: Optional[str] = None,
-    query: Optional[str] = None,
-) -> List[Dict[str, Any]]:
+    slide_types: list[dict[str, Any]],
+    category: str | None = None,
+    query: str | None = None,
+) -> list[dict[str, Any]]:
     """Filter slide types by category and search query."""
     filtered = []
     cat_lower = category.strip().lower() if category else None
@@ -66,7 +66,7 @@ def filter_slide_types(
     return filtered
 
 
-def format_summary_table(slide_types: List[Dict[str, Any]]) -> str:
+def format_summary_table(slide_types: list[dict[str, Any]]) -> str:
     """Format slide types into a clean summary table."""
     if not slide_types:
         return "No slide types found matching the criteria."

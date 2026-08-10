@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-import json
-import sys
-import os
 import argparse
+import json
+import os
+import sys
 from pathlib import Path
-from typing import List, Set
+
 
 def load_config(config_path: Path) -> dict:
     if config_path.exists():
@@ -27,14 +27,14 @@ def get_default_har_file(artifacts_dir: Path) -> Path:
     har_files.sort(key=lambda f: f.stat().st_mtime, reverse=True)
     return har_files[0]
 
-def is_excluded(url: str, excluded_patterns: List[str]) -> bool:
+def is_excluded(url: str, excluded_patterns: list[str]) -> bool:
     url_lower = url.lower()
     for pattern in excluded_patterns:
         if pattern.lower() in url_lower:
             return True
     return False
 
-def extract_urls(har_path: Path, unique: bool = False, include_method: bool = False, excluded_patterns: List[str] = None):
+def extract_urls(har_path: Path, unique: bool = False, include_method: bool = False, excluded_patterns: list[str] = None):
     if excluded_patterns is None:
         excluded_patterns = []
 
@@ -43,7 +43,7 @@ def extract_urls(har_path: Path, unique: bool = False, include_method: bool = Fa
     
     entries = data.get("log", {}).get("entries", [])
     urls = []
-    seen: Set[str] = set()
+    seen: set[str] = set()
 
     for entry in entries:
         req = entry.get("request", {})
@@ -86,7 +86,7 @@ def main():
     else:
         try:
             har_path = get_default_har_file(artifacts_dir)
-        except FileNotFoundError as e:
+        except FileNotFoundError:
             har_path = get_default_har_file(Path.cwd() / "artifacts")
 
     if not har_path.exists():

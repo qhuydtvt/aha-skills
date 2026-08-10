@@ -1,20 +1,19 @@
 #!/usr/bin/env python3
 import json
 import os
-import sys
 from pathlib import Path
-from typing import Optional
+
 
 class TokenManager:
     """Manages retrieving and providing sensitive authentication tokens safely without logging or printing values."""
 
-    def __init__(self, config_path: Optional[Path] = None):
+    def __init__(self, config_path: Path | None = None):
         if config_path is None:
             base_dir = Path(__file__).resolve().parent.parent
             config_path = base_dir / "configs" / "config.json"
         self._config_path = Path(config_path)
 
-    def get_token_env_var_name(self) -> Optional[str]:
+    def get_token_env_var_name(self) -> str | None:
         """Retrieves the environment variable name configured for the token."""
         if not self._config_path.exists():
             return None
@@ -25,7 +24,7 @@ class TokenManager:
         except Exception:
             return None
 
-    def get_token(self) -> Optional[str]:
+    def get_token(self) -> str | None:
         """Retrieves the token from the configured environment variable.
         
         CRITICAL: Never print, log, or expose the returned token string to stdout/stderr.

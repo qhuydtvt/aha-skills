@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import argparse
+import re
 import sys
 from pathlib import Path
 from typing import Any
@@ -11,7 +12,7 @@ if str(BASE_DIR) not in sys.path:
 from scripts.list_slide_elements import list_slide_elements
 from scripts.read_slide import read_slide
 from scripts.shared.api import AhaApiClient
-from scripts.shared.lib.contrast import evaluate_contrast, parse_color
+from scripts.shared.lib.contrast import evaluate_contrast
 
 CANVAS_WIDTH = 1280
 CANVAS_HEIGHT = 720
@@ -202,8 +203,7 @@ def lint_slide(
 
         # 1. Resolve Foreground Text Color
         fg_color = attrs.get("color") or attrs.get("textColour") or attrs.get("text-color")
-        if not fg_color:
-            import re
+        if text and not fg_color:
             color_match = re.search(r'(?:color|style=["\'][^"\']*color):\s*([^"\';\s>]+)', text, re.IGNORECASE)
             if color_match:
                 fg_color = color_match.group(1)

@@ -60,7 +60,7 @@ def list_slide_elements(
     dsl_text = ""
     if isinstance(res, list):
         for item in res:
-            if str(item.get("slideId")) == str(slide_id) or len(res) == 1:
+            if (str(item.get("slideId")) == str(slide_id) or len(res) == 1) and item.get("type") == "dsl":
                 attrs = item.get("attributes")
                 if isinstance(attrs, str):
                     dsl_text = attrs

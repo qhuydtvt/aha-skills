@@ -1,0 +1,300 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "fixture_metadata": {
+    "name": "manual_of_me",
+    "title": "A Manual of HuyNQ \u2014 Guide to Working & Collaborating",
+    "version": "1.0.0",
+    "source_file": "artifacts/inputs/manual_of_me.md",
+    "total_slides": 8,
+    "theme": {
+      "base_color": "#0F172A",
+      "text_color": "#F8FAFC",
+      "accent_color": "#06B6D4"
+    }
+  },
+  "slides": [
+    {
+      "slide_number": 1,
+      "slide_id_key": "slide_1_title_and_mission",
+      "title": "Working with HuyNQ \u2014 A User Manual",
+      "subtitle": "A practical guide on how to work, communicate, and collaborate with me",
+      "slide_type": "heading",
+      "required_keywords": [
+        "Manual of HuyNQ",
+        "Build useful things",
+        "Core Values",
+        "Communication",
+        "Feedback",
+        "Quirks",
+        "Golden Rules"
+      ],
+      "key_content": {
+        "mission_statement": "Build useful things",
+        "overview_topics": [
+          "Core Values & Mindset",
+          "Communication Preferences & Rules",
+          "Feedback Guide",
+          "Quirks & Debugging Support Strategies",
+          "Collaboration Golden Rules"
+        ]
+      },
+      "expected_elements_count": {
+        "min": 3,
+        "max": 8
+      }
+    },
+    {
+      "slide_number": 2,
+      "slide_id_key": "slide_2_mindset_and_core_values",
+      "title": "The Mindset \u2014 Core Values & Philosophy",
+      "slide_type": "content_grid",
+      "required_keywords": [
+        "Integrity",
+        "Winning Mindset",
+        "Continuous improvement",
+        "Build & Discover"
+      ],
+      "key_content": {
+        "core_values": [
+          {
+            "name": "Integrity",
+            "description": "Radical transparency, honesty, and doing what is right even when difficult."
+          },
+          {
+            "name": "Winning Mindset",
+            "description": "High standards, drive to solve tough problems, and commitment to meaningful outcomes."
+          },
+          {
+            "name": "Continuous improvement",
+            "description": "Constant iteration, learning from mistakes, and incremental daily gains."
+          }
+        ],
+        "driving_philosophy": {
+          "title": "Build & Discover Simultaneously",
+          "description": "Prefers running discovery concurrently while building products, rather than waiting for fully baked ideas."
+        }
+      },
+      "expected_elements_count": {
+        "min": 4,
+        "max": 10
+      }
+    },
+    {
+      "slide_number": 3,
+      "slide_id_key": "slide_3_communication_preferences",
+      "title": "How We Connect \u2014 Communication Preferences & Rules",
+      "slide_type": "split_matrix",
+      "required_keywords": [
+        "Slack/Teams",
+        "Face-to-Face or Call",
+        "Email",
+        "Context upfront",
+        "One at a time",
+        "Context (facts only)",
+        "Problem definition",
+        "Proposed solutions"
+      ],
+      "key_content": {
+        "preferred_channels": [
+          {
+            "channel": "Slack/Teams (Chat)",
+            "best_for": "Best for non-mentally taxing and quick info exchange."
+          },
+          {
+            "channel": "Face-to-Face or Call",
+            "best_for": "Best for complex or easily misunderstood topics."
+          },
+          {
+            "channel": "Email",
+            "best_for": "Best for official decisions or third-party communications."
+          }
+        ],
+        "boundaries": [
+          "Context upfront: Context provided upfront unless mutual understanding is established.",
+          "One at a time: Only handle one face-to-face or live call conversation at a time."
+        ],
+        "standard_3_step_format": [
+          "1. Context (facts only)",
+          "2. Problem definition",
+          "3. Proposed solutions (if any)"
+        ]
+      },
+      "expected_elements_count": {
+        "min": 4,
+        "max": 12
+      }
+    },
+    {
+      "slide_number": 4,
+      "slide_id_key": "slide_4_receiving_feedback",
+      "title": "Receiving Feedback \u2014 The 3-Point Feedback Structure",
+      "slide_type": "process_flow",
+      "required_keywords": [
+        "Face-to-face",
+        "Context of the feedback",
+        "Shared understanding",
+        "impact",
+        "business",
+        "product",
+        "team",
+        "Proposed solution"
+      ],
+      "key_content": {
+        "preferred_channel": "Face-to-face (does not matter if private or public)",
+        "feedback_structure": [
+          {
+            "step": 1,
+            "title": "Context",
+            "detail": "Context of the feedback."
+          },
+          {
+            "step": 2,
+            "title": "Shared Understanding of Impact",
+            "detail": "Establishing a shared understanding of the problem and its impact on the business, product, or team."
+          },
+          {
+            "step": 3,
+            "title": "Proposed Solution",
+            "detail": "(Optional) Proposed solution or improvement."
+          }
+        ]
+      },
+      "expected_elements_count": {
+        "min": 3,
+        "max": 8
+      }
+    },
+    {
+      "slide_number": 5,
+      "slide_id_key": "slide_5_default_behaviors_and_quirks",
+      "title": "Inside the Engine \u2014 Default Behaviors & Quirks",
+      "slide_type": "grid_cards",
+      "required_keywords": [
+        "Out-Loud Brainstorming",
+        "Coherence-Driven",
+        "Topic-Selective Energy",
+        "Build & Discover"
+      ],
+      "key_content": {
+        "default_behaviors": [
+          {
+            "name": "Out-Loud Brainstorming",
+            "behavior": "Brainstorm and jump between ideas out loud before focusing on the final solution."
+          },
+          {
+            "name": "Coherence-Driven",
+            "behavior": "Easily get irritated when things get incoherent, and tend to sort them out before moving on."
+          },
+          {
+            "name": "Topic-Selective Energy",
+            "behavior": "More energetic when discussing product and engineering topics; lower energy in other areas."
+          },
+          {
+            "name": "Build & Discover",
+            "behavior": "Love to build and run product discovery at the same time."
+          }
+        ]
+      },
+      "expected_elements_count": {
+        "min": 4,
+        "max": 10
+      }
+    },
+    {
+      "slide_number": 6,
+      "slide_id_key": "slide_6_bugs_and_support",
+      "title": "Debugging Huy \u2014 Known Issues & Support Plan",
+      "slide_type": "split_rows",
+      "required_keywords": [
+        "too many questions",
+        "Provide clear context",
+        "low energy",
+        "time to recover",
+        "over-excited",
+        "echo back",
+        "pushing too hard",
+        "Explain if not working"
+      ],
+      "key_content": {
+        "bugs": [
+          {
+            "bug_id": 1,
+            "issue": "Ask a lot of questions when a problem is not fully understood before committing.",
+            "support": "Provide clear context and explain how it is relevant to the business, product, or team."
+          },
+          {
+            "bug_id": 2,
+            "issue": "Respond slowly when running on low energy.",
+            "support": "Give time to recover, still feel free to ask for faster response if urgent."
+          },
+          {
+            "bug_id": 3,
+            "issue": "Tend to be incoherent when getting over-excited.",
+            "support": "Give time to let things sink in, and echo back what you hear if possible."
+          },
+          {
+            "bug_id": 4,
+            "issue": "Sometimes push self and people too hard.",
+            "support": "Explain if it's not working or if energy is better spent in other ways."
+          }
+        ]
+      },
+      "expected_elements_count": {
+        "min": 4,
+        "max": 10
+      }
+    },
+    {
+      "slide_number": 7,
+      "slide_id_key": "slide_7_golden_rules_and_pet_peeves",
+      "title": "Rules of Engagement \u2014 Pet Peeves & Golden Rules",
+      "slide_type": "comparison",
+      "required_keywords": [
+        "Unscheduled communication",
+        "Refusal of ideas",
+        "Notify me beforehand",
+        "Give reasons"
+      ],
+      "key_content": {
+        "pet_peeves": [
+          "Unscheduled communication for non-urgent matters.",
+          "Refusal of ideas or proposals without clear reasons."
+        ],
+        "golden_rules": [
+          "Notify me beforehand for synchronous check-ins.",
+          "Give reasons for idea/proposal refusal, and optionally suggest alternatives."
+        ]
+      },
+      "expected_elements_count": {
+        "min": 4,
+        "max": 8
+      }
+    },
+    {
+      "slide_number": 8,
+      "slide_id_key": "slide_8_conclusion_cheatsheet",
+      "title": "Conclusion \u2014 Let's Build Useful Things Together",
+      "slide_type": "summary",
+      "required_keywords": [
+        "Cheatsheet",
+        "Context upfront",
+        "Face-to-face",
+        "Support the bugs",
+        "Build useful things"
+      ],
+      "key_content": {
+        "cheatsheet_summary": [
+          "Context upfront (Context -> Problem -> Solution)",
+          "Face-to-face for feedback (focus on impact)",
+          "Support the bugs (echo back, tag urgency, protect energy)",
+          "Respect focus time (pre-notify check-ins, explain rejections)"
+        ],
+        "closing_quote": "This manual is a living document\u2014let's keep communicating, building, and improving together!"
+      },
+      "expected_elements_count": {
+        "min": 3,
+        "max": 8
+      }
+    }
+  ]
+}
