@@ -4,6 +4,7 @@ import os
 import sys
 from pathlib import Path
 
+
 def main():
     base_dir = Path(__file__).resolve().parent.parent
     config_path = base_dir / "configs" / "config.json"

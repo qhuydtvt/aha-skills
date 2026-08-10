@@ -1,7 +1,7 @@
 """WCAG 2.1 Color Contrast calculation and evaluation utilities."""
 
 import re
-from typing import Any, Tuple, Union
+from typing import Any
 
 # Common CSS named colors map (normalized 0.0 - 1.0 sRGB)
 NAMED_COLORS: dict[str, tuple[float, float, float, float]] = {

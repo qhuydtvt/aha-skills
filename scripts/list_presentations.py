@@ -5,7 +5,7 @@ import argparse
 import json
 import sys
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any
 
 # Ensure project root is in sys.path
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -36,7 +36,7 @@ def list_presentations(
     return client.get(LIST_PRESENTATIONS_PATH, params=params)
 
 
-def extract_presentations(data: Any) -> List[Dict[str, Any]]:
+def extract_presentations(data: Any) -> list[dict[str, Any]]:
     """Extract list of presentation dicts from raw API response."""
     if isinstance(data, list):
         return data
@@ -48,7 +48,7 @@ def extract_presentations(data: Any) -> List[Dict[str, Any]]:
     return []
 
 
-def print_presentations_table(items: List[Dict[str, Any]], limit: Optional[int] = None) -> None:
+def print_presentations_table(items: list[dict[str, Any]], limit: int | None = None) -> None:
     """Print a clean summary table of presentations."""
     if limit is not None and limit > 0:
         items = items[:limit]

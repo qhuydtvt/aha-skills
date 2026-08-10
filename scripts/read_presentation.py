@@ -6,7 +6,7 @@ import json
 import re
 import sys
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Set
+from typing import Any
 
 # Ensure project root is in sys.path
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,7 +20,7 @@ CANVAS_BLOCKS_PATH = "/api/slide/canvas-blocks"
 SLIDE_ATTRIBUTES_PATH = "/api/v2/slides/attributes"
 
 
-def fetch_presentation_detail(client: AhaApiClient, presentation_id: str) -> Dict[str, Any]:
+def fetch_presentation_detail(client: AhaApiClient, presentation_id: str) -> dict[str, Any]:
     """Fetch presentation detail metadata and slides from AhaSlides API."""
     path = DETAIL_PATH_TEMPLATE.format(presentation_id=presentation_id)
     return client.get(path)
@@ -34,7 +34,7 @@ def fetch_slide_canvas_blocks(client: AhaApiClient, slide_id: Any) -> Any:
         return None
 
 
-def fetch_slide_v2_attributes(client: AhaApiClient, slide_ids: List[Any]) -> Dict[str, Any]:
+def fetch_slide_v2_attributes(client: AhaApiClient, slide_ids: list[Any]) -> dict[str, Any]:
     """Fetch v2 DSL slide attributes for slide IDs."""
     if not slide_ids:
         return {}
@@ -51,7 +51,7 @@ def fetch_slide_v2_attributes(client: AhaApiClient, slide_ids: List[Any]) -> Dic
         return {}
 
 
-def parse_dsl_content(dsl_text: str) -> Dict[str, str]:
+def parse_dsl_content(dsl_text: str) -> dict[str, str]:
     """Parse title, body, and text blocks from content-v2 DSL string."""
     if not dsl_text or not isinstance(dsl_text, str):
         return {}
@@ -73,9 +73,9 @@ def parse_dsl_content(dsl_text: str) -> Dict[str, str]:
     return parsed
 
 
-def parse_slide_indices(slide_arg: str, total_slides: int) -> List[int]:
+def parse_slide_indices(slide_arg: str, total_slides: int) -> list[int]:
     """Parse slide selection string (e.g. '2', '1-3', '1,3,5-7') into a list of 1-based indices."""
-    selected_indices: Set[int] = set()
+    selected_indices: set[int] = set()
     parts = [p.strip() for p in slide_arg.split(",") if p.strip()]
 
     for part in parts:
@@ -130,7 +130,7 @@ def format_canvas_blocks(blocks_data: Any) -> str:
     return json.dumps(blocks_data, indent=2, ensure_ascii=False)
 
 
-def format_slide_options(options: List[Any]) -> List[str]:
+def format_slide_options(options: list[Any]) -> list[str]:
     """Format slide options list into readable bullet points."""
     formatted = []
     for idx, opt in enumerate(options, start=1):
@@ -145,10 +145,10 @@ def format_slide_options(options: List[Any]) -> List[str]:
 
 
 def print_markdown_summary(
-    detail: Dict[str, Any],
-    slides: List[Dict[str, Any]],
+    detail: dict[str, Any],
+    slides: list[dict[str, Any]],
     meta_only: bool = False,
-    filtered_indices: Optional[List[int]] = None,
+    filtered_indices: list[int] | None = None,
 ) -> None:
     """Print clean formatted Markdown summary for presentation metadata and slides."""
     pres_id = detail.get("id") or detail.get("_id") or detail.get("presentationId") or "N/A"
@@ -287,7 +287,7 @@ def main():
         else:
             print(f"# Slide Canvas Content (Slide ID: {args.slide_id})")
             if dsl_map.get(str(args.slide_id)):
-                print("```dsl\n{}\n```".format(dsl_map[str(args.slide_id)]))
+                print(f"```dsl\n{dsl_map[str(args.slide_id)]}\n```")
             else:
                 print(format_canvas_blocks(canvas_data))
         return

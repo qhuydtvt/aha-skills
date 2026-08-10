@@ -121,7 +121,7 @@ def insert_slide_element(
         res = client.get(SLIDE_ATTRIBUTES_PATH, params={"slideIds": str(slide_id)})
         if isinstance(res, list):
             for item in res:
-                if str(item.get("slideId")) == str(slide_id) or len(res) == 1:
+                if (str(item.get("slideId")) == str(slide_id) or len(res) == 1) and item.get("type") == "dsl":
                     attrs = item.get("attributes")
                     if isinstance(attrs, str):
                         existing_dsl = attrs
