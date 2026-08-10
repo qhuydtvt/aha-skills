@@ -140,6 +140,15 @@
     - `python3 scripts/list_slide_layouts.py --category Compare` — filters layout templates by category
     - `python3 scripts/list_slide_layouts.py -p 9828288` — extracts layout DSLs from live presentation
 
+- **[`scripts/apply_slide_layout.py`](apply_slide_layout.py)**:
+  - **Purpose**: Applies vendor-independent layout presets or layout DSL templates to live slides on AhaSlides. Supports 4 layout sources (built-in preset `-l`, live slide `-s`, public template ID `-t`, local DSL file `-f`), automatic element ID scoping using target slide order or custom prefix, placeholder content mapping (`-m KEY=VALUE`), content preservation from existing target slides (`--preserve-content`), dry-run preview (`--dry-run`), and post-update visual linting (`--lint`).
+  - **Usage**: `python3 scripts/apply_slide_layout.py <slide_id> [-l LAYOUT_KEY] [-s SOURCE_SLIDE_ID] [-t TEMPLATE_ID] [-f DSL_FILE] [-m KEY=VALUE ...] [--preserve-content] [--prefix PREFIX] [--keep-orig-ids] [--lint] [--force] [--dry-run] [--json]`
+  - **Examples**:
+    - `python3 scripts/apply_slide_layout.py 157015776 -l intro_caption_hero --dry-run`
+    - `python3 scripts/apply_slide_layout.py 157015776 -l intro_caption_hero --preserve-content -m caption_text="01 · HISTORY" --lint`
+    - `python3 scripts/apply_slide_layout.py 157015776 -s 156934061 --prefix custom_ --dry-run`
+    - `python3 scripts/apply_slide_layout.py 157015776 -f templates/custom.dsl -m title_text="New Title" --json`
+
 - **[`scripts/upload_image.py`](upload_image.py)**:
   - **Purpose**: Uploads a local image file or HTTP/HTTPS image URL to AhaSlides CDN via `POST /api/upload/image/` and returns the official signed CDN URL (`https://assets-cdn.ahaslides.com/...`).
   - **Usage**: `python3 scripts/upload_image.py <image_source> [-a ACCESS_CODE] [--json]`
