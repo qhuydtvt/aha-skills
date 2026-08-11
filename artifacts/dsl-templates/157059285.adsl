@@ -1,0 +1,12 @@
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=s12title at=top-left width=1120 height=88 offsetX=80 offsetY=80 preset=title align=left color=text fontSize=56
+Fun
+:::
+
+:::text id=s12body at=top-left width=1120 height=400 offsetX=80 offsetY=200 preset=body align=left color=text
+Slide content for Fun freestyle layout.
+:::
