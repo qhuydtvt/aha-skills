@@ -153,6 +153,89 @@ version: 1
 {step3_detail}
 :::
 """
+    },
+    "title_body": {
+        "name": "05 Title and Body",
+        "category": "Content",
+        "description": "Standard slide with a top title and a large body text area.",
+        "elements_count": 2,
+        "dsl_template": """---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id={id_title} at=top-left width=1120 height=88 offsetX=80 offsetY=80 preset=title align=left color=text fontSize=56
+{title_text}
+:::
+
+:::text id={id_body} at=top-left width=1120 height=400 offsetX=80 offsetY=200 preset=body align=left color=text
+{body_text}
+:::
+"""
+    },
+    "hero_image": {
+        "name": "06 Hero Image Left, Title & Body Right",
+        "category": "Content",
+        "description": "Left half is an image, right half is title and body.",
+        "elements_count": 3,
+        "dsl_template": """---
+content-v2: 1280x720
+version: 1
+---
+
+:::image id={id_image} at=center offsetX=-300 offsetY=0 width=500 height=500 objectFit=cover
+:::
+
+:::text id={id_title} at=top-left width=500 height=88 offsetX=680 offsetY=120 preset=title align=left color=text fontSize=48
+{title_text}
+:::
+
+:::text id={id_body} at=top-left width=500 height=300 offsetX=680 offsetY=240 preset=body align=left color=text
+{body_text}
+:::
+"""
+    },
+    "two_column_text": {
+        "name": "07 Two Column Text",
+        "category": "Content",
+        "description": "Title centered, with two columns of text.",
+        "elements_count": 3,
+        "dsl_template": """---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id={id_title} at=center width=85% offsetX=0 offsetY=-240 preset=title color=text
+{title_text}
+:::
+
+:::text id={id_left} at=center width=40% offsetX=-280 offsetY=0 preset=body color=text align=left
+{left_text}
+:::
+
+:::text id={id_right} at=center width=40% offsetX=280 offsetY=0 preset=body color=text align=left
+{right_text}
+:::
+"""
+    },
+    "quote": {
+        "name": "08 Big Quote",
+        "category": "Visual",
+        "description": "Large quote with author attribution.",
+        "elements_count": 2,
+        "dsl_template": """---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id={id_quote} at=center width=800 height=300 offsetX=0 offsetY=-50 preset=title align=center color=text fontSize=48 fontStyle=italic
+"{quote_text}"
+:::
+
+:::text id={id_author} at=center width=400 height=60 offsetX=0 offsetY=150 preset=body align=center color=muted fontSize=24
+— {author_text}
+:::
+"""
     }
 }
 
@@ -268,6 +351,17 @@ def main():
         help="Filter layouts by category (e.g. Cover, Section, Content, Statistics, Visual, Compare, Data, Game, Quiz, Vote).",
     )
     parser.add_argument(
+        "--type",
+        "-t",
+        dest="slide_type",
+        help="Filter layouts by slide type (e.g. content-v2, freestyle-v2, wordCloud).",
+    )
+    parser.add_argument(
+        "--sub-categories",
+        action="store_true",
+        help="Show built-in presets alongside API layouts grouped by type and category in one unified view.",
+    )
+    parser.add_argument(
         "-p",
         "--presentation-id",
         dest="presentation_id",
@@ -323,6 +417,10 @@ def main():
             filtered = [l for l in layouts if str(args.category).lower() in str(l.get("category")).lower()]
             layouts = filtered
 
+        if args.slide_type:
+            filtered = [l for l in layouts if str(args.slide_type).lower() == str(l.get("type")).lower()]
+            layouts = filtered
+
         if args.json:
             print(json.dumps(layouts, indent=2))
             return
@@ -331,9 +429,11 @@ def main():
         print(f"Total Layouts Matched: {len(layouts)}")
         if args.category:
             print(f"Category Filter: '{args.category}'")
+        if args.slide_type:
+            print(f"Type Filter: '{args.slide_type}'")
         print()
         for idx, item in enumerate(layouts):
-            print(f"{idx + 1:03d}. [{item.get('category')}] {item.get('name')} (Source: {item.get('source')})")
+            print(f"{idx + 1:03d}. [{item.get('type')}] [{item.get('category')}] {item.get('name')} (Source: {item.get('source')})")
         return
 
     # Case 2: Extract from Live Presentation
@@ -380,6 +480,49 @@ def main():
         print(f"Description: {preset['description']}")
         print(f"Elements:    {preset['elements_count']}\n")
         print("DSL Template:\n" + preset["dsl_template"])
+        return
+
+    # Case 4: Sub-categories
+    if args.sub_categories:
+        try:
+            client = AhaApiClient()
+            layouts = fetch_all_167_layouts(client=client)
+        except Exception as e:
+            print(f"Error fetching layout catalog: {e}", file=sys.stderr)
+            sys.exit(1)
+            
+        # Add built-ins
+        for key, preset in BUILTIN_LAYOUT_PRESETS.items():
+            layouts.append({
+                "id": key,
+                "name": preset["name"],
+                "type": "content-v2",
+                "category": preset["category"],
+                "source": "builtin-presets",
+            })
+            
+        # Group by type then category
+        grouped: dict[str, dict[str, list]] = {}
+        for l in layouts:
+            t = str(l.get("type", "Unknown"))
+            c = str(l.get("category", "Uncategorized"))
+            if t not in grouped:
+                grouped[t] = {}
+            if c not in grouped[t]:
+                grouped[t][c] = []
+            grouped[t][c].append(l)
+            
+        if args.json:
+            print(json.dumps(grouped, indent=2))
+            return
+            
+        print("=== AhaSlides Layouts by Type & Category ===")
+        for t in sorted(grouped.keys()):
+            print(f"\nType: {t}")
+            for c in sorted(grouped[t].keys()):
+                print(f"  Category: {c} ({len(grouped[t][c])})")
+                for l in sorted(grouped[t][c], key=lambda x: x["name"]):
+                    print(f"    - {l['name']} (ID: {l['id']}, Source: {l['source']})")
         return
 
     # Default Case: List Builtin Presets
