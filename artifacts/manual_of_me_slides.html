@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Manual of Huy — Interactive Slide Deck</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg-dark: #0F172A;
+      --card-bg: rgba(30, 41, 59, 0.65);
+      --card-hover: rgba(30, 41, 59, 0.85);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --card-border-glow: rgba(56, 189, 248, 0.3);
+      --accent-teal: #38BDF8;
+      --accent-green: #10B981;
+      --accent-purple: #8B5CF6;
+      --accent-amber: #F59E0B;
+      --accent-rose: #F43F5E;
+      --text-main: #F8FAFC;
+      --text-sub: #94A3B8;
+      --text-dim: #64748B;
+      --font-heading: 'Outfit', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --transition-speed: 0.4s;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      min-height: 100vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    /* Background Glow Orbs */
+    .bg-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(100px);
+      z-index: 0;
+      opacity: 0.35;
+      pointer-events: none;
+      animation: pulse-orb 10s ease-in-out infinite alternate;
+    }
+    .orb-1 {
+      width: 450px;
+      height: 450px;
+      background: radial-gradient(circle, var(--accent-teal), transparent);
+      top: -100px;
+      left: -100px;
+    }
+    .orb-2 {
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, var(--accent-purple), transparent);
+      bottom: -150px;
+      right: -100px;
+      animation-delay: -5s;
+    }
+    .orb-3 {
+      width: 350px;
+      height: 350px;
+      background: radial-gradient(circle, var(--accent-green), transparent);
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0.15;
+    }
+
+    @keyframes pulse-orb {
+      0% { transform: scale(1) translate(0, 0); opacity: 0.25; }
+      100% { transform: scale(1.15) translate(20px, -20px); opacity: 0.4; }
+    }
+
+    /* Top Navigation Header */
+    header {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 2.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      background: rgba(15, 23, 42, 0.7);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--text-main);
+      letter-spacing: -0.02em;
+    }
+
+    .brand-badge {
+      background: linear-gradient(135deg, var(--accent-teal), var(--accent-green));
+      color: #0F172A;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 0.2rem 0.6rem;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .header-controls {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    .key-hint {
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--card-border);
+      padding: 0.3rem 0.75rem;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .kbd {
+      background: rgba(255, 255, 255, 0.15);
+      color: var(--text-main);
+      padding: 0.1rem 0.35rem;
+      border-radius: 4px;
+      font-size: 0.7rem;
+      font-weight: 600;
+    }
+
+    .icon-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--card-border);
+      color: var(--text-sub);
+      width: 38px;
+      height: 38px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .icon-btn:hover {
+      background: rgba(56, 189, 248, 0.15);
+      border-color: var(--accent-teal);
+      color: var(--accent-teal);
+      transform: translateY(-1px);
+    }
+
+    /* Slide Deck Main Container */
+    main {
+      position: relative;
+      z-index: 5;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 2.5rem;
+    }
+
+    .slides-wrapper {
+      width: 100%;
+      max-width: 1100px;
+      height: 620px;
+      position: relative;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      visibility: hidden;
+      transform: scale(0.96) translateY(15px);
+      transition: opacity var(--transition-speed) ease, transform var(--transition-speed) ease, visibility var(--transition-speed);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: var(--card-bg);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      padding: 3rem 3.5rem;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+
+    .slide.active {
+      opacity: 1;
+      visibility: visible;
+      transform: scale(1) translateY(0);
+    }
+
+    /* Typography & Core UI Elements */
+    .slide-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--accent-teal);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    .slide-tag::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: var(--accent-teal);
+      box-shadow: 0 0 10px var(--accent-teal);
+    }
+
+    h1 {
+      font-family: var(--font-heading);
+      font-size: 3.5rem;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #FFFFFF 30%, var(--accent-teal) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    h2 {
+      font-family: var(--font-heading);
+      font-size: 2.25rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+      color: var(--text-main);
+    }
+
+    .slide-subtitle {
+      font-size: 1.15rem;
+      color: var(--text-sub);
+      line-height: 1.6;
+      max-width: 800px;
+      margin-bottom: 2rem;
+    }
+
+    /* Card Grids */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+
+    .content-card {
+      background: rgba(15, 23, 42, 0.4);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 1.5rem;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .content-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--accent-teal), transparent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .content-card:hover {
+      background: rgba(15, 23, 42, 0.65);
+      border-color: var(--card-border-glow);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .content-card:hover::before {
+      opacity: 1;
+    }
+
+    .card-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      color: var(--accent-teal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+    }
+
+    .card-title {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 0.5rem;
+    }
+
+    .card-text {
+      font-size: 0.925rem;
+      color: var(--text-sub);
+      line-height: 1.55;
+    }
+
+    /* Specific Component Styles */
+    /* Slide 1 Hero */
+    .hero-mission {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      color: var(--accent-green);
+      padding: 0.6rem 1.25rem;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-top: 1.5rem;
+    }
+
+    .persona-badge {
+      display: inline-block;
+      margin-top: 0.5rem;
+      color: var(--accent-teal);
+      font-weight: 500;
+    }
+
+    /* Slide 4 Pipeline */
+    .pipeline-container {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .pipeline-step {
+      flex: 1;
+      background: rgba(15, 23, 42, 0.5);
+      border: 1px solid var(--card-border);
+      border-radius: 18px;
+      padding: 1.75rem 1.5rem;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .pipeline-step:hover {
+      border-color: var(--accent-teal);
+      transform: translateY(-4px);
+    }
+
+    .step-number {
+      position: absolute;
+      top: -14px;
+      left: 20px;
+      background: var(--accent-teal);
+      color: #0F172A;
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 0.85rem;
+      padding: 0.15rem 0.6rem;
+      border-radius: 10px;
+    }
+
+    .pipeline-arrow {
+      color: var(--accent-teal);
+      font-size: 1.5rem;
+      opacity: 0.6;
+    }
+
+    /* Slide 7 Bug Cards */
+    .bug-card {
+      background: rgba(15, 23, 42, 0.5);
+      border-left: 4px solid var(--accent-amber);
+      border-radius: 12px;
+      padding: 1.2rem 1.4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .bug-header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--accent-amber);
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .bug-title {
+      font-weight: 600;
+      color: var(--text-main);
+      font-size: 1rem;
+    }
+
+    .bug-fix {
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+      border-radius: 8px;
+      padding: 0.6rem 0.8rem;
+      margin-top: 0.4rem;
+      font-size: 0.875rem;
+      color: #A7F3D0;
+    }
+    .bug-fix strong {
+      color: var(--accent-green);
+    }
+
+    /* Slide 8 Rules vs Peeves */
+    .split-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .rule-box {
+      border-radius: 16px;
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .rule-box.peeves {
+      background: rgba(244, 63, 94, 0.06);
+      border: 1px solid rgba(244, 63, 94, 0.2);
+    }
+
+    .rule-box.golden {
+      background: rgba(16, 185, 129, 0.06);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+    }
+
+    .rule-box-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-family: var(--font-heading);
+      font-size: 1.35rem;
+      font-weight: 700;
+    }
+
+    .peeves .rule-box-header { color: var(--accent-rose); }
+    .golden .rule-box-header { color: var(--accent-green); }
+
+    .rule-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    .rule-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 0.975rem;
+      color: var(--text-main);
+      line-height: 1.5;
+    }
+
+    .rule-icon {
+      margin-top: 0.15rem;
+      flex-shrink: 0;
+    }
+
+    /* Bottom Navigation Controls */
+    footer {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 2.5rem;
+      background: rgba(15, 23, 42, 0.7);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+    }
+
+    .nav-counter {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--text-sub);
+    }
+    .nav-counter span {
+      color: var(--accent-teal);
+    }
+
+    .dots-container {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.15);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .dot:hover {
+      background: rgba(56, 189, 248, 0.5);
+    }
+
+    .dot.active {
+      width: 28px;
+      border-radius: 12px;
+      background: var(--accent-teal);
+      box-shadow: 0 0 10px var(--accent-teal);
+    }
+
+    .nav-buttons {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .btn {
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 0.6rem 1.4rem;
+      border-radius: 10px;
+      border: 1px solid var(--card-border);
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-main);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.2s ease;
+    }
+
+    .btn:hover:not(:disabled) {
+      background: rgba(56, 189, 248, 0.15);
+      border-color: var(--accent-teal);
+      color: var(--accent-teal);
+      transform: translateY(-1px);
+    }
+
+    .btn:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+
+    .btn-primary {
+      background: var(--accent-teal);
+      color: #0F172A;
+      border: none;
+      font-weight: 700;
+    }
+    .btn-primary:hover:not(:disabled) {
+      background: #7DD3FC;
+      color: #0F172A;
+      box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+    }
+
+    /* Slide Progress Bar */
+    .progress-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent-teal), var(--accent-green));
+      width: 11.11%;
+      transition: width 0.3s ease;
+      z-index: 20;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 900px) {
+      h1 { font-size: 2.5rem; }
+      h2 { font-size: 1.75rem; }
+      .slides-wrapper { height: 720px; }
+      .slide { padding: 2rem; }
+      .grid-3, .split-container { grid-template-columns: 1fr; }
+      .pipeline-container { flex-direction: column; }
+      .pipeline-arrow { transform: rotate(90deg); }
+      .key-hint { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Progress Bar -->
+  <div class="progress-bar" id="progressBar"></div>
+
+  <!-- Ambient Glow Orbs -->
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+  <div class="bg-orb orb-3"></div>
+
+  <!-- Header -->
+  <header>
+    <div class="brand">
+      <span>Manual of Huy</span>
+      <span class="brand-badge">v1.0</span>
+    </div>
+    <div class="header-controls">
+      <div class="key-hint">
+        Use <span class="kbd">←</span> <span class="kbd">→</span> or <span class="kbd">Space</span> to navigate
+      </div>
+      <button class="icon-btn" id="fullscreenBtn" title="Toggle Fullscreen">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Presentation Slides -->
+  <main>
+    <div class="slides-wrapper">
+
+      <!-- SLIDE 1: Title & Persona -->
+      <section class="slide active" data-slide="1">
+        <div class="slide-tag">Personal User Manual</div>
+        <h1>A Manual of Huy</h1>
+        <p class="slide-subtitle">
+          A clear, practical guide on how to work, communicate, and collaborate effectively with me. Built to foster transparency and high-bandwidth teamwork.
+        </p>
+        <div style="margin-top: 1rem;">
+          <div class="persona-badge">HuyNQ • Product & Engineering Leader</div>
+          <div>
+            <div class="hero-mission">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+              </svg>
+              Mission: "Build useful things"
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 2: About Me & Core Values -->
+      <section class="slide" data-slide="2">
+        <div class="slide-tag">Foundation</div>
+        <h2>About Me & Core Values</h2>
+        <p class="slide-subtitle">
+          Driven by a desire to craft high-impact solutions with clarity and high standards. Here are the core values that guide my decisions and work ethic:
+        </p>
+        <div class="grid-3">
+          <div class="content-card">
+            <div class="card-icon">🛡️</div>
+            <div class="card-title">Integrity</div>
+            <div class="card-text">
+              Uncompromising honesty and accountability in technical architecture, commitments, and team interactions.
+            </div>
+          </div>
+          <div class="content-card">
+            <div class="card-icon">⚡</div>
+            <div class="card-title">Winning Mindset</div>
+            <div class="card-text">
+              High standards of execution, ambitious problem-solving, and a focus on delivering tangible product impact.
+            </div>
+          </div>
+          <div class="content-card">
+            <div class="card-icon">🚀</div>
+            <div class="card-title">Continuous Improvement</div>
+            <div class="card-text">
+              Relentlessly refining processes, adopting better technical practices, and growing from every iteration.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 3: Communication Channels -->
+      <section class="slide" data-slide="3">
+        <div class="slide-tag">Collaboration</div>
+        <h2>Communication Channels & Boundaries</h2>
+        <p class="slide-subtitle">
+          Selecting the right medium ensures efficient alignment while respecting energy and context.
+        </p>
+        <div class="grid-3" style="margin-bottom: 1.5rem;">
+          <div class="content-card">
+            <div class="card-icon">💬</div>
+            <div class="card-title">Slack / Teams (Chat)</div>
+            <div class="card-text">
+              Best for non-mentally taxing topics, quick info exchanges, status updates, and lightweight syncs.
+            </div>
+          </div>
+          <div class="content-card">
+            <div class="card-icon">🗣️</div>
+            <div class="card-title">Face-to-Face / Call</div>
+            <div class="card-text">
+              Best for complex, high-nuance, or easily misunderstood topics requiring real-time dialogue.
+            </div>
+          </div>
+          <div class="content-card">
+            <div class="card-icon">✉️</div>
+            <div class="card-title">Email</div>
+            <div class="card-text">
+              Best for official decisions, formal documentation, or third-party / external communications.
+            </div>
+          </div>
+        </div>
+        <div class="grid-2">
+          <div style="background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.2); border-radius: 12px; padding: 1rem 1.25rem;">
+            <strong style="color: var(--accent-teal);">📌 Context Upfront:</strong> Prefer context provided upfront, unless mutual understanding is already established.
+          </div>
+          <div style="background: rgba(139, 92, 246, 0.08); border: 1px solid rgba(139, 92, 246, 0.2); border-radius: 12px; padding: 1rem 1.25rem;">
+            <strong style="color: var(--accent-purple);">🎯 Single-Threaded:</strong> Can handle only one live face-to-face or call conversation at a time for full focus.
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 4: Communication 3-Step Framework -->
+      <section class="slide" data-slide="4">
+        <div class="slide-tag">Framework</div>
+        <h2>Communication 3-Step Structure</h2>
+        <p class="slide-subtitle">
+          For most proposals, discussions, or issue escalations, it is immensely helpful to structure information into 3 distinct steps:
+        </p>
+        <div class="pipeline-container">
+          <div class="pipeline-step">
+            <div class="step-number">STEP 1</div>
+            <div class="card-title" style="margin-top: 0.5rem; color: var(--accent-teal);">Context</div>
+            <div class="card-text">
+              State facts only. Provide the background and current situation without subjective assumptions or premature conclusions.
+            </div>
+          </div>
+          <div class="pipeline-arrow">➔</div>
+          <div class="pipeline-step">
+            <div class="step-number">STEP 2</div>
+            <div class="card-title" style="margin-top: 0.5rem; color: var(--accent-amber);">Problem Definition</div>
+            <div class="card-text">
+              Clearly define the core problem, why it matters, and its exact impact on the business, product, or team.
+            </div>
+          </div>
+          <div class="pipeline-arrow">➔</div>
+          <div class="pipeline-step">
+            <div class="step-number">STEP 3</div>
+            <div class="card-title" style="margin-top: 0.5rem; color: var(--accent-green);">Proposed Solutions</div>
+            <div class="card-text">
+              Offer concrete, actionable solutions or options (if available) with pros/cons to expedite decision-making.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 5: How I Receive Feedback -->
+      <section class="slide" data-slide="5">
+        <div class="slide-tag">Growth & Alignment</div>
+        <h2>How I Receive Feedback</h2>
+        <p class="slide-subtitle">
+          Feedback is vital for growth. I welcome direct, constructive feedback to continuously align and improve.
+        </p>
+        <div style="background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.25); border-radius: 14px; padding: 1rem 1.5rem; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem;">
+          <div style="font-size: 1.5rem;">🤝</div>
+          <div>
+            <strong style="color: var(--accent-green);">Preferred Channel:</strong> Face-to-Face (whether in private or public settings — both work great!).
+          </div>
+        </div>
+        <div class="grid-3">
+          <div class="content-card">
+            <div class="card-icon" style="color: var(--accent-teal); border-color: rgba(56, 189, 248, 0.3);">1</div>
+            <div class="card-title">Feedback Context</div>
+            <div class="card-text">
+              Share the specific situation, event, or observation that triggered the feedback.
+            </div>
+          </div>
+          <div class="content-card">
+            <div class="card-icon" style="color: var(--accent-amber); border-color: rgba(245, 158, 11, 0.3);">2</div>
+            <div class="card-title">Shared Understanding</div>
+            <div class="card-text">
+              Establish how the behavior impacts the business, product quality, or team dynamics.
+            </div>
+          </div>
+          <div class="content-card">
+            <div class="card-icon" style="color: var(--accent-green); border-color: rgba(16, 185, 129, 0.3);">3</div>
+            <div class="card-title">Path Forward</div>
+            <div class="card-text">
+              (Optional) Propose actionable solutions or suggestions for mutual improvement going forward.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 6: Mindset Quirks & Default Behaviors -->
+      <section class="slide" data-slide="6">
+        <div class="slide-tag">Operating System</div>
+        <h2>Mindset Quirks & Default Behaviors</h2>
+        <p class="slide-subtitle">
+          Understanding my default working tendencies helps make our interactions smooth and predictable.
+        </p>
+        <div class="grid-4">
+          <div class="content-card">
+            <div class="card-title" style="color: var(--accent-teal);">🗣️ Out-Loud Brainstorming</div>
+            <div class="card-text">
+              I brainstorm and explore multiple ideas out loud before honing in on the final solution. Don't take early draft thoughts as final decisions.
+            </div>
+          </div>
+          <div class="content-card">
+            <div class="card-title" style="color: var(--accent-purple);">🧩 Coherence-Driven</div>
+            <div class="card-text">
+              I get easily irritated when logical gaps exist. I feel a strong need to sort out incoherence before effectively moving on to execution.
+            </div>
+          </div>
+          <div class="content-card">
+            <div class="card-title" style="color: var(--accent-amber);">🔋 Topic-Selective Energy</div>
+            <div class="card-text">
+              I operate with peak energy when discussing product architecture & engineering topics; energy levels naturally vary in other areas.
+            </div>
+          </div>
+          <div class="content-card">
+            <div class="card-title" style="color: var(--accent-green);">🛠️ Build & Discover</div>
+            <div class="card-text">
+              I love building prototypes and running discovery in parallel, rather than waiting passively for fully baked requirements.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 7: Known Bugs & Support Guide -->
+      <section class="slide" data-slide="7">
+        <div class="slide-tag">Debugging Guide</div>
+        <h2>Known Bugs & How to Handle Them</h2>
+        <p class="slide-subtitle">
+          Like any complex system, I have edge cases. Here are known behaviors and how you can support me:
+        </p>
+        <div class="grid-4">
+          <div class="bug-card">
+            <div class="bug-header">🐛 Bug #1: Question Overload</div>
+            <div class="bug-title">Asking too many questions before committing</div>
+            <div class="bug-fix">
+              <strong>Support:</strong> Provide clear context upfront and explain relevance to the business, product, or team.
+            </div>
+          </div>
+          <div class="bug-card">
+            <div class="bug-header">🐛 Bug #2: Slow Energy Recovery</div>
+            <div class="bug-title">Slow response time when running on low energy</div>
+            <div class="bug-fix">
+              <strong>Support:</strong> Give me time to recover. Feel free to explicitly nudge if it's an urgent matter!
+            </div>
+          </div>
+          <div class="bug-card">
+            <div class="bug-header">🐛 Bug #3: Excitement Incoherence</div>
+            <div class="bug-title">Becoming incoherent when over-excited</div>
+            <div class="bug-fix">
+              <strong>Support:</strong> Give me a moment for ideas to sink in, and echo back what you hear to anchor alignment.
+            </div>
+          </div>
+          <div class="bug-card">
+            <div class="bug-header">🐛 Bug #4: Over-Pushing</div>
+            <div class="bug-title">Pushing myself and others too hard</div>
+            <div class="bug-fix">
+              <strong>Support:</strong> Call it out! Explain if it's ineffective or if energy is better redirected elsewhere.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 8: Rules of Engagement -->
+      <section class="slide" data-slide="8">
+        <div class="slide-tag">Working Contract</div>
+        <h2>Rules of Engagement</h2>
+        <p class="slide-subtitle">
+          Clear boundaries and golden rules to maintain high trust, efficiency, and mutual respect.
+        </p>
+        <div class="split-container">
+          <div class="rule-box peeves">
+            <div class="rule-box-header">
+              <span>🚫</span> Pet Peeves
+            </div>
+            <ul class="rule-list">
+              <li class="rule-item">
+                <span class="rule-icon">❌</span>
+                <span>Unscheduled synchronous communication for non-urgent matters that break deep focus.</span>
+              </li>
+              <li class="rule-item">
+                <span class="rule-icon">❌</span>
+                <span>Refusal or dismissal of ideas/proposals without giving clear reasoning or context.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="rule-box golden">
+            <div class="rule-box-header">
+              <span>✨</span> Golden Rules
+            </div>
+            <ul class="rule-list">
+              <li class="rule-item">
+                <span class="rule-icon">✅</span>
+                <span>Notify me beforehand for synchronous check-ins to allow context switching.</span>
+              </li>
+              <li class="rule-item">
+                <span class="rule-icon">✅</span>
+                <span>Provide clear reasons when refusing a proposal, and optionally suggest alternative paths.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 9: Team Reflection & Q&A -->
+      <section class="slide" data-slide="9">
+        <div class="slide-tag">Next Steps</div>
+        <h1>Let's Work Together!</h1>
+        <p class="slide-subtitle">
+          Thank you for taking the time to read my manual. I look forward to building great things together with transparency and high energy.
+        </p>
+        <div style="background: rgba(15, 23, 42, 0.6); border: 1px solid var(--card-border); border-radius: 20px; padding: 2rem; margin-top: 1rem; display: flex; flex-direction: column; gap: 1rem; align-items: center; text-align: center;">
+          <div style="font-size: 2.5rem;">🤝💬💡</div>
+          <h3 style="font-family: var(--font-heading); font-size: 1.5rem; color: var(--accent-teal);">Open for Questions & Exchange</h3>
+          <p style="color: var(--text-sub); max-width: 600px;">
+            Have questions about my working style, or want to share your own manual of me? Let's chat and align our collaboration preferences!
+          </p>
+          <div style="display: flex; gap: 1rem; margin-top: 0.5rem;">
+            <button class="btn btn-primary" onclick="goToSlide(1)">Restart Presentation ↺</button>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Navigation Footer -->
+  <footer>
+    <div class="nav-counter">
+      Slide <span id="currentSlideNum">1</span> of <span id="totalSlidesNum">9</span>
+    </div>
+
+    <div class="dots-container" id="dotsContainer">
+      <!-- Generated via JS -->
+    </div>
+
+    <div class="nav-buttons">
+      <button class="btn" id="prevBtn" onclick="prevSlide()">
+        ‹ Previous
+      </button>
+      <button class="btn btn-primary" id="nextBtn" onclick="nextSlide()">
+        Next ›
+      </button>
+    </div>
+  </footer>
+
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+    let currentSlide = 1;
+
+    const currentSlideNumEl = document.getElementById('currentSlideNum');
+    const totalSlidesNumEl = document.getElementById('totalSlidesNum');
+    const progressBar = document.getElementById('progressBar');
+    const dotsContainer = document.getElementById('dotsContainer');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const fullscreenBtn = document.getElementById('fullscreenBtn');
+
+    // Initialize UI
+    totalSlidesNumEl.textContent = totalSlides;
+
+    // Create Dots
+    slides.forEach((_, idx) => {
+      const dot = document.createElement('div');
+      dot.classList.add('dot');
+      if (idx === 0) dot.classList.add('active');
+      dot.addEventListener('click', () => goToSlide(idx + 1));
+      dotsContainer.appendChild(dot);
+    });
+
+    const dots = document.querySelectorAll('.dot');
+
+    function updateSlide() {
+      slides.forEach((slide, idx) => {
+        if (idx + 1 === currentSlide) {
+          slide.classList.add('active');
+        } else {
+          slide.classList.remove('active');
+        }
+      });
+
+      dots.forEach((dot, idx) => {
+        if (idx + 1 === currentSlide) {
+          dot.classList.add('active');
+        } else {
+          dot.classList.remove('active');
+        }
+      });
+
+      currentSlideNumEl.textContent = currentSlide;
+      progressBar.style.width = `${(currentSlide / totalSlides) * 100}%`;
+
+      prevBtn.disabled = currentSlide === 1;
+      nextBtn.disabled = currentSlide === totalSlides;
+    }
+
+    function goToSlide(n) {
+      if (n >= 1 && n <= totalSlides) {
+        currentSlide = n;
+        updateSlide();
+      }
+    }
+
+    function nextSlide() {
+      if (currentSlide < totalSlides) {
+        currentSlide++;
+        updateSlide();
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 1) {
+        currentSlide--;
+        updateSlide();
+      }
+    }
+
+    // Keyboard Navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === 'Space' || e.key === 'PageDown') {
+        e.preventDefault();
+        nextSlide();
+      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+        e.preventDefault();
+        prevSlide();
+      } else if (e.key === 'Home') {
+        e.preventDefault();
+        goToSlide(1);
+      } else if (e.key === 'End') {
+        e.preventDefault();
+        goToSlide(totalSlides);
+      }
+    });
+
+    // Fullscreen Toggle
+    fullscreenBtn.addEventListener('click', () => {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(err => {
+          console.error(`Error attempting to enable fullscreen: ${err.message}`);
+        });
+      } else {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        }
+      }
+    });
+
+    // Initial load
+    updateSlide();
+  </script>
+</body>
+</html>
