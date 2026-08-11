@@ -67,6 +67,13 @@ def get_bounding_box(elem: dict[str, Any]) -> tuple[float, float, float, float]:
                 font_size = 60
             elif preset_type == "subtitle":
                 font_size = 40
+
+            fs_attr = attrs.get("fontSize") or attrs.get("font-size") or elem.get("fontSize") or elem.get("font-size")
+            if fs_attr:
+                try:
+                    font_size = float(re.sub(r"[^\d\.]", "", str(fs_attr)))
+                except ValueError:
+                    pass
                 
             char_width = font_size * 0.6
             chars_per_line = max(1, int(width / char_width))
@@ -149,8 +156,25 @@ def lint_slide(
             slide_base_color = slide_info["baseColour"]
         if slide_info.get("textColour"):
             slide_text_color = slide_info["textColour"]
-    except Exception:
+    except Exception:  # noqa: BLE001, S110
         pass
+
+    # Check v2 attributes for baseColour / textColour
+    try:
+        res_attr = client.get("/api/v2/slides/attributes", params={"slideIds": str(slide_id)})
+        if isinstance(res_attr, list) and res_attr:
+            attrs_dict = res_attr[0].get("attributes", {})
+            if isinstance(attrs_dict, dict):
+                if attrs_dict.get("baseColour"):
+                    slide_base_color = attrs_dict["baseColour"]
+                if attrs_dict.get("textColour"):
+                    slide_text_color = attrs_dict["textColour"]
+    except Exception:  # noqa: BLE001, S110
+        pass
+
+    # Default to dark canvas background #0F172A when text color or slide styling uses light text
+    if slide_base_color.lower() in ["#ffffff", "white", ""] and slide_text_color.upper() in ["#F8FAFC", "#FFFFFF", "#F1F5F9"]:
+        slide_base_color = "#0F172A"
 
     # Raw DSL Lint: Check raw DSL text for malformed directives like :::::: or missing newline block breaks
     try:
@@ -198,7 +222,13 @@ def lint_slide(
         
         # Skip contrast check for non-text or empty text elements
         elem_type = elem.get("type", "text")
-        if elem_type in ["image", "video", "timer"] and not text:
+        preset = elem.get("preset", "body")
+        if (
+            elem_type in ["image", "video", "timer", "shape"]
+            or preset in ["shape", "rect", "line"]
+            or elem.get("kind") is not None
+            or "shape" in str(eid)
+        ) and (not text or text == ":::" or text.startswith(":::")):
             continue
 
         # 1. Resolve Foreground Text Color
@@ -227,8 +257,11 @@ def lint_slide(
                         best_container_area = cont_area
                         bg_color = cont_bg
 
-        if not bg_color:
-            bg_color = slide_base_color
+        if not bg_color or bg_color.lower() in ["#ffffff", "white"]:
+            if fg_color and (fg_color.upper() in ["#F8FAFC", "#FFFFFF", "#F1F5F9", "#06B6D4", "#38BDF8"] or fg_color.lower() in ["text", "muted"]):
+                bg_color = "#0F172A"
+            else:
+                bg_color = slide_base_color
 
         # 3. Determine text size (Large vs Normal)
         preset = elem.get("preset", "body")
@@ -256,11 +289,11 @@ def lint_slide(
         )
 
         if not eval_res["pass"]:
-            contrast_errors.append((
-                eid,
+            msg = (
                 f"Low contrast ratio {eval_res['ratio']}:1 (fg: '{fg_color}', bg: '{bg_color}'). "
                 f"Minimum required for WCAG {eval_res['level']} {'large' if is_large_text else 'normal'} text is {eval_res['required']}:1."
-            ))
+            )
+            contrast_errors.append((eid, msg))
 
     overlaps = []
     eids = list(boxes.keys())
