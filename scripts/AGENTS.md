@@ -132,12 +132,13 @@
 
 - **[`scripts/list_slide_layouts.py`](list_slide_layouts.py)**:
   - **Purpose**: Lists pre-built v2 DSL layout presets and extracts layout DSL templates directly from any live presentation ID.
-  - **Usage**: `python3 scripts/list_slide_layouts.py [--all] [--categories] [-c CATEGORY] [-p PRESENTATION_ID] [-l LAYOUT_KEY] [--json]`
+  - **Usage**: `python3 scripts/list_slide_layouts.py [--all] [--categories] [-c CATEGORY] [-t TYPE] [--sub-categories] [-p PRESENTATION_ID] [-l LAYOUT_KEY] [--json]`
   - **Examples**:
     - `python3 scripts/list_slide_layouts.py` — lists built-in layout presets
+    - `python3 scripts/list_slide_layouts.py --sub-categories` — shows built-in presets and API layouts grouped by type and category
     - `python3 scripts/list_slide_layouts.py --categories` — dynamically extracts and lists all layout categories from the API
     - `python3 scripts/list_slide_layouts.py --all` — fetches all layout templates dynamically from AhaSlides API
-    - `python3 scripts/list_slide_layouts.py --category Compare` — filters layout templates by category
+    - `python3 scripts/list_slide_layouts.py --type content-v2` — filters layout templates by slide type
     - `python3 scripts/list_slide_layouts.py -p 9828288` — extracts layout DSLs from live presentation
 
 - **[`scripts/apply_slide_layout.py`](apply_slide_layout.py)**:
