@@ -42,6 +42,14 @@ All scripts performing HTTP requests to AhaSlides APIs **MUST** use the shared A
 2. **Mandatory Script Documentation Rule**:
    - **SYNCHRONIZATION REQUIREMENT**: Each time a script in `scripts/` is added, edited, or removed, both [`scripts/AGENTS.md`](scripts/AGENTS.md) and [`AGENTS.md`](AGENTS.md) **MUST** be updated to accurately reflect the scripts reality.
 
+## Slide Layout Workflow
+
+1. **Recommended DSL Approach (`.adsl`)**:
+   - The primary and most efficient method to apply complex layouts with customized content to a slide is to use atomic DSL manipulation.
+   - Use `python3 scripts/dump_slide_dsl.py <slide_id>` to export an existing layout to an `.adsl` (AhaSlides DSL) file.
+   - Modify the `.adsl` file's `:::text`, `:::image`, etc., blocks manually or programmatically.
+   - Use `python3 scripts/apply_slide_dsl.py <slide_id> <file.adsl>` to apply the complete layout back, cleanly resolving content positioning and styles in one atomic request.
+
 ## Workflow Documentation Rule
 
 1. **Mandatory Workflow Recording**:
