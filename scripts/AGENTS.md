@@ -131,14 +131,27 @@
     - `python3 scripts/verify_presentation_content.py 9828288 artifacts/slide-plans/manual_of_me/slides_content.json --json`
 
 - **[`scripts/list_slide_layouts.py`](list_slide_layouts.py)**:
-  - **Purpose**: Lists pre-built v2 DSL layout presets and extracts layout DSL templates directly from any live presentation ID.
-  - **Usage**: `python3 scripts/list_slide_layouts.py [--all] [--categories] [-c CATEGORY] [-t TYPE] [--sub-categories] [-p PRESENTATION_ID] [-l LAYOUT_KEY] [--json]`
+  - **Purpose**: Lists pre-built v2 DSL layout presets (`content-v2`) and fetches/browses the full freestyle-v2 public templates library (128 layouts) grouped by category (Fun, Work, School, Holidays, …). Supports DSL inspection from live presentations and fetching raw canvas-blocks DSL from any freestyle-v2 template via its `canvasBlocksUrl`. Includes alias-aware `--type` filtering (`freestyle-v2` ↔ `freestyle`) and `--limit` to cap output.
+  - **Usage**: `python3 scripts/list_slide_layouts.py [--all] [--categories] [-c CATEGORY] [-t TYPE] [--sub-categories] [--fetch-dsl TEMPLATE_ID] [-n LIMIT] [-p PRESENTATION_ID] [-l LAYOUT_KEY] [--json]`
+  - **Flags**:
+    - `--all` / `-a`: Fetch all layout templates (128 freestyle-v2 + 8 built-in content-v2 + marketplace interactive)
+    - `--sub-categories`: Grouped view — content-v2 items listed individually; large types (e.g. freestyle-v2) show compact category previews; add `--all` to expand everything
+    - `--fetch-dsl TEMPLATE_ID`: Download and print raw DSL from a freestyle-v2 public template's `canvasBlocksUrl`
+    - `--type` / `-t TYPE`: Filter by slide type; `freestyle-v2` and `freestyle` are treated as aliases
+    - `--limit` / `-n N`: Cap list output to N items
+    - `--categories`: Dynamically list all unique categories with counts
+    - `-c CATEGORY`: Filter by category substring (e.g. `Fun`, `Work`, `Content`)
+    - `-p PRESENTATION_ID`: Extract layout DSLs from a live presentation
+    - `-l LAYOUT_KEY`: Inspect a specific built-in preset and print its DSL template
   - **Examples**:
-    - `python3 scripts/list_slide_layouts.py` — lists built-in layout presets
-    - `python3 scripts/list_slide_layouts.py --sub-categories` — shows built-in presets and API layouts grouped by type and category
+    - `python3 scripts/list_slide_layouts.py` — lists built-in content-v2 presets
+    - `python3 scripts/list_slide_layouts.py --sub-categories` — grouped view with compact freestyle-v2 category previews
+    - `python3 scripts/list_slide_layouts.py --all --sub-categories` — full grouped view with every item listed
     - `python3 scripts/list_slide_layouts.py --categories` — dynamically extracts and lists all layout categories from the API
-    - `python3 scripts/list_slide_layouts.py --all` — fetches all layout templates dynamically from AhaSlides API
-    - `python3 scripts/list_slide_layouts.py --type content-v2` — filters layout templates by slide type
+    - `python3 scripts/list_slide_layouts.py --all` — fetches all layout templates from AhaSlides API
+    - `python3 scripts/list_slide_layouts.py --type content-v2` — filters to built-in content-v2 presets
+    - `python3 scripts/list_slide_layouts.py --type freestyle-v2 --limit 20` — first 20 freestyle-v2 templates
+    - `python3 scripts/list_slide_layouts.py --fetch-dsl 12345` — fetch raw DSL for freestyle-v2 template #12345
     - `python3 scripts/list_slide_layouts.py -p 9828288` — extracts layout DSLs from live presentation
 
 - **[`scripts/apply_slide_layout.py`](apply_slide_layout.py)**:

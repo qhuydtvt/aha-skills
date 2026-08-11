@@ -2,13 +2,20 @@
 """Script to list and inspect slide layout templates and v2 DSL structures.
 
 Supports:
-1. Listing pre-built v2 DSL layout presets (e.g., intro_caption_hero, grid_3cards, split_matrix_2col, process_flow_3step).
-2. Fetching the complete 167 layouts catalog from AhaSlides API (matching the 167 Layouts modal UI).
-3. Extracting layout DSL templates directly from any live presentation ID.
+1. Listing pre-built v2 DSL layout presets (content-v2: intro_caption_hero, grid_3cards, etc.).
+2. Fetching and browsing the full freestyle-v2 public templates library (128 layouts) grouped by
+   category (Fun, Work, School, Holidays, …) via --sub-categories or --type freestyle-v2.
+3. Fetching raw DSL/canvas-blocks from any freestyle-v2 public template via --fetch-dsl.
+4. Extracting layout DSL templates directly from any live presentation ID.
 
 Usage:
     python3 scripts/list_slide_layouts.py
-    python3 scripts/list_slide_layouts.py --all-167
+    python3 scripts/list_slide_layouts.py --all
+    python3 scripts/list_slide_layouts.py --type content-v2
+    python3 scripts/list_slide_layouts.py --type freestyle-v2 --limit 20
+    python3 scripts/list_slide_layouts.py --sub-categories
+    python3 scripts/list_slide_layouts.py --all --sub-categories
+    python3 scripts/list_slide_layouts.py --fetch-dsl <template_id>
     python3 scripts/list_slide_layouts.py --category Content
     python3 scripts/list_slide_layouts.py -p <presentation_id>
     python3 scripts/list_slide_layouts.py --layout intro_caption_hero
@@ -18,6 +25,7 @@ Usage:
 import argparse
 import json
 import sys
+import urllib.request
 from pathlib import Path
 from typing import Any
 
@@ -263,6 +271,7 @@ def fetch_all_167_layouts(client: AhaApiClient | None = None) -> list[dict[str, 
                     "type": "freestyle-v2",
                     "category": cat,
                     "source": "public-templates",
+                    "canvas_blocks_url": item.get("canvasBlocksUrl"),
                     "thumbnail": item.get("contentTemplateThumbnail") or (item.get("backgroundImage", {}).get("thumbnail") if isinstance(item.get("backgroundImage"), dict) else None),
                 })
     except Exception as e:  # noqa: BLE001
@@ -328,6 +337,27 @@ def extract_layouts_from_presentation(presentation_id: str, client: AhaApiClient
     return extracted
 
 
+def fetch_freestyle_dsl(template_id: str, client: AhaApiClient | None = None) -> str:
+    """Fetch raw DSL/canvas-blocks for a freestyle-v2 public template by its ID.
+
+    Looks up the template in /api/slide/public-templates, resolves its
+    canvasBlocksUrl, and returns the raw DSL text.
+    """
+    if client is None:
+        client = AhaApiClient()
+    pub_res = client.get(PUBLIC_TEMPLATES_PATH)
+    if not isinstance(pub_res, list):
+        raise ValueError("Unexpected response from public-templates API")
+    for item in pub_res:
+        if str(item.get("id")) == str(template_id):
+            url = item.get("canvasBlocksUrl")
+            if not url:
+                raise ValueError(f"Template {template_id} has no canvasBlocksUrl")
+            with urllib.request.urlopen(url) as resp:  # noqa: S310
+                return resp.read().decode("utf-8")
+    raise ValueError(f"Template ID '{template_id}' not found in public-templates")
+
+
 def main():
     parser = argparse.ArgumentParser(description="List and inspect slide layout templates and v2 DSL structures.")
     parser.add_argument(
@@ -359,7 +389,25 @@ def main():
     parser.add_argument(
         "--sub-categories",
         action="store_true",
-        help="Show built-in presets alongside API layouts grouped by type and category in one unified view.",
+        help="Show built-in presets alongside API layouts grouped by type and category. "
+             "content-v2 items are listed individually; large types (e.g. freestyle-v2) show a "
+             "compact category summary. Combine with --all to expand all items.",
+    )
+    parser.add_argument(
+        "--fetch-dsl",
+        dest="fetch_dsl_id",
+        metavar="TEMPLATE_ID",
+        help="Fetch and print the raw DSL from a freestyle-v2 public template by its numeric ID "
+             "(resolves canvasBlocksUrl and downloads the canvas-blocks file).",
+    )
+    parser.add_argument(
+        "--limit",
+        "-n",
+        dest="limit",
+        type=int,
+        default=None,
+        metavar="N",
+        help="Cap the number of layouts shown in list output (e.g. --limit 20).",
     )
     parser.add_argument(
         "-p",
@@ -405,7 +453,7 @@ def main():
         return
 
     # Case 1: Fetch All Layouts Catalog
-    if args.fetch_all or args.category:
+    if args.fetch_all or args.category or args.slide_type:
         try:
             client = AhaApiClient()
             layouts = fetch_all_167_layouts(client=client)
@@ -413,13 +461,31 @@ def main():
             print(f"Error fetching layout catalog: {e}", file=sys.stderr)
             sys.exit(1)
 
+        # Always inject built-in content-v2 presets so --type content-v2 returns results
+        for key, preset in BUILTIN_LAYOUT_PRESETS.items():
+            layouts.append({
+                "id": key,
+                "name": preset["name"],
+                "type": "content-v2",
+                "category": preset["category"],
+                "source": "builtin-presets",
+            })
+
         if args.category:
-            filtered = [l for l in layouts if str(args.category).lower() in str(l.get("category")).lower()]
-            layouts = filtered
+            layouts = [l for l in layouts if str(args.category).lower() in str(l.get("category")).lower()]
 
         if args.slide_type:
-            filtered = [l for l in layouts if str(args.slide_type).lower() == str(l.get("type")).lower()]
-            layouts = filtered
+            # Support alias: freestyle-v2 <-> freestyle
+            req = args.slide_type.lower()
+            aliases = {req}
+            if req == "freestyle-v2":
+                aliases.add("freestyle")
+            elif req == "freestyle":
+                aliases.add("freestyle-v2")
+            layouts = [l for l in layouts if str(l.get("type", "")).lower() in aliases]
+
+        if args.limit is not None:
+            layouts = layouts[:args.limit]
 
         if args.json:
             print(json.dumps(layouts, indent=2))
@@ -431,6 +497,8 @@ def main():
             print(f"Category Filter: '{args.category}'")
         if args.slide_type:
             print(f"Type Filter: '{args.slide_type}'")
+        if args.limit is not None:
+            print(f"Limit: {args.limit}")
         print()
         for idx, item in enumerate(layouts):
             print(f"{idx + 1:03d}. [{item.get('type')}] [{item.get('category')}] {item.get('name')} (Source: {item.get('source')})")
@@ -490,8 +558,8 @@ def main():
         except Exception as e:
             print(f"Error fetching layout catalog: {e}", file=sys.stderr)
             sys.exit(1)
-            
-        # Add built-ins
+
+        # Add built-in content-v2 presets
         for key, preset in BUILTIN_LAYOUT_PRESETS.items():
             layouts.append({
                 "id": key,
@@ -500,7 +568,7 @@ def main():
                 "category": preset["category"],
                 "source": "builtin-presets",
             })
-            
+
         # Group by type then category
         grouped: dict[str, dict[str, list]] = {}
         for l in layouts:
@@ -511,18 +579,51 @@ def main():
             if c not in grouped[t]:
                 grouped[t][c] = []
             grouped[t][c].append(l)
-            
+
         if args.json:
             print(json.dumps(grouped, indent=2))
             return
-            
+
+        # When --all is also passed, show every item; otherwise compact large types
+        expand_all = args.fetch_all
+        # Types with few items (content-v2, marketplace) are always expanded
+        COMPACT_THRESHOLD = 20
+
         print("=== AhaSlides Layouts by Type & Category ===")
         for t in sorted(grouped.keys()):
-            print(f"\nType: {t}")
+            type_total = sum(len(v) for v in grouped[t].values())
+            print(f"\nType: {t}  ({type_total} layouts)")
             for c in sorted(grouped[t].keys()):
-                print(f"  Category: {c} ({len(grouped[t][c])})")
-                for l in sorted(grouped[t][c], key=lambda x: x["name"]):
-                    print(f"    - {l['name']} (ID: {l['id']}, Source: {l['source']})")
+                items_in_cat = grouped[t][c]
+                print(f"  Category: {c} ({len(items_in_cat)})")
+                if expand_all or type_total <= COMPACT_THRESHOLD:
+                    # Full listing
+                    for l in sorted(items_in_cat, key=lambda x: x["name"]):
+                        print(f"    - {l['name']} (ID: {l['id']}, Source: {l['source']})")
+                else:
+                    # Compact preview: first 4 names + overflow count
+                    names = sorted(x["name"] for x in items_in_cat)
+                    preview = ", ".join(names[:4])
+                    if len(names) > 4:
+                        preview += f", … (+{len(names) - 4} more)"
+                    print(f"    ↳ {preview}")
+        if not expand_all:
+            print("\nTip: Add --all to expand all items in every category.")
+        return
+
+    # Case 4b: Fetch DSL from a freestyle-v2 public template
+    if args.fetch_dsl_id:
+        try:
+            client = AhaApiClient()
+            dsl = fetch_freestyle_dsl(args.fetch_dsl_id, client=client)
+        except Exception as e:
+            print(f"Error fetching DSL for template '{args.fetch_dsl_id}': {e}", file=sys.stderr)
+            sys.exit(1)
+        if args.json:
+            print(json.dumps({"template_id": args.fetch_dsl_id, "dsl": dsl}, indent=2))
+        else:
+            print(f"=== DSL for freestyle-v2 Template #{args.fetch_dsl_id} ===\n")
+            print(dsl)
         return
 
     # Default Case: List Builtin Presets
@@ -539,6 +640,8 @@ def main():
         print(f"  Elements:    {preset['elements_count']}\n")
 
     print("Tip: Run `python3 scripts/list_slide_layouts.py --all` (or `-a`) to view all layout templates.")
+    print("Tip: Run `python3 scripts/list_slide_layouts.py --type freestyle-v2 --sub-categories` to browse freestyle-v2 by category.")
+    print("Tip: Run `python3 scripts/list_slide_layouts.py --fetch-dsl <id>` to inspect a freestyle-v2 template's DSL.")
     print("Tip: Run `python3 scripts/list_slide_layouts.py --category Compare` to filter by category.")
 
 
