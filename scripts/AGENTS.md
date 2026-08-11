@@ -163,6 +163,16 @@
     - `python3 scripts/apply_slide_layout.py 157015776 -s 156934061 --prefix custom_ --dry-run`
     - `python3 scripts/apply_slide_layout.py 157015776 -f templates/custom.dsl -m title_text="New Title" --json`
 
+- **[`scripts/dump_slide_dsl.py`](dump_slide_dsl.py)**:
+  - **Purpose**: Dumps the raw `.adsl` (AhaSlides Domain-Specific Language) format of a slide's content to a local file.
+  - **Usage**: `python3 scripts/dump_slide_dsl.py <slide_id> [-o OUTPUT]`
+  - **Example**: `python3 scripts/dump_slide_dsl.py 157015776 -o my_layout.adsl`
+
+- **[`scripts/apply_slide_dsl.py`](apply_slide_dsl.py)**:
+  - **Purpose**: Applies a raw `.adsl` file directly to a slide's DSL attribute.
+  - **Usage**: `python3 scripts/apply_slide_dsl.py <slide_id> <file>`
+  - **Example**: `python3 scripts/apply_slide_dsl.py 157015776 my_layout.adsl`
+
 - **[`scripts/upload_image.py`](upload_image.py)**:
   - **Purpose**: Uploads a local image file or HTTP/HTTPS image URL to AhaSlides CDN via `POST /api/upload/image/` and returns the official signed CDN URL (`https://assets-cdn.ahaslides.com/...`).
   - **Usage**: `python3 scripts/upload_image.py <image_source> [-a ACCESS_CODE] [--json]`
