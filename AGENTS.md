@@ -32,6 +32,7 @@ All scripts performing HTTP requests to AhaSlides APIs **MUST** use the shared A
    - Live presentation verification script [`scripts/verify_presentation_content.py`](scripts/verify_presentation_content.py) verifies live presentation content against vendor-independent `slides_content.json` slide-by-slide (checking total slide count matching, slide title matching, required keywords presence, element count boundaries, and key content completeness).
    - Slide layout inspector script [`scripts/list_slide_layouts.py`](scripts/list_slide_layouts.py) lists built-in v2 DSL layout presets (`content-v2`) and fetches/browses the full freestyle-v2 public templates library (128 layouts) grouped by category. Supports alias-aware `--type` filtering (`freestyle-v2` ↔ `freestyle`), `--fetch-dsl TEMPLATE_ID` to download raw canvas-blocks DSL from any freestyle-v2 template, `--limit N` to cap list output, and compact `--sub-categories` grouping (add `--all` to expand every item).
    - Slide layout application script [`scripts/apply_slide_layout.py`](scripts/apply_slide_layout.py) applies vendor-independent layout presets or layout DSL templates to live slides with layout source resolution (`-l`, `-s`, `-t`, `-f`), element ID scoping (`--prefix` or auto slide order), placeholder mapping (`-m`), content preservation (`--preserve-content`), dry-run preview (`--dry-run`), and post-update visual linting (`--lint`).
+   - Slide template manager [`scripts/manage_slide_template.py`](scripts/manage_slide_template.py) handles lifecycle operations for public templates and custom DSL templates stored in `artifacts/dsl-templates/`, including creation/saving from active slides (`save-from-slide`), public catalog browsing, template application, export, and background stamping.
    - Slide linter script [`scripts/lint_slide.py`](scripts/lint_slide.py) calculates element bounding boxes, detects overlaps, checks for canvas overflows (elements bleeding off 1280x720 canvas), audits raw DSL text for malformed directive boundaries (`::::::text`) or leaked syntax, and evaluates WCAG 2.1 color contrast (AA/AAA) between text and container/canvas background using `scripts/shared/lib/contrast.py`.
    - Shared contrast library [`scripts/shared/lib/contrast.py`](scripts/shared/lib/contrast.py) provides WCAG 2.1 contrast evaluation, relative luminance, alpha composite blending, and CSS color parsing.
 
@@ -46,13 +47,12 @@ All scripts performing HTTP requests to AhaSlides APIs **MUST** use the shared A
 
 1. **Recommended DSL Approach (`.adsl`)**:
    - The primary and most efficient method to apply complex layouts with customized content to a slide is to use atomic DSL manipulation.
-   - Use `python3 scripts/dump_slide_dsl.py <slide_id>` to export an existing layout to an `.adsl` (AhaSlides DSL) file.
+   - Use `python3 scripts/dump_slide_dsl.py <slide_id>` to export an existing layout to an `.adsl` (AhaSlides DSL) file stored in `artifacts/dsl-dumps/` (e.g. `artifacts/dsl-dumps/<slide_id>.adsl`).
    - Modify the `.adsl` file's `:::text`, `:::image`, etc., blocks manually or programmatically.
-   - Use `python3 scripts/apply_slide_dsl.py <slide_id> <file.adsl>` to apply the complete layout back, cleanly resolving content positioning and styles in one atomic request.
+   - Use `python3 scripts/apply_slide_dsl.py <slide_id> <file.adsl>` (e.g. `artifacts/dsl-dumps/<file.adsl>` or `artifacts/dsl-templates/<file.adsl>`) to apply the complete layout back, cleanly resolving content positioning and styles in one atomic request.
 
 ## Workflow Documentation Rule
 
 1. **Mandatory Workflow Recording**:
    - **WORKFLOW RECORD REQUIREMENT**: Upon finishing a slide creation workflow (from source material to slide planning, fixture creation, live presentation creation, and linting verification), agents **MUST** record the whole end-to-end process in `workflows/<name>/<workflow-name>.md`.
-   - The workflow document must record the input source reference, step-by-step agent and script execution log, presentation details (ID, Access Code, Presenter URL), slide mapping verification table, and linting audit results.
 

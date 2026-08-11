@@ -1,0 +1,12 @@
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=s10title at=top-left width=1120 height=88 offsetX=80 offsetY=80 preset=title align=left color=text fontSize=56
+School
+:::
+
+:::text id=s10body at=top-left width=1120 height=400 offsetX=80 offsetY=200 preset=body align=left color=text
+Slide content for School freestyle layout.
+:::
