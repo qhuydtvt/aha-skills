@@ -163,15 +163,29 @@
     - `python3 scripts/apply_slide_layout.py 157015776 -s 156934061 --prefix custom_ --dry-run`
     - `python3 scripts/apply_slide_layout.py 157015776 -f templates/custom.dsl -m title_text="New Title" --json`
 
+- **[`scripts/manage_slide_template.py`](manage_slide_template.py)**:
+  - **Purpose**: Manages freestyle-v2 public slide templates and custom DSL templates. Supports browsing public templates (`list`), listing categories (`categories`), inspecting single templates (`get`), substring search (`search`), exporting canvas blocks (`export`), applying templates (`apply`), applying background images (`stamp`), creating new slides from templates (`create-from-template`), and saving live slide DSL templates to `artifacts/dsl-templates/` (`save-from-slide`).
+  - **Usage**: `python3 scripts/manage_slide_template.py <verb> [args] [--json]`
+  - **Examples**:
+    - `python3 scripts/manage_slide_template.py list --category Fun --limit 10`
+    - `python3 scripts/manage_slide_template.py get 135119967 --canvas-blocks`
+    - `python3 scripts/manage_slide_template.py export 135119967 -o artifacts/dsl-templates/template_135119967.json`
+    - `python3 scripts/manage_slide_template.py apply 135119967 --slide 157058435`
+    - `python3 scripts/manage_slide_template.py stamp 135119967 --slide 157058435`
+    - `python3 scripts/manage_slide_template.py create-from-template 135119967 --presentation 9840079`
+    - `python3 scripts/manage_slide_template.py save-from-slide 157060425 --name slide9_cover.adsl`
+
 - **[`scripts/dump_slide_dsl.py`](dump_slide_dsl.py)**:
-  - **Purpose**: Dumps the raw `.adsl` (AhaSlides Domain-Specific Language) format of a slide's content to a local file.
+  - **Purpose**: Dumps the raw `.adsl` (AhaSlides Domain-Specific Language) format of a slide's content to a local file in `artifacts/dsl-dumps/` by default (`artifacts/dsl-dumps/{slide_id}.adsl`).
   - **Usage**: `python3 scripts/dump_slide_dsl.py <slide_id> [-o OUTPUT]`
-  - **Example**: `python3 scripts/dump_slide_dsl.py 157015776 -o my_layout.adsl`
+  - **Examples**:
+    - `python3 scripts/dump_slide_dsl.py 157015776` (saves to `artifacts/dsl-dumps/157015776.adsl`)
+    - `python3 scripts/dump_slide_dsl.py 157015776 -o artifacts/dsl-templates/my_layout.adsl`
 
 - **[`scripts/apply_slide_dsl.py`](apply_slide_dsl.py)**:
-  - **Purpose**: Applies a raw `.adsl` file directly to a slide's DSL attribute.
+  - **Purpose**: Applies a raw `.adsl` file (typically from `artifacts/dsl-templates/`) directly to a slide's DSL attribute.
   - **Usage**: `python3 scripts/apply_slide_dsl.py <slide_id> <file>`
-  - **Example**: `python3 scripts/apply_slide_dsl.py 157015776 my_layout.adsl`
+  - **Example**: `python3 scripts/apply_slide_dsl.py 157015776 artifacts/dsl-templates/157015776.adsl`
 
 - **[`scripts/upload_image.py`](upload_image.py)**:
   - **Purpose**: Uploads a local image file or HTTP/HTTPS image URL to AhaSlides CDN via `POST /api/upload/image/` and returns the official signed CDN URL (`https://assets-cdn.ahaslides.com/...`).
