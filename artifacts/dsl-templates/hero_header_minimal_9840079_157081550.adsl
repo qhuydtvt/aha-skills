@@ -1,0 +1,29 @@
+# @presentation_id: 9840079
+# @slide_id: 157081550
+# @purpose: hero_header_minimal
+# @category: Headers & Covers
+# @description: Minimalist hero header cover layout with main title and subtitle text
+# @keywords: hero, header, minimal, title, cover, headline, cover slide
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=5LDGoGiQES at=center width=480 height=464 offsetX=-360 preset=body align=left color=#F97316 fontSize=240
+# 01.
+:::
+
+:::shape id=rm5O4-X1qq at=center width=0 height=320 kind=rect fill=#E2E8F0
+:::
+
+:::text id=13AL4aj1Ye at=center width=440 height=64 offsetX=240 offsetY=-128 preset=caption align=left color=muted
+SECTION
+:::
+
+:::text id=YPPRsxTOAS at=center width=440 height=224 offsetX=240 preset=title align=left color=text
+# The problem
+:::
+
+:::text id=o5nOYopxpO at=center width=440 height=128 offsetX=240 offsetY=160 preset=body align=left color=muted
+What we're trying to fix and why it matters now.
+:::

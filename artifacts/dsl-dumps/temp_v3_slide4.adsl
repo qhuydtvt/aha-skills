@@ -1,0 +1,66 @@
+# @presentation_id: 9849063
+# @slide_id: 157142162
+# @purpose: key_metrics_4stat
+# @category: Personal Style
+# @description: 4 Quirks of working with Huy
+---
+content-v2: 1280x720
+version: 1
+background: bg
+---
+
+:::text id=NjL-hoJnk0 x=80 y=72 w=600 h=32 preset=caption color=muted
+PERSONAL QUIRKS & DRIVERS
+:::
+
+:::text id=LRuMWWkUVG x=80 y=128 w=720 h=88 preset=title align=left color=text fontSize=56
+How I *Think & Work*
+:::
+
+:::shape id=KyDBTkBJI9 x=80 y=240 w=256 h=380 kind=rect fill=surface borderRadius=8
+:::
+
+:::text id=mkaJc8_zz- x=96 y=270 w=224 h=80 preset=body align=center color=text fontSize=48
+🗣️
+:::
+
+:::text id=W-u7wOv6n3 x=96 y=360 w=224 h=240 preset=body align=center color=text fontSize=18
+### Out-loud Brainstorming
+Thinking out loud to test ideas and refine concepts in real-time.
+:::
+
+:::shape id=o5tETeJRMS x=368 y=240 w=256 h=380 kind=rect fill=surface borderRadius=8
+:::
+
+:::text id=rFhn2dLeTX x=384 y=270 w=224 h=80 preset=body align=center color=text fontSize=48
+🧩
+:::
+
+:::text id=INtc3LXxd_ x=384 y=360 w=224 h=240 preset=body align=center color=text fontSize=18
+### Coherence-Driven
+Seeking deep logical structure and end-to-end alignment.
+:::
+
+:::shape id=REqBtSZ4Bk x=656 y=240 w=256 h=380 kind=rect fill=surface borderRadius=8
+:::
+
+:::text id=bVtHNkyo0j x=672 y=270 w=224 h=80 preset=body align=center color=text fontSize=48
+⚡
+:::
+
+:::text id=NRX4jNfTH7 x=672 y=360 w=224 h=240 preset=body align=center color=text fontSize=18
+### Topic-Selective Energy
+Unlocking intense focus & enthusiasm for compelling problems.
+:::
+
+:::shape id=extraShape4 x=944 y=240 w=256 h=380 kind=rect fill=surface borderRadius=8
+:::
+
+:::text id=extraIcon4 x=960 y=270 w=224 h=80 preset=body align=center color=text fontSize=48
+🛠️
+:::
+
+:::text id=extraText4 x=960 y=360 w=224 h=240 preset=body align=center color=text fontSize=18
+### Build & Discover
+Learning by building fast prototypes and discovering solutions.
+:::

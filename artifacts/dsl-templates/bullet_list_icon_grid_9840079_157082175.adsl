@@ -1,0 +1,44 @@
+# @presentation_id: 9840079
+# @slide_id: 157082175
+# @purpose: bullet_list_icon_grid
+# @category: Lists & Content
+# @description: Bullet points list layout paired with decorative icon visual anchors
+# @keywords: bullet list, icons, features, key points, takeaway, list grid
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=E5v6pPhtMR at=top-center width=86% height=144 offsetY=80 preset=title align=center color=text
+# Built into the platform
+:::
+
+:::shape id=hj4gyLtL1t at=center width=320 height=320 offsetX=-360 kind=rect fill=rgba(255,255,255,0.14) borderRadius=20 shadow=xl blur=14
+:::
+
+:::icon id=5QLbnpMFLd at=center width=320 offsetX=-360 offsetY=-88 name=zap size=44 color=#FBBF24
+:::
+
+:::text id=C5lqnqRnhW at=center width=280 height=200 offsetX=-360 offsetY=40 preset=body align=center color=text
+**Realtime sync** between every connected device.
+:::
+
+:::shape id=HK7WdBQUsC at=center width=320 height=320 kind=rect fill=rgba(255,255,255,0.14) borderRadius=20 shadow=xl blur=14
+:::
+
+:::icon id=LiUWqgMCaC at=center width=320 offsetY=-88 name=shield size=44 color=#34D399
+:::
+
+:::text id=bldk9aPMQE at=center width=280 offsetY=40 preset=body align=center color=text
+**End-to-end** encryption, on every plan.
+:::
+
+:::shape id=vBwHeenq71 at=center width=320 height=320 offsetX=360 kind=rect fill=rgba(255,255,255,0.14) borderRadius=20 shadow=xl blur=14
+:::
+
+:::icon id=Q8HisbyvcG at=center width=320 offsetX=360 offsetY=-88 name=heart size=44 color=#F472B6
+:::
+
+:::text id=g9eCsO-p2Z at=center width=280 height=160 offsetX=360 offsetY=40 preset=body align=center color=text
+**Built-in** accessibility, automatic.
+:::

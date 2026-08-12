@@ -1,0 +1,21 @@
+# @presentation_id: 9840079
+# @slide_id: 157081125
+# @purpose: video_player_mockup
+# @category: Media & Visuals
+# @description: Video player container mockup layout with playback frame and title
+# @keywords: video, player, media, mockup, screen, demo, playback
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=3bHMZ0YId3 at=top-center width=86% height=144 preset=title align=center
+# Product demo
+:::
+
+:::video id=ntpfoukn62 at=center width=70% offsetY=40 src=
+:::
+
+:::text id=kJT2rorEta at=bottom-center width=70% height=120 offsetY=-40 preset=caption align=center
+A short walkthrough of the new editor.
+:::

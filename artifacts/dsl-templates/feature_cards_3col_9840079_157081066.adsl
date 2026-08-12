@@ -1,0 +1,49 @@
+# @presentation_id: 9840079
+# @slide_id: 157081066
+# @purpose: feature_cards_3col
+# @category: Features & Products
+# @description: 3-column card grid layout highlighting key product features or benefits
+# @keywords: features, 3-column, cards, grid, benefits, product, services
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=pcTZnHtMkR at=top-center width=86% height=144 offsetY=64 preset=title align=center
+# Signup funnel
+:::
+
+:::shape id=LyTsjnGzXL at=center width=80% height=56 offsetY=-96 kind=rect fill=#1E293B borderRadius=10
+:::
+
+:::text id=UNlM2IQzF3 at=center width=80% height=80 offsetY=-96 preset=body align=center color=text
+Visited landing page — 100,000
+:::
+
+:::shape id=yuqnONNfEh at=center width=70% height=56 offsetY=-24 kind=rect fill=#475569 borderRadius=10
+:::
+
+:::text id=4qPAd-lSfB at=center width=70% height=80 offsetY=-24 preset=body align=center color=text
+Started signup — 32,400 (32%)
+:::
+
+:::shape id=2I6RHgtmN4 at=center width=56% height=56 offsetY=48 kind=rect fill=#94A3B8 borderRadius=10
+:::
+
+:::text id=7UGjeLBbNq at=center width=56% height=80 offsetY=48 preset=body align=center color=text
+Verified email — 18,200 (56%)
+:::
+
+:::shape id=HR6WTRIpWM at=center width=44% height=56 offsetY=128 kind=rect fill=#F97316 borderRadius=10
+:::
+
+:::text id=qxCmkIRrm9 at=center width=44% height=80 offsetY=128 preset=body align=center color=text
+Created first deck — 9,800 (54%)
+:::
+
+:::shape id=ijU933D4XF at=center width=30% height=56 offsetY=200 kind=rect fill=#22C55E borderRadius=10
+:::
+
+:::text id=0aIzbpJUEc at=center width=30% height=96 offsetY=200 preset=body align=center color=text
+Active week 2 — 4,200 (43%)
+:::

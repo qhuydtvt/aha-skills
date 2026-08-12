@@ -1,0 +1,40 @@
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=0UPrtIgpHT at=top-center width=86% height=100 offsetY=48 preset=title align=center
+# Collaboration & Golden Rules
+:::
+
+:::shape id=petPeeveBg at=center width=520 height=460 offsetX=-280 offsetY=56 kind=rect fill=surface borderRadius=16
+:::
+
+:::icon id=petPeeveIcon at=center offsetX=-480 offsetY=-136 name=alert-triangle size=32 color=#EF4444
+:::
+
+:::text id=petPeeveTitle at=center width=400 height=40 offsetX=-230 offsetY=-136 preset=caption align=left color=#DC2626
+PET PEEVES
+:::
+
+:::text id=petPeeveText at=center width=460 height=340 offsetX=-280 offsetY=60 preset=body align=left color=text fontSize=18
+• **Unscheduled Comms:** Avoid unscheduled interruptions for non-urgent matters.
+
+• **Refusal Without Reasons:** Avoid rejecting ideas or proposals without explaining why.
+:::
+
+:::shape id=goldenRuleBg at=center width=520 height=460 offsetX=280 offsetY=56 kind=rect fill=surface borderRadius=16
+:::
+
+:::icon id=goldenRuleIcon at=center offsetX=80 offsetY=-136 name=check-circle size=32 color=#10B981
+:::
+
+:::text id=goldenRuleTitle at=center width=400 height=40 offsetX=330 offsetY=-136 preset=caption align=left color=#059669
+MY GOLDEN RULES
+:::
+
+:::text id=goldenRuleText at=center width=460 height=340 offsetX=280 offsetY=60 preset=body align=left color=text fontSize=18
+1. **Advance Notice:** Notify me beforehand for any synchronous check-ins.
+
+2. **Reasoning & Alternatives:** Provide reasons for refusals and suggest alternative ideas when possible.
+:::

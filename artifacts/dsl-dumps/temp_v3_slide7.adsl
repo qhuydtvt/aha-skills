@@ -1,0 +1,24 @@
+# @presentation_id: 9849063
+# @slide_id: 157142173
+# @purpose: hero_header_minimal
+# @category: Headers & Covers
+# @description: Closing slide - Build useful things together!
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=UoSQL916Zk at=top-center width=85% height=64 offsetY=120 preset=caption align=center color=rgba(255,255,255,0.85)
+LET'S WORK TOGETHER
+:::
+
+:::text id=QpsNFG7HWC at=center width=90% height=120 offsetY=-16 preset=body align=center color=text
+# Build useful things together!
+:::
+
+:::shape id=_WJpxonIlr at=center width=120 height=0 offsetY=80 kind=rect fill=rgba(255,255,255,0.6) borderRadius=2
+:::
+
+:::text id=OPGr43r2fj at=center width=60% height=128 offsetY=128 preset=body align=center color=rgba(255,255,255,0.95)
+Reach out anytime on Slack (@HuyNQ) or let's connect for a F2F coffee!
+:::

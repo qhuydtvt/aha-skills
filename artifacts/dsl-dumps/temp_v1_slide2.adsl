@@ -1,0 +1,74 @@
+# @presentation_id: 9849061
+# @slide_id: 157142165
+# @purpose: process_flow_diagram
+# @category: Processes & Workflows
+# @description: Communication preferences and 3-step format workflow
+# @keywords: communication, preferences, format, workflow, 3-step
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=yVEZXM9O4t at=top-center width=86% height=144 offsetY=64 preset=title align=center
+# Communication Preferences
+:::
+
+:::shape id=yRyY-3K7qH at=center width=184 height=96 offsetX=-376 kind=rect fill=#0F172A borderRadius=10
+:::
+
+:::text id=DTSblcmxcl at=center width=184 height=80 offsetX=-376 preset=body align=center color=text
+**Slack / Teams**
+Quick info exchange
+:::
+
+:::text id=NznZKF02Iz at=center width=80 height=64 offsetX=-256 offsetY=-72 preset=caption align=center color=muted
+chat
+:::
+
+:::text id=VtUganKF0V at=center width=40 height=88 offsetX=-256 preset=body align=center color=muted fontSize=40
+→
+:::
+
+:::shape id=m-Ins8rram at=center width=184 height=96 offsetX=-128 kind=rect fill=#F97316 borderRadius=10
+:::
+
+:::text id=p_b5kd7pm2 at=center width=184 height=120 offsetX=-128 preset=body align=center color=text
+**F2F / Call**
+Complex topics
+:::
+
+:::text id=qFMYCH7LdI at=center width=120 height=64 offsetX=0 offsetY=-72 preset=caption align=center color=muted
+discuss
+:::
+
+:::text id=jEJ-s4eNUs at=center width=40 height=88 offsetX=0 preset=body align=center color=muted fontSize=40
+→
+:::
+
+:::shape id=12wB83ej8h at=center width=184 height=96 offsetX=128 kind=rect fill=#0EA5E9 borderRadius=10
+:::
+
+:::text id=5jyhNPND2V at=center width=184 height=120 offsetX=128 preset=body align=center color=text
+**Email**
+Official decisions
+:::
+
+:::text id=IUD6RuRlb0 at=center width=80 height=64 offsetX=256 offsetY=-72 preset=caption align=center color=muted
+record
+:::
+
+:::text id=kz_pdN5zO_ at=center width=40 height=88 offsetX=256 preset=body align=center color=muted fontSize=40
+→
+:::
+
+:::shape id=Dt9mMWeady at=center width=184 height=96 offsetX=384 kind=rect fill=#22C55E borderRadius=10
+:::
+
+:::text id=fCeDOX9QRa at=center width=184 height=80 offsetX=384 preset=body align=center color=text
+**3-Step Format**
+Context → Problem → Solution
+:::
+
+:::text id=rnejx-PoMY at=bottom-center width=80% height=120 offsetY=-96 preset=caption align=center color=muted
+Preferred Format: 1. Context (facts only) → 2. Problem definition → 3. Proposed solutions
+:::

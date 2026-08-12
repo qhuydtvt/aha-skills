@@ -1,0 +1,24 @@
+# @presentation_id: 9840079
+# @slide_id: 157082179
+# @purpose: split_screen_image_text
+# @category: Media & Visuals
+# @description: Split-screen layout pairing full-height media image with detailed narrative text
+# @keywords: split screen, image, text, side-by-side, visual narrative, media
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::image id=suv4yrEEKP at=center width=100% height=100% src= alt=Hero
+:::
+
+:::shape id=3ValP1Ef9A at=bottom-center width=72% height=184 offsetY=-40 kind=rect fill=rgba(15,23,42,0.85) borderRadius=20 shadow=xl
+:::
+
+:::text id=aoAFvhZUXx at=bottom-center width=68% height=232 offsetX=-16 offsetY=-64 preset=title align=left color=text
+# Worth pausing for
+:::
+
+:::text id=4e0jPf4Vzo at=bottom-center width=68% height=120 offsetX=-16 offsetY=-160 preset=caption align=left color=#FBBF24
+EXHIBIT A · MARCH 2026
+:::

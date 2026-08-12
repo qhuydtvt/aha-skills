@@ -1,0 +1,38 @@
+# @presentation_id: 9849064
+# @slide_id: 157142160
+# @purpose: bullet_list_icon_grid
+# @category: Lists & Content
+# @description: Bullet points list layout paired with decorative icon visual anchors
+# @keywords: bullet list, icons, features, key points, takeaway, list grid
+---
+content-v2: 1280x720
+version: 1
+background: bg
+---
+
+:::pattern id=8jj5Uo-588 x=0 y=0 w=1280 h=720 kind=dot-grid color=text opacity=0.06 spacing=32
+:::
+
+:::text id=sqb4xFZX48 at=top-left width=600 height=32 offsetX=80 offsetY=60 preset=caption color=muted
+MY QUIRKS
+:::
+
+:::text id=rfJW2qA-dG at=top-left width=1120 height=72 offsetX=80 offsetY=110 preset=title align=left color=text fontSize=52
+Default *Behaviors*
+:::
+
+:::text id=znDV0KsiwU at=top-left width=1120 height=60 offsetX=80 offsetY=210 preset=body align=left color=text
+→ **Out-Loud Brainstorming:** Jump between ideas out loud before focusing
+:::
+
+:::text id=yPsjOe5Wd1 at=top-left width=1120 height=60 offsetX=80 offsetY=285 preset=body align=left color=text
+→ **Coherence-Driven:** Sort out incoherence before moving forward
+:::
+
+:::text id=UmHfQFK38K at=top-left width=1120 height=60 offsetX=80 offsetY=360 preset=body align=left color=text
+→ **Topic-Selective Energy:** High energy on product & tech topics
+:::
+
+:::text id=q4_extra_quirk at=top-left width=1120 height=60 offsetX=80 offsetY=435 preset=body align=left color=text
+→ **Build & Discover:** Run product discovery while building
+:::

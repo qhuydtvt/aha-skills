@@ -1,0 +1,59 @@
+# @presentation_id: 9840079
+# @slide_id: 157066127
+# @purpose: pricing_table_3tier
+# @category: Pricing & Plans
+# @description: 3-column side-by-side pricing tier plan comparison card layout with featured option
+# @keywords: pricing, plans, 3-tier, subscription, pricing cards, tiers, commercial
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=RIMTE8WERi at=top-center width=86% height=144 preset=title align=center
+# Plans that grow with you
+:::
+
+:::shape id=ioHR_8XZu6 at=center width=344 height=400 offsetX=-360 offsetY=104 kind=rect fill=surface borderRadius=20
+:::
+
+:::text id=SUTPMBO5cT at=center width=304 height=32 offsetX=-360 offsetY=-40 preset=caption align=center color=muted
+FREE
+:::
+
+:::text id=VGtpd8y5I0 at=center width=304 height=136 offsetX=-360 offsetY=40 preset=body align=center color=text fontSize=64
+**$0**
+:::
+
+:::text id=Xmn62zq6g2 at=center width=304 height=136 offsetX=-360 offsetY=184 preset=body align=center color=muted
+Up to 25 slides per deck. Always free.
+:::
+
+:::shape id=E0f0qTgbwJ at=center width=344 height=440 offsetY=80 kind=rect fill="linear-gradient(160deg, #FBBF24 0%, #F97316 100%)" borderRadius=20 shadow=lg
+:::
+
+:::text id=nH1b8z8OFB at=center width=304 height=32 offsetY=-56 preset=caption align=center color=text
+PRO · POPULAR
+:::
+
+:::text id=hXxv-F_xs2 at=center width=304 height=136 offsetY=24 preset=body align=center color=text fontSize=64
+**$9**
+:::
+
+:::text id=2RCDZNe1t5 at=center width=304 height=136 offsetY=160 preset=body align=center color=muted
+Unlimited slides. AI Generate included.
+:::
+
+:::shape id=TrImKBu4vx at=center width=344 height=400 offsetX=360 offsetY=104 kind=rect fill=surface borderRadius=20
+:::
+
+:::text id=6HUnlK5rsM at=center width=304 height=32 offsetX=360 offsetY=-40 preset=caption align=center color=muted
+TEAM
+:::
+
+:::text id=Zr82TLsxaD at=center width=304 height=136 offsetX=360 offsetY=40 preset=body align=center color=text fontSize=64
+**$24**
+:::
+
+:::text id=R0kmeaFrOO at=center width=304 height=136 offsetX=360 offsetY=184 preset=body align=center color=muted
+Per seat. Includes SSO and admin tools.
+:::

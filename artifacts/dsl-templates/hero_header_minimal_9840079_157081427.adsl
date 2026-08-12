@@ -1,0 +1,25 @@
+# @presentation_id: 9840079
+# @slide_id: 157081427
+# @purpose: hero_header_minimal
+# @category: Headers & Covers
+# @description: Minimalist hero header cover layout with main title and subtitle text
+# @keywords: hero, header, minimal, title, cover, headline, cover slide
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::shape id=VwAlcWGXSg at=top-left width=200 height=200 offsetX=-16 offsetY=-16 kind=circle fill="radial-gradient(circle, #6366F1 0%, transparent 65%)" opacity=0.45
+:::
+
+:::text id=skQjMprE4j at=center width=44% height=64 offsetY=-176 preset=caption align=center color=muted
+THE MAIN EVENT
+:::
+
+:::text id=DOaJtm6D90 at=center width=88% height=120 preset=body align=center color=text
+# Why architecture matters
+:::
+
+:::text id=dWot3ofrzq at=center width=62% offsetY=160 preset=body align=center color=muted
+The decisions we make in the first month shape the next five years.
+:::

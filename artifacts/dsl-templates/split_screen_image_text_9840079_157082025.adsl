@@ -1,0 +1,29 @@
+# @presentation_id: 9840079
+# @slide_id: 157082025
+# @purpose: split_screen_image_text
+# @category: Media & Visuals
+# @description: Split-screen layout pairing full-height media image with detailed narrative text
+# @keywords: split screen, image, text, side-by-side, visual narrative, media
+---
+content-v2: 1280x720
+version: 1
+background: bg
+---
+
+:::image id=pRwdKkDuKP x=0 y=0 w=640 h=720 src= fit=cover
+:::
+
+:::text id=aW1jiS6URn x=720 y=120 w=480 h=32 preset=caption color=muted
+SECTION TITLE
+:::
+
+:::text id=5iMOyo6APo x=720 y=200 w=480 h=80 preset=title align=left color=text fontSize=56
+Welcome to *Hanoi*
+:::
+
+:::text id=FbG4rQfm-x x=720 y=320 w=480 h=200 preset=body align=left color=text
+Vietnam's capital, where 1,000 years of history meet a fast-moving present.
+:::
+
+:::shape id=hAiYOCVHGg x=720 y=560 w=64 h=8 kind=rect fill=text
+:::

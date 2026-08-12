@@ -1,0 +1,24 @@
+# @presentation_id: 9840079
+# @slide_id: 157082032
+# @purpose: split_screen_image_text
+# @category: Media & Visuals
+# @description: Split-screen layout pairing full-height media image with detailed narrative text
+# @keywords: split screen, image, text, side-by-side, visual narrative, media
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::image id=XXF9hTzh4F x=0 y=0 w=1280 h=720 src= fit=cover
+:::
+
+:::shape id=2QeA7kpNDc x=0 y=0 w=1280 h=720 kind=rect fill="linear-gradient(0deg, rgba(0,0,0,0.75), rgba(0,0,0,0.15))"
+:::
+
+:::text id=Xa--1uIjZd at=center width=80% height=160 preset=body align=center color=#FFFFFF fontSize=72
+A translation *barrier* hurts everyone
+:::
+
+:::text id=JqgKkVV5EP at=bottom-center width=60% height=48 offsetY=-120 preset=body align=center color=#FFFFFF
+A short framing line that lands the emotional point.
+:::

@@ -1,0 +1,46 @@
+# @presentation_id: 9840079
+# @slide_id: 157066772
+# @purpose: feature_cards_3col
+# @category: Features & Products
+# @description: 3-column card grid layout highlighting key product features or benefits
+# @keywords: features, 3-column, cards, grid, benefits, product, services
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=e7iJcAODth at=top-center width=86% height=144 offsetY=104 preset=title align=center color=text
+# What's included
+:::
+
+:::shape id=FA2bAgEOvi at=center width=200 height=56 offsetX=-376 offsetY=-40 kind=rect fill=surface borderRadius=26 shadow=md
+:::
+
+:::text id=0h_3Chc9HN at=center width=200 height=120 offsetX=-376 offsetY=-40 preset=body align=center color=text
+✓ Onboarding
+:::
+
+:::shape id=kczMsgsaTI at=center width=200 height=56 offsetX=-128 offsetY=-40 kind=rect fill=surface borderRadius=26 shadow=md
+:::
+
+:::text id=lgS8bBtd16 at=center width=200 offsetX=-128 offsetY=-40 preset=body align=center color=text
+✓ 24/7 support
+:::
+
+:::shape id=dfd-AokEWb at=center width=200 height=56 offsetX=120 offsetY=-40 kind=rect fill=surface borderRadius=26 shadow=md
+:::
+
+:::text id=9DWnixNUnD at=center width=200 height=128 offsetX=120 offsetY=-40 preset=body align=center color=text
+✓ Custom domain
+:::
+
+:::shape id=s1EJVvU6Hq at=center width=200 height=56 offsetX=368 offsetY=-40 kind=rect fill=#F97316 borderRadius=26 shadow=md
+:::
+
+:::text id=2OfMlcCLBG at=center width=200 offsetX=368 offsetY=-40 preset=body align=center color=text
+★ Priority queue
+:::
+
+:::text id=00-QcU1Cdd at=center width=70% height=120 offsetY=80 preset=body align=center color=muted
+Standard with every plan, with a few extras for higher tiers.
+:::

@@ -18,7 +18,7 @@ def main():
     client = AhaApiClient()
     payload = {"attributeKey": "dsl", "attributeValue": dsl.strip()}
     try:
-        res = client.post(f"/api/v2/slides/{args.slide_id}/attributes", json_data=payload)
+        client.post(f"/api/v2/slides/{args.slide_id}/attributes", json_data=payload)
         print(f"Successfully applied DSL from {args.file} to slide {args.slide_id}")
     except Exception as e:
         print(f"Error applying DSL: {e}", file=sys.stderr)

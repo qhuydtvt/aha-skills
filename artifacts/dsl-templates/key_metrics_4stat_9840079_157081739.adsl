@@ -1,0 +1,52 @@
+# @presentation_id: 9840079
+# @slide_id: 157081739
+# @purpose: key_metrics_4stat
+# @category: Metrics & Performance
+# @description: 4-column statistical KPI metric cards layout with big numbers and captions
+# @keywords: metrics, stats, 4-column, kpi, performance, numbers, summary
+---
+content-v2: 1280x720
+version: 1
+background: bg
+---
+
+:::text id=NjL-hoJnk0 x=80 y=72 w=600 h=32 preset=caption color=muted
+KEY METRICS
+:::
+
+:::text id=LRuMWWkUVG x=80 y=128 w=720 h=88 preset=title align=left color=text fontSize=56
+By the *numbers*
+:::
+
+:::shape id=KyDBTkBJI9 x=80 y=248 w=360 h=320 kind=rect fill=surface borderRadius=8
+:::
+
+:::shape id=o5tETeJRMS x=464 y=248 w=360 h=320 kind=rect fill=surface borderRadius=8
+:::
+
+:::shape id=REqBtSZ4Bk x=848 y=248 w=352 h=320 kind=rect fill=surface borderRadius=8
+:::
+
+:::text id=mkaJc8_zz- x=80 y=304 w=360 h=120 preset=body align=center color=text fontSize=96
+42%
+:::
+
+:::text id=rFhn2dLeTX x=464 y=304 w=360 h=120 preset=body align=center color=text fontSize=96
+18M
+:::
+
+:::text id=bVtHNkyo0j x=848 y=304 w=352 h=120 preset=body align=center color=text fontSize=96
+97
+:::
+
+:::text id=W-u7wOv6n3 x=80 y=464 w=360 h=32 preset=caption align=center color=muted
+REVENUE YOY
+:::
+
+:::text id=INtc3LXxd_ x=464 y=464 w=360 h=32 preset=caption align=center color=muted
+ACTIVE USERS
+:::
+
+:::text id=NRX4jNfTH7 x=848 y=464 w=352 h=32 preset=caption align=center color=muted
+NPS
+:::

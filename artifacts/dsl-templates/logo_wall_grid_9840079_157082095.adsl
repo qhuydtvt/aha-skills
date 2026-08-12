@@ -1,0 +1,103 @@
+# @presentation_id: 9840079
+# @slide_id: 157082095
+# @purpose: logo_wall_grid
+# @category: Social Proof & Logos
+# @description: Client or partner brand logo wall grid layout for corporate social proof
+# @keywords: logo wall, partners, clients, brands, grid, social proof, trust
+---
+content-v2: 1280x720
+version: 1
+background: bg
+---
+
+:::text id=XOijd2xFLG at=top-center width=80% height=32 offsetY=72 preset=caption align=center color=muted
+AS FEATURED IN
+:::
+
+:::text id=QukOHmWfrn at=top-center width=80% height=88 offsetY=128 preset=title align=center color=text fontSize=48
+Trusted by *industry* leaders
+:::
+
+:::text id=ZwSnK6ai_y at=top-center width=60% height=40 offsetY=232 preset=body align=center color=muted
+Companies that ship faster with us.
+:::
+
+:::shape id=Uno68Z9t9A x=144 y=312 w=224 h=144 kind=rect fill=surface borderRadius=8
+:::
+
+:::icon id=BYqoU31Jko x=232 y=344 w=48 h=48 name=hexagon size=48 color=text
+:::
+
+:::text id=_lGT8ajoVV x=144 y=408 w=224 h=24 preset=caption align=center color=muted
+AURORA
+:::
+
+:::shape id=fK1wqqZFz9 x=400 y=312 w=224 h=144 kind=rect fill=surface borderRadius=8
+:::
+
+:::icon id=SaWAXD3cwV x=488 y=344 w=48 h=48 name=award size=48 color=text
+:::
+
+:::text id=B2H536q-qz x=400 y=408 w=224 h=24 preset=caption align=center color=muted
+NORTHWIND
+:::
+
+:::shape id=YWKzdnw616 x=656 y=312 w=224 h=144 kind=rect fill=surface borderRadius=8
+:::
+
+:::icon id=Eo-nUS9qaw x=744 y=344 w=48 h=48 name=gem size=48 color=text
+:::
+
+:::text id=Chv65ceqOq x=656 y=408 w=224 h=24 preset=caption align=center color=muted
+MERIDIAN
+:::
+
+:::shape id=cnOsPpNWwB x=912 y=312 w=224 h=144 kind=rect fill=surface borderRadius=8
+:::
+
+:::icon id=udJ2JXBrNX x=1000 y=344 w=48 h=48 name=shield size=48 color=text
+:::
+
+:::text id=-9bPghftT9 x=912 y=408 w=224 h=24 preset=caption align=center color=muted
+ATLAS
+:::
+
+:::shape id=CdFXvFxOTA x=144 y=480 w=224 h=144 kind=rect fill=surface borderRadius=8
+:::
+
+:::icon id=I0HovktpMy x=232 y=512 w=48 h=48 name=rocket size=48 color=text
+:::
+
+:::text id=PoRwmdAlEV x=144 y=576 w=224 h=24 preset=caption align=center color=muted
+SUMMIT
+:::
+
+:::shape id=ox7rwtlicM x=400 y=480 w=224 h=144 kind=rect fill=surface borderRadius=8
+:::
+
+:::icon id=nQN5QAOwh0 x=488 y=512 w=48 h=48 name=flame size=48 color=text
+:::
+
+:::text id=xq6dbn0Yc- x=400 y=576 w=224 h=24 preset=caption align=center color=muted
+BEACON
+:::
+
+:::shape id=Z6y-O87ot4 x=656 y=480 w=224 h=144 kind=rect fill=surface borderRadius=8
+:::
+
+:::icon id=G2pvT18-m2 x=744 y=512 w=48 h=48 name=sparkles size=48 color=text
+:::
+
+:::text id=DugMfe_Ajo x=656 y=576 w=224 h=24 preset=caption align=center color=muted
+ORION
+:::
+
+:::shape id=3YbuvdCoE9 x=912 y=480 w=224 h=144 kind=rect fill=surface borderRadius=8
+:::
+
+:::icon id=N_dRRf3DnO x=1000 y=512 w=48 h=48 name=crown size=48 color=text
+:::
+
+:::text id=4BRqjAvt7U x=912 y=576 w=224 h=24 preset=caption align=center color=muted
+ZENITH
+:::

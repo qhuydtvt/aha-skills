@@ -1,0 +1,48 @@
+# @presentation_id: 9849064
+# @slide_id: 157142131
+# @purpose: feature_cards_3col
+# @category: Features & Products
+# @description: 3-column card grid layout highlighting key product features or benefits
+# @keywords: features, 3-column, cards, grid, benefits, product, services
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=AUeFIZTKI3 at=top-center width=86% height=100 preset=title align=center
+# A Manual of Huy
+:::
+
+:::text id=qqMesCCQvL at=center width=80% height=40 offsetX=0 offsetY=-130 preset=caption align=left color=muted
+INTEGRITY
+:::
+
+:::shape id=iD9OW7_2vD at=center width=80% height=24 offsetX=0 offsetY=-85 kind=rect fill=#FECACA borderRadius=10
+:::
+
+:::shape id=I5opy-MtRl at=center width=20% height=24 offsetX=-384 offsetY=-85 kind=rect fill=#DC2626 borderRadius=10
+:::
+
+:::text id=W8wepOs78w at=center width=80% height=40 offsetX=0 offsetY=-20 preset=caption align=left color=muted
+WINNING MINDSET
+:::
+
+:::shape id=To4psfdYrE at=center width=80% height=24 offsetX=0 offsetY=25 kind=rect fill=#FED7AA borderRadius=10
+:::
+
+:::shape id=7cePoYWEJh at=center width=30% height=24 offsetX=-320 offsetY=25 kind=rect fill=#EA580C borderRadius=10
+:::
+
+:::text id=RXl5qy-S3_ at=center width=80% height=40 offsetX=0 offsetY=90 preset=caption align=left color=muted
+CONTINUOUS IMPROVEMENT
+:::
+
+:::shape id=1rOK1HYVEF at=center width=80% height=24 offsetX=0 offsetY=135 kind=rect fill=#BBF7D0 borderRadius=10
+:::
+
+:::shape id=sKBz3C_zSF at=center width=70% height=24 offsetX=-64 offsetY=135 kind=rect fill=#16A34A borderRadius=10
+:::
+
+:::text id=FWZH8wmGwC at=top-center width=70% height=48 offsetY=640 preset=caption align=center color=muted
+Mission: "Build useful things"
+:::

@@ -1,0 +1,42 @@
+# @presentation_id: 9840079
+# @slide_id: 157065860
+# @purpose: comparison_2col
+# @category: Comparisons & Analysis
+# @description: 2-column side-by-side comparison layout for pro/con or option analysis
+# @keywords: comparison, 2-column, side-by-side, split, versus, pros cons
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=fNchNYiE-9 at=top-center width=86% height=120 preset=title align=center
+# Two approaches
+:::
+
+:::shape id=W-0rLLz8NN at=center width=480 height=400 offsetX=-256 offsetY=64 kind=rect fill=surface borderRadius=16
+:::
+
+:::text id=ozi4Fdz25z at=center width=424 height=40 offsetX=-256 offsetY=-96 preset=caption align=center color=#1E40AF
+APPROACH A · BIG BANG
+:::
+
+:::text id=B5_94crorT at=center width=424 height=288 offsetX=-256 offsetY=80 preset=body align=left color=text
+- Plan everything upfront.
+- Build for six months.
+- Ship one giant release.
+- Pray it works.
+:::
+
+:::shape id=4Hj6BENBBR at=center width=480 height=400 offsetX=264 offsetY=64 kind=rect fill=surface borderRadius=16
+:::
+
+:::text id=-GidwZa8ml at=center width=424 height=40 offsetX=264 offsetY=-96 preset=caption align=center color=#166534
+APPROACH B · INCREMENTAL
+:::
+
+:::text id=YBuCFGA89N at=center width=424 height=288 offsetX=264 offsetY=80 preset=body align=left color=text
+- Ship a thin slice on day one.
+- Add capability weekly.
+- Fix what breaks fast.
+- Stay close to the user.
+:::

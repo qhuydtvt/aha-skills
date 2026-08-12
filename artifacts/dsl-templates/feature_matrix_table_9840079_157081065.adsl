@@ -1,0 +1,26 @@
+# @presentation_id: 9840079
+# @slide_id: 157081065
+# @purpose: feature_matrix_table
+# @category: Features & Products
+# @description: Feature matrix comparison table layout mapping capabilities across tiers
+# @keywords: feature matrix, table, comparison, grid, specifications, tiers
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=sr_G6dBMlT at=top-center width=86% height=144 offsetY=64 preset=title align=center
+# Feature matrix
+:::
+
+:::table id=9D7Nc3Sex8 at=center width=80% offsetY=24
+| Feature | Free | Pro | Team | Enterprise |
+| --- | --- | --- | --- | --- |
+| Decks per month | 5 | Unlimited | Unlimited | Unlimited |
+| Audience size | 50 | 500 | 5,000 | Unlimited |
+| AI Generate | — | ✓ | ✓ | ✓ |
+| SSO / SAML | — | — | — | ✓ |
+| Custom branding | — | — | ✓ | ✓ |
+| Audit log | — | — | — | ✓ |
+| Priority support | — | — | ✓ | ✓ |
+:::

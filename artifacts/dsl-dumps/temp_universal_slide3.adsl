@@ -1,0 +1,55 @@
+---
+content-v2: 1280x720
+version: 1
+background: bg
+---
+
+:::text id=s3_tag at=center width=600 height=32 offsetX=0 offsetY=-290 preset=caption align=center color=#EA580C
+FEEDBACK FRAMEWORK
+:::
+
+:::text id=s3_title at=center width=800 height=60 offsetX=0 offsetY=-235 preset=title align=center color=#FFFFFF fontSize=44
+# How I Receive Feedback
+:::
+
+:::icon id=s3_pref_icon at=center width=32 height=32 offsetX=-490 offsetY=-160 name=users size=28 color=#16A34A
+:::
+
+:::text id=s3_pref_body at=center width=1080 height=70 offsetX=0 offsetY=-95 preset=body align=left color=#F8FAFC fontSize=20 fill=#1E293B borderRadius=12
+**Preferred Channel:** Face-to-face (whether in private or public settings).
+:::
+
+:::icon id=s3_s1_icon at=center width=32 height=32 offsetX=-510 offsetY=-15 name=file-text size=28 color=#EA580C
+:::
+
+:::text id=s3_s1_body at=center width=310 height=240 offsetX=-375 offsetY=140 preset=body align=left color=#F8FAFC fontSize=18 fill=#1E293B borderRadius=16
+**STEP 01: Context**
+
+Provide clear context of the feedback and factual background.
+:::
+
+:::text id=s3_arrow1 at=center width=40 height=40 offsetX=-195 offsetY=140 preset=title align=center color=#EA580C fontSize=32
+→
+:::
+
+:::icon id=s3_s2_icon at=center width=32 height=32 offsetX=-135 offsetY=-15 name=target size=28 color=#0284C7
+:::
+
+:::text id=s3_s2_body at=center width=310 height=240 offsetX=0 offsetY=140 preset=body align=left color=#F8FAFC fontSize=18 fill=#1E293B borderRadius=16
+**STEP 02: Shared Impact**
+
+Establish a shared understanding of the problem and its business impact.
+:::
+
+:::text id=s3_arrow2 at=center width=40 height=40 offsetX=180 offsetY=140 preset=title align=center color=#EA580C fontSize=32
+→
+:::
+
+:::icon id=s3_s3_icon at=center width=32 height=32 offsetX=240 offsetY=-15 name=lightbulb size=28 color=#16A34A
+:::
+
+:::text id=s3_s3_body at=center width=310 height=240 offsetX=375 offsetY=140 preset=body align=left color=#F8FAFC fontSize=18 fill=#1E293B borderRadius=16
+**STEP 03: Solution** *(Optional)*
+
+Offer proposed solutions or concrete suggestions for improvement.
+:::

@@ -1,0 +1,24 @@
+# @presentation_id: 9840079
+# @slide_id: 157082235
+# @purpose: split_screen_image_text
+# @category: Media & Visuals
+# @description: Split-screen layout pairing full-height media image with detailed narrative text
+# @keywords: split screen, image, text, side-by-side, visual narrative, media
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::image id=3SsHUf9NnA at=center width=72% height=480 offsetY=-40 src= alt="Hero image"
+:::
+
+:::shape id=6mnGwHLocA at=bottom-center width=80 height=0 offsetY=-160 kind=rect fill=#F97316
+:::
+
+:::text id=q8Xq6xTbhx at=bottom-center width=70% height=184 offsetY=-120 preset=body align=center color=text
+**Figure 1.** A photograph from the field — taken in March 2026, somewhere outside Reykjavik.
+:::
+
+:::text id=IieJ0YEKOl at=bottom-center width=80% height=120 offsetY=-56 preset=caption align=center color=muted
+PHOTO BY ANNA KOLOSKOVA · CC-BY-SA
+:::

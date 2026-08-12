@@ -1,0 +1,41 @@
+# @presentation_id: 9840079
+# @slide_id: 157065989
+# @purpose: comparison_2col
+# @category: Comparisons & Analysis
+# @description: 2-column side-by-side comparison layout for pro/con or option analysis
+# @keywords: comparison, 2-column, side-by-side, split, versus, pros cons
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=4_TSNrYkad at=top-center width=86% height=128 preset=title align=center
+# We're not average
+:::
+
+:::text id=1qweLzdaJc at=center width=424 height=48 offsetX=-280 offsetY=-152 preset=caption align=center color=muted
+INDUSTRY AVERAGE
+:::
+
+:::text id=GmbTI7QAtv at=center width=424 height=232 offsetX=-280 offsetY=8 preset=body align=center color=muted fontSize=120
+**24%**
+:::
+
+:::text id=9msSQXr3Jg at=center width=424 offsetX=-280 offsetY=184 preset=body align=center color=muted
+Customer retention after 6 months.
+:::
+
+:::shape id=kHSslQ_9UK at=center width=0 height=304 offsetY=80 kind=rect fill=#E2E8F0
+:::
+
+:::text id=_RFjdoVuQA at=center width=424 height=48 offsetX=280 offsetY=-152 preset=caption align=center color=#16A34A
+US
+:::
+
+:::text id=cWHJoeOCJp at=center width=424 height=232 offsetX=280 offsetY=8 preset=body align=center color=#16A34A fontSize=120
+**87%**
+:::
+
+:::text id=v2RabHOtsf at=center width=424 height=104 offsetX=280 offsetY=184 preset=body align=center color=#16A34A
+3.6× the industry average.
+:::

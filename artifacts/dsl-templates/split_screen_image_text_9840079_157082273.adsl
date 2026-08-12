@@ -1,0 +1,21 @@
+# @presentation_id: 9840079
+# @slide_id: 157082273
+# @purpose: split_screen_image_text
+# @category: Media & Visuals
+# @description: Split-screen layout pairing full-height media image with detailed narrative text
+# @keywords: split screen, image, text, side-by-side, visual narrative, media
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::image id=Ewq6B8bVaK at=left-half height=520 offsetY=64 src= alt="Add an image"
+:::
+
+:::text id=11U56h_wRg at=top-right width=42% height=176 offsetY=120 preset=title align=left
+# A short headline
+:::
+
+:::text id=Jza1_6LlKA at=top-right width=42% height=248 offsetY=320 preset=body align=left
+Use this layout when you have a strong visual that supports the message. The text on the right gives context without competing with the picture.
+:::

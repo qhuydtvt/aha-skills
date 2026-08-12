@@ -1,0 +1,27 @@
+# @presentation_id: 9840079
+# @slide_id: 157082296
+# @purpose: split_screen_image_text
+# @category: Media & Visuals
+# @description: Split-screen layout pairing full-height media image with detailed narrative text
+# @keywords: split screen, image, text, side-by-side, visual narrative, media
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=6rWFT1e7zS at=top-center width=86% height=144 preset=title align=center
+# Behind the scenes
+:::
+
+:::image id=RzLUoMJzim at=center-left width=320 height=384 offsetX=0 offsetY=8 src= alt="Photo 1"
+:::
+
+:::image id=T1JW6K4cyI at=center width=320 height=424 offsetY=-16 src= alt="Photo 2"
+:::
+
+:::image id=nn-WIw45EE at=center-right width=320 height=384 offsetX=0 offsetY=8 src= alt="Photo 3"
+:::
+
+:::text id=RoqOVUn3Yx at=bottom-center width=70% height=120 offsetY=-32 preset=caption align=center color=muted
+TEAM OFFSITE · LISBON · MARCH 2026
+:::

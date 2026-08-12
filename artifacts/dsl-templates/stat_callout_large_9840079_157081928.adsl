@@ -1,0 +1,26 @@
+# @presentation_id: 9840079
+# @slide_id: 157081928
+# @purpose: stat_callout_large
+# @category: Metrics & Performance
+# @description: Large single statistical number callout layout for key highlight figures
+# @keywords: stat, callout, big number, metric, highlight, impact figure
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=wlOBgOQgzR at=top-center width=80% height=64 offsetY=80 preset=caption align=center color=muted
+INDUSTRY
+:::
+
+:::text id=77o_4dRxyt at=center width=84% height=368 offsetY=-56 preset=body align=center color=primary fontSize=180
+# 64%
+:::
+
+:::text id=sokaZDB2Fc at=center width=70% height=120 offsetY=144 preset=body align=center color=text
+of presenters say their slides "feel like work" — not creative output.
+:::
+
+:::text id=lbA5zNikY2 at=bottom-center width=80% height=120 offsetY=-48 preset=caption align=center color=muted
+Source: AhaSlides Annual Survey, 2026 — 4,200 respondents.
+:::

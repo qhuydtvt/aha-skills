@@ -1,0 +1,24 @@
+# @presentation_id: 9840079
+# @slide_id: 157081010
+# @purpose: hero_header_minimal
+# @category: Headers & Covers
+# @description: Minimalist hero header cover layout with main title and subtitle text
+# @keywords: hero, header, minimal, title, cover, headline, cover slide
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::shape id=rUw6OdnjW1 at=bottom-left width=240 height=240 offsetX=0 offsetY=0 kind=circle fill="radial-gradient(circle, #38BDF8 0%, transparent 65%)" opacity=0.55
+:::
+
+:::shape id=vuVAf_OGDZ at=top-right width=240 height=240 offsetX=0 offsetY=0 kind=circle fill="radial-gradient(circle, #818CF8 0%, transparent 65%)" opacity=0.45
+:::
+
+:::text id=QbVpedLgtB at=center width=82% height=120 preset=body align=center color=text
+# Calm waters, deep ideas
+:::
+
+:::text id=0pjlrgf09K at=center width=50% height=120 offsetY=200 preset=body align=center color=muted
+A relaxed cover for slow, thoughtful talks.
+:::

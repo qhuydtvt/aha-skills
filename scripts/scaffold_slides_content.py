@@ -367,7 +367,6 @@ def parse_slide_plan_markdown(content: str, rel_source_path: str) -> dict[str, A
 
         # Extract keywords or main content
         keywords = []
-        key_content: dict[str, Any] = {}
 
         # Look for bullet points under Main Content Points
         content_lines = re.findall(r"^\s*[\*\-]\s+(.+)$", block, re.MULTILINE)

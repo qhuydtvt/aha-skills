@@ -1,0 +1,30 @@
+# @presentation_id: 9840079
+# @slide_id: 157082037
+# @purpose: team_member_profile_card
+# @category: Team & Organization
+# @description: Individual team member profile card layout with avatar image and short bio
+# @keywords: team, profile, bio, member, person, card, speaker, leader
+---
+content-v2: 1280x720
+version: 1
+background: bg
+---
+
+:::image id=L4lpEfuIUN x=720 y=80 w=480 h=560 src= fit=cover borderRadius=8
+:::
+
+:::text id=3me0Avjjf4 x=80 y=120 w=560 h=32 preset=caption color=muted
+MEET THE TEAM
+:::
+
+:::text id=CB_RjlHIuo x=80 y=176 w=560 h=80 preset=title align=left color=text fontSize=56
+Meet *Marcos*
+:::
+
+:::text id=bf5uecpsO2 x=80 y=288 w=560 h=72 preset=body color=text fontSize=24
+He runs a camera shop near the Louvre in Paris.
+:::
+
+:::text id=R3JGldGiKK x=80 y=400 w=560 h=200 preset=body color=muted
+Visitors to his store, mostly tourists, speak many different languages — making anything beyond a simple transaction a challenge.
+:::

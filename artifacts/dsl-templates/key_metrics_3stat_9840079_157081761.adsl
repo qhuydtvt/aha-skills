@@ -1,0 +1,30 @@
+# @presentation_id: 9840079
+# @slide_id: 157081761
+# @purpose: key_metrics_3stat
+# @category: Metrics & Performance
+# @description: 3-column statistical KPI metric cards layout with big numbers and captions
+# @keywords: metrics, stats, 3-column, kpi, performance, numbers, growth
+---
+content-v2: 1280x720
+version: 1
+background: bg
+---
+
+:::pattern id=hGXd7hW3yV x=560 y=80 w=720 h=480 kind=blob-cluster color=text opacity=0.06 count=3 seed=5 radius=240
+:::
+
+:::text id=O_DErzdkym at=top-left width=720 height=32 offsetX=80 offsetY=72 preset=caption color=muted
+KEY FINDING
+:::
+
+:::text id=wHaLIe-CCB at=top-left width=1120 height=120 offsetX=80 offsetY=160 preset=body align=left color=text fontSize=88
+There are *23*
+:::
+
+:::text id=DPb5c73sVT at=top-left width=1120 height=200 offsetX=80 offsetY=320 preset=body align=left color=text fontSize=56
+officially recognized languages in the EU.
+:::
+
+:::text id=vQtpxE-PG6 at=bottom-left width=720 height=32 offsetX=80 offsetY=-80 preset=caption color=muted
+Source: european-parliament.eu
+:::

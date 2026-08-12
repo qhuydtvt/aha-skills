@@ -1,0 +1,46 @@
+# @presentation_id: 9849064
+# @slide_id: 157142164
+# @purpose: faq_accordion_2col
+# @category: Lists & Content
+# @description: 2-column FAQ question and answer accordion list layout
+# @keywords: faq, questions, answers, Q&A, accordion, 2-column, help
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=WtG2BqfbOq at=top-center width=86% height=80 offsetY=24 preset=title align=left
+# Known Bugs & Support Patches
+:::
+
+:::text id=-_fQGtW_LY at=top-left width=80% height=32 offsetX=80 offsetY=120 preset=caption align=left color=#F97316
+BUG 1 · ASKING TOO MANY QUESTIONS
+:::
+
+:::text id=6oHlgNrGuz at=top-left width=80% height=48 offsetX=80 offsetY=152 preset=body align=left
+**Support Patch:** Provide clear context and explain relevance to business, product, or team.
+:::
+
+:::text id=s_1W74oPFQ at=top-left width=80% height=32 offsetX=80 offsetY=240 preset=caption align=left color=#F97316
+BUG 2 · SLOW RESPONSE ON LOW ENERGY
+:::
+
+:::text id=Uot7lQpCsO at=top-left width=80% height=48 offsetX=80 offsetY=272 preset=body align=left
+**Support Patch:** Allow time to recover; feel free to state explicitly if urgent.
+:::
+
+:::text id=KRzTQoFzLj at=top-left width=80% height=32 offsetX=80 offsetY=360 preset=caption align=left color=#F97316
+BUG 3 · INCOHERENT WHEN OVER-EXCITED
+:::
+
+:::text id=l8dpSHLo1O at=top-left width=80% height=48 offsetX=80 offsetY=392 preset=body align=left
+**Support Patch:** Give time to let things sink in, and echo back what you hear.
+:::
+
+:::text id=bug4_caption at=top-left width=80% height=32 offsetX=80 offsetY=480 preset=caption align=left color=#F97316
+BUG 4 · PUSHING SELF & TEAM TOO HARD
+:::
+
+:::text id=bug4_body at=top-left width=80% height=48 offsetX=80 offsetY=512 preset=body align=left
+**Support Patch:** Speak up if it's not working or if energy is better spent elsewhere.
+:::

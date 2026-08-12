@@ -1,0 +1,68 @@
+# @presentation_id: 9840079
+# @slide_id: 157081088
+# @purpose: data_dashboard_chart
+# @category: Metrics & Performance
+# @description: Data dashboard chart visual layout for analytical reports and metrics overview
+# @keywords: dashboard, chart, data, analytics, visualization, report, graph
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=FgbZSKUw2V at=top-center width=86% height=144 offsetY=24 preset=title align=center
+# Performance dashboard
+:::
+
+:::shape id=lEtMb7P_ba at=center width=200 height=128 offsetX=-360 offsetY=-96 kind=rect fill=surface borderRadius=12 shadow=md
+:::
+
+:::text id=V4xt81vF_H at=center width=200 height=64 offsetX=-360 offsetY=-128 preset=caption align=center color=muted
+P50 LATENCY
+:::
+
+:::text id=Cfmo34goav at=center width=200 height=104 offsetX=-360 offsetY=-80 preset=body align=center color=text fontSize=44
+# 64ms
+:::
+
+:::shape id=wBMZumOy_s at=center width=200 height=128 offsetX=-120 offsetY=-96 kind=rect fill=surface borderRadius=12 shadow=md
+:::
+
+:::text id=UiT-_SuHRV at=center width=200 height=64 offsetX=-120 offsetY=-128 preset=caption align=center color=muted
+P99 LATENCY
+:::
+
+:::text id=nS5O7Bv31R at=center width=200 height=104 offsetX=-120 offsetY=-80 preset=body align=center color=text fontSize=44
+# 180ms
+:::
+
+:::shape id=LHuB5cId22 at=center width=200 height=128 offsetX=120 offsetY=-96 kind=rect fill=surface borderRadius=12 shadow=md
+:::
+
+:::text id=imRAYiEKT3 at=center width=200 height=64 offsetX=120 offsetY=-128 preset=caption align=center color=muted
+ERROR RATE
+:::
+
+:::text id=ZX2739uTN_ at=center width=200 height=104 offsetX=120 offsetY=-80 preset=body align=center color=#22C55E fontSize=44
+# 0.04%
+:::
+
+:::shape id=hnzhvGhHAw at=center width=200 height=128 offsetX=360 offsetY=-96 kind=rect fill=surface borderRadius=12 shadow=md
+:::
+
+:::text id=2WbPZ4s1fB at=center width=200 height=64 offsetX=360 offsetY=-128 preset=caption align=center color=muted
+THROUGHPUT
+:::
+
+:::text id=WwkVlBUmux at=center width=200 height=104 offsetX=360 offsetY=-80 preset=body align=center color=text fontSize=44
+# 12k/s
+:::
+
+:::chart id=Z1R2Qe9qX_ at=center width=80% height=288 offsetY=168 kind=bar title="Requests / second over 24 hours"
+00: 6800
+04: 4200
+08: 9400
+12: 14800
+16: 12100
+20: 9500
+24: 7300
+:::

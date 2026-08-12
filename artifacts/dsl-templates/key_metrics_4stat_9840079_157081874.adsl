@@ -1,0 +1,69 @@
+# @presentation_id: 9840079
+# @slide_id: 157081874
+# @purpose: key_metrics_4stat
+# @category: Metrics & Performance
+# @description: 4-column statistical KPI metric cards layout with big numbers and captions
+# @keywords: metrics, stats, 4-column, kpi, performance, numbers, summary
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=IcLr38_uK7 at=top-center width=86% height=144 offsetY=80 preset=title align=center
+# By the numbers
+:::
+
+:::shape id=cq0gcDkyKo at=center-left width=184 height=200 offsetX=40 kind=rect fill=surface borderRadius=16 shadow=md
+:::
+
+:::text id=ZUgP9Mffnz at=center-left width=184 height=144 offsetX=40 offsetY=-40 preset=body align=center color=#F97316 fontSize=72
+# 12
+:::
+
+:::text id=oAvEp0LZgn at=center-left width=184 height=64 offsetX=40 offsetY=64 preset=caption align=center color=muted
+Markets
+:::
+
+:::shape id=EzfgRarjQ1 at=center width=184 height=200 offsetX=-216 kind=rect fill=surface borderRadius=16 shadow=md
+:::
+
+:::text id=5_r69a1AKO at=center width=184 height=144 offsetX=-216 offsetY=-40 preset=body align=center color=#F97316 fontSize=72
+# 38
+:::
+
+:::text id=tnhY6AdfXh at=center width=184 height=64 offsetX=-216 offsetY=64 preset=caption align=center color=muted
+Languages
+:::
+
+:::shape id=eIDETPhg0e at=center width=184 height=200 kind=rect fill=surface borderRadius=16 shadow=md
+:::
+
+:::text id=XA56mbDKPS at=center width=184 height=144 offsetY=-40 preset=body align=center color=#F97316 fontSize=72
+# 1.2M
+:::
+
+:::text id=eYlrQU-UdR at=center width=184 height=64 offsetY=64 preset=caption align=center color=muted
+Users
+:::
+
+:::shape id=t0clGqwvj3 at=center width=184 height=200 offsetX=224 kind=rect fill=surface borderRadius=16 shadow=md
+:::
+
+:::text id=fQtgmo08Yl at=center width=232 height=144 offsetX=224 offsetY=-40 preset=body align=center color=#F97316 fontSize=72
+# 99.95
+:::
+
+:::text id=6b3xxm8_Bu at=center width=184 height=64 offsetX=224 offsetY=64 preset=caption align=center color=muted
+Uptime %
+:::
+
+:::shape id=jxjRCfLwpE at=center-right width=184 height=200 offsetX=-40 kind=rect fill=surface borderRadius=16 shadow=md
+:::
+
+:::text id=u-1FS6j471 at=center-right width=184 height=144 offsetX=-40 offsetY=-40 preset=body align=center color=#F97316 fontSize=72
+# 240
+:::
+
+:::text id=sCy_T_581- at=center-right width=184 height=64 offsetX=-40 offsetY=64 preset=caption align=center color=muted
+Team
+:::

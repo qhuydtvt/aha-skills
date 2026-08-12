@@ -1,0 +1,28 @@
+# @presentation_id: 9840079
+# @slide_id: 157080549
+# @purpose: split_screen_image_text
+# @category: Media & Visuals
+# @description: Split-screen layout pairing full-height media image with detailed narrative text
+# @keywords: split screen, image, text, side-by-side, visual narrative, media
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::image id=rTwTiG8n54 at=center width=100% height=100% src= alt=Background
+:::
+
+:::shape id=EyXQ3Nph5s at=center width=72% height=58% kind=rect fill=rgba(255,255,255,0.12) borderRadius=24 shadow=xl blur=18
+:::
+
+:::text id=wn_aRStceN at=center width=64% height=32 offsetY=-160 preset=caption align=center color=muted
+TECHNICAL DEEP DIVE
+:::
+
+:::text id=eWRemHxpSw at=center width=68% height=224 offsetY=-32 preset=title align=center color=text
+# How we ship every day
+:::
+
+:::text id=Vk2DZHLQrJ at=center width=60% height=112 offsetY=128 preset=body align=center color=muted
+A look at the systems that keep our release train moving.
+:::

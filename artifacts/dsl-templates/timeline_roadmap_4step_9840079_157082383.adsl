@@ -1,0 +1,67 @@
+# @presentation_id: 9840079
+# @slide_id: 157082383
+# @purpose: timeline_roadmap_4step
+# @category: Processes & Workflows
+# @description: 4-step chronological timeline roadmap layout for project milestone tracking
+# @keywords: timeline, roadmap, 4-step, milestones, schedule, strategy, phase
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=eDXv6iUnT_ at=top-center width=86% height=144 preset=title align=center
+# Our journey
+:::
+
+:::shape id=gYW_oSPy6s at=center width=216 height=8 offsetX=-256 kind=rect fill=#E2E8F0
+:::
+
+:::shape id=uVZASXw-m0 at=center width=232 height=8 offsetX=0 kind=rect fill=#E2E8F0
+:::
+
+:::shape id=-sGftGw_7G at=center width=216 height=8 offsetX=256 kind=rect fill=#E2E8F0
+:::
+
+:::shape id=8GJ7yKidCI at=center width=24 height=24 offsetX=-376 kind=circle fill=#F97316
+:::
+
+:::text id=qV2S_CdgdX at=center width=160 height=64 offsetX=-376 offsetY=-56 preset=caption align=center color=#F97316
+2023
+:::
+
+:::text id=gT-GQiMx71 at=center width=160 height=64 offsetX=-376 offsetY=64 preset=caption align=center color=muted
+Founded
+:::
+
+:::shape id=D8ucNu8Ut3 at=center width=24 height=24 offsetX=-128 kind=circle fill=#F97316
+:::
+
+:::text id=O_DW5KR21Q at=center width=160 height=64 offsetX=-128 offsetY=-56 preset=caption align=center color=#F97316
+2024
+:::
+
+:::text id=vKCiZaYprB at=center width=160 height=64 offsetX=-128 offsetY=64 preset=caption align=center color=muted
+Series A
+:::
+
+:::shape id=kzxxPZNvrw at=center width=24 height=24 offsetX=128 kind=circle fill=#F97316
+:::
+
+:::text id=bY96d13_Al at=center width=160 height=64 offsetX=128 offsetY=-56 preset=caption align=center color=#F97316
+2025
+:::
+
+:::text id=st_ToSIg-7 at=center width=160 height=64 offsetX=128 offsetY=64 preset=caption align=center color=muted
+1M users
+:::
+
+:::shape id=WgD5jdTSHc at=center width=32 height=32 offsetX=384 kind=circle fill=#0F172A
+:::
+
+:::text id=c9KCzTSrFg at=center width=160 height=64 offsetX=384 offsetY=-56 preset=caption align=center color=text
+2026
+:::
+
+:::text id=CVaNjneT5Q at=center width=160 height=64 offsetX=384 offsetY=64 preset=caption align=center color=text
+Today
+:::

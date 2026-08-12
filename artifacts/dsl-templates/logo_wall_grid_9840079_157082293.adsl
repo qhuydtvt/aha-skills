@@ -1,0 +1,37 @@
+# @presentation_id: 9840079
+# @slide_id: 157082293
+# @purpose: logo_wall_grid
+# @category: Social Proof & Logos
+# @description: Client or partner brand logo wall grid layout for corporate social proof
+# @keywords: logo wall, partners, clients, brands, grid, social proof, trust
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=h0uI0E7aat at=top-center width=86% height=144 preset=title align=center
+# Where our customers are
+:::
+
+:::shape id=jOIzpfnQW_ at=center width=80% height=344 offsetY=24 kind=rect fill=surface borderRadius=20 shadow=md
+:::
+
+:::text id=dX_0oeqtB9 at=center width=304 offsetY=-88 preset=body align=center color=#0EA5E9
+[ world map placeholder ]
+:::
+
+:::shape id=d-o0s-b-8k at=center width=24 height=24 offsetX=-200 offsetY=-16 kind=circle fill=#F97316
+:::
+
+:::shape id=D-ghpesZPs at=center width=24 height=24 offsetX=144 offsetY=32 kind=circle fill=#F97316
+:::
+
+:::shape id=yxfzLpJU-D at=center width=24 height=24 offsetX=240 offsetY=120 kind=circle fill=#F97316
+:::
+
+:::shape id=hchfLRruCQ at=center width=24 height=24 offsetX=-280 offsetY=80 kind=circle fill=#F97316
+:::
+
+:::text id=2RRo1cGC_X at=bottom-center width=70% height=176 offsetY=-32 preset=body align=center color=muted
+Active in 38 countries — strongest growth in APAC and LATAM.
+:::

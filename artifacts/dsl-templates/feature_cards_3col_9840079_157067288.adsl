@@ -1,0 +1,47 @@
+# @presentation_id: 9840079
+# @slide_id: 157067288
+# @purpose: feature_cards_3col
+# @category: Features & Products
+# @description: 3-column card grid layout highlighting key product features or benefits
+# @keywords: features, 3-column, cards, grid, benefits, product, services
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=alHTIsTOSn at=top-center width=86% height=144 offsetY=80 preset=title align=center
+# How it works
+:::
+
+:::shape id=KIG1qU5JJx at=center width=72 height=72 offsetX=-352 offsetY=-40 kind=circle fill=#F97316
+:::
+
+:::text id=zWiyS6y-Ht at=center width=72 height=96 offsetX=-352 offsetY=-40 preset=title align=center color=text fontSize=36
+# 1
+:::
+
+:::text id=S_w9jsrD-M at=center width=280 height=160 offsetX=-352 offsetY=80 preset=body align=center
+**Capture** the input from the source.
+:::
+
+:::shape id=FmkK3ny-fi at=center width=72 height=72 offsetY=-40 kind=circle fill=#F97316
+:::
+
+:::text id=QEdT2W7Fni at=center width=72 height=96 offsetY=-40 preset=title align=center color=text fontSize=36
+# 2
+:::
+
+:::text id=TbklMjjbQb at=center width=280 height=160 offsetY=80 preset=body align=center
+**Transform** it into the shape we need.
+:::
+
+:::shape id=lgjaVM1g6G at=center width=72 height=72 offsetX=352 offsetY=-40 kind=circle fill=#F97316
+:::
+
+:::text id=wWSFb2UDB- at=center width=72 height=96 offsetX=352 offsetY=-40 preset=title align=center color=text fontSize=36
+# 3
+:::
+
+:::text id=Fmqgn9yWxz at=center width=280 height=160 offsetX=352 offsetY=80 preset=body align=center
+**Persist** the result for later use.
+:::

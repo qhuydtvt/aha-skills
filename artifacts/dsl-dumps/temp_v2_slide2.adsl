@@ -1,0 +1,40 @@
+# @presentation_id: 9849064
+# @slide_id: 157142156
+# @purpose: bullet_list_icon_grid
+# @category: Lists & Content
+# @description: Bullet points list layout paired with decorative icon visual anchors
+# @keywords: bullet list, icons, features, key points, takeaway, list grid
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=Hq5tyvbKvt at=top-center width=86% height=144 preset=title align=center
+# Communication Preferences
+:::
+
+:::shape id=Vpo6jtC3I4 at=center width=480 height=424 offsetX=-256 offsetY=80 kind=rect fill=surface borderRadius=16
+:::
+
+:::text id=khe44S3pM1 at=center width=424 height=64 offsetX=-256 offsetY=-80 preset=caption align=center color=#991B1B
+PREFERRED CHANNELS
+:::
+
+:::text id=VnIHUGWqKk at=center width=424 height=312 offsetX=-256 offsetY=104 preset=body align=left color=text
+- **Slack / Teams:** Quick, low-overhead chat
+- **Face-to-Face / Call:** Complex topics
+- **Email:** Official decisions & external
+:::
+
+:::shape id=Gd-emq4NLM at=center width=480 height=424 offsetX=264 offsetY=80 kind=rect fill=surface borderRadius=16
+:::
+
+:::text id=Zo0pYXOIvk at=center width=424 height=64 offsetX=264 offsetY=-80 preset=caption align=center color=#166534
+3-STEP FORMAT
+:::
+
+:::text id=puoTqy2qXA at=center width=424 height=272 offsetX=264 offsetY=104 preset=body align=left color=text
+- **1. Context:** Facts upfront
+- **2. Problem:** Clear definition
+- **3. Proposed Solutions:** Actionable paths
+:::

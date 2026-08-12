@@ -1,0 +1,35 @@
+# @presentation_id: 9840079
+# @slide_id: 157082312
+# @purpose: bullet_list_icon_grid
+# @category: Lists & Content
+# @description: Bullet points list layout paired with decorative icon visual anchors
+# @keywords: bullet list, icons, features, key points, takeaway, list grid
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=vOyR2-WdqK at=top-center width=86% height=144 preset=title align=center
+# Our three principles
+:::
+
+:::icon id=E90BEe4CoO at=center-left offsetX=112 offsetY=-24 name=lightbulb size=80 color=primary
+:::
+
+:::text id=0uuZiSNXgD at=center-left width=22% height=128 offsetY=80 preset=body align=center
+**Clarity** — say what you mean.
+:::
+
+:::icon id=aOlmABGx8w at=center offsetX=0 offsetY=-17 name=heart size=80 color=primary
+:::
+
+:::text id=YqeGbiOh21 at=center width=22% height=120 offsetY=80 preset=body align=center
+**Care** — for the user.
+:::
+
+:::icon id=d3etzhcaRM at=center-right offsetX=-112 offsetY=-24 name=sparkles size=80 color=primary
+:::
+
+:::text id=p-YCIblVGW at=center-right width=22% height=128 offsetY=80 preset=body align=center
+**Craft** — finish what you start.
+:::

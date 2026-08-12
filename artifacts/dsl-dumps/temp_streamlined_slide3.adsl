@@ -1,0 +1,53 @@
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=tdWw53yIKc at=top-center width=86% height=144 offsetY=72 preset=title align=center
+# Feedback Protocol (3-Point Structure)
+:::
+
+:::text id=subFdBkHeader at=top-center width=86% height=48 offsetY=136 preset=caption align=center color=muted
+Preferred Channel: Face-to-Face (Private or Public)
+:::
+
+:::shape id=ylDNgvEZJg at=center width=280 height=240 offsetX=-340 offsetY=32 kind=rect fill=surface borderRadius=16 shadow=md
+:::
+
+:::icon id=icnFdbk1 at=center width=32 height=32 offsetX=-340 offsetY=-48 name=file-text size=32 color=#3B82F6
+:::
+
+:::text id=TxV1irf97j at=center width=240 height=120 offsetX=-340 offsetY=48 preset=body align=center color=text
+**1. Context**  
+Set facts and background clearly
+:::
+
+:::text id=hFSNWoQBUM at=center width=40 height=104 offsetX=-170 offsetY=32 preset=body align=center color=muted fontSize=40
+→
+:::
+
+:::shape id=jJEOsZQoLt at=center width=280 height=240 offsetX=0 offsetY=32 kind=rect fill=surface borderRadius=16 shadow=md
+:::
+
+:::icon id=icnFdbk2 at=center width=32 height=32 offsetX=0 offsetY=-48 name=alert-circle size=32 color=#F59E0B
+:::
+
+:::text id=XKW6EhxpAw at=center width=240 height=120 offsetX=0 offsetY=48 preset=body align=center color=text
+**2. Impact**  
+Shared problem & business/team effect
+:::
+
+:::text id=IhKd-f8N_T at=center width=40 height=104 offsetX=170 offsetY=32 preset=body align=center color=muted fontSize=40
+→
+:::
+
+:::shape id=h9VXmiy3hV at=center width=280 height=240 offsetX=340 offsetY=32 kind=rect fill=surface borderRadius=16 shadow=md
+:::
+
+:::icon id=icnFdbk3 at=center width=32 height=32 offsetX=340 offsetY=-48 name=lightbulb size=32 color=#10B981
+:::
+
+:::text id=IVbPR21Wmt at=center width=240 height=120 offsetX=340 offsetY=48 preset=body align=center color=text
+**3. Solution**  
+(Optional) Proposed idea or fix
+:::

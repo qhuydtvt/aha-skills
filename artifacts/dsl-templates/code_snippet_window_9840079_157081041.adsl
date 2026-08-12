@@ -1,0 +1,30 @@
+# @presentation_id: 9840079
+# @slide_id: 157081041
+# @purpose: code_snippet_window
+# @category: Technical & Code
+# @description: Code snippet window frame layout with dark theme syntax display
+# @keywords: code, snippet, terminal, window, editor, syntax, programming, technical
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=caegvWu038 at=top-center width=86% height=144 offsetY=64 preset=title align=left
+# Code review
+:::
+
+:::code id=9Ek7ojgGPK at=center width=80% offsetY=24 language=diff
+- function compute(n: number) {
+-   return n * 2 + 1;
+- }
++ function compute(n: number): number {
++   if (!Number.isFinite(n)) {
++     throw new TypeError('compute() expected a finite number');
++   }
++   return n * 2 + 1;
++ }
+:::
+
+:::text id=1JaSv8z0uS at=bottom-center width=80% height=120 offsetY=-56 preset=caption align=center color=muted
+Added an explicit return type and a guard against NaN/±Infinity inputs.
+:::

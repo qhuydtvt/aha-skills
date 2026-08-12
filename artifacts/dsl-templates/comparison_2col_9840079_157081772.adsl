@@ -1,0 +1,38 @@
+# @presentation_id: 9840079
+# @slide_id: 157081772
+# @purpose: comparison_2col
+# @category: Comparisons & Analysis
+# @description: 2-column side-by-side comparison layout for pro/con or option analysis
+# @keywords: comparison, 2-column, side-by-side, split, versus, pros cons
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=ZnzcEhRSXM at=top-center width=86% height=144 offsetY=40 preset=title align=center
+# Then vs now
+:::
+
+:::text id=iIikj8zyUS at=center width=424 height=64 offsetX=-280 offsetY=-88 preset=caption align=center color=muted
+2024
+:::
+
+:::text id=qzgdUgHim2 at=center width=424 height=296 offsetX=-280 offsetY=48 preset=body align=center color=muted fontSize=140
+# 1.2M
+:::
+
+:::text id=qqFgY4LA7l at=center width=120 height=232 offsetY=32 preset=body align=center color=#F97316 fontSize=100
+→
+:::
+
+:::text id=luGusnfaBe at=center width=424 height=64 offsetX=280 offsetY=-88 preset=caption align=center color=#F97316
+2026
+:::
+
+:::text id=GBWBI_Y6LW at=center width=424 height=296 offsetX=280 offsetY=48 preset=body align=center color=#F97316 fontSize=140
+# 5.1M
+:::
+
+:::text id=xBtV2PaIRN at=bottom-center width=70% height=136 offsetY=-80 preset=body align=center color=muted
+Four-fold growth in just over two years.
+:::

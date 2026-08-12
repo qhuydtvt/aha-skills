@@ -1,0 +1,25 @@
+# @presentation_id: 9840079
+# @slide_id: 157066895
+# @purpose: hero_header_minimal
+# @category: Headers & Covers
+# @description: Minimalist hero header cover layout with main title and subtitle text
+# @keywords: hero, header, minimal, title, cover, headline, cover slide
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=VDfoS8RLOd at=top-center width=80% height=64 offsetY=144 preset=caption align=center color=muted
+DEFINITION
+:::
+
+:::text id=8Ohprg4kSX at=center width=86% height=120 offsetY=-56 preset=body align=center color=text
+# *Latency*, n.
+:::
+
+:::shape id=5oOK7uuITU at=center width=80 height=0 offsetY=40 kind=rect fill=#0F172A
+:::
+
+:::text id=6pIiNgRFVn at=center width=70% height=128 offsetY=120 preset=body align=center color=muted
+The delay between a user's action and the system's response. Measured in milliseconds, felt in seconds.
+:::

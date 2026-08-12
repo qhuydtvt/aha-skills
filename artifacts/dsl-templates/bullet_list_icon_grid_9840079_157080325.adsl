@@ -1,0 +1,22 @@
+# @presentation_id: 9840079
+# @slide_id: 157080325
+# @purpose: bullet_list_icon_grid
+# @category: Lists & Content
+# @description: Bullet points list layout paired with decorative icon visual anchors
+# @keywords: bullet list, icons, features, key points, takeaway, list grid
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=9gKcVCyKnP at=top-center width=80% height=64 offsetY=160 preset=caption align=center color=#F97316
+INTRODUCING
+:::
+
+:::text id=uDGqhiQ6CP at=center width=84% height=120 offsetY=-32 preset=body align=center color=text
+# Aha Studio
+:::
+
+:::text id=XbMcVKUp_u at=center width=70% height=264 offsetY=120 preset=title align=center color=muted
+A simpler way to design slides that don't look like slides.
+:::

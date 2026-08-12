@@ -1,0 +1,58 @@
+# @presentation_id: 9840079
+# @slide_id: 157082298
+# @purpose: process_flow_diagram
+# @category: Processes & Workflows
+# @description: Sequential step-by-step process flow diagram layout with connected nodes
+# @keywords: process, flow, workflow, steps, diagram, sequence, methodology
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=tdWw53yIKc at=top-center width=86% height=144 offsetY=80 preset=title align=center
+# How a request flows
+:::
+
+:::shape id=ylDNgvEZJg at=center width=144 height=120 offsetX=-376 kind=rect fill=surface borderRadius=12 shadow=md
+:::
+
+:::text id=TxV1irf97j at=center width=144 height=88 offsetX=-376 preset=caption align=center color=text
+**Capture**
+ingest event
+:::
+
+:::text id=hFSNWoQBUM at=center width=40 height=104 offsetX=-256 preset=body align=center color=muted fontSize=40
+→
+:::
+
+:::shape id=jJEOsZQoLt at=center width=144 height=120 offsetX=-128 kind=rect fill=surface borderRadius=12 shadow=md
+:::
+
+:::text id=XKW6EhxpAw at=center width=144 height=88 offsetX=-128 preset=caption align=center color=text
+**Validate**
+schema check
+:::
+
+:::text id=IhKd-f8N_T at=center width=40 height=104 offsetX=0 preset=body align=center color=muted fontSize=40
+→
+:::
+
+:::shape id=h9VXmiy3hV at=center width=144 height=120 offsetX=128 kind=rect fill=surface borderRadius=12 shadow=md
+:::
+
+:::text id=IVbPR21Wmt at=center width=144 height=112 offsetX=128 preset=caption align=center color=text
+**Process**
+business logic
+:::
+
+:::text id=hfcglZYJss at=center width=40 height=104 offsetX=264 preset=body align=center color=muted fontSize=40
+→
+:::
+
+:::shape id=XxscopvPsx at=center width=144 height=120 offsetX=384 kind=rect fill=#22C55E borderRadius=12 shadow=md
+:::
+
+:::text id=PnKJhrDxtL at=center width=144 height=88 offsetX=384 preset=caption align=center color=text
+**Persist**
+write to DB
+:::

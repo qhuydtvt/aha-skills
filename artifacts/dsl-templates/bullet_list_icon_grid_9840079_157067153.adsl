@@ -1,0 +1,32 @@
+# @presentation_id: 9840079
+# @slide_id: 157067153
+# @purpose: bullet_list_icon_grid
+# @category: Lists & Content
+# @description: Bullet points list layout paired with decorative icon visual anchors
+# @keywords: bullet list, icons, features, key points, takeaway, list grid
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::shape id=LZ9I_fQK2C at=top-left width=160 height=160 offsetX=0 offsetY=0 kind=circle fill=#F97316 opacity=0.18
+:::
+
+:::shape id=FlEoS9y_3r at=top-center width=72 height=8 offsetY=120 kind=rect fill=#F97316 borderRadius=2
+:::
+
+:::text id=ZWXCSZxODG at=top-center width=60% height=64 offsetY=80 preset=caption align=center color=muted
+Q4 2026 · Quarterly review
+:::
+
+:::text id=-RNRjPZw_n at=top-center width=85% height=176 offsetY=160 preset=title align=center color=text
+# A quarter that exceeded every plan
+:::
+
+:::text id=p9VLTSJctR at=center width=70% offsetY=144 preset=body align=center color=muted
+Revenue grew 42% YoY · Uptime held at 99.95% · 1.2M new participants.
+:::
+
+:::text id=0-jPUZjj4A at=bottom-center width=60% height=120 offsetY=-40 preset=caption align=center color=#F97316
+Next: 2027 plan review — Tuesday at 10:00
+:::

@@ -1,0 +1,29 @@
+# @presentation_id: 9849061
+# @slide_id: 157142155
+# @purpose: hero_header_badge
+# @category: Headers & Covers
+# @description: Hero header layout for Manual of HuyNQ Version 1
+# @keywords: hero, header, manual of me, HuyNQ, cover
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::shape id=THrpVV0HM1 at=top-left width=160 height=160 offsetX=-40 offsetY=-40 kind=circle fill=rgba(255,255,255,0.18) opacity=0.7
+:::
+
+:::shape id=Mpn-Yvnu2D at=bottom-right width=144 height=144 offsetX=40 offsetY=40 kind=circle fill=rgba(255,255,255,0.14) opacity=0.6
+:::
+
+:::shape id=zpDADSskbG at=center width=72% height=58% kind=rect fill=rgba(255,255,255,0.18) borderRadius=24 shadow=xl blur=18
+:::
+
+:::text id=l1BsnYvUwX at=center width=64% height=144 offsetY=-56 preset=title align=center color=text
+# A Manual of Huy
+:::
+
+:::text id=edxm1AG1Dv at=center width=58% height=160 offsetY=64 preset=body align=center color=text
+**Mission:** "Build useful things"
+
+**Core Values:** Integrity • Winning Mindset • Continuous Improvement
+:::

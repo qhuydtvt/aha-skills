@@ -1,0 +1,25 @@
+# @presentation_id: 9840079
+# @slide_id: 157080836
+# @purpose: hero_header_minimal
+# @category: Headers & Covers
+# @description: Minimalist hero header cover layout with main title and subtitle text
+# @keywords: hero, header, minimal, title, cover, headline, cover slide
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=7ToQvnF4Tt at=center-left width=70% height=120 offsetX=80 offsetY=-96 preset=body align=left color=text
+# Annual review
+:::
+
+:::text id=JClVmJNce1 at=center-left width=70% height=264 offsetX=80 offsetY=24 preset=title align=left color=muted
+A look back at twelve months of work.
+:::
+
+:::shape id=IR5XatROEO at=center-left width=64 height=0 offsetX=80 offsetY=120 kind=rect fill=#0F172A
+:::
+
+:::text id=NnP62uRoOg at=center-left width=50% height=64 offsetX=80 offsetY=160 preset=caption align=left color=muted
+Prepared by the leadership team — May 2026
+:::

@@ -1,0 +1,46 @@
+---
+content-v2: 1280x720
+version: 1
+background: bg
+---
+
+:::text id=s1_tag at=center width=600 height=32 offsetX=0 offsetY=-280 preset=caption align=center color=#EA580C
+MANUAL OF ME · COLLABORATION GUIDE
+:::
+
+:::text id=s1_title at=center width=800 height=80 offsetX=0 offsetY=-200 preset=title align=center color=#FFFFFF fontSize=56
+# HuyNQ
+:::
+
+:::shape id=s1_divider at=center width=120 height=6 offsetX=0 offsetY=-148 kind=rect fill=#EA580C borderRadius=3
+:::
+
+:::text id=s1_sub at=center width=800 height=40 offsetX=0 offsetY=-116 preset=body align=center color=#94A3B8 fontSize=22
+A practical guide on how to work, communicate, and collaborate with me effectively.
+:::
+
+:::icon id=s1_c1_icon at=center width=36 height=36 offsetX=-490 offsetY=-30 name=target size=32 color=#EA580C
+:::
+
+:::text id=s1_c1_title at=center width=420 height=40 offsetX=-240 offsetY=-30 preset=title align=left color=#FFFFFF fontSize=28
+# My Mission
+:::
+
+:::text id=s1_c1_body at=center width=520 height=240 offsetX=-270 offsetY=125 preset=body align=left color=#F8FAFC fontSize=24 fill=#1E293B borderRadius=16
+"Build useful things"
+
+Focusing on high-impact products, clean engineering, and pragmatic solutions.
+:::
+
+:::icon id=s1_c2_icon at=center width=36 height=36 offsetX=50 offsetY=-30 name=compass size=32 color=#0284C7
+:::
+
+:::text id=s1_c2_title at=center width=420 height=40 offsetX=300 offsetY=-30 preset=title align=left color=#FFFFFF fontSize=28
+# Core Values
+:::
+
+:::text id=s1_c2_body at=center width=520 height=240 offsetX=270 offsetY=125 preset=body align=left color=#F8FAFC fontSize=20 fill=#1E293B borderRadius=16
+- **Integrity:** Honest, transparent communication and commitments.
+- **Winning Mindset:** High standards, relentless pursuit of excellence.
+- **Continuous Improvement:** Constant learning and refining processes.
+:::

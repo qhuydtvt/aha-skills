@@ -1,0 +1,32 @@
+# @presentation_id: 9840079
+# @slide_id: 157080979
+# @purpose: bullet_list_icon_grid
+# @category: Lists & Content
+# @description: Bullet points list layout paired with decorative icon visual anchors
+# @keywords: bullet list, icons, features, key points, takeaway, list grid
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::shape id=PGK8SfiFlE x=0 y=0 w=640 h=720 kind=rect fill=#0F172A
+:::
+
+:::shape id=gAycy4wubl x=640 y=0 w=640 h=720 kind=rect fill=#FBBF24
+:::
+
+:::text id=0YWRbTVCMS x=80 y=296 w=480 h=184 preset=title align=center color=#FFFFFF
+# Light
+:::
+
+:::text id=ENYY2oVyBN x=720 y=296 w=480 h=184 preset=title align=center color=#0F172A
+# meets dark
+:::
+
+:::text id=HM5zKo6gYX x=80 y=448 w=480 h=48 preset=caption align=center color=muted
+A presentation
+:::
+
+:::text id=hhl3lrspTg x=720 y=448 w=480 h=48 preset=caption align=center color=muted
+in two halves.
+:::

@@ -1,0 +1,54 @@
+# @presentation_id: 9840079
+# @slide_id: 157066821
+# @purpose: feature_cards_4col
+# @category: Features & Products
+# @description: 4-column card grid layout for feature summaries and capability overviews
+# @keywords: features, 4-column, cards, grid, benefits, product overview
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=_c_LO-U2Kn at=top-center width=86% height=144 offsetY=80 preset=title align=left
+# Before you ship
+:::
+
+:::shape id=yQ5o6X0wWT at=center-left width=32 height=32 offsetX=80 offsetY=-96 kind=rect fill=#22C55E borderRadius=6
+:::
+
+:::text id=PE8-qQ3jE- at=center-left width=32 height=80 offsetX=80 offsetY=-96 preset=body align=center color=text
+✓
+:::
+
+:::text id=enF_cONme_ at=center-left width=70% height=80 offsetX=144 offsetY=-96 preset=body align=left
+**Tests pass** locally and in CI.
+:::
+
+:::shape id=AWWghYycyN at=center-left width=32 height=32 offsetX=80 offsetY=-32 kind=rect fill=#22C55E borderRadius=6
+:::
+
+:::text id=qgDNkvt0mS at=center-left width=32 height=80 offsetX=80 offsetY=-32 preset=body align=center color=text
+✓
+:::
+
+:::text id=FiKhn8x7w- at=center-left width=70% height=80 offsetX=144 offsetY=-32 preset=body align=left
+**Migrations** are reversible.
+:::
+
+:::shape id=lxFokmGBsF at=center-left width=32 height=32 offsetX=80 offsetY=40 kind=rect fill=#FBBF24 borderRadius=6
+:::
+
+:::text id=gZXcgqEQ3c at=center-left width=32 height=80 offsetX=80 offsetY=40 preset=body align=center color=text
+∼
+:::
+
+:::text id=xaLXioeVEC at=center-left width=70% height=80 offsetX=144 offsetY=40 preset=body align=left
+**Performance** budget met.
+:::
+
+:::shape id=jkNo0dpaGL at=center-left width=32 height=32 offsetX=80 offsetY=112 kind=rect fill=#E2E8F0 borderRadius=6
+:::
+
+:::text id=R2e808MJ8o at=center-left width=70% height=80 offsetX=144 offsetY=112 preset=body align=left color=muted
+**Docs** updated for changed APIs.
+:::

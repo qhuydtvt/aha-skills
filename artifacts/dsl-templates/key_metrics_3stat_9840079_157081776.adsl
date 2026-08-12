@@ -1,0 +1,43 @@
+# @presentation_id: 9840079
+# @slide_id: 157081776
+# @purpose: key_metrics_3stat
+# @category: Metrics & Performance
+# @description: 3-column statistical KPI metric cards layout with big numbers and captions
+# @keywords: metrics, stats, 3-column, kpi, performance, numbers, growth
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=YKrvwOoq5d at=top-center width=86% height=144 offsetY=40 preset=title align=center
+# Conversion improved
+:::
+
+:::text id=A7HyqbcM31 at=center width=424 height=64 offsetX=-280 offsetY=-96 preset=caption align=center color=muted
+BEFORE
+:::
+
+:::text id=Q_MIPq_-aq at=center width=424 height=296 offsetX=-280 offsetY=40 preset=body align=center color=muted fontSize=140
+# 2.1%
+:::
+
+:::shape id=c2Tmh7TC9q at=center width=8 height=8 offsetX=-40 offsetY=40 kind=circle fill=#F97316
+:::
+
+:::shape id=WauuwtDArK at=center width=8 height=8 offsetY=40 kind=circle fill=#F97316
+:::
+
+:::shape id=g2NyDVDsQU at=center width=8 height=8 offsetX=40 offsetY=40 kind=circle fill=#F97316
+:::
+
+:::text id=iX4rraFt4w at=center width=424 height=64 offsetX=280 offsetY=-96 preset=caption align=center color=#F97316
+AFTER
+:::
+
+:::text id=HZRmpNHnyz at=center width=424 height=296 offsetX=280 offsetY=40 preset=body align=center color=#F97316 fontSize=140
+# 6.7%
+:::
+
+:::text id=r5IjCEMw5J at=bottom-center width=70% height=176 offsetY=-32 preset=body align=center color=muted
+A 3.2× improvement after rebuilding the onboarding flow.
+:::

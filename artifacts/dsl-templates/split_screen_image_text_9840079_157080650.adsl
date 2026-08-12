@@ -1,0 +1,24 @@
+# @presentation_id: 9840079
+# @slide_id: 157080650
+# @purpose: split_screen_image_text
+# @category: Media & Visuals
+# @description: Split-screen layout pairing full-height media image with detailed narrative text
+# @keywords: split screen, image, text, side-by-side, visual narrative, media
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::image id=cF2sgoJ0-b at=center width=100% height=100% src= alt="Hero image"
+:::
+
+:::shape id=8NrVXjpyLk at=center width=100% height=100% kind=rect fill=rgba(15,23,42,0.55)
+:::
+
+:::text id=XgDPe6ksy1 at=center width=80% height=120 preset=body align=center color=text
+# Stories worth telling
+:::
+
+:::text id=dePRfvMMrM at=center width=60% height=120 offsetY=144 preset=body align=center color=muted
+A short tagline that captures the mood of the talk.
+:::

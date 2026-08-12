@@ -1,0 +1,21 @@
+# @presentation_id: 9840079
+# @slide_id: 157081030
+# @purpose: data_dashboard_chart
+# @category: Metrics & Performance
+# @description: Data dashboard chart visual layout for analytical reports and metrics overview
+# @keywords: dashboard, chart, data, analytics, visualization, report, graph
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=rq7QeMWt_o at=top-center width=86% height=144 preset=title align=left
+# Q4 revenue by region
+:::
+
+:::chart id=YApFkaJKBi at=center width=70% offsetY=40 kind=bar title="Revenue, $M"
+North America: 4.2
+Europe: 2.8
+APAC: 1.5
+LATAM: 0.8
+:::

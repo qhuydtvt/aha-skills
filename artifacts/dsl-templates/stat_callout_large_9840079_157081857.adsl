@@ -1,0 +1,25 @@
+# @presentation_id: 9840079
+# @slide_id: 157081857
+# @purpose: stat_callout_large
+# @category: Metrics & Performance
+# @description: Large single statistical number callout layout for key highlight figures
+# @keywords: stat, callout, big number, metric, highlight, impact figure
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=bdMTLhrTMt at=top-center width=80% height=32 offsetY=104 preset=caption align=center color=muted
+JANUARY 1 — APRIL 30, 2026
+:::
+
+:::text id=OfqYqRfXmp at=center width=80% height=376 offsetY=0 preset=body align=center color=text fontSize=180
+# 184
+:::
+
+:::text id=Od2GxVxUiV at=center width=80% height=64 offsetY=200 preset=body align=center color=muted
+new product features shipped this trimester.
+:::
+
+:::shape id=yZCWAEqtbG at=bottom-center width=80 height=0 offsetY=-48 kind=rect fill=#F97316
+:::

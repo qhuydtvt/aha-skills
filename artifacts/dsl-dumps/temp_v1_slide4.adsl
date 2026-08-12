@@ -1,0 +1,67 @@
+# @presentation_id: 9849061
+# @slide_id: 157142169
+# @purpose: feature_cards_4col
+# @category: Features & Products
+# @description: 4-column card grid layout for quirks overview
+# @keywords: quirks, behaviors, 4-column, cards, grid
+---
+content-v2: 1280x720
+version: 1
+background: bg
+---
+
+:::text id=v07e-C7TeD x=80 y=72 w=600 h=32 preset=caption color=muted
+A MANUAL OF HUY · MY QUIRKS
+:::
+
+:::text id=1xUPFDvxbk x=80 y=128 w=720 h=88 preset=title align=left color=text fontSize=56
+My default *behaviors*
+:::
+
+:::shape id=gwlMVYTWFv x=80 y=280 w=368 h=120 kind=rect fill=surface borderRadius=4
+:::
+
+:::shape id=EKGL0nG55q x=464 y=280 w=368 h=120 kind=rect fill=surface borderRadius=4
+:::
+
+:::shape id=L0OrBDb5az x=848 y=280 w=352 h=120 kind=rect fill=surface borderRadius=4
+:::
+
+:::shape id=FO3U0nA1dc x=80 y=416 w=368 h=120 kind=rect fill=surface borderRadius=4
+:::
+
+:::shape id=KmNAFTP8M9 x=464 y=416 w=368 h=120 kind=rect fill=surface borderRadius=4
+:::
+
+:::shape id=Vj49RehQEK x=848 y=416 w=352 h=120 kind=rect fill=surface borderRadius=4
+:::
+
+:::text id=bWxXizOFio x=104 y=296 w=320 h=88 preset=body align=left color=text
+**01** Out-Loud Brainstorming
+Jump between ideas out loud
+:::
+
+:::text id=ke1MjxAqCJ x=488 y=296 w=320 h=88 preset=body align=left color=text
+**02** Coherence-Driven
+Sort out incoherence first
+:::
+
+:::text id=AYFBB8P_MF x=872 y=296 w=304 h=88 preset=body align=left color=text
+**03** Topic-Selective Energy
+High energy in Product & Eng
+:::
+
+:::text id=25pyJKReSV x=104 y=432 w=320 h=88 preset=body align=left color=text
+**04** Build & Discover
+Discover while building
+:::
+
+:::text id=EZyJZXj2l1 x=488 y=432 w=320 h=88 preset=body align=left color=text
+**05** Fast Iteration
+Prefer rapid feedback loops
+:::
+
+:::text id=BTh4iWEuBi x=872 y=432 w=304 h=88 preset=body align=left color=text
+**06** Action Oriented
+Focus on useful outcomes
+:::

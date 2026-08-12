@@ -1,0 +1,25 @@
+# @presentation_id: 9840079
+# @slide_id: 157081698
+# @purpose: hero_header_minimal
+# @category: Headers & Covers
+# @description: Minimalist hero header cover layout with main title and subtitle text
+# @keywords: hero, header, minimal, title, cover, headline, cover slide
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=iVFgUW0KqH at=center width=80% height=64 offsetY=-176 preset=caption align=center color=#34D399
+UP NEXT
+:::
+
+:::text id=DsicqwVLiw at=center width=84% height=120 preset=body align=center color=text
+# A live demo
+:::
+
+:::text id=mfFifJL3TW at=center width=60% height=128 offsetY=144 preset=body align=center color=muted
+Buckle up — we're going to break things on stage and try to fix them in real time.
+:::
+
+:::shape id=B85ANsBeFo at=bottom-center width=120 height=8 offsetY=-96 kind=rect fill=#34D399
+:::

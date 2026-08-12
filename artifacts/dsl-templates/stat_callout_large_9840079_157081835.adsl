@@ -1,0 +1,25 @@
+# @presentation_id: 9840079
+# @slide_id: 157081835
+# @purpose: stat_callout_large
+# @category: Metrics & Performance
+# @description: Large single statistical number callout layout for key highlight figures
+# @keywords: stat, callout, big number, metric, highlight, impact figure
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=OPZn8tHZWa at=top-center width=80% height=32 offsetY=120 preset=caption align=center color=#34D399
+ANNUAL RECURRING REVENUE
+:::
+
+:::text id=CmMC0pg4XW at=center width=92% height=376 offsetY=0 preset=body align=center color=primary fontSize=180
+# $12.4M
+:::
+
+:::shape id=Av95yHxqSH at=bottom-center width=80 height=0 offsetY=-128 kind=rect fill=#34D399
+:::
+
+:::text id=qdAV2sIgaB at=bottom-center width=70% height=160 offsetY=-64 preset=body align=center color=muted
+Closed in fiscal year 2026 — across 1,400 customers in 38 countries.
+:::

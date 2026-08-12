@@ -1,0 +1,24 @@
+# @presentation_id: 9840079
+# @slide_id: 157081554
+# @purpose: split_screen_image_text
+# @category: Media & Visuals
+# @description: Split-screen layout pairing full-height media image with detailed narrative text
+# @keywords: split screen, image, text, side-by-side, visual narrative, media
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::image id=Ln96_Ed9ql at=center width=100% height=100% src= alt="Section image"
+:::
+
+:::shape id=rID7gX_7kp at=center width=100% height=100% kind=rect fill=surface
+:::
+
+:::text id=_BruTCxZij at=center width=80% height=64 offsetY=-120 preset=caption align=center color=primary
+PART FIVE
+:::
+
+:::text id=Nxj0o0g-9- at=center width=84% height=144 preset=body align=center color=text
+# In the wild
+:::

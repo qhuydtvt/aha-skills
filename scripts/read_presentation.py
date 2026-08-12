@@ -34,21 +34,24 @@ def fetch_slide_canvas_blocks(client: AhaApiClient, slide_id: Any) -> Any:
         return None
 
 
-def fetch_slide_v2_attributes(client: AhaApiClient, slide_ids: list[Any]) -> dict[str, Any]:
-    """Fetch v2 DSL slide attributes for slide IDs."""
+def fetch_slide_v2_attributes(client: AhaApiClient, slide_ids: list[Any], chunk_size: int = 30) -> dict[str, Any]:
+    """Fetch v2 DSL slide attributes for slide IDs in chunks."""
     if not slide_ids:
         return {}
-    try:
-        slide_ids_str = ",".join(str(s) for s in slide_ids)
-        res = client.get(SLIDE_ATTRIBUTES_PATH, params={"slideIds": slide_ids_str})
-        result = {}
-        if isinstance(res, list):
-            for item in res:
-                sid = str(item.get("slideId"))
-                result[sid] = item.get("attributes")
-        return result
-    except Exception:
-        return {}
+    result = {}
+    str_ids = [str(s) for s in slide_ids]
+    for i in range(0, len(str_ids), chunk_size):
+        chunk = str_ids[i : i + chunk_size]
+        try:
+            slide_ids_str = ",".join(chunk)
+            res = client.get(SLIDE_ATTRIBUTES_PATH, params={"slideIds": slide_ids_str})
+            if isinstance(res, list):
+                for item in res:
+                    sid = str(item.get("slideId"))
+                    result[sid] = item.get("attributes")
+        except Exception:
+            continue
+    return result
 
 
 def parse_dsl_content(dsl_text: str) -> dict[str, str]:

@@ -1,0 +1,44 @@
+# @presentation_id: 9840079
+# @slide_id: 157082201
+# @purpose: bullet_list_icon_grid
+# @category: Lists & Content
+# @description: Bullet points list layout paired with decorative icon visual anchors
+# @keywords: bullet list, icons, features, key points, takeaway, list grid
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=kRivPxSGtR at=top-center width=86% height=144 offsetY=80 preset=title align=center
+# What you get
+:::
+
+:::shape id=WvMghhi9fh at=center width=320 height=320 offsetX=-360 kind=rect fill=#FEF3C7 borderRadius=20
+:::
+
+:::icon id=1HlSsZH4ra at=center width=320 offsetX=-360 offsetY=-88 name=zap size=64 color=#92400E
+:::
+
+:::text id=fmnwq-aNa- at=center width=280 height=168 offsetX=-360 offsetY=40 preset=body align=center color=#78350F
+**Speed.** Real-time updates without spinners.
+:::
+
+:::shape id=bLKRyUT9jU at=center width=320 height=320 kind=rect fill=#DBEAFE borderRadius=20
+:::
+
+:::icon id=ySy-DLZWNF at=center width=320 offsetY=-88 name=shield size=64 color=#1E3A8A
+:::
+
+:::text id=M5mhAa2d7o at=center width=280 height=160 offsetY=40 preset=body align=center color=#1E40AF
+**Safety.** Every change is reversible.
+:::
+
+:::shape id=H_KKG3sSXq at=center width=320 height=320 offsetX=360 kind=rect fill=#DCFCE7 borderRadius=20
+:::
+
+:::icon id=M4eZSsdc9V at=center width=320 offsetX=360 offsetY=-88 name=heart size=64 color=#14532D
+:::
+
+:::text id=RSMWUwbRHt at=center width=280 height=200 offsetX=360 offsetY=40 preset=body align=center color=#166534
+**Care.** Built for everyone, not just power users.
+:::

@@ -1,0 +1,66 @@
+# @presentation_id: 9840079
+# @slide_id: 157081120
+# @purpose: decision_tree_diagram
+# @category: Diagrams & Schematics
+# @description: Decision tree flowchart layout mapping conditional logical branches
+# @keywords: decision tree, flowchart, logic, branches, decision, flow, diagram
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=VDivfiz-AE at=top-center width=86% height=144 offsetY=24 preset=title align=center
+# Decision tree
+:::
+
+:::shape id=lu1v4NjqqC at=center width=184 height=64 offsetY=-128 kind=rect fill=#0F172A borderRadius=10
+:::
+
+:::text id=O2SvbEK8r0 at=center width=184 height=64 offsetY=-128 preset=caption align=center color=text
+Start
+:::
+
+:::shape id=UJOfmqdHN7 at=center width=0 height=40 offsetY=-72 kind=rect fill=#94A3B8
+:::
+
+:::shape id=Yipgxz73YW at=center width=184 height=64 offsetX=-216 offsetY=0 kind=rect fill=#F97316 borderRadius=10
+:::
+
+:::text id=nA4OJq3_SD at=center width=184 height=64 offsetX=-216 offsetY=0 preset=caption align=center color=text
+Path A
+:::
+
+:::shape id=LXkAdkGF4p at=center width=184 height=64 offsetY=0 kind=rect fill=#22C55E borderRadius=10
+:::
+
+:::text id=C2l00Bwepn at=center width=184 height=64 offsetY=0 preset=caption align=center color=text
+Path B
+:::
+
+:::shape id=uH_sS9Hejq at=center width=184 height=64 offsetX=224 offsetY=0 kind=rect fill=#0EA5E9 borderRadius=10
+:::
+
+:::text id=kg5VXXotxp at=center width=184 height=64 offsetX=224 offsetY=0 preset=caption align=center color=text
+Path C
+:::
+
+:::shape id=sGzt_AhZL5 at=center width=120 height=48 offsetX=-216 offsetY=112 kind=rect fill=surface borderRadius=8 shadow=md
+:::
+
+:::text id=ZwNjhfEbRg at=center width=120 height=64 offsetX=-216 offsetY=112 preset=caption align=center color=muted
+Outcome 1
+:::
+
+:::shape id=D7jR6yRi-B at=center width=120 height=48 offsetY=112 kind=rect fill=surface borderRadius=8 shadow=md
+:::
+
+:::text id=dttFHWyoXE at=center width=120 height=64 offsetY=112 preset=caption align=center color=muted
+Outcome 2
+:::
+
+:::shape id=MjUqDKNKvV at=center width=120 height=48 offsetX=224 offsetY=112 kind=rect fill=surface borderRadius=8 shadow=md
+:::
+
+:::text id=CGmmFpjynd at=center width=120 height=64 offsetX=224 offsetY=112 preset=caption align=center color=muted
+Outcome 3
+:::

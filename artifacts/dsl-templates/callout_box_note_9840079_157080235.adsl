@@ -1,0 +1,27 @@
+# @presentation_id: 9840079
+# @slide_id: 157080235
+# @purpose: callout_box_note
+# @category: Lists & Content
+# @description: Highlighted callout note box container for important takeaways or warnings
+# @keywords: callout, note, highlight, box, warning, tip, takeaway
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=0UPrtIgpHT at=top-center width=86% height=144 offsetY=80 preset=title align=center
+# A useful trick
+:::
+
+:::shape id=UCDxcLAO0U at=center width=72% height=240 kind=rect fill=surface borderRadius=20
+:::
+
+:::shape id=AVcbp8OGKU at=center width=8 height=240 offsetX=-456 kind=rect fill=#F59E0B
+:::
+
+:::icon id=28bZgifeDX at=center offsetX=-376 name=lightbulb size=48 color=#92400E
+:::
+
+:::text id=gJfADjv3Y0 at=center width=54% offsetX=80 preset=body align=left color=text
+**Tip.** When in doubt, halve the number of words on the slide. The audience will fill in the rest from your delivery.
+:::

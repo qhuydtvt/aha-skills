@@ -1,0 +1,27 @@
+# @presentation_id: 9840079
+# @slide_id: 157081101
+# @purpose: pricing_table_3tier
+# @category: Pricing & Plans
+# @description: 3-column side-by-side pricing tier plan comparison card layout with featured option
+# @keywords: pricing, plans, 3-tier, subscription, pricing cards, tiers, commercial
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=1t_FxKpqfV at=top-center width=86% height=144 offsetY=64 preset=title align=center
+# Pricing
+:::
+
+:::table id=p0qjnr_2Bl at=center width=72% offsetY=24
+| Plan | Monthly | Annual | Notes |
+| --- | --- | --- | --- |
+| Solo | $0 | $0 | Free forever |
+| Pro | $9 | $84 | Save 22% on annual |
+| Team | $24 / seat | $240 / seat | Volume discounts at 25+ seats |
+| Enterprise | Custom | Custom | Contact us — bespoke SLA |
+:::
+
+:::text id=umOBGwliUi at=bottom-center width=80% height=120 offsetY=-56 preset=caption align=center color=muted
+All prices in USD · billing cycle changeable any time · cancel from your dashboard.
+:::
