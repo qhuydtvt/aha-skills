@@ -32,6 +32,7 @@ Explicitly select a specialized **Cover Slide Template** for Slide 1 instead of 
 
 - **Cover Query Filter:** Search `artifacts/dsl-templates/` specifically for templates with `# @category: Headers & Covers` or `# @keywords: cover` / `# @purpose: *_cover` (e.g. `hero_header_minimal_cover`, `hero_header_badge`, `hero_header_minimal`).
 - **Cover Composition Requirements:** Ensure the chosen cover layout provides prominent slots for presentation title, subtitle/tagline, author/presenter metadata, and optional visual accent shapes or badge tags.
+- **Cover Initialization Requirement:** When creating a new presentation via `create_presentation.py`, Slide 1 defaults to an interactive non-content type (e.g. `imageChoice`). Agents MUST delete the default Slide 1 (`python3 scripts/delete_slide.py <pres_id> <default_slide1_id>`) and create a `content-v2` slide at order 1 (`python3 scripts/create_slide.py <pres_id> content-v2 1`) before applying the cover ADSL layout.
 
 ---
 
