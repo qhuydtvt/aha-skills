@@ -58,4 +58,10 @@ All scripts performing HTTP requests to AhaSlides APIs **MUST** use the shared A
    - Native vector icons can be used in slide DSLs via the `:::icon` directive with the `name` attribute (using standard Lucide icon names, e.g., `name="check"`).
    - **Recommended Approach**: Using the native `:::icon` directive is the recommended approach for adding or updating icons to slides. Unlike uploading custom raster images (e.g., via `scripts/upload_image.py`), native vector icons maintain high resolution, support vector scaling, and allow direct CSS/DSL color control (e.g., using a custom `color` attribute) directly within the DSL.
 
+3. **Metadata-Driven Template Discovery & Selection**:
+   - **DO NOT rely solely on filenames** when selecting templates from `artifacts/dsl-templates/`. While filenames (e.g., `hero_header_minimal_cover_9840079_157080836.adsl`) provide high-level intent, full template selection MUST leverage the structured header metadata embedded inside `.adsl` files.
+   - **Header Metadata Structure**: Header comments `# @purpose`, `# @category`, `# @description`, and `# @keywords` provide rich structural intent definitions.
+   - **Querying & Browsing**: Use `scripts/shared/lib/adsl_metadata.py` (`parse_adsl_metadata(file_path)`), `python3 scripts/annotate_adsl_metadata.py --dir artifacts/dsl-templates --json`, or `python3 scripts/manage_slide_template.py list-templates` to programmatically search and filter templates by category, purpose, and keyword tags (e.g. `cover`, `hero`, `cards`, `grid`, `matrix`, `comparison`).
+   - **Search Methodology**: Match target content requirements against template metadata fields (`# @purpose`, `# @category`, `# @keywords`) to find optimal structural matches rather than guessing based on file basenames alone.
+
 

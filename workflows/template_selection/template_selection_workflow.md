@@ -26,9 +26,10 @@ Analyze the raw content of each slide to determine its fundamental communication
 
 ---
 
-### Step 2: Spatial Geometry & Capacity Mapping
+### Step 2: Spatial Geometry, Metadata Querying & Capacity Mapping
 Match the structural layout directly to the quantity and shape of the content items:
 
+- **Metadata-Driven Template Querying:** DO NOT rely solely on template filenames. Query template header metadata (`# @purpose`, `# @category`, `# @description`, `# @keywords`) using `scripts/shared/lib/adsl_metadata.py` (`parse_adsl_metadata`) or `python3 scripts/annotate_adsl_metadata.py --dir artifacts/dsl-templates --json` to search templates matching content intent (e.g. `cover`, `hero`, `cards`, `grid`, `matrix`, `comparison`).
 - **Item Count Alignment:** Count total discrete information units (e.g. 2-side split, 3-column cards, 4-item grid) and select candidate layouts whose structural slots match the item count.
 - **Bounding Box Alignment:** Ensure target text volume comfortably fits container bounds on the 1280x720 canvas.
 
