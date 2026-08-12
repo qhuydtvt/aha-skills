@@ -14,6 +14,10 @@
    - Use `python3 scripts/apply_slide_dsl.py <slide_id> <file.adsl>` (e.g. `artifacts/dsl-dumps/<file.adsl>` or `artifacts/dsl-templates/<file.adsl>`) to apply the complete layout back, cleanly resolving content positioning and styles in one atomic request.
    - **Inline Annotations & Documentation**: Future agents **MUST** annotate slide DSL files (`.adsl`) directly using inline `#` comments for any developer notes or documentation, without needing to maintain separate records or workflow files of any kind.
 
+2. **Native Vector Icons (`:::icon`)**:
+   - Native vector icons can be used in slide DSLs via the `:::icon` directive with the `name` attribute (using standard Lucide icon names, e.g., `name="check"`).
+   - **Recommended Approach**: Using the native `:::icon` directive is the recommended approach for adding or updating icons to slides. Unlike uploading custom raster images (e.g., via `scripts/upload_image.py`), native vector icons maintain high resolution, support vector scaling, and allow direct CSS/DSL color control (e.g., using a custom `color` attribute) directly within the DSL.
+
 ---
 
 ## Shared Architecture & Security Guidelines
