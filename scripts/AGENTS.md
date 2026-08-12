@@ -5,10 +5,14 @@
 > [!IMPORTANT]
 > **SYNCHRONIZATION RULE**: Every time a script in `scripts/` is added, modified, or removed, **`scripts/AGENTS.md` MUST be updated immediately** to reflect the exact current reality of all scripts, arguments, and usage patterns.
 
-## Workflow Documentation Rule
+## Slide Layout Workflow
 
-> [!NOTE]
-> **WORKFLOW RECORD REQUIREMENT**: Upon finishing a slide creation workflow (from source material to slide planning, fixture creation, live presentation creation, and linting verification), agents **MUST** record the whole end-to-end process in `workflows/<name>/<workflow-name>.md`.
+1. **Recommended DSL Approach (`.adsl`)**:
+   - The primary and most efficient method to apply complex layouts with customized content to a slide is to use atomic DSL manipulation.
+   - Use `python3 scripts/dump_slide_dsl.py <slide_id>` to export an existing layout to an `.adsl` (AhaSlides DSL) file stored in `artifacts/dsl-dumps/` (e.g. `artifacts/dsl-dumps/<slide_id>.adsl`).
+   - Modify the `.adsl` file's `:::text`, `:::image`, etc., blocks manually or programmatically.
+   - Use `python3 scripts/apply_slide_dsl.py <slide_id> <file.adsl>` (e.g. `artifacts/dsl-dumps/<file.adsl>` or `artifacts/dsl-templates/<file.adsl>`) to apply the complete layout back, cleanly resolving content positioning and styles in one atomic request.
+   - **Inline Annotations & Documentation**: Future agents **MUST** annotate slide DSL files (`.adsl`) directly using inline `#` comments for any developer notes or documentation, without needing to maintain separate records or workflow files of any kind.
 
 ---
 
