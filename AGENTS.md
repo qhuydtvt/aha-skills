@@ -50,9 +50,6 @@ All scripts performing HTTP requests to AhaSlides APIs **MUST** use the shared A
    - Use `python3 scripts/dump_slide_dsl.py <slide_id>` to export an existing layout to an `.adsl` (AhaSlides DSL) file stored in `artifacts/dsl-dumps/` (e.g. `artifacts/dsl-dumps/<slide_id>.adsl`).
    - Modify the `.adsl` file's `:::text`, `:::image`, etc., blocks manually or programmatically.
    - Use `python3 scripts/apply_slide_dsl.py <slide_id> <file.adsl>` (e.g. `artifacts/dsl-dumps/<file.adsl>` or `artifacts/dsl-templates/<file.adsl>`) to apply the complete layout back, cleanly resolving content positioning and styles in one atomic request.
+   - **Inline Annotations & Documentation**: Future agents **MUST** annotate slide DSL files (`.adsl`) directly using inline `#` comments for any developer notes or documentation, without needing to maintain separate records or workflow files of any kind.
 
-## Workflow Documentation Rule
-
-1. **Mandatory Workflow Recording**:
-   - **WORKFLOW RECORD REQUIREMENT**: Upon finishing a slide creation workflow (from source material to slide planning, fixture creation, live presentation creation, and linting verification), agents **MUST** record the whole end-to-end process in `workflows/<name>/<workflow-name>.md`.
 
