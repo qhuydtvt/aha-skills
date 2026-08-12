@@ -64,4 +64,8 @@ All scripts performing HTTP requests to AhaSlides APIs **MUST** use the shared A
    - **Querying & Browsing**: Use `scripts/shared/lib/adsl_metadata.py` (`parse_adsl_metadata(file_path)`), `python3 scripts/annotate_adsl_metadata.py --dir artifacts/dsl-templates --json`, or `python3 scripts/manage_slide_template.py list-templates` to programmatically search and filter templates by category, purpose, and keyword tags (e.g. `cover`, `hero`, `cards`, `grid`, `matrix`, `comparison`).
    - **Search Methodology**: Match target content requirements against template metadata fields (`# @purpose`, `# @category`, `# @keywords`) to find optimal structural matches rather than guessing based on file basenames alone.
 
+4. **Slide 1 Cover Initialization Rule**:
+   - Creating a new presentation via `create_presentation.py` initializes Slide 1 as a default interactive slide type (e.g. `imageChoice`).
+   - To make Slide 1 a `content-v2` Cover slide, agents **MUST** delete the default non-`content-v2` Slide 1 (`python3 scripts/delete_slide.py <pres_id> <default_slide1_id>`) and create a new `content-v2` slide at order 1 (`python3 scripts/create_slide.py <pres_id> content-v2 1`) before applying the cover ADSL layout.
+
 
