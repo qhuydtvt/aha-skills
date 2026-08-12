@@ -37,11 +37,7 @@ def build_manual_of_me_fixture(input_path_str: str) -> dict[str, Any]:
             "version": "1.0.0",
             "source_file": input_path_str,
             "total_slides": 8,
-            "theme": {
-                "base_color": "#0F172A",
-                "text_color": "#F8FAFC",
-                "accent_color": "#06B6D4"
-            }
+            "theme": {"base_color": "#0F172A", "text_color": "#F8FAFC", "accent_color": "#06B6D4"}
         },
         "slides": [
             {
@@ -69,10 +65,7 @@ def build_manual_of_me_fixture(input_path_str: str) -> dict[str, Any]:
                         "Collaboration Golden Rules"
                     ]
                 },
-                "expected_elements_count": {
-                    "min": 3,
-                    "max": 8
-                }
+                "expected_elements_count": {"min": 3, "max": 8}
             },
             {
                 "slide_number": 2,
@@ -190,10 +183,7 @@ def build_manual_of_me_fixture(input_path_str: str) -> dict[str, Any]:
                         }
                     ]
                 },
-                "expected_elements_count": {
-                    "min": 3,
-                    "max": 8
-                }
+                "expected_elements_count": {"min": 3, "max": 8}
             },
             {
                 "slide_number": 5,
@@ -322,10 +312,7 @@ def build_manual_of_me_fixture(input_path_str: str) -> dict[str, Any]:
                     ],
                     "closing_quote": "This manual is a living document—let's keep communicating, building, and improving together!"
                 },
-                "expected_elements_count": {
-                    "min": 3,
-                    "max": 8
-                }
+                "expected_elements_count": {"min": 3, "max": 8}
             }
         ]
     }

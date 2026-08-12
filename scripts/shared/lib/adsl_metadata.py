@@ -2,6 +2,7 @@
 
 import re
 from pathlib import Path
+from typing import Any
 
 
 def parse_adsl_metadata(dsl_text_or_filepath: str | Path) -> dict[str, str | None]:
@@ -242,6 +243,30 @@ def lint_adsl_file(file_path: str | Path) -> dict:
     }
 
 
+def lint_adsl_files(files: list[Path]) -> dict:
+    """Lint multiple ADSL files on disk and return aggregated statistics."""
+    results = []
+    passed_count = 0
+    failed_count = 0
+    total_errors = 0
+    for f in files:
+        res = lint_adsl_file(f)
+        results.append(res)
+        if res["valid"]:
+            passed_count += 1
+        else:
+            failed_count += 1
+            total_errors += len(res["errors"])
+    return {
+        "total_files": len(files),
+        "passed_count": passed_count,
+        "failed_count": failed_count,
+        "total_errors": total_errors,
+        "valid": failed_count == 0,
+        "results": results,
+    }
+
+
 def format_adsl_filename(
     title_or_purpose: str,
     presentation_id: str | int | None = None,
@@ -337,5 +362,88 @@ def parse_adsl_filename(filename_or_path: str | Path) -> dict[str, str | None]:
         "purpose": stem,
         "presentation_id": None,
         "slide_id": None,
+    }
+
+
+def save_presentation_templates(
+    client: Any,
+    presentation_id: str | int,
+    output_dir: str | Path = "artifacts/dsl-templates",
+    pattern: str = "{title}_{presentation_id}_{slide_id}.adsl",
+    slides_filter: str | None = None,
+    overwrite: bool = False,
+    dry_run: bool = False,
+    json_output: bool = False,
+) -> dict[str, Any]:
+    """Dump and save slides DSL content from a presentation into ADSL template files."""
+    from scripts.read_presentation import (
+        fetch_presentation_detail,
+        fetch_slide_v2_attributes,
+        parse_dsl_content,
+        parse_slide_indices,
+    )
+
+    pres_id = str(presentation_id)
+    detail = fetch_presentation_detail(client, pres_id)
+    slides_list = detail.get("Slides") or detail.get("slides") or []
+
+    if not slides_list:
+        return {"presentation_id": pres_id, "slides": [], "message": "No slides found"}
+
+    if slides_filter:
+        target_indices = set(parse_slide_indices(slides_filter, len(slides_list)))
+    else:
+        target_indices = set(range(1, len(slides_list) + 1))
+
+    slides_to_process = [(idx, s) for idx, s in enumerate(slides_list, start=1) if idx in target_indices]
+    if not slides_to_process:
+        return {"presentation_id": pres_id, "slides": [], "message": "No slides matched filter"}
+
+    slide_ids = [s.get("id") or s.get("_id") for _, s in slides_to_process if s.get("id") or s.get("_id")]
+    dsl_map = fetch_slide_v2_attributes(client, slide_ids)
+
+    out_dir = Path(output_dir)
+    if not dry_run:
+        out_dir.mkdir(parents=True, exist_ok=True)
+
+    results = []
+    for idx, slide in slides_to_process:
+        sid = str(slide.get("id") or slide.get("_id") or "")
+        attr_val = dsl_map.get(sid)
+        dsl = attr_val if isinstance(attr_val, str) else (attr_val.get("dsl", "") if isinstance(attr_val, dict) else "")
+        if not dsl and isinstance(slide.get("dslAttributes"), str):
+            dsl = slide.get("dslAttributes")
+
+        dsl_parsed = parse_dsl_content(dsl) if dsl else {}
+        raw_title = dsl_parsed.get("title") or slide.get("title") or slide.get("name") or slide.get("heading") or slide.get("question") or slide.get("sanitizedTitle") or ""
+        clean_title = re.sub(r"[^a-z0-9]+", "_", str(raw_title).lower()).strip("_")[:50].rstrip("_") or f"slide_{idx:02d}"
+
+        filename = pattern.format(title=clean_title, presentation_id=pres_id, index=idx, slide_id=sid)
+        out_path = out_dir / filename
+
+        if dsl:
+            dsl = embed_adsl_metadata(dsl, pres_id, sid)
+        size_bytes = len(dsl.encode("utf-8")) if dsl else 0
+
+        if not dsl:
+            status = "skipped (no DSL)"
+        elif out_path.exists() and not overwrite and not dry_run:
+            status = "skipped (exists)"
+        elif dry_run:
+            status = "dry run"
+        else:
+            out_path.parent.mkdir(parents=True, exist_ok=True)
+            out_path.write_text(dsl, encoding="utf-8")
+            status = "saved"
+
+        results.append({"index": idx, "slide_id": sid, "filename": filename, "path": str(out_path), "size_bytes": size_bytes, "status": status})
+
+    return {
+        "presentation_id": pres_id,
+        "output_dir": str(out_dir),
+        "total_slides": len(slides_list),
+        "processed_slides": len(results),
+        "dry_run": dry_run,
+        "slides": results,
     }
 
