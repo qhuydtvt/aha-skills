@@ -1,0 +1,25 @@
+# @presentation_id: 9840079
+# @slide_id: 157067213
+# @purpose: hero_header_minimal
+# @category: Headers & Covers
+# @description: Minimalist hero header cover layout with main title and subtitle text
+# @keywords: hero, header, minimal, title, cover, headline, cover slide
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=4aVLbVi1n2 at=top-center width=80% height=64 offsetY=144 preset=caption align=center color=#991B1B
+THE PROBLEM
+:::
+
+:::text id=irxxBn2WTe at=center width=86% height=120 offsetY=-32 preset=body align=center color=#7F1D1D
+# 80% of decks never get past slide 3.
+:::
+
+:::shape id=ZIg3qEEl9X at=bottom-center width=80 height=0 offsetY=-160 kind=rect fill=#991B1B
+:::
+
+:::text id=rGDwQyoodN at=bottom-center width=70% offsetY=-96 preset=body align=center color=#991B1B
+The audience tunes out before the speaker has even reached the point.
+:::

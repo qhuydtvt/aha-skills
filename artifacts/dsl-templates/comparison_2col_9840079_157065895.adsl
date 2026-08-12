@@ -1,0 +1,44 @@
+# @presentation_id: 9840079
+# @slide_id: 157065895
+# @purpose: comparison_2col
+# @category: Comparisons & Analysis
+# @description: 2-column side-by-side comparison layout for pro/con or option analysis
+# @keywords: comparison, 2-column, side-by-side, split, versus, pros cons
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=vI9AnOsHqu at=top-center width=86% height=120 preset=title align=center color=text
+# Then vs now
+:::
+
+:::shape id=DuV_hQowb8 at=center width=480 height=400 offsetX=-256 offsetY=80 kind=rect fill=surface borderRadius=24 shadow=xl blur=14
+:::
+
+:::text id=kVKULUhGWp at=center width=424 height=40 offsetX=-256 offsetY=-56 preset=caption align=center color=muted
+THEN
+:::
+
+:::text id=0zOpoKN2nQ at=center width=424 height=144 offsetX=-256 offsetY=40 preset=title align=center color=text
+# Manual
+:::
+
+:::text id=kdN8pGGiBh at=center width=424 height=136 offsetX=-256 offsetY=160 preset=body align=center color=muted
+Hours of copy-paste, broken on the night before launch.
+:::
+
+:::shape id=cFo8kG0vZs at=center width=480 height=400 offsetX=264 offsetY=80 kind=rect fill=surface borderRadius=24 shadow=xl blur=14
+:::
+
+:::text id=LGY9NJ1wUn at=center width=424 height=40 offsetX=264 offsetY=-56 preset=caption align=center color=primary
+NOW
+:::
+
+:::text id=4Ul7610W1q at=center width=440 height=144 offsetX=264 offsetY=40 preset=title align=center color=text
+# Automated
+:::
+
+:::text id=RxqvHnzyj8 at=center width=424 height=136 offsetX=264 offsetY=160 preset=body align=center color=muted
+One command, works while we sleep, never breaks at 2am.
+:::

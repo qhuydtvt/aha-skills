@@ -1,0 +1,28 @@
+# @presentation_id: 9840079
+# @slide_id: 157082301
+# @purpose: split_screen_image_text
+# @category: Media & Visuals
+# @description: Split-screen layout pairing full-height media image with detailed narrative text
+# @keywords: split screen, image, text, side-by-side, visual narrative, media
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::image id=18pUYqPBRB x=0 y=0 w=640 h=720 src= alt="Left photo"
+:::
+
+:::shape id=3bb9Z-nY-Y x=640 y=0 w=640 h=720 kind=rect fill=surface
+:::
+
+:::text id=2N2JFuDj4r at=right-half width=40% height=40 offsetX=32 offsetY=56 preset=caption align=left color=#FBBF24
+A FIELD STUDY
+:::
+
+:::text id=XVYpD1J0rO x=672 y=152 w=600 h=296 preset=title align=left color=text
+# Listening before speaking
+:::
+
+:::text id=KJwkIB0I7t at=right-half width=40% height=160 offsetX=32 offsetY=408 preset=body align=left color=muted
+Three weeks on-site, twenty interviews, and a much clearer picture of what to build next.
+:::

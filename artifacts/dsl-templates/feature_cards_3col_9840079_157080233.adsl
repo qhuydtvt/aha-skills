@@ -1,0 +1,47 @@
+# @presentation_id: 9840079
+# @slide_id: 157080233
+# @purpose: feature_cards_3col
+# @category: Features & Products
+# @description: 3-column card grid layout highlighting key product features or benefits
+# @keywords: features, 3-column, cards, grid, benefits, product, services
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=B0pq7v-WEZ at=top-center width=86% height=144 offsetY=80 preset=title align=center color=text
+# What we believe
+:::
+
+:::shape id=xvyV6fje9G at=center width=320 height=320 offsetX=-360 kind=rect fill=surface borderRadius=20 shadow=md
+:::
+
+:::text id=f1o4WnL5qU at=center width=320 height=64 offsetX=-360 offsetY=-96 preset=caption align=center color=#F97316
+01
+:::
+
+:::text id=22IXYmoTCy at=center width=280 height=128 offsetX=-360 offsetY=24 preset=body align=center color=text
+**Make less.** Then make it better.
+:::
+
+:::shape id=err_m4tayt at=center width=320 height=320 kind=rect fill=surface borderRadius=20 shadow=md
+:::
+
+:::text id=L3Jx_Bf7GD at=center width=320 height=64 offsetY=-96 preset=caption align=center color=#F97316
+02
+:::
+
+:::text id=vigKarzlvH at=center width=280 height=160 offsetY=24 preset=body align=center color=text
+**Show, don't tell.** Demos beat decks.
+:::
+
+:::shape id=GAwB92__B7 at=center width=320 height=320 offsetX=360 kind=rect fill=surface borderRadius=20 shadow=md
+:::
+
+:::text id=bT4iC0ZKsN at=center width=320 height=64 offsetX=360 offsetY=-96 preset=caption align=center color=#F97316
+03
+:::
+
+:::text id=IzAUS693u0 at=center width=280 height=200 offsetX=360 offsetY=24 preset=body align=center color=text
+**Stay close.** To users, to the work, to the truth.
+:::

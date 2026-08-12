@@ -1,0 +1,26 @@
+# @presentation_id: 9840079
+# @slide_id: 157081738
+# @purpose: stat_callout_large
+# @category: Metrics & Performance
+# @description: Large single statistical number callout layout for key highlight figures
+# @keywords: stat, callout, big number, metric, highlight, impact figure
+---
+content-v2: 1280x720
+version: 1
+background: bg
+---
+
+:::pattern id=fRgip34Rf- x=160 y=120 w=960 h=520 kind=blob-cluster color=text opacity=0.08 count=3 seed=7 radius=240
+:::
+
+:::text id=56h0V-ivu5 at=top-center width=600 height=32 offsetY=120 preset=caption align=center color=muted
+KEY RESULT · Q4
+:::
+
+:::text id=YFH3hppPhJ at=top-center width=85% height=240 offsetY=216 preset=body align=center color=text fontSize=200
+42%
+:::
+
+:::text id=Un2Hyi9rL7 at=top-center width=70% height=72 offsetY=520 preset=body align=center color=text
+Revenue growth YoY — driven by enterprise expansion and steady mid-market wins.
+:::

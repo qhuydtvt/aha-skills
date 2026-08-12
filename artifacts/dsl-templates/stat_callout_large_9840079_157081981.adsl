@@ -1,0 +1,32 @@
+# @presentation_id: 9840079
+# @slide_id: 157081981
+# @purpose: stat_callout_large
+# @category: Metrics & Performance
+# @description: Large single statistical number callout layout for key highlight figures
+# @keywords: stat, callout, big number, metric, highlight, impact figure
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=RRZpjorf_B at=top-center width=80% height=32 offsetY=80 preset=caption align=center color=#0E7490
+CUSTOMER NPS
+:::
+
+:::text id=9PjTVPEEbE at=center width=80% height=376 offsetY=-16 preset=body align=center color=#0E7490 fontSize=180
+# 72
+:::
+
+:::text id=lH5QwWcPU8 at=center width=70% height=64 offsetY=184 preset=body align=center color=#0E7490
+The highest score we've ever recorded.
+:::
+
+:::shape id=673KQ59GcY at=bottom-center width=60% height=16 offsetY=-80 kind=rect fill=#FCA5A5 borderRadius=6
+:::
+
+:::shape id=XoGq4w3olR at=bottom-center width=184 height=16 offsetX=184 offsetY=-80 kind=rect fill=#22D3EE borderRadius=6
+:::
+
+:::text id=ydaFt6M-QE at=bottom-center width=80% height=128 offsetY=-40 preset=caption align=center color=muted
+DETRACTORS · PASSIVES · PROMOTERS
+:::

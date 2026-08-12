@@ -1,0 +1,40 @@
+# @presentation_id: 9840079
+# @slide_id: 157066424
+# @purpose: bullet_list_icon_grid
+# @category: Lists & Content
+# @description: Bullet points list layout paired with decorative icon visual anchors
+# @keywords: bullet list, icons, features, key points, takeaway, list grid
+---
+content-v2: 1280x720
+version: 1
+background: bg
+---
+
+:::pattern id=8jj5Uo-588 x=0 y=0 w=1280 h=720 kind=dot-grid color=text opacity=0.06 spacing=32
+:::
+
+:::text id=sqb4xFZX48 at=top-left width=600 height=32 offsetX=80 offsetY=72 preset=caption color=muted
+NEXT STEPS
+:::
+
+:::text id=rfJW2qA-dG at=top-left width=720 height=88 offsetX=80 offsetY=152 preset=title align=left color=text fontSize=64
+Let's *get* started
+:::
+
+:::text id=znDV0KsiwU at=top-left width=720 height=72 offsetX=80 offsetY=304 preset=body align=left color=text
+→ Schedule a working session this week
+:::
+
+:::text id=yPsjOe5Wd1 at=top-left width=720 height=72 offsetX=80 offsetY=400 preset=body align=left color=text
+→ Share the deck with the leadership team
+:::
+
+:::text id=UmHfQFK38K at=top-left width=720 height=72 offsetX=80 offsetY=496 preset=body align=left color=text
+→ Align on the Q1 milestones by Friday
+:::
+
+:::shape id=7l--KLuY8t at=top-right width=320 height=480 offsetX=-80 offsetY=120 kind=rect fill=surface borderRadius=8
+:::
+
+:::shape id=ytIw64rGsk at=top-right width=8 height=320 offsetX=-200 offsetY=200 kind=rect fill=text
+:::

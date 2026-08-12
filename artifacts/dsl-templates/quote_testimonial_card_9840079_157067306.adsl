@@ -1,0 +1,24 @@
+# @presentation_id: 9840079
+# @slide_id: 157067306
+# @purpose: quote_testimonial_card
+# @category: Social Proof & Logos
+# @description: Customer quote or client testimonial card layout with attribution photo placeholder
+# @keywords: quote, testimonial, feedback, review, card, social proof, customer
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::shape id=Y4DxhvDKmw at=top-left width=320 height=200 offsetX=0 offsetY=0 kind=circle fill="radial-gradient(circle, #F472B6 0%, transparent 70%)" opacity=0.4
+:::
+
+:::text id=zi51s_9uvn at=center width=80% height=208 offsetY=-32 preset=quote align=center color=text fontSize=44
+> "We don't rise to the level of our goals — we fall to the level of our systems."
+:::
+
+:::shape id=0j853E8zgk at=center width=80 height=0 offsetY=104 kind=rect fill="linear-gradient(90deg, transparent, #F472B6, transparent)" borderRadius=2
+:::
+
+:::text id=GZQtcw7Eed at=center width=60% height=64 offsetY=128 preset=caption align=center color=muted
+James Clear · Atomic Habits
+:::

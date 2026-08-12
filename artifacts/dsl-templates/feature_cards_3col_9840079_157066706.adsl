@@ -1,0 +1,44 @@
+# @presentation_id: 9840079
+# @slide_id: 157066706
+# @purpose: feature_cards_3col
+# @category: Features & Products
+# @description: 3-column card grid layout highlighting key product features or benefits
+# @keywords: features, 3-column, cards, grid, benefits, product, services
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=pkEwSdLsO6 at=top-center width=86% height=144 offsetY=24 preset=title align=center
+# Best practice
+:::
+
+:::shape id=LiHxpyLrfG at=center width=480 height=320 offsetX=-256 offsetY=80 kind=rect fill=surface borderRadius=16
+:::
+
+:::text id=9DrQYu4Ygo at=center width=424 height=64 offsetX=-256 offsetY=-48 preset=caption align=left color=#166534
+✓ DO
+:::
+
+:::text id=69nP9ZxngX at=center width=424 height=160 offsetX=-256 offsetY=48 preset=body align=left color=text
+**Lead with the headline.** State the conclusion, then justify it.
+:::
+
+:::text id=NQ_y-mVaqP at=center width=424 height=64 offsetX=-256 offsetY=160 preset=caption align=left color=#166534
+"We're shipping in May."
+:::
+
+:::shape id=u9nDOEC6it at=center width=480 height=320 offsetX=264 offsetY=80 kind=rect fill=surface borderRadius=16
+:::
+
+:::text id=7jFT77joAy at=center width=424 height=64 offsetX=264 offsetY=-48 preset=caption align=left color=#991B1B
+✗ DON'T
+:::
+
+:::text id=I2ENfNjV2T at=center width=424 height=160 offsetX=264 offsetY=48 preset=body align=left color=text
+**Bury it.** Don't make the audience hunt for the point.
+:::
+
+:::text id=aa-uE6tyV2 at=center width=424 height=64 offsetX=264 offsetY=160 preset=caption align=left color=#991B1B
+"…and so eventually we landed on May."
+:::

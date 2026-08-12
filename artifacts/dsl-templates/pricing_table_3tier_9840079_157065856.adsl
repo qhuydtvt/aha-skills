@@ -1,0 +1,133 @@
+# @presentation_id: 9840079
+# @slide_id: 157065856
+# @purpose: pricing_table_3tier
+# @category: Pricing & Plans
+# @description: 3-column side-by-side pricing tier plan comparison card layout with featured option
+# @keywords: pricing, plans, 3-tier, subscription, pricing cards, tiers, commercial
+---
+content-v2: 1280x720
+version: 1
+background: bg
+---
+
+:::text id=ZVB8e7szwU x=80 y=72 w=600 h=32 preset=caption color=muted
+PRICING
+:::
+
+:::text id=DOA-cyNoUV x=80 y=136 w=720 h=88 preset=title align=left color=text fontSize=56
+Simple *pricing*
+:::
+
+:::shape id=GBL5qdbsJR x=80 y=288 w=352 h=384 kind=rect fill=surface borderRadius=8
+:::
+
+:::text id=hN2q3qwQmu x=112 y=312 w=288 h=24 preset=caption color=muted
+STARTER
+:::
+
+:::text id=NEfiGTX8O0 x=112 y=352 w=288 h=72 preset=body align=left color=text fontSize=64
+$19
+:::
+
+:::text id=lINplBOcKO x=112 y=424 w=288 h=24 preset=caption color=muted
+per month
+:::
+
+:::shape id=Da29vpTfT6 x=112 y=464 w=288 h=8 kind=rect fill=muted
+:::
+
+:::text id=57i7UPRBzZ x=112 y=488 w=288 h=24 preset=body color=text fontSize=16
+Up to 5 team members
+:::
+
+:::text id=M6bwetpTS_ x=112 y=520 w=288 h=24 preset=body color=text fontSize=16
+Core analytics
+:::
+
+:::text id=-0kW3DNinA x=112 y=552 w=288 h=24 preset=body color=text fontSize=16
+Email support
+:::
+
+:::text id=TQslpMPZX0 x=112 y=584 w=288 h=24 preset=body color=muted fontSize=16
+Single workspace
+:::
+
+:::text id=lxUTyPC9gx x=112 y=624 w=288 h=24 preset=body align=center color=text fontSize=16
+Choose Starter →
+:::
+
+:::shape id=CboLsaj1zW x=464 y=288 w=352 h=384 kind=rect fill=surface borderRadius=8
+:::
+
+:::text id=kMOh2hQW2Y x=496 y=312 w=288 h=24 preset=caption color=primary
+PRO · POPULAR
+:::
+
+:::text id=eEOb_A3CT_ x=496 y=352 w=288 h=72 preset=body align=left color=text fontSize=64
+$49
+:::
+
+:::text id=mMm1IjxwZq x=496 y=424 w=288 h=24 preset=caption color=muted
+per month
+:::
+
+:::shape id=B6bi7P3Jqu x=496 y=464 w=288 h=8 kind=rect fill=primary
+:::
+
+:::text id=XSzOPoIuer x=496 y=488 w=288 h=24 preset=body color=text fontSize=16
+Unlimited team members
+:::
+
+:::text id=lwrE2-OgIo x=496 y=520 w=288 h=24 preset=body color=text fontSize=16
+Advanced analytics
+:::
+
+:::text id=zj1KTbb7vv x=496 y=552 w=288 h=24 preset=body color=text fontSize=16
+Priority support
+:::
+
+:::text id=zXzfBuLSRh x=496 y=584 w=288 h=24 preset=body color=text fontSize=16
+Custom integrations
+:::
+
+:::text id=r8y_4aHfkg x=496 y=624 w=288 h=24 preset=body align=center color=primary fontSize=16
+Choose Pro →
+:::
+
+:::shape id=sGim6yI8__ x=848 y=288 w=352 h=384 kind=rect fill=surface borderRadius=8
+:::
+
+:::text id=fz16b6tXaf x=880 y=312 w=288 h=24 preset=caption color=muted
+ENTERPRISE
+:::
+
+:::text id=R-uHtjNO2E x=880 y=352 w=288 h=72 preset=body align=left color=text fontSize=64
+$99
+:::
+
+:::text id=idPexlgJpk x=880 y=424 w=288 h=24 preset=caption color=muted
+per month
+:::
+
+:::shape id=4CelQw-5j2 x=880 y=464 w=288 h=8 kind=rect fill=muted
+:::
+
+:::text id=Dt2_QW3qXL x=880 y=488 w=288 h=24 preset=body color=text fontSize=16
+Dedicated success manager
+:::
+
+:::text id=v1Vt0BRSm8 x=880 y=520 w=288 h=24 preset=body color=text fontSize=16
+SOC 2 + SSO
+:::
+
+:::text id=psuis6g7_c x=880 y=552 w=288 h=24 preset=body color=text fontSize=16
+Custom SLA
+:::
+
+:::text id=QgsCxetXlo x=880 y=584 w=288 h=24 preset=body color=muted fontSize=16
+White-glove onboarding
+:::
+
+:::text id=0QCoKlZ3V1 x=880 y=624 w=288 h=24 preset=body align=center color=text fontSize=16
+Talk to sales →
+:::

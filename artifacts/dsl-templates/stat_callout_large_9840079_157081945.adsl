@@ -1,0 +1,28 @@
+# @presentation_id: 9840079
+# @slide_id: 157081945
+# @purpose: stat_callout_large
+# @category: Metrics & Performance
+# @description: Large single statistical number callout layout for key highlight figures
+# @keywords: stat, callout, big number, metric, highlight, impact figure
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::shape id=sDxzzar6km at=center width=520 height=424 kind=rect fill=surface borderRadius=24 shadow=xl
+:::
+
+:::text id=vk2kNzqfD9 at=center width=480 height=64 offsetY=-160 preset=caption align=center color=muted
+MONTHLY ACTIVE USERS
+:::
+
+:::text id=UrQk7rUgHb at=center width=480 height=264 offsetY=-40 preset=body align=center color=text fontSize=120
+# 2.4M
+:::
+
+:::shape id=-dlnC7AdNR at=center width=80 height=0 offsetY=80 kind=rect fill=#22C55E
+:::
+
+:::text id=5Y7tDoY5l8 at=center width=480 height=80 offsetY=144 preset=body align=center color=#22C55E
+↑ 18% vs last month
+:::

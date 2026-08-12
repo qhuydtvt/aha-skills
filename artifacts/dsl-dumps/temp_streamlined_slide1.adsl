@@ -1,0 +1,25 @@
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::shape id=THrpVV0HM1 at=top-left width=160 height=160 offsetX=-40 offsetY=-40 kind=circle fill=rgba(255,255,255,0.18) opacity=0.7
+:::
+
+:::shape id=Mpn-Yvnu2D at=bottom-right width=144 height=144 offsetX=40 offsetY=40 kind=circle fill=rgba(255,255,255,0.14) opacity=0.6
+:::
+
+:::shape id=zpDADSskbG at=center width=78% height=62% kind=rect fill=rgba(255,255,255,0.18) borderRadius=24 shadow=xl blur=18
+:::
+
+:::text id=l1BsnYvUwX at=center width=70% height=120 offsetY=-64 preset=title align=center color=text
+# A Manual of HuyNQ
+:::
+
+:::text id=edxm1AG1Dv at=center width=68% height=180 offsetY=56 preset=body align=center color=text
+**Mission:** "Build useful things"
+
+**Core Values:** Integrity · Winning Mindset · Continuous Improvement
+
+*A guide on how to work, communicate, and collaborate with me.*
+:::

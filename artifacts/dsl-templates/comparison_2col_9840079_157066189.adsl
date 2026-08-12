@@ -1,0 +1,42 @@
+# @presentation_id: 9840079
+# @slide_id: 157066189
+# @purpose: comparison_2col
+# @category: Comparisons & Analysis
+# @description: 2-column side-by-side comparison layout for pro/con or option analysis
+# @keywords: comparison, 2-column, side-by-side, split, versus, pros cons
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=nn9XAGdx8N at=center width=86% height=144 offsetX=8 offsetY=-232 preset=title align=center
+# Us vs them
+:::
+
+:::shape id=o5gwFqKbk8 at=center width=480 height=424 offsetX=-256 offsetY=80 kind=rect fill=surface borderRadius=20 shadow=md
+:::
+
+:::text id=dmBQ0yQLTm at=center width=424 height=64 offsetX=-256 offsetY=-80 preset=caption align=center color=#F97316
+US
+:::
+
+:::text id=gjvZvBHktz at=center width=424 offsetX=-256 offsetY=104 preset=body align=left color=text
+- **15-second** setup
+- **No** account needed for audience
+- **Real-time** sync
+- **Open** export formats
+:::
+
+:::shape id=sat34Sq8P7 at=center width=480 height=424 offsetX=264 offsetY=80 kind=rect fill=surface borderRadius=20 shadow=md
+:::
+
+:::text id=EQg80lAIIg at=center width=424 height=64 offsetX=264 offsetY=-80 preset=caption align=center color=muted
+THE OTHERS
+:::
+
+:::text id=ufVwVWffZe at=center width=424 offsetX=264 offsetY=104 preset=body align=left color=muted
+- **Multi-step** signup
+- **Audience** has to create accounts
+- **Polling** with delay
+- **Locked** export formats
+:::

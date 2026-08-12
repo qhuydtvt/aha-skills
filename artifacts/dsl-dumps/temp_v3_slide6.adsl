@@ -1,0 +1,29 @@
+# @presentation_id: 9849063
+# @slide_id: 157142171
+# @purpose: split_screen_image_text
+# @category: Values & Principles
+# @description: Pet Peeves vs Golden Rules split screen narrative
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::image id=cF2sgoJ0-b at=center width=100% height=100% src="https://assets-cdn.ahaslides.com/media/7b7dfb38-d6fb-45eb-92c2-75d1f8763567.jpg" alt="Background image"
+:::
+
+:::shape id=8NrVXjpyLk at=center width=100% height=100% kind=rect fill=rgba(15,23,42,0.75)
+:::
+
+:::text id=XgDPe6ksy1 at=center width=80% height=100 offsetY=-120 preset=body align=center color=text
+# Pet Peeves vs. Golden Rules
+:::
+
+:::text id=dePRfvMMrM at=center width=75% height=280 offsetY=80 preset=body align=center color=text
+### ❌ Pet Peeves
+Unclear priorities • Meetings without agenda • Silent handoffs
+
+***
+
+### ✨ Golden Rules
+Bias for action • Clear async communication • Continuous feedback
+:::

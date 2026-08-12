@@ -1,0 +1,63 @@
+---
+content-v2: 1280x720
+version: 1
+background: bg
+---
+
+:::text id=s2_tag at=center width=600 height=32 offsetX=0 offsetY=-290 preset=caption align=center color=#EA580C
+COMMUNICATION PREFERENCES
+:::
+
+:::text id=s2_title at=center width=800 height=60 offsetX=0 offsetY=-235 preset=title align=center color=#FFFFFF fontSize=44
+# Channels & Best Formats
+:::
+
+:::icon id=s2_c1_icon at=center width=32 height=32 offsetX=-510 offsetY=-160 name=message-square size=28 color=#0284C7
+:::
+
+:::text id=s2_c1_title at=center width=280 height=32 offsetX=-330 offsetY=-160 preset=title align=left color=#FFFFFF fontSize=24
+# Slack / Teams
+:::
+
+:::text id=s2_c1_body at=center width=340 height=240 offsetX=-370 offsetY=-10 preset=body align=left color=#F8FAFC fontSize=19 fill=#1E293B borderRadius=16
+Best for non-mentally taxing and quick info exchange.
+
+Great for async updates and quick operational questions.
+:::
+
+:::icon id=s2_c2_icon at=center width=32 height=32 offsetX=-140 offsetY=-160 name=phone-call size=28 color=#16A34A
+:::
+
+:::text id=s2_c2_title at=center width=280 height=32 offsetX=40 offsetY=-160 preset=title align=left color=#FFFFFF fontSize=24
+# Call / F2F
+:::
+
+:::text id=s2_c2_body at=center width=340 height=240 offsetX=0 offsetY=-10 preset=body align=left color=#F8FAFC fontSize=19 fill=#1E293B borderRadius=16
+Best for complex or easily misunderstood topics.
+
+Recommended when alignment on architecture or design is needed.
+:::
+
+:::icon id=s2_c3_icon at=center width=32 height=32 offsetX=230 offsetY=-160 name=mail size=28 color=#9333EA
+:::
+
+:::text id=s2_c3_title at=center width=280 height=32 offsetX=410 offsetY=-160 preset=title align=left color=#FFFFFF fontSize=24
+# Email
+:::
+
+:::text id=s2_c3_body at=center width=340 height=240 offsetX=370 offsetY=-10 preset=body align=left color=#F8FAFC fontSize=19 fill=#1E293B borderRadius=16
+Best for official decisions or third-party communications.
+
+Keeps formal records and external partner correspondence clear.
+:::
+
+:::icon id=s2_b_icon at=center width=32 height=32 offsetX=-490 offsetY=195 name=list-checks size=28 color=#EA580C
+:::
+
+:::text id=s2_b_title at=center width=300 height=32 offsetX=-310 offsetY=195 preset=title align=left color=#FFFFFF fontSize=22
+# Preferred 3-Step Format
+:::
+
+:::text id=s2_b_body at=center width=1080 height=80 offsetX=0 offsetY=260 preset=body align=left color=#F8FAFC fontSize=18 fill=#1E293B borderRadius=12
+1. **Context** (facts only)   →   2. **Problem definition**   →   3. **Proposed solutions** (if any)
+:::

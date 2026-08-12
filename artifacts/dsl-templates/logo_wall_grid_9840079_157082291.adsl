@@ -1,0 +1,29 @@
+# @presentation_id: 9840079
+# @slide_id: 157082291
+# @purpose: logo_wall_grid
+# @category: Social Proof & Logos
+# @description: Client or partner brand logo wall grid layout for corporate social proof
+# @keywords: logo wall, partners, clients, brands, grid, social proof, trust
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=oG3KmF67sj at=top-center width=80% height=64 offsetY=128 preset=caption align=center color=muted
+TRUSTED BY TEAMS AT
+:::
+
+:::text id=z7o4Z3d--9 at=center width=84% height=120 offsetY=-80 preset=body align=center color=text
+# 12,400+ companies
+:::
+
+:::shape id=LAhdeGHJLf at=bottom-center width=86% height=184 offsetY=-48 kind=rect fill=surface borderRadius=16
+:::
+
+:::text id=-QMIh_j3VK at=bottom-center width=82% height=136 offsetY=-112 preset=body align=center color=muted
+Acme · Northwind · Globex · Initech · Stark · Wayne
+:::
+
+:::text id=BvwXWsF15q at=bottom-center width=82% height=120 offsetY=-64 preset=caption align=center color=muted
+[ replace with logo images ]
+:::

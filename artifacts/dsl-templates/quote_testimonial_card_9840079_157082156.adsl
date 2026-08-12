@@ -1,0 +1,21 @@
+# @presentation_id: 9840079
+# @slide_id: 157082156
+# @purpose: quote_testimonial_card
+# @category: Social Proof & Logos
+# @description: Customer quote or client testimonial card layout with attribution photo placeholder
+# @keywords: quote, testimonial, feedback, review, card, social proof, customer
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::shape id=c3MAlOKAzO at=center-left width=240 height=240 offsetX=120 kind=circle fill=#F97316 shadow=lg
+:::
+
+:::text id=9Ufnth5cau at=center-right width=52% height=184 offsetX=-56 offsetY=-32 preset=quote align=left color=text
+> "I haven't dreaded a Monday morning all-hands since we switched."
+:::
+
+:::text id=cxHNs9MYUW at=center-right width=52% height=64 offsetX=-56 offsetY=120 preset=caption align=left color=muted
+**Sara Lindqvist** — Head of People at Northwind
+:::

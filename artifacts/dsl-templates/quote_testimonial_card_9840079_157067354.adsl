@@ -1,0 +1,38 @@
+# @presentation_id: 9840079
+# @slide_id: 157067354
+# @purpose: quote_testimonial_card
+# @category: Social Proof & Logos
+# @description: Customer quote or client testimonial card layout with attribution photo placeholder
+# @keywords: quote, testimonial, feedback, review, card, social proof, customer
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=u5A1ZIW3mh at=top-center width=86% height=144 offsetY=80 preset=title align=left
+# A small story
+:::
+
+:::text id=Xp1IENk0yN at=center-left width=24% height=64 offsetX=80 offsetY=-40 preset=caption align=left color=muted
+SETUP
+:::
+
+:::text id=FTpTVhFqCy x=160 y=352 w=304 h=120 preset=body align=left
+We had a backlog of 200 bugs and only three engineers.
+:::
+
+:::text id=sZxAVv62Qb at=center width=24% height=64 offsetY=-40 preset=caption align=left color=#F97316
+TURN
+:::
+
+:::text id=pvSgXkbppB x=488 y=352 w=304 h=168 preset=body align=left
+We stopped fixing bugs for a week and rewrote the underlying API.
+:::
+
+:::text id=pFyuKKbm4T at=center-right width=24% height=64 offsetX=-80 offsetY=-40 preset=caption align=left color=#22C55E
+PAYOFF
+:::
+
+:::text id=zqagBdDkQq x=816 y=360 w=304 h=160 preset=body align=left
+Half the bugs disappeared. The rest got easier.
+:::

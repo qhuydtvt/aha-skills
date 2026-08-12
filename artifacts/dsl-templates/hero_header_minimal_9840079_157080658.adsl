@@ -1,0 +1,25 @@
+# @presentation_id: 9840079
+# @slide_id: 157080658
+# @purpose: hero_header_minimal
+# @category: Headers & Covers
+# @description: Minimalist hero header cover layout with main title and subtitle text
+# @keywords: hero, header, minimal, title, cover, headline, cover slide
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::shape id=k2ToT2PVfV at=center width=184 height=0 offsetY=-128 kind=rect fill=#D4AF37
+:::
+
+:::text id=9BrvFloV9_ at=center width=85% height=64 offsetY=-88 preset=caption align=center color=#D4AF37
+ANNUAL REPORT · 2026
+:::
+
+:::text id=pZ77nwhLjA at=center width=85% height=120 preset=body align=center color=text
+# The state of the union
+:::
+
+:::text id=rXVUGqJLCe at=center width=70% height=120 offsetY=120 preset=body align=center color=muted
+Prepared by the leadership team for the board of directors.
+:::

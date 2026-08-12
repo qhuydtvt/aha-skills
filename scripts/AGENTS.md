@@ -172,7 +172,7 @@
     - `python3 scripts/apply_slide_layout.py 157015776 -f templates/custom.dsl -m title_text="New Title" --json`
 
 - **[`scripts/manage_slide_template.py`](manage_slide_template.py)**:
-  - **Purpose**: Manages freestyle-v2 public slide templates and custom DSL templates. Supports browsing public templates (`list`), listing categories (`categories`), inspecting single templates (`get`), substring search (`search`), exporting canvas blocks (`export`), applying templates (`apply`), applying background images (`stamp`), creating new slides from templates (`create-from-template`), and saving live slide DSL templates to `artifacts/dsl-templates/` (`save-from-slide`).
+  - **Purpose**: Manages freestyle-v2 public slide templates and custom DSL templates. Supports browsing public templates (`list`), listing categories (`categories`), inspecting single templates (`get`), substring search (`search`), exporting canvas blocks (`export`), applying templates (`apply`), applying background images (`stamp`), creating new slides from templates (`create-from-template`), saving live slide DSL templates to `artifacts/dsl-templates/` (`save-from-slide`), saving all presentation slides as DSL templates (`save-from-presentation` / `dump-presentation`) using title-aware default filename pattern `{title}_{presentation_id}_{slide_id}.adsl`, and linting ADSL metadata header comments & filename consistency (`lint-templates` / `lint`).
   - **Usage**: `python3 scripts/manage_slide_template.py <verb> [args] [--json]`
   - **Examples**:
     - `python3 scripts/manage_slide_template.py list --category Fun --limit 10`
@@ -182,6 +182,18 @@
     - `python3 scripts/manage_slide_template.py stamp 135119967 --slide 157058435`
     - `python3 scripts/manage_slide_template.py create-from-template 135119967 --presentation 9840079`
     - `python3 scripts/manage_slide_template.py save-from-slide 157060425 --name slide9_cover.adsl`
+    - `python3 scripts/manage_slide_template.py save-from-presentation 9840079 --slides 1-3 --dry-run`
+    - `python3 scripts/manage_slide_template.py lint-templates`
+
+- **[`scripts/annotate_adsl_metadata.py`](annotate_adsl_metadata.py)**:
+  - **Purpose**: Bakes or updates structured header metadata comments (`# @presentation_id`, `# @slide_id`, `# @purpose`, `# @category`, `# @description`, `# @keywords`) into `.adsl` files in `artifacts/dsl-templates/` or a specified directory/file. Extracts presentation ID, slide ID, and purpose from filename patterns or explicit CLI parameters (`--purpose`, `--category`, `--description`, `--keywords`), and supports non-mutating metadata linting via `--lint`.
+  - **Usage**: `python3 scripts/annotate_adsl_metadata.py [--dir DIR] [--file FILE] [-p PRES_ID] [-s SLIDE_ID] [--purpose PURPOSE] [--category CATEGORY] [--description DESC] [--keywords KW] [--lint] [--dry-run] [--json]`
+  - **Examples**:
+    - `python3 scripts/annotate_adsl_metadata.py`
+    - `python3 scripts/annotate_adsl_metadata.py --dir artifacts/dsl-templates/`
+    - `python3 scripts/annotate_adsl_metadata.py --file artifacts/dsl-templates/pricing_table_3tier_9840079_157065856.adsl`
+    - `python3 scripts/annotate_adsl_metadata.py --lint`
+    - `python3 scripts/annotate_adsl_metadata.py --dry-run`
 
 - **[`scripts/dump_slide_dsl.py`](dump_slide_dsl.py)**:
   - **Purpose**: Dumps the raw `.adsl` (AhaSlides Domain-Specific Language) format of a slide's content to a local file in `artifacts/dsl-dumps/` by default (`artifacts/dsl-dumps/{slide_id}.adsl`).
@@ -199,8 +211,6 @@
   - **Purpose**: Uploads a local image file or HTTP/HTTPS image URL to AhaSlides CDN via `POST /api/upload/image/` and returns the official signed CDN URL (`https://assets-cdn.ahaslides.com/...`).
   - **Usage**: `python3 scripts/upload_image.py <image_source> [-a ACCESS_CODE] [--json]`
   - **Example**: `python3 scripts/upload_image.py "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"`
-
-
 
 ---
 
@@ -241,6 +251,8 @@
   - **Purpose**: `TokenManager` class for safely retrieving authentication tokens.
 - **[`scripts/shared/api/aha_client.py`](shared/api/aha_client.py)**:
   - **Purpose**: `AhaApiClient` shared HTTP API client wrapper.
+- **[`scripts/shared/lib/adsl_metadata.py`](shared/lib/adsl_metadata.py)**:
+  - **Purpose**: `embed_adsl_metadata`, `parse_adsl_metadata`, `format_adsl_filename`, `parse_adsl_filename`, `lint_adsl_metadata`, and `lint_adsl_file` helper functions for embedding/parsing structured metadata header comments (`# @presentation_id`, `# @slide_id`, `# @purpose`, `# @category`, `# @description`, `# @keywords`), template filename parsing, and template metadata linting.
 - **[`scripts/shared/lib/contrast.py`](shared/lib/contrast.py)**:
   - **Purpose**: `parse_color`, `blend_colors`, `relative_luminance`, `contrast_ratio`, and `evaluate_contrast` functions for WCAG 2.1 color contrast calculation and evaluation.
 

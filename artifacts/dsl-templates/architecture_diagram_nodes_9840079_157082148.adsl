@@ -1,0 +1,42 @@
+# @presentation_id: 9840079
+# @slide_id: 157082148
+# @purpose: architecture_diagram_nodes
+# @category: Diagrams & Schematics
+# @description: System architecture diagram layout showcasing interconnected service nodes
+# @keywords: architecture, diagram, nodes, system, infrastructure, network, components
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=CR-TWEYlYo at=top-center width=86% height=144 preset=title align=center color=text
+# System architecture
+:::
+
+:::shape id=i0orp2458C at=center width=560 height=80 offsetY=-128 kind=rect fill=rgba(244,114,182,0.2) borderRadius=12
+:::
+
+:::text id=hnNYbQHkCP at=center width=520 height=80 offsetY=-128 preset=body align=center color=#F472B6
+Client · React + Vite
+:::
+
+:::shape id=SoYiJqIQsB at=center width=560 height=80 offsetY=-32 kind=rect fill=rgba(34,211,238,0.2) borderRadius=12
+:::
+
+:::text id=yOofjBil0g at=center width=520 height=80 offsetY=-32 preset=body align=center color=#22D3EE
+API gateway · Node.js
+:::
+
+:::shape id=DgKeXEHt3s at=center width=560 height=80 offsetY=72 kind=rect fill=rgba(251,191,36,0.2) borderRadius=12
+:::
+
+:::text id=0rQHurNuOl at=center width=520 height=80 offsetY=72 preset=body align=center color=#FBBF24
+Services · Go + gRPC
+:::
+
+:::shape id=urzfPlnnSM at=center width=560 height=80 offsetY=168 kind=rect fill=rgba(34,197,94,0.2) borderRadius=12
+:::
+
+:::text id=s_K9qswM2g at=center width=520 height=80 offsetY=168 preset=body align=center color=#22C55E
+Storage · Postgres + Redis
+:::

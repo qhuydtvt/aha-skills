@@ -1,0 +1,31 @@
+# @presentation_id: 9849064
+# @slide_id: 157142157
+# @purpose: quote_testimonial_card
+# @category: Social Proof & Logos
+# @description: Customer quote or client testimonial card layout with attribution photo placeholder
+# @keywords: quote, testimonial, feedback, review, card, social proof, customer
+---
+content-v2: 1280x720
+version: 1
+background: bg
+---
+
+:::pattern id=yjjQTQpTYT x=240 y=160 w=800 h=400 kind=blob-cluster color=text opacity=0.05 count=3 seed=13 radius=240
+:::
+
+:::icon id=F7EJuCD3Mi at=top-center width=80 height=80 offsetY=80 name=quote size=80 color=muted
+:::
+
+:::text id=lXdCE5SSUz at=top-center width=78% height=280 offsetY=200 preset=quote align=center color=text fontSize=28
+"Face-to-Face preferred:
+1. Context of the feedback
+2. Impact on business, product, or team
+3. Proposed solution or improvement"
+:::
+
+:::shape id=pLxpxZX8JL at=top-center width=64 height=8 offsetY=536 kind=rect fill=text
+:::
+
+:::text id=Zt1GyL19sw at=top-center width=60% height=32 offsetY=576 preset=caption align=center color=muted
+HOW I RECEIVE FEEDBACK · 3-POINT STRUCTURE
+:::

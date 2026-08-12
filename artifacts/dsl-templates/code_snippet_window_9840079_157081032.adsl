@@ -1,0 +1,25 @@
+# @presentation_id: 9840079
+# @slide_id: 157081032
+# @purpose: code_snippet_window
+# @category: Technical & Code
+# @description: Code snippet window frame layout with dark theme syntax display
+# @keywords: code, snippet, terminal, window, editor, syntax, programming, technical
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=QyacN_kKd0 at=top-center width=86% height=144 preset=title align=left
+# How it works
+:::
+
+:::code id=jUCC05YN8H at=left-half width=44% height=440 offsetX=0 offsetY=120 language=ts
+const result = compute({
+  source,
+  options: { strict: true },
+});
+:::
+
+:::text id=EqqOocJa53 at=right-half width=42% height=248 offsetY=144 preset=body
+The function takes a source object and returns a derived value. Strict mode enables runtime type checks — useful in development but adds overhead.
+:::

@@ -1,0 +1,44 @@
+# @presentation_id: 9840079
+# @slide_id: 157065881
+# @purpose: pricing_table_2tier
+# @category: Pricing & Plans
+# @description: 2-column side-by-side pricing tier plan comparison card layout
+# @keywords: pricing, plans, 2-tier, subscription, pricing cards, commercial
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=ExBgNdSM0v at=top-center width=86% height=120 preset=title align=center
+# Cost per month
+:::
+
+:::shape id=kKaMdan12V at=center width=480 height=424 offsetX=-256 offsetY=80 kind=rect fill=surface borderRadius=20
+:::
+
+:::text id=K4vcZuL5hn at=center width=424 height=40 offsetX=-256 offsetY=-56 preset=caption align=center color=#991B1B
+THE OLD STACK
+:::
+
+:::text id=Jiw3bS53VK at=center width=424 height=224 offsetX=-256 offsetY=80 preset=body align=center color=#991B1B fontSize=110
+**$4,200**
+:::
+
+:::text id=88DK1OMI48 at=center width=424 height=136 offsetX=-256 offsetY=208 preset=body align=center color=text
+Bundled across four vendors with overlapping features.
+:::
+
+:::shape id=BUv2to1nST at=center width=480 height=424 offsetX=264 offsetY=80 kind=rect fill=surface borderRadius=20
+:::
+
+:::text id=pG7r4PWpSO at=center width=424 height=40 offsetX=264 offsetY=-56 preset=caption align=center color=#166534
+WITH AHASLIDES
+:::
+
+:::text id=20FQFE3Cey at=center width=424 height=224 offsetX=264 offsetY=80 preset=body align=center color=#166534 fontSize=110
+**$480**
+:::
+
+:::text id=f7jBd3NYxU at=center width=424 height=96 offsetX=264 offsetY=208 preset=body align=center color=text
+One vendor. One bill. The same outcomes for less.
+:::

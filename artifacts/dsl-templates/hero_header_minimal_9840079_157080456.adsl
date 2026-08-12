@@ -1,0 +1,29 @@
+# @presentation_id: 9840079
+# @slide_id: 157080456
+# @purpose: hero_header_minimal
+# @category: Headers & Covers
+# @description: Minimalist hero header cover layout with main title and subtitle text
+# @keywords: hero, header, minimal, title, cover, headline, cover slide
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=eA-At55GVs at=top-left width=40% height=64 offsetX=80 offsetY=80 preset=caption align=left color=#FBBF24
+DESIGN WEEK 2026
+:::
+
+:::text id=TK_YTkYwvw at=center-left width=80% height=120 offsetX=80 preset=body align=left color=text
+# Build for delight
+:::
+
+:::shape id=phvv35BiZj at=bottom-left width=104 height=0 offsetX=80 offsetY=-176 kind=rect fill=#FBBF24
+:::
+
+:::text id=SFBDjdGHVU at=bottom-left width=60% height=136 offsetX=80 offsetY=-120 preset=body align=left color=#FBBF24
+MAY 12 · 2026
+:::
+
+:::text id=qOSPwBLoh1 at=bottom-left width=60% height=120 offsetX=80 offsetY=-80 preset=caption align=left color=muted
+Hosted at the AhaSlides HQ — 4F Auditorium
+:::

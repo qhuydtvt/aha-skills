@@ -1,0 +1,35 @@
+# @presentation_id: 9840079
+# @slide_id: 157066712
+# @purpose: bullet_list_icon_grid
+# @category: Lists & Content
+# @description: Bullet points list layout paired with decorative icon visual anchors
+# @keywords: bullet list, icons, features, key points, takeaway, list grid
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=KU5Q_-oETy at=top-center width=86% height=144 offsetY=80 preset=title align=left
+# Why it works
+:::
+
+:::icon id=Il0JSypBK9 at=center-left width=80 offsetX=16 offsetY=-32 name=zap size=40 color=#F97316
+:::
+
+:::text id=OD9fb8S5pF at=center-left width=920 height=80 offsetX=120 offsetY=-32 preset=body align=left
+**Fast** — feedback in milliseconds, not minutes.
+:::
+
+:::icon id=rJEvav4BM0 at=center-left width=80 offsetX=16 offsetY=64 name=shield size=40 color=#F97316
+:::
+
+:::text id=P3pqGHToz5 at=center-left width=920 height=80 offsetX=120 offsetY=64 preset=body align=left
+**Safe** — every action is reversible.
+:::
+
+:::icon id=JJcb-e5LB6 at=center-left width=80 offsetX=16 offsetY=168 name=heart size=40 color=#F97316
+:::
+
+:::text id=7JPdxEknwb at=center-left width=920 height=80 offsetX=120 offsetY=168 preset=body align=left
+**Friendly** — designed for people, not just power users.
+:::

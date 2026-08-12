@@ -1,0 +1,57 @@
+# @presentation_id: 9849063
+# @slide_id: 157142166
+# @purpose: feature_cards_4col
+# @category: Work Preference
+# @description: 4 Bugs paired with 4 Support Patches
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=3EqGiPEMNg at=top-center width=86% height=120 preset=title align=center
+# Working With Me: Bugs & Support Patches
+:::
+
+:::shape id=qZUcQb5fIp at=center width=440 height=184 offsetX=-240 offsetY=-32 kind=rect fill=surface borderRadius=16 shadow=md
+:::
+
+:::icon id=GA0ouNEmXp at=center width=40 height=40 offsetX=-440 offsetY=-80 name=alert-triangle size=36 color=#EF4444
+:::
+
+:::text id=rj0mmg4dUv at=center width=360 height=160 offsetX=-200 offsetY=0 preset=body align=left color=text
+🐛 **Bug 1:** Vague requirements or missing context
+🩹 **Patch:** Provide background & clear goals upfront
+:::
+
+:::shape id=g6ReABIyBc at=center width=440 height=184 offsetX=240 offsetY=-32 kind=rect fill=surface borderRadius=16 shadow=md
+:::
+
+:::icon id=3MpJ7pEK0z at=center width=40 height=40 offsetX=40 offsetY=-80 name=alert-triangle size=36 color=#EF4444
+:::
+
+:::text id=yqzgOQOtCo at=center width=360 height=160 offsetX=280 offsetY=0 preset=body align=left color=text
+🐛 **Bug 2:** Unexpected long calls without agenda
+🩹 **Patch:** Send an outline or async note first
+:::
+
+:::shape id=YZsJeZbPkQ at=center width=440 height=184 offsetX=-240 offsetY=184 kind=rect fill=surface borderRadius=16 shadow=md
+:::
+
+:::icon id=vSpeoyL8gG at=center width=40 height=40 offsetX=-440 offsetY=128 name=alert-triangle size=36 color=#EF4444
+:::
+
+:::text id=8Lr5Gms6_X at=center width=360 height=160 offsetX=-200 offsetY=208 preset=body align=left color=text
+🐛 **Bug 3:** Scope creep without priority check
+🩹 **Patch:** Discuss trade-offs & define MVP scope
+:::
+
+:::shape id=Ln1BDHsa8o at=center width=440 height=184 offsetX=240 offsetY=184 kind=rect fill=surface borderRadius=16 shadow=md
+:::
+
+:::icon id=TIYc1BXcfZ at=center width=40 height=40 offsetX=40 offsetY=128 name=alert-triangle size=36 color=#EF4444
+:::
+
+:::text id=j0rtKk63-b at=center width=360 height=160 offsetX=280 offsetY=208 preset=body align=left color=text
+🐛 **Bug 4:** Siloed decisions without feedback
+🩹 **Patch:** Schedule early alignment & open syncs
+:::

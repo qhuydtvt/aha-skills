@@ -1,0 +1,43 @@
+# @presentation_id: 9840079
+# @slide_id: 157066103
+# @purpose: bullet_list_icon_grid
+# @category: Lists & Content
+# @description: Bullet points list layout paired with decorative icon visual anchors
+# @keywords: bullet list, icons, features, key points, takeaway, list grid
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=PgxiEAw3wN at=top-center width=86% height=144 preset=title align=center
+# A simpler way
+:::
+
+:::shape id=jcO1QEQGBl at=center width=480 height=424 offsetX=-256 offsetY=80 kind=rect fill=surface borderRadius=16 shadow=md
+:::
+
+:::text id=MHzHjJWaXS at=center width=424 height=64 offsetX=-256 offsetY=-80 preset=caption align=center color=muted
+THE OLD WAY
+:::
+
+:::text id=L7NL9ozAZK at=center width=424 offsetX=-256 offsetY=104 preset=body align=left color=muted
+- File a ticket
+- Wait two days
+- Get the wrong report
+- Forward 11 emails
+- Eventually give up
+:::
+
+:::shape id=pwMtlwHwI8 at=center width=480 height=424 offsetX=264 offsetY=80 kind=rect fill=surface borderRadius=16 shadow=md
+:::
+
+:::text id=JapufutK-A at=center width=424 height=64 offsetX=264 offsetY=-80 preset=caption align=center color=#F97316
+THE NEW WAY
+:::
+
+:::text id=x7YvGHFYL6 at=center width=424 offsetX=264 offsetY=104 preset=body align=left color=text
+- Open the dashboard
+- Click "export"
+- Get the right report
+- Done
+:::

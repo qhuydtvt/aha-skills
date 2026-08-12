@@ -1,0 +1,27 @@
+# @presentation_id: 9840079
+# @slide_id: 157081087
+# @purpose: data_dashboard_chart
+# @category: Metrics & Performance
+# @description: Data dashboard chart visual layout for analytical reports and metrics overview
+# @keywords: dashboard, chart, data, analytics, visualization, report, graph
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=PIPSF4N92M at=top-center width=86% height=144 offsetY=40 preset=title align=left
+# Monthly active users
+:::
+
+:::text id=vKq5bS7Hfw at=top-center width=80% height=64 offsetY=144 preset=caption align=left color=muted
+JANUARY 2025 — APRIL 2026
+:::
+
+:::chart id=U94eeBJicE at=center width=80% height=424 offsetY=80 kind=bar title="MAU (millions)"
+2025-01: 1.1
+2025-04: 1.6
+2025-07: 2.1
+2025-10: 2.9
+2026-01: 3.6
+2026-04: 5.1
+:::

@@ -1,0 +1,83 @@
+# @presentation_id: 9840079
+# @slide_id: 157066194
+# @purpose: feature_cards_4col
+# @category: Features & Products
+# @description: 4-column card grid layout for feature summaries and capability overviews
+# @keywords: features, 4-column, cards, grid, benefits, product overview
+---
+content-v2: 1280x720
+version: 1
+background: bg
+---
+
+:::text id=p4nAen8AHH x=80 y=72 w=600 h=32 preset=caption color=muted
+COMPANY NAME · DATE
+:::
+
+:::text id=6J3Dl0nFzE x=80 y=128 w=720 h=88 preset=title align=left color=text fontSize=56
+Content *overview*
+:::
+
+:::text id=S3oRrnHPy2 x=80 y=240 w=24 h=24 preset=caption color=muted
+01
+:::
+
+:::text id=PEhoDm1DCa x=120 y=240 w=480 h=40 preset=body color=text
+Section title →
+:::
+
+:::text id=ublrAAwXs2 x=640 y=240 w=24 h=24 preset=caption color=muted
+05
+:::
+
+:::text id=8o8MTQgJIz x=680 y=240 w=480 h=40 preset=body color=text
+Section title →
+:::
+
+:::text id=KEqWZ2bPar x=80 y=336 w=24 h=24 preset=caption color=muted
+02
+:::
+
+:::text id=VcNWJzNLHj x=120 y=336 w=480 h=40 preset=body color=text
+Section title →
+:::
+
+:::text id=KRn_sw1Z1T x=640 y=336 w=24 h=24 preset=caption color=muted
+06
+:::
+
+:::text id=5LrtXhf2CP x=680 y=336 w=480 h=40 preset=body color=text
+Section title →
+:::
+
+:::text id=JN_9Xpn-md x=80 y=432 w=24 h=24 preset=caption color=muted
+03
+:::
+
+:::text id=bmQ4T9p7uh x=120 y=432 w=480 h=40 preset=body color=text
+Section title →
+:::
+
+:::text id=FHyAkVPLVZ x=640 y=432 w=24 h=24 preset=caption color=muted
+07
+:::
+
+:::text id=8GsnaLzCUq x=680 y=432 w=480 h=40 preset=body color=text
+Section title →
+:::
+
+:::text id=qzFnDikV9V x=80 y=528 w=24 h=24 preset=caption color=muted
+04
+:::
+
+:::text id=uY-9VjomLE x=120 y=528 w=480 h=40 preset=body color=text
+Section title →
+:::
+
+:::text id=1ZrKtMTFPF x=640 y=528 w=24 h=24 preset=caption color=muted
+08
+:::
+
+:::text id=mIBB4xD5GY x=680 y=528 w=480 h=40 preset=body color=text
+Section title →
+:::

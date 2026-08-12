@@ -1,0 +1,29 @@
+# @presentation_id: 9840079
+# @slide_id: 157081841
+# @purpose: logo_wall_grid
+# @category: Social Proof & Logos
+# @description: Client or partner brand logo wall grid layout for corporate social proof
+# @keywords: logo wall, partners, clients, brands, grid, social proof, trust
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=Eut9NDaJqD at=top-center width=80% height=64 offsetY=80 preset=caption align=center color=muted
+TRUSTED BY THE BEST
+:::
+
+:::text id=JVkNr92iWj at=center width=84% height=336 offsetY=-80 preset=body align=center color=text fontSize=160
+# 12,400
+:::
+
+:::text id=945yFBOHGR at=center width=70% height=120 offsetY=80 preset=body align=center color=muted
+companies use AhaSlides to talk to their teams every week.
+:::
+
+:::shape id=YV7qx6Y0CY at=bottom-center width=70% height=64 offsetY=-48 kind=rect fill=surface borderRadius=12
+:::
+
+:::text id=lJNBRUGrzT at=bottom-center width=70% height=120 offsetY=-72 preset=caption align=center color=muted
+[ logos go here ]
+:::

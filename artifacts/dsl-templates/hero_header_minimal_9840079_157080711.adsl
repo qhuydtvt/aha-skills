@@ -1,0 +1,22 @@
+# @presentation_id: 9840079
+# @slide_id: 157080711
+# @purpose: hero_header_minimal
+# @category: Headers & Covers
+# @description: Minimalist hero header cover layout with main title and subtitle text
+# @keywords: hero, header, minimal, title, cover, headline, cover slide
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=kMq9PJm75v at=top-center width=80% height=64 offsetY=160 preset=caption align=center color=muted
+KEYNOTE 2026
+:::
+
+:::text id=fzeX9T5F5M at=center width=88% height=120 preset=body align=center color=primary
+# A spectrum of ideas
+:::
+
+:::text id=90ta-r0rCH at=center width=60% height=120 offsetY=144 preset=body align=center color=muted
+Six talks across three days. Pick what excites you.
+:::

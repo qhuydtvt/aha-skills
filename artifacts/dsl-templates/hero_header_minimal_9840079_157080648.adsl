@@ -1,0 +1,18 @@
+# @presentation_id: 9840079
+# @slide_id: 157080648
+# @purpose: hero_header_minimal
+# @category: Headers & Covers
+# @description: Minimalist hero header cover layout with main title and subtitle text
+# @keywords: hero, header, minimal, title, cover, headline, cover slide
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=r6WJDHLIZh at=center width=85% height=120 preset=body align=center color=text
+# One thing, done deeply
+:::
+
+:::text id=1iGive0xRz at=center width=60% height=128 offsetY=120 preset=body align=center color=muted
+A focused presentation about a single topic, explored from every angle.
+:::

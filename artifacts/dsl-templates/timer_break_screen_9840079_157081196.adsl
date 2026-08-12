@@ -1,0 +1,18 @@
+# @presentation_id: 9840079
+# @slide_id: 157081196
+# @purpose: timer_break_screen
+# @category: Interactive & Utility
+# @description: Intermission break screen layout with countdown timer container
+# @keywords: timer, break, intermission, pause, schedule, break time, utility
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::timer id=1c_O1sXDFf at=center width=384 height=384 offsetY=-40 duration=600 color=text done="We're back!"
+Coffee break
+:::
+
+:::text id=ka9VAKG3WW at=center width=60% height=80 offsetY=248 preset=body align=center color=muted
+Back at the top of the hour. Snacks and refills in the foyer.
+:::

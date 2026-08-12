@@ -1,0 +1,36 @@
+# @presentation_id: 9840079
+# @slide_id: 157080375
+# @purpose: bullet_list_icon_grid
+# @category: Lists & Content
+# @description: Bullet points list layout paired with decorative icon visual anchors
+# @keywords: bullet list, icons, features, key points, takeaway, list grid
+---
+content-v2: 1280x720
+version: 1
+background: bg
+---
+
+:::pattern id=F0TtEv3N7E x=0 y=0 w=1280 h=720 kind=dot-grid color=text opacity=0.06 spacing=32
+:::
+
+:::text id=bMudU5R5zT at=top-left width=400 height=32 offsetX=80 offsetY=72 preset=caption color=muted
+ACME CO · 2026
+:::
+
+:::text id=bptfwHYaJv at=top-left width=720 height=96 offsetX=80 offsetY=232 preset=title align=left color=text fontSize=72
+Business *Plan*
+:::
+
+:::text id=AihF3dUW5D at=top-left width=720 height=96 offsetX=80 offsetY=336 preset=title align=left color=text fontSize=72
+Presentation
+:::
+
+:::text id=n2CEYpL4ua at=top-left width=560 height=120 offsetX=80 offsetY=480 preset=body color=muted
+Briefly describe the content of this presentation and what your audience can expect.
+:::
+
+:::shape id=yw993NvDyU at=top-right width=320 height=480 offsetX=-80 offsetY=120 kind=rect fill=surface borderRadius=8
+:::
+
+:::shape id=lMSIP5NQ50 at=top-right width=8 height=320 offsetX=-200 offsetY=200 kind=rect fill=text
+:::

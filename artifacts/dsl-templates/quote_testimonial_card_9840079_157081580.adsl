@@ -1,0 +1,21 @@
+# @presentation_id: 9840079
+# @slide_id: 157081580
+# @purpose: quote_testimonial_card
+# @category: Social Proof & Logos
+# @description: Customer quote or client testimonial card layout with attribution photo placeholder
+# @keywords: quote, testimonial, feedback, review, card, social proof, customer
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=l7OXXRcXCB at=top-center width=20% height=288 offsetY=40 preset=body align=center color=#FBBF24 fontSize=140
+# "
+:::
+
+:::text id=uhuSNhzZu5 at=center width=72% height=136 offsetY=80 preset=quote align=center color=text
+> Now for the part everyone has been asking about.
+:::
+
+:::shape id=r-hy3oPMhT at=bottom-center width=64 height=0 offsetY=-96 kind=rect fill=#FBBF24
+:::

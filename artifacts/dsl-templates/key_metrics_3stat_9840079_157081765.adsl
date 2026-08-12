@@ -1,0 +1,40 @@
+# @presentation_id: 9840079
+# @slide_id: 157081765
+# @purpose: key_metrics_3stat
+# @category: Metrics & Performance
+# @description: 3-column statistical KPI metric cards layout with big numbers and captions
+# @keywords: metrics, stats, 3-column, kpi, performance, numbers, growth
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=7lZK6A5cxC at=top-center width=86% height=144 offsetY=40 preset=title align=center
+# Page load time
+:::
+
+:::shape id=B_18gN1NTK at=center width=440 height=304 offsetX=-256 offsetY=40 kind=rect fill=surface borderRadius=20 shadow=md
+:::
+
+:::text id=rfnrOyh8On at=center width=400 height=64 offsetX=-256 offsetY=-56 preset=caption align=center color=#991B1B
+BEFORE
+:::
+
+:::text id=X8aZONX1p- at=center width=400 height=264 offsetX=-256 offsetY=64 preset=body align=center color=#991B1B fontSize=120
+# 4.8s
+:::
+
+:::shape id=M5K-VzN1yW at=center width=440 height=304 offsetX=264 offsetY=40 kind=rect fill=surface borderRadius=20 shadow=md
+:::
+
+:::text id=mkRxIvZXQB at=center width=400 height=64 offsetX=264 offsetY=-56 preset=caption align=center color=#166534
+AFTER
+:::
+
+:::text id=IHAEFrRQ9n at=center width=400 height=264 offsetX=264 offsetY=64 preset=body align=center color=#166534 fontSize=120
+# 0.7s
+:::
+
+:::text id=hgNIhTp9x0 at=bottom-center width=80% height=136 offsetY=-56 preset=body align=center color=muted
+6.8× faster — measured on real-world devices over 30 days.
+:::

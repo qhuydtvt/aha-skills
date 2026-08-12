@@ -1,0 +1,18 @@
+# @presentation_id: 9840079
+# @slide_id: 157081767
+# @purpose: stat_callout_large
+# @category: Metrics & Performance
+# @description: Large single statistical number callout layout for key highlight figures
+# @keywords: stat, callout, big number, metric, highlight, impact figure
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=bODyii2FD6 at=center width=80% height=344 preset=title align=center fontSize=160
+# 42%
+:::
+
+:::text id=CxWzUkF0da at=center width=70% height=80 offsetY=120 preset=body align=center
+Year-over-year revenue growth in Q4 2025.
+:::

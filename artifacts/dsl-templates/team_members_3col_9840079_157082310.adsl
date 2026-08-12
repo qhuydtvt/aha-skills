@@ -1,0 +1,46 @@
+# @presentation_id: 9840079
+# @slide_id: 157082310
+# @purpose: team_members_3col
+# @category: Team & Organization
+# @description: 3-column team members grid layout displaying avatars and job titles
+# @keywords: team, members, 3-column, grid, staff, team grid, leadership
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=yS-lsYA-ES at=top-center width=86% height=144 offsetY=64 preset=title align=center
+# Meet the team
+:::
+
+:::shape id=E3GLAQIjoL at=center width=144 height=144 offsetX=-416 offsetY=-40 kind=circle fill=#F97316 shadow=md
+:::
+
+:::text id=4aglJCv3t5 at=center width=240 height=64 offsetX=-416 offsetY=80 preset=caption align=center color=text
+**Maya N.**
+Engineering
+:::
+
+:::shape id=QQ1fodtS6I at=center width=144 height=144 offsetX=-136 offsetY=-40 kind=circle fill=#22C55E shadow=md
+:::
+
+:::text id=vlbAfiS0sd at=center width=240 height=64 offsetX=-136 offsetY=80 preset=caption align=center color=text
+**Anders K.**
+Design
+:::
+
+:::shape id=tg5Pk4KOtk at=center width=144 height=144 offsetX=144 offsetY=-40 kind=circle fill=#0EA5E9 shadow=md
+:::
+
+:::text id=lBzFicF63l at=center width=240 height=64 offsetX=144 offsetY=80 preset=caption align=center color=text
+**Priya S.**
+Product
+:::
+
+:::shape id=WqaZM5LVgh at=center width=144 height=144 offsetX=424 offsetY=-40 kind=circle fill=#A855F7 shadow=md
+:::
+
+:::text id=FrR1Gw2uX_ at=center width=240 height=64 offsetX=424 offsetY=80 preset=caption align=center color=text
+**Jonas E.**
+Operations
+:::

@@ -1,0 +1,22 @@
+# @presentation_id: 9840079
+# @slide_id: 157067209
+# @purpose: quote_testimonial_card
+# @category: Social Proof & Logos
+# @description: Customer quote or client testimonial card layout with attribution photo placeholder
+# @keywords: quote, testimonial, feedback, review, card, social proof, customer
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=hqMBKagKIq at=top-left width=70% height=64 offsetX=80 offsetY=80 preset=caption align=left color=#92400E
+ESSAY · 04 OF 12
+:::
+
+:::text id=ZkU-KkIsTM at=center-left width=70% height=216 offsetX=80 offsetY=-176 preset=title align=left color=text
+# On the value of slow software
+:::
+
+:::text id=oLCQOQ6wUl at=center-left width=70% height=328 offsetX=80 offsetY=120 preset=body align=left color=text
+The fastest tool isn't always the best tool. Speed has a cost — it shortens the gap between thinking and shipping, and that gap is where the good ideas live. The best designers I know move quickly only after they've thought slowly. Quick decisions made on top of slow thinking are sharp; quick decisions made on top of more quick decisions just compound the mess.
+:::

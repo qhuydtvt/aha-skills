@@ -1,0 +1,61 @@
+---
+content-v2: 1280x720
+version: 1
+background: bg
+---
+
+:::text id=4vG_l6rO0F x=80 y=60 w=720 h=32 preset=caption color=muted
+COMMUNICATION PREFERENCES
+:::
+
+:::text id=Cq0gklscRH x=80 y=104 w=1120 h=64 preset=title align=left color=text fontSize=44
+Channels & Collaboration Rules
+:::
+
+:::shape id=8Yd_ynBQtl x=80 y=192 w=360 h=440 kind=rect fill=surface borderRadius=12
+:::
+
+:::icon id=vZ9A0X1OQx x=120 y=224 w=36 h=36 name=message-square size=36 color=#3B82F6
+:::
+
+:::text id=VBK0fzuPxq x=120 y=280 w=280 h=80 preset=title color=text fontSize=28
+Chat (Slack/Teams)
+:::
+
+:::text id=TaXZEeNNxD x=120 y=368 w=280 h=220 preset=body color=muted fontSize=18
+Best for non-mentally taxing & quick info exchange.
+
+*Provide context upfront for fast turnarounds.*
+:::
+
+:::shape id=4n3qEUvD4U x=464 y=192 w=360 h=440 kind=rect fill=surface borderRadius=12
+:::
+
+:::icon id=FziNl8MmZX x=504 y=224 w=36 h=36 name=phone-call size=36 color=#8B5CF6
+:::
+
+:::text id=MtSTNkfJkv x=504 y=280 w=280 h=80 preset=title color=text fontSize=28
+Face-to-Face / Call
+:::
+
+:::text id=eIoNF14jve x=504 y=368 w=280 h=220 preset=body color=muted fontSize=18
+Best for complex or easily misunderstood topics.
+
+*Rule: One live conversation at a time.*
+:::
+
+:::shape id=ndMF20RTBk x=848 y=192 w=352 h=440 kind=rect fill=surface borderRadius=12
+:::
+
+:::icon id=18P2-6vyZf x=888 y=224 w=36 h=36 name=mail size=36 color=#10B981
+:::
+
+:::text id=l5W501oiyp x=888 y=280 w=272 h=80 preset=title color=text fontSize=28
+Email
+:::
+
+:::text id=0BkV4Jz55G x=888 y=368 w=272 h=220 preset=body color=muted fontSize=18
+Best for official decisions or 3rd-party comms.
+
+*Preferred 3-Step Format: Context → Problem → Solution.*
+:::

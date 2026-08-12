@@ -1,0 +1,29 @@
+# @presentation_id: 9840079
+# @slide_id: 157082027
+# @purpose: split_screen_image_text
+# @category: Media & Visuals
+# @description: Split-screen layout pairing full-height media image with detailed narrative text
+# @keywords: split screen, image, text, side-by-side, visual narrative, media
+---
+content-v2: 1280x720
+version: 1
+background: bg
+---
+
+:::image id=bbJDQQD8ev x=640 y=0 w=640 h=720 src= fit=cover
+:::
+
+:::text id=y-Gz08CnnR x=80 y=120 w=480 h=32 preset=caption color=muted
+SECTION TITLE
+:::
+
+:::text id=jPiZ2zta7n x=80 y=200 w=480 h=80 preset=title align=left color=text fontSize=56
+A *living* city
+:::
+
+:::text id=l6vOxOsI0L x=80 y=320 w=480 h=200 preset=body align=left color=text
+The Old Quarter's tangled streets, each named for the trade once practised there. Silk, silver, paper, tin — woven into the map itself.
+:::
+
+:::shape id=juaNUEhA7l x=80 y=560 w=64 h=8 kind=rect fill=text
+:::

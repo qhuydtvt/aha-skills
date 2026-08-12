@@ -1,0 +1,42 @@
+# @presentation_id: 9840079
+# @slide_id: 157082162
+# @purpose: bullet_list_icon_grid
+# @category: Lists & Content
+# @description: Bullet points list layout paired with decorative icon visual anchors
+# @keywords: bullet list, icons, features, key points, takeaway, list grid
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=v5AOUUmy0m at=top-center width=86% height=144 preset=title align=center
+# How the pieces connect
+:::
+
+:::shape id=B-FcTeNu_N at=center width=72% height=320 offsetY=24 kind=rect fill=surface borderRadius=20 shadow=md
+:::
+
+:::shape id=j3Ujsry1DG at=center width=80 height=80 offsetX=-216 offsetY=24 kind=circle fill=#F97316
+:::
+
+:::text id=L7N5bwLeUx at=center width=80 height=64 offsetX=-216 offsetY=24 preset=caption align=center color=text
+A
+:::
+
+:::shape id=IXeMUXjWFV at=center width=80 height=80 offsetY=24 kind=rect fill=#22C55E borderRadius=12
+:::
+
+:::text id=W9_SAOgcxH at=center width=80 height=64 offsetY=24 preset=caption align=center color=text
+B
+:::
+
+:::shape id=c2cSjCsYjh at=center width=80 height=80 offsetX=224 offsetY=24 kind=circle fill=#0EA5E9
+:::
+
+:::text id=D2JDjqzScu at=center width=80 height=64 offsetX=224 offsetY=24 preset=caption align=center color=text
+C
+:::
+
+:::text id=SaFZ3aMv0H at=bottom-center width=70% height=216 offsetY=-32 preset=body align=center color=muted
+Three loosely-coupled services. Each one knows how to talk to the others, but doesn't depend on what's inside them.
+:::

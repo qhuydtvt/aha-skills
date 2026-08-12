@@ -1,0 +1,30 @@
+# @presentation_id: 9840079
+# @slide_id: 157080326
+# @purpose: quote_testimonial_card
+# @category: Social Proof & Logos
+# @description: Customer quote or client testimonial card layout with attribution photo placeholder
+# @keywords: quote, testimonial, feedback, review, card, social proof, customer
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=2qnm9QwNDy at=top-center width=84% height=144 offsetY=24 preset=title align=left
+# A long-form take
+:::
+
+:::text id=wWtD3sD5ht at=center width=80% height=64 offsetY=-96 preset=caption align=left color=#F97316
+THE SHORT VERSION
+:::
+
+:::text id=pieJo9xgVr at=center width=80% height=128 offsetY=-16 preset=body align=left
+The single sentence summary goes here, in case the audience reads only the first paragraph and decides to keep going.
+:::
+
+:::text id=uNz1D_rotA at=center width=80% height=64 offsetY=104 preset=caption align=left color=#F97316
+THE FULL STORY
+:::
+
+:::text id=jMjprmgoHf at=center width=80% height=200 offsetY=208 preset=body align=left
+And then the longer version with the nuance that didn't fit above. Two paragraphs is usually the sweet spot — enough room to make a real argument, but still readable from the back row.
+:::

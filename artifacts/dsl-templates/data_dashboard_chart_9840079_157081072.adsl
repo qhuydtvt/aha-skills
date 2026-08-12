@@ -1,0 +1,61 @@
+# @presentation_id: 9840079
+# @slide_id: 157081072
+# @purpose: data_dashboard_chart
+# @category: Metrics & Performance
+# @description: Data dashboard chart visual layout for analytical reports and metrics overview
+# @keywords: dashboard, chart, data, analytics, visualization, report, graph
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=PWkXitSG3J at=top-center width=86% height=144 offsetY=64 preset=title align=center
+# Activity by hour
+:::
+
+:::shape id=nDuqv043pn at=center width=80% height=304 offsetY=40 kind=rect fill=surface borderRadius=12
+:::
+
+:::shape id=t7H2DtNX3e at=center width=48 height=48 offsetX=-336 offsetY=-32 kind=rect fill=#ECFDF5 borderRadius=4
+:::
+
+:::shape id=Wnfxw6ZDD_ at=center width=48 height=48 offsetX=-280 offsetY=-32 kind=rect fill=#A7F3D0 borderRadius=4
+:::
+
+:::shape id=Lc7h5zeqEc at=center width=48 height=48 offsetX=-216 offsetY=-32 kind=rect fill=#34D399 borderRadius=4
+:::
+
+:::shape id=cMmCOvb3Sl at=center width=48 height=48 offsetX=-160 offsetY=-32 kind=rect fill=#10B981 borderRadius=4
+:::
+
+:::shape id=l6MgdmgkeU at=center width=48 height=48 offsetX=-96 offsetY=-32 kind=rect fill=#059669 borderRadius=4
+:::
+
+:::shape id=pnocQyULjA at=center width=48 height=48 offsetX=-40 offsetY=-32 kind=rect fill=#047857 borderRadius=4
+:::
+
+:::shape id=FM4eXMAOmd at=center width=48 height=48 offsetX=24 offsetY=-32 kind=rect fill=#065F46 borderRadius=4
+:::
+
+:::shape id=m0qhYA_RYU at=center width=48 height=48 offsetX=80 offsetY=-32 kind=rect fill=#064E3B borderRadius=4
+:::
+
+:::shape id=UV1nnc6tHk at=center width=48 height=48 offsetX=144 offsetY=-32 kind=rect fill=#047857 borderRadius=4
+:::
+
+:::shape id=NgX9_3objw at=center width=48 height=48 offsetX=200 offsetY=-32 kind=rect fill=#10B981 borderRadius=4
+:::
+
+:::shape id=GmjwBXrqzn at=center width=48 height=48 offsetX=264 offsetY=-32 kind=rect fill=#A7F3D0 borderRadius=4
+:::
+
+:::shape id=0Mvg1_hGPU at=center width=48 height=48 offsetX=320 offsetY=-32 kind=rect fill=#ECFDF5 borderRadius=4
+:::
+
+:::text id=L8PNvvWqgx at=center width=80% height=64 offsetY=120 preset=caption align=center color=muted
+Each cell = one hour. Darker = more activity.
+:::
+
+:::text id=_F3PyVh1rk at=bottom-center width=80% height=136 offsetY=-32 preset=body align=center color=text
+**Peak hours: 10am – 4pm.** No surprise — the audience is mostly knowledge workers in their working day.
+:::

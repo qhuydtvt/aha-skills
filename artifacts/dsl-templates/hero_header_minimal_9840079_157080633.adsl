@@ -1,0 +1,21 @@
+# @presentation_id: 9840079
+# @slide_id: 157080633
+# @purpose: hero_header_minimal
+# @category: Headers & Covers
+# @description: Minimalist hero header cover layout with main title and subtitle text
+# @keywords: hero, header, minimal, title, cover, headline, cover slide
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=81ew5vTE9O at=top-center width=80% height=64 offsetY=144 preset=caption align=center color=muted
+A presentation by AhaSlides
+:::
+
+:::text id=xN6O4fA76s at=center width=80% height=120 preset=body align=center color=text
+# A quiet kind of confidence
+:::
+
+:::shape id=3Afi1avnte at=bottom-center width=80 height=8 offsetY=-120 kind=rect fill=#0F172A
+:::

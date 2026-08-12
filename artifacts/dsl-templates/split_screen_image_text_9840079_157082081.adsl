@@ -1,0 +1,63 @@
+# @presentation_id: 9840079
+# @slide_id: 157082081
+# @purpose: split_screen_image_text
+# @category: Media & Visuals
+# @description: Split-screen layout pairing full-height media image with detailed narrative text
+# @keywords: split screen, image, text, side-by-side, visual narrative, media
+---
+content-v2: 1280x720
+version: 1
+background: bg
+---
+
+:::text id=OMYkkwCCYB x=80 y=72 w=720 h=32 preset=caption color=muted
+THE TEAM
+:::
+
+:::text id=0aipYkrSiD x=80 y=128 w=720 h=88 preset=title align=left color=text fontSize=56
+Why *we* are the ones
+:::
+
+:::image id=_iIHC7Qov6 x=104 y=288 w=160 h=160 src= fit=cover borderRadius=80
+:::
+
+:::image id=2GkjUlmqLN x=384 y=288 w=160 h=160 src= fit=cover borderRadius=80
+:::
+
+:::image id=_jT0JufgYx x=664 y=288 w=160 h=160 src= fit=cover borderRadius=80
+:::
+
+:::image id=GaQB_D4yUz x=944 y=288 w=160 h=160 src= fit=cover borderRadius=80
+:::
+
+:::text id=gnNEzEjjj0 x=80 y=472 w=208 h=32 preset=body align=center color=text fontSize=20
+**Wendy Writer**
+:::
+
+:::text id=P0uuYAbLvI x=80 y=512 w=208 h=120 preset=body align=center color=muted
+Lead author. 12 years in publishing.
+:::
+
+:::text id=KXu95M2P5v x=360 y=472 w=208 h=32 preset=body align=center color=text fontSize=20
+**Ronny Reader**
+:::
+
+:::text id=OfeO3CX4Uk x=360 y=512 w=208 h=120 preset=body align=center color=muted
+Research lead. Loves a good footnote.
+:::
+
+:::text id=77zhSq8n_a x=640 y=472 w=208 h=32 preset=body align=center color=text fontSize=20
+**Abby Author**
+:::
+
+:::text id=GVOkAz3etx x=640 y=512 w=208 h=120 preset=body align=center color=muted
+Story editor. Champion of the second draft.
+:::
+
+:::text id=GIFcN7efxQ x=920 y=472 w=208 h=32 preset=body align=center color=text fontSize=20
+**Berry Books**
+:::
+
+:::text id=XDsQbt-Iox x=920 y=512 w=208 h=120 preset=body align=center color=muted
+Production lead. Ships on Fridays, never on Mondays.
+:::

@@ -1,0 +1,26 @@
+# @presentation_id: 9840079
+# @slide_id: 157081110
+# @purpose: feature_matrix_table
+# @category: Features & Products
+# @description: Feature matrix comparison table layout mapping capabilities across tiers
+# @keywords: feature matrix, table, comparison, grid, specifications, tiers
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=HVkedoeAH_ at=top-center width=86% height=144 offsetY=64 preset=title align=center
+# Specifications
+:::
+
+:::table id=iS5LQch-8_ at=center width=72% offsetY=24
+| Property | Value |
+| --- | --- |
+| Display | 13.6" Liquid Retina (2560×1664) |
+| Processor | M4 — 10-core CPU |
+| Memory | 16GB unified |
+| Storage | 512GB SSD |
+| Battery | Up to 18 hours |
+| Weight | 1.24kg |
+| Connectivity | Wi-Fi 6E, Bluetooth 5.3, USB-C |
+:::

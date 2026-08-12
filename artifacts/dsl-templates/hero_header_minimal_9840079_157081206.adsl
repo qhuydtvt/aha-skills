@@ -1,0 +1,25 @@
+# @presentation_id: 9840079
+# @slide_id: 157081206
+# @purpose: hero_header_minimal
+# @category: Headers & Covers
+# @description: Minimalist hero header cover layout with main title and subtitle text
+# @keywords: hero, header, minimal, title, cover, headline, cover slide
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=l2FUs2BB4f at=top-center width=80% height=64 offsetY=120 preset=caption align=center color=#FBBF24
+TO WRAP UP
+:::
+
+:::text id=JnsuM2M_Th at=center width=84% height=120 preset=body align=center color=text
+# Three things to take home
+:::
+
+:::shape id=Of5kigaGAs at=bottom-center width=160 height=0 offsetY=-160 kind=rect fill=#FBBF24
+:::
+
+:::text id=HCndkdiD5J at=bottom-center width=70% height=136 offsetX=0 offsetY=-80 preset=body align=center color=muted
+Slow down, write less, ship more.
+:::

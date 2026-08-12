@@ -1,0 +1,46 @@
+# @presentation_id: 9849064
+# @slide_id: 157142168
+# @purpose: pricing_table_2tier
+# @category: Pricing & Plans
+# @description: 2-column side-by-side pricing tier plan comparison card layout
+# @keywords: pricing, plans, 2-tier, subscription, pricing cards, commercial
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=ExBgNdSM0v at=top-center width=86% height=120 preset=title align=center
+# Support & Collaboration
+:::
+
+:::shape id=kKaMdan12V at=center width=480 height=424 offsetX=-256 offsetY=80 kind=rect fill=surface borderRadius=20
+:::
+
+:::text id=K4vcZuL5hn at=center width=424 height=40 offsetX=-256 offsetY=-56 preset=caption align=center color=#991B1B
+PET PEEVES (AVOID)
+:::
+
+:::text id=Jiw3bS53VK at=center width=424 height=80 offsetX=-256 offsetY=0 preset=subtitle align=center color=#991B1B fontSize=32
+**What Irritates Me**
+:::
+
+:::text id=88DK1OMI48 at=center width=424 height=200 offsetX=-256 offsetY=140 preset=body align=left color=text
+• Unscheduled check-ins for non-urgent matters
+• Refusing ideas/proposals without clear reasons
+:::
+
+:::shape id=BUv2to1nST at=center width=480 height=424 offsetX=264 offsetY=80 kind=rect fill=surface borderRadius=20
+:::
+
+:::text id=pG7r4PWpSO at=center width=424 height=40 offsetX=264 offsetY=-56 preset=caption align=center color=#166534
+GOLDEN RULES (DO THIS)
+:::
+
+:::text id=20FQFE3Cey at=center width=424 height=80 offsetX=264 offsetY=0 preset=subtitle align=center color=#166534 fontSize=32
+**How to Win Together**
+:::
+
+:::text id=f7jBd3NYxU at=center width=424 height=200 offsetX=264 offsetY=140 preset=body align=left color=text
+• Notify beforehand for synchronous check-ins
+• Give clear reasons for refusals + suggest alternatives
+:::

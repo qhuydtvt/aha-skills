@@ -1,0 +1,31 @@
+# @presentation_id: 9849061
+# @slide_id: 157142175
+# @purpose: callout_box_note
+# @category: Lists & Content
+# @description: Highlighted callout note box layout for closing message and contact info
+# @keywords: callout, note, closing, contact, message
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=0UPrtIgpHT at=top-center width=86% height=144 offsetY=80 preset=title align=center
+# Let's Build Together
+:::
+
+:::shape id=UCDxcLAO0U at=center width=72% height=240 kind=rect fill=surface borderRadius=20
+:::
+
+:::shape id=AVcbp8OGKU at=center width=8 height=240 offsetX=-456 kind=rect fill=#2563EB
+:::
+
+:::icon id=28bZgifeDX at=center offsetX=-376 name=rocket size=48 color=#2563EB
+:::
+
+:::text id=gJfADjv3Y0 at=center width=54% offsetX=80 preset=body align=left color=text
+**"Build useful things together!"**
+
+**Get in touch:**
+• **Slack:** @HuyNQ (Preferred for quick chats)
+• **F2F / Call:** Schedule beforehand for complex topics
+:::

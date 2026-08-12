@@ -1,0 +1,21 @@
+# @presentation_id: 9840079
+# @slide_id: 157080257
+# @purpose: hero_header_minimal
+# @category: Headers & Covers
+# @description: Minimalist hero header cover layout with main title and subtitle text
+# @keywords: hero, header, minimal, title, cover, headline, cover slide
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=gZbLQvzoJZ at=top-center width=86% height=144 offsetY=24 preset=title align=left
+# A focused headline
+:::
+
+:::shape id=KRkBwV6NGy at=center width=64 height=0 offsetX=-440 offsetY=-96 kind=rect fill=#F97316
+:::
+
+:::text id=Q2sRjt5uKg at=center width=80% height=200 offsetY=80 preset=body align=left
+A single paragraph that explains the headline. Keep it short — three sentences, four at most. The reader should be able to take it in without slowing down. If it doesn't fit in one breath, break it into bullets instead.
+:::

@@ -1,0 +1,26 @@
+# @presentation_id: 9840079
+# @slide_id: 157081107
+# @purpose: feature_matrix_table
+# @category: Features & Products
+# @description: Feature matrix comparison table layout mapping capabilities across tiers
+# @keywords: feature matrix, table, comparison, grid, specifications, tiers
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=I7e7CYUjo9 at=top-center width=86% height=144 offsetY=64 preset=title align=center
+# Today's schedule
+:::
+
+:::table id=0pZ1kgUfBZ at=center width=80% offsetY=24
+| Time | Topic | Speaker |
+| --- | --- | --- |
+| 09:00 | Welcome & breakfast | — |
+| 09:30 | Keynote — Designing for distance | Jane Doe |
+| 10:30 | Coffee break | — |
+| 11:00 | Workshop — Slide design 101 | Maya Nguyen |
+| 12:30 | Lunch | — |
+| 13:30 | Panel — The future of presentations | Speakers |
+| 15:00 | Closing remarks | Anders Karlsson |
+:::

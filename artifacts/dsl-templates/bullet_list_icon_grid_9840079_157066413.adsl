@@ -1,0 +1,40 @@
+# @presentation_id: 9840079
+# @slide_id: 157066413
+# @purpose: bullet_list_icon_grid
+# @category: Lists & Content
+# @description: Bullet points list layout paired with decorative icon visual anchors
+# @keywords: bullet list, icons, features, key points, takeaway, list grid
+---
+content-v2: 1280x720
+version: 1
+background: bg
+---
+
+:::text id=sfNWSmouly x=80 y=72 w=600 h=32 preset=caption color=muted
+03 · PRINCIPLES
+:::
+
+:::text id=UslTh8LeGZ x=80 y=128 w=1120 h=88 preset=title align=left color=text fontSize=56
+Three *principles*
+:::
+
+:::icon id=IdP6f4Pvbn x=80 y=304 w=24 h=24 name=chevron-right size=24 color=text
+:::
+
+:::text id=luvc4XypFm x=120 y=296 w=1040 h=72 preset=body align=left color=text
+**Be explicit.** Vague intent produces vague slides.
+:::
+
+:::icon id=fmEg5v5aNU x=80 y=408 w=24 h=24 name=chevron-right size=24 color=text
+:::
+
+:::text id=u5VJM-zA1N x=120 y=400 w=1040 h=72 preset=body align=left color=text
+**Cut what does not matter.** Whitespace is information.
+:::
+
+:::icon id=KvqZ4TxWjq x=80 y=512 w=24 h=24 name=chevron-right size=24 color=text
+:::
+
+:::text id=whRHWVd4PV x=120 y=504 w=1040 h=72 preset=body align=left color=text
+**Match the medium.** A title slide is not a wall of text.
+:::

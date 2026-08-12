@@ -1,0 +1,36 @@
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=fNchNYiE-9 at=top-center width=86% height=100 offsetY=48 preset=title align=center
+# Quirks & How to Handle My Bugs
+:::
+
+:::shape id=W-0rLLz8NN at=center width=520 height=480 offsetX=-280 offsetY=56 kind=rect fill=surface borderRadius=16
+:::
+
+:::text id=ozi4Fdz25z at=center width=460 height=40 offsetX=-280 offsetY=-136 preset=caption align=center color=#1E40AF
+DEFAULT BEHAVIORS
+:::
+
+:::text id=B5_94crorT at=center width=460 height=380 offsetX=-280 offsetY=60 preset=body align=left color=text fontSize=16
+• **Out-Loud Brainstorming:** Exploring ideas out loud before settling on solutions.
+• **Coherence-Driven:** Easily irritated by incoherence; need to sort it out.
+• **Topic-Selective Energy:** High energy on Product & Engineering topics.
+• **Build & Discover:** Love building and discovering simultaneously.
+:::
+
+:::shape id=4Hj6BENBBR at=center width=520 height=480 offsetX=280 offsetY=56 kind=rect fill=surface borderRadius=16
+:::
+
+:::text id=-GidwZa8ml at=center width=460 height=40 offsetX=280 offsetY=-136 preset=caption align=center color=#166534
+BUGS & SUPPORT STRATEGIES
+:::
+
+:::text id=YBuCFGA89N at=center width=460 height=380 offsetX=280 offsetY=60 preset=body align=left color=text fontSize=16
+• **Lots of Questions:** *Support:* Provide upfront context & relevance.
+• **Slow on Low Energy:** *Support:* Give time to recover; state if urgent.
+• **Incoherent when Excited:** *Support:* Let sink in; echo back key points.
+• **Pushing Hard:** *Support:* Tell me if energy is better spent elsewhere.
+:::

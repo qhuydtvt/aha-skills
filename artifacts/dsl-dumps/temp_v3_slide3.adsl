@@ -1,0 +1,75 @@
+# @presentation_id: 9849063
+# @slide_id: 157142159
+# @purpose: feature_cards_3col
+# @category: Feedback & Growth
+# @description: Feedback framework with 3-point structure and F2F preference
+---
+content-v2: 1280x720
+version: 1
+background: bg
+---
+
+:::text id=4vG_l6rO0F x=80 y=72 w=720 h=32 preset=caption color=muted
+FEEDBACK FRAMEWORK (F2F PREFERRED)
+:::
+
+:::text id=Cq0gklscRH x=80 y=136 w=720 h=88 preset=title align=left color=text fontSize=56
+Giving & Receiving *Feedback*
+:::
+
+:::shape id=8Yd_ynBQtl x=80 y=248 w=360 h=376 kind=rect fill=surface borderRadius=8
+:::
+
+:::icon id=vZ9A0X1OQx x=120 y=272 w=32 h=32 name=message-square size=32 color=muted
+:::
+
+:::text id=VBK0fzuPxq x=120 y=320 w=296 h=160 preset=body color=text fontSize=20
+### 1. Context
+Describe the specific situation, background, and observed behavior clearly.
+:::
+
+:::text id=TaXZEeNNxD x=120 y=520 w=296 h=24 preset=caption color=text
+Step 1
+:::
+
+:::text id=IDOltL_K5X x=120 y=552 w=296 h=24 preset=caption color=muted
+Observation & Facts
+:::
+
+:::shape id=4n3qEUvD4U x=464 y=248 w=360 h=376 kind=rect fill=surface borderRadius=8
+:::
+
+:::icon id=FziNl8MmZX x=504 y=272 w=32 h=32 name=trending-up size=32 color=muted
+:::
+
+:::text id=MtSTNkfJkv x=504 y=320 w=296 h=160 preset=body color=text fontSize=20
+### 2. Business Impact
+Explain the direct effect on product quality, team velocity, or user experience.
+:::
+
+:::text id=eIoNF14jve x=504 y=520 w=296 h=24 preset=caption color=text
+Step 2
+:::
+
+:::text id=CyrW22fmQ- x=504 y=552 w=296 h=24 preset=caption color=muted
+Value & Consequences
+:::
+
+:::shape id=ndMF20RTBk x=848 y=248 w=352 h=376 kind=rect fill=surface borderRadius=8
+:::
+
+:::icon id=18P2-6vyZf x=888 y=272 w=32 h=32 name=lightbulb size=32 color=muted
+:::
+
+:::text id=l5W501oiyp x=888 y=320 w=288 h=160 preset=body color=text fontSize=20
+### 3. Proposed Solution
+Propose concrete alternative paths or brainstorm improvements together.
+:::
+
+:::text id=0BkV4Jz55G x=888 y=520 w=288 h=24 preset=caption color=text
+Step 3
+:::
+
+:::text id=HrliIxYVRZ x=888 y=552 w=288 h=24 preset=caption color=muted
+Forward-Looking Action
+:::

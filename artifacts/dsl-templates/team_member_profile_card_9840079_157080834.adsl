@@ -1,0 +1,32 @@
+# @presentation_id: 9840079
+# @slide_id: 157080834
+# @purpose: team_member_profile_card
+# @category: Team & Organization
+# @description: Individual team member profile card layout with avatar image and short bio
+# @keywords: team, profile, bio, member, person, card, speaker, leader
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::image id=nAkE1VZZt- at=left-half width=44% height=632 src= alt="Speaker portrait"
+:::
+
+:::text id=XmbxivIBsF at=right-half width=46% height=32 offsetY=160 preset=caption align=left color=muted
+SPEAKER
+:::
+
+:::text id=9_eZZ6GOLv at=right-half width=46% height=144 offsetY=200 preset=title align=left color=text
+# Jane Doe
+:::
+
+:::text id=ndK_jOqLxH at=right-half width=46% height=32 offsetY=296 preset=caption align=left color=muted
+Head of Design — AhaSlides
+:::
+
+:::shape id=j6TuJvK0ev at=right-half width=64 height=0 offsetY=352 kind=rect fill=#F97316
+:::
+
+:::text id=8dIT2agHXs at=right-half width=46% height=200 offsetY=384 preset=body align=left color=text fontSize=56
+# Designing for distance
+:::

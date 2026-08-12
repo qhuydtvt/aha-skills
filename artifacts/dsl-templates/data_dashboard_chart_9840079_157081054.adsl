@@ -1,0 +1,20 @@
+# @presentation_id: 9840079
+# @slide_id: 157081054
+# @purpose: data_dashboard_chart
+# @category: Metrics & Performance
+# @description: Data dashboard chart visual layout for analytical reports and metrics overview
+# @keywords: dashboard, chart, data, analytics, visualization, report, graph
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=sj6Uu0zb0Y at=top-center width=86% height=144 preset=title align=center
+# Market share — Q4
+:::
+
+:::chart id=WBZId1-aVE at=center width=60% offsetX=0 offsetY=40 kind=donut title="Share by product"
+Pro plan: 52
+Team plan: 31
+Enterprise: 17
+:::

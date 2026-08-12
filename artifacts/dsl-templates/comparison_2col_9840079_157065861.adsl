@@ -1,0 +1,36 @@
+# @presentation_id: 9840079
+# @slide_id: 157065861
+# @purpose: comparison_2col
+# @category: Comparisons & Analysis
+# @description: 2-column side-by-side comparison layout for pro/con or option analysis
+# @keywords: comparison, 2-column, side-by-side, split, versus, pros cons
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=lMuSmIh0dd at=top-center width=86% height=120 preset=title align=center
+# Before / after
+:::
+
+:::shape id=0AgabY1uYm at=center width=480 height=400 offsetX=-256 offsetY=80 kind=rect fill=surface borderRadius=12
+:::
+
+:::text id=Ne9x41mPVF at=center width=424 height=40 offsetX=-256 offsetY=-80 preset=caption align=center color=#991B1B
+BEFORE
+:::
+
+:::text id=Yl8YJN_BGm at=center width=424 height=216 offsetX=-256 offsetY=104 preset=body align=center color=text
+A scattered system. Three different tools, two reluctant teams, one source of truth nobody trusts.
+:::
+
+:::shape id=fMkVXfVUKi at=center width=480 height=400 offsetX=264 offsetY=80 kind=rect fill=surface borderRadius=12
+:::
+
+:::text id=2eQymkRBoY at=center width=424 height=40 offsetX=264 offsetY=-80 preset=caption align=center color=#166534
+AFTER
+:::
+
+:::text id=w7jRvy5hJm at=center width=424 height=176 offsetX=264 offsetY=104 preset=body align=center color=text
+One tool. One workflow. Everyone knows where to look — and the answers stay in sync.
+:::

@@ -1,0 +1,29 @@
+# @presentation_id: 9840079
+# @slide_id: 157081017
+# @purpose: hero_header_minimal
+# @category: Headers & Covers
+# @description: Minimalist hero header cover layout with main title and subtitle text
+# @keywords: hero, header, minimal, title, cover, headline, cover slide
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::shape id=zI-O-4SVbP at=top-left width=184 height=40 offsetX=80 offsetY=78 kind=rect fill=surface borderRadius=20
+:::
+
+:::text id=zLGeRnU3dL x=160 y=128 w=184 h=32 preset=caption align=center color=#9D174D
+WORKSHOP
+:::
+
+:::text id=a1ul5VWLtz at=center-left width=70% height=120 offsetX=80 offsetY=-40 preset=body align=left color=text
+# Slide design 101
+:::
+
+:::text id=z49V5NJFrX at=center-left width=60% height=160 offsetX=80 offsetY=120 preset=body align=left color=muted
+A hands-on session — bring your laptop and a story to tell. Three hours, including a coffee break.
+:::
+
+:::text id=YSk01cIP1d at=bottom-left width=60% height=120 offsetX=80 offsetY=-96 preset=caption align=left color=muted
+3 HOURS · BEGINNER FRIENDLY · MAX 20 SEATS
+:::

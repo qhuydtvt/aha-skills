@@ -1,0 +1,51 @@
+---
+content-v2: 1280x720
+version: 1
+background: bg
+---
+
+:::text id=s5_tag at=center width=600 height=32 offsetX=0 offsetY=-290 preset=caption align=center color=#EA580C
+COLLABORATION CHEATSHEET
+:::
+
+:::text id=s5_title at=center width=800 height=60 offsetX=0 offsetY=-235 preset=title align=center color=#FFFFFF fontSize=44
+# Bugs, Support & Golden Rules
+:::
+
+:::icon id=s5_c1_icon at=center width=32 height=32 offsetX=-510 offsetY=-160 name=bug size=28 color=#DC2626
+:::
+
+:::text id=s5_c1_title at=center width=420 height=32 offsetX=-260 offsetY=-160 preset=title align=left color=#FFFFFF fontSize=24
+# Known "Bugs" & Best Support
+:::
+
+:::text id=s5_c1_body at=center width=520 height=400 offsetX=-270 offsetY=70 preset=body align=left color=#F8FAFC fontSize=17 fill=#1E293B borderRadius=16
+- **Asking too many questions?**  
+  *Support:* Provide clear context & business relevance upfront.
+
+- **Slow response on low energy?**  
+  *Support:* Give time to recover; state if urgent.
+
+- **Incoherent when over-excited?**  
+  *Support:* Let things sink in and echo back what you hear.
+
+- **Pushing people too hard?**  
+  *Support:* Tell me directly if energy is better spent elsewhere.
+:::
+
+:::icon id=s5_c2_icon at=center width=32 height=32 offsetX=30 offsetY=-160 name=shield-check size=28 color=#16A34A
+:::
+
+:::text id=s5_c2_title at=center width=420 height=32 offsetX=280 offsetY=-160 preset=title align=left color=#FFFFFF fontSize=24
+# Pet Peeves & Golden Rules
+:::
+
+:::text id=s5_c2_body at=center width=520 height=400 offsetX=270 offsetY=70 preset=body align=left color=#F8FAFC fontSize=17 fill=#1E293B borderRadius=16
+- **Pet Peeve:** Unscheduled check-ins for non-urgent matters.  
+  *Golden Rule:* Notify me beforehand for live check-ins.
+
+- **Pet Peeve:** Refusal of ideas without reasons.  
+  *Golden Rule:* Provide reasons for refusal & suggest alternatives.
+
+- **Best Practice:** Keep communication transparent, contextual, and open.
+:::

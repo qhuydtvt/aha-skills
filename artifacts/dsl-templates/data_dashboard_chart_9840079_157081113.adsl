@@ -1,0 +1,25 @@
+# @presentation_id: 9840079
+# @slide_id: 157081113
+# @purpose: data_dashboard_chart
+# @category: Metrics & Performance
+# @description: Data dashboard chart visual layout for analytical reports and metrics overview
+# @keywords: dashboard, chart, data, analytics, visualization, report, graph
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=fkrDf5j5r9 at=top-center width=86% height=144 offsetY=24 preset=title align=left
+# Revenue by segment
+:::
+
+:::chart id=8FxwD6RrBK at=center width=80% height=384 offsetY=40 kind=bar title="Revenue ($M, FY26)"
+SMB: 4.2
+Mid-market: 5.8
+Enterprise: 6.4
+Self-serve: 1.2
+:::
+
+:::text id=6ON74Qv3hB at=bottom-center width=70% height=128 offsetY=-32 preset=caption align=center color=muted
+Mid-market overtook SMB this year as the largest single segment.
+:::

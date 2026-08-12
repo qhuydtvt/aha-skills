@@ -1,0 +1,44 @@
+# @presentation_id: 9840079
+# @slide_id: 157065866
+# @purpose: comparison_2col
+# @category: Comparisons & Analysis
+# @description: 2-column side-by-side comparison layout for pro/con or option analysis
+# @keywords: comparison, 2-column, side-by-side, split, versus, pros cons
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=vu4cEP5Pu_ at=center width=86% height=120 offsetX=8 offsetY=-240 preset=title align=center color=#92400E fontSize=52
+# Quick comparison
+:::
+
+:::shape id=9ArP9nBf8H at=center width=520 height=440 offsetX=-280 offsetY=80 kind=rect fill=surface borderRadius=20 shadow=md
+:::
+
+:::text id=8BgGMYjVzC x=128 y=240 w=464 h=112 preset=title align=center color=text fontSize=52
+# Standard
+:::
+
+:::text id=JZP4LVtqic at=center width=440 offsetX=-264 offsetY=144 preset=body align=left color=muted
+- Up to 5 users
+- 100 slides/month
+- Email support
+- Standard analytics
+- 30-day history
+:::
+
+:::shape id=xLUVS6OuUB at=center width=520 height=440 offsetX=280 offsetY=80 kind=rect fill=surface borderRadius=20 shadow=lg
+:::
+
+:::text id=gWroMrImIR x=688 y=240 w=464 h=104 preset=title align=center color=#FBBF24 fontSize=52
+# Premium
+:::
+
+:::text id=dz8cZv7yoa x=704 y=360 w=440 h=272 preset=body align=left color=text
+- Unlimited users
+- Unlimited slides
+- 24/7 support
+- Advanced analytics
+- Full history + audit log
+:::

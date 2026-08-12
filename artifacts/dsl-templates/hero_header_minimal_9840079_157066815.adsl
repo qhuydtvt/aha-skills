@@ -1,0 +1,21 @@
+# @presentation_id: 9840079
+# @slide_id: 157066815
+# @purpose: hero_header_minimal
+# @category: Headers & Covers
+# @description: Minimalist hero header cover layout with main title and subtitle text
+# @keywords: hero, header, minimal, title, cover, headline, cover slide
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=XNH9zC1IoF at=center width=82% height=208 offsetY=-96 preset=title align=center color=text
+# The simplest version of the truth
+:::
+
+:::shape id=CkiZWRs0cN at=center width=80 height=0 offsetY=-16 kind=rect fill=#F97316
+:::
+
+:::text id=z8oPAfNlxW at=center width=72% offsetY=80 preset=body align=center color=muted
+Strip the slide back to the one thing the audience needs to know. If you can't say it in a single sentence, you don't understand it well enough yet.
+:::

@@ -1,0 +1,30 @@
+# @presentation_id: 9849064
+# @slide_id: 157142170
+# @purpose: quote_testimonial_card
+# @category: Social Proof & Logos
+# @description: Customer quote or client testimonial card layout with attribution photo placeholder
+# @keywords: quote, testimonial, feedback, review, card, social proof, customer
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=2qnm9QwNDy at=top-center width=84% height=144 offsetY=24 preset=title align=left
+# Let's Build Useful Things Together!
+:::
+
+:::text id=wWtD3sD5ht at=center width=80% height=64 offsetY=-96 preset=caption align=left color=#F97316
+GET IN TOUCH
+:::
+
+:::text id=pieJo9xgVr at=center width=80% height=128 offsetY=-16 preset=body align=left
+Reach out anytime via Slack, Teams, or grab me for a face-to-face coffee & chat!
+:::
+
+:::text id=uNz1D_rotA at=center width=80% height=64 offsetY=104 preset=caption align=left color=#F97316
+COLLABORATION MINDSET
+:::
+
+:::text id=jMjprmgoHf at=center width=80% height=200 offsetY=208 preset=body align=left
+Always excited to work together on product discovery, engineering architecture, and delivering meaningful impact.
+:::

@@ -1,0 +1,49 @@
+---
+content-v2: 1280x720
+version: 1
+background: bg
+---
+
+:::text id=s4_tag at=center width=600 height=32 offsetX=0 offsetY=-290 preset=caption align=center color=#EA580C
+WORKING STYLE & MINDSET
+:::
+
+:::text id=s4_title at=center width=800 height=60 offsetX=0 offsetY=-235 preset=title align=center color=#FFFFFF fontSize=44
+# My Default Behaviors
+:::
+
+:::icon id=s4_c1_icon at=center width=32 height=32 offsetX=-510 offsetY=-160 name=brain-circuit size=28 color=#EA580C
+:::
+
+:::text id=s4_c1_body at=center width=520 height=170 offsetX=-270 offsetY=-65 preset=body align=left color=#F8FAFC fontSize=18 fill=#1E293B borderRadius=16
+**Out-Loud Brainstorming**
+
+I brainstorm and jump between ideas out loud before focusing on the final solution.
+:::
+
+:::icon id=s4_c2_icon at=center width=32 height=32 offsetX=30 offsetY=-160 name=compass size=28 color=#0284C7
+:::
+
+:::text id=s4_c2_body at=center width=520 height=170 offsetX=270 offsetY=-65 preset=body align=left color=#F8FAFC fontSize=18 fill=#1E293B borderRadius=16
+**Coherence-Driven**
+
+I easily get irritated when things get incoherent, and sort them out before moving on.
+:::
+
+:::icon id=s4_c3_icon at=center width=32 height=32 offsetX=-510 offsetY=70 name=zap size=28 color=#B45309
+:::
+
+:::text id=s4_c3_body at=center width=520 height=170 offsetX=-270 offsetY=165 preset=body align=left color=#F8FAFC fontSize=18 fill=#1E293B borderRadius=16
+**Topic-Selective Energy**
+
+Energetic when discussing product/engineering topics; operate with lower energy in other areas.
+:::
+
+:::icon id=s4_c4_icon at=center width=32 height=32 offsetX=30 offsetY=70 name=hammer size=28 color=#16A34A
+:::
+
+:::text id=s4_c4_body at=center width=520 height=170 offsetX=270 offsetY=165 preset=body align=left color=#F8FAFC fontSize=18 fill=#1E293B borderRadius=16
+**Build & Discover**
+
+Love to build and run product discovery simultaneously, rather than waiting for fully baked ideas.
+:::

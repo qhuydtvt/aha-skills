@@ -1,0 +1,20 @@
+# @presentation_id: 9840079
+# @slide_id: 157080269
+# @purpose: agenda_schedule_list
+# @category: Lists & Content
+# @description: Agenda schedule list layout for presentation topics and session timing
+# @keywords: agenda, schedule, list, topics, overview, timing, session
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=pAg6dVHeGt at=top-center width=86% height=144 preset=title align=left
+# Today's agenda
+:::
+
+:::text id=KkGY0clBBe at=center-left width=70% offsetY=40 preset=body
+- **First topic** — context and goal
+- **Second topic** — current status
+- **Third topic** — next steps
+:::

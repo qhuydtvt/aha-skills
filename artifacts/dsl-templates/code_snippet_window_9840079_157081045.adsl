@@ -1,0 +1,37 @@
+# @presentation_id: 9840079
+# @slide_id: 157081045
+# @purpose: code_snippet_window
+# @category: Technical & Code
+# @description: Code snippet window frame layout with dark theme syntax display
+# @keywords: code, snippet, terminal, window, editor, syntax, programming, technical
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=tt_Kt4YWRj at=top-center width=86% height=144 offsetY=64 preset=title align=left color=text
+# It just works
+:::
+
+:::code id=LsygfhPy1V at=center width=504 offsetX=-280 offsetY=64 language=ts
+const stats = await client.summary({
+  range: 'last-30-days',
+  groupBy: 'channel',
+});
+console.log(stats);
+:::
+
+:::shape id=ei3i1jfvJP at=center width=504 height=320 offsetX=280 offsetY=64 kind=rect fill=surface borderRadius=12
+:::
+
+:::text id=vH7ugszTGF at=center width=440 height=64 offsetX=280 offsetY=-32 preset=caption align=left color=#34D399
+$ node example.ts
+:::
+
+:::text id=PgFRIpNCXa at=center width=440 height=160 offsetX=280 offsetY=80 preset=body align=left color=#34D399
+{ web: 4231, ios: 1820, android: 1650, email: 9210 }
+:::
+
+:::text id=mgjOmSh-Ak at=center width=440 height=64 offsetX=280 offsetY=184 preset=caption align=left color=muted
+Done in 142ms
+:::

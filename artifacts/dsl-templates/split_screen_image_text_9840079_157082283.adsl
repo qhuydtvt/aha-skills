@@ -1,0 +1,24 @@
+# @presentation_id: 9840079
+# @slide_id: 157082283
+# @purpose: split_screen_image_text
+# @category: Media & Visuals
+# @description: Split-screen layout pairing full-height media image with detailed narrative text
+# @keywords: split screen, image, text, side-by-side, visual narrative, media
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=uQG-SWQ58f at=top-left width=38% height=240 offsetX=80 offsetY=120 preset=title align=left
+# A different angle
+:::
+
+:::shape id=kKX1NdtD6p at=top-left width=64 height=0 offsetX=80 offsetY=240 kind=rect fill=#F97316
+:::
+
+:::text id=r9850RJDhh at=top-left width=38% height=248 offsetX=80 offsetY=288 preset=body align=left
+The same layout, mirrored. Useful when alternating slides — keeps the rhythm of the deck moving so the audience doesn't tune out.
+:::
+
+:::image id=Oz36dGUTcp at=right-half height=520 offsetY=64 src= alt="Add an image"
+:::

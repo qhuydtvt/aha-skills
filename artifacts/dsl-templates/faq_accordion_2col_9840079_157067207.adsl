@@ -1,0 +1,38 @@
+# @presentation_id: 9840079
+# @slide_id: 157067207
+# @purpose: faq_accordion_2col
+# @category: Lists & Content
+# @description: 2-column FAQ question and answer accordion list layout
+# @keywords: faq, questions, answers, Q&A, accordion, 2-column, help
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=WtG2BqfbOq at=top-center width=86% height=144 offsetY=24 preset=title align=left
+# Common questions
+:::
+
+:::text id=-_fQGtW_LY at=top-left width=80% height=64 offsetX=80 offsetY=168 preset=caption align=left color=#F97316
+Q · WHEN DOES IT SHIP?
+:::
+
+:::text id=6oHlgNrGuz at=top-left width=80% height=80 offsetX=80 offsetY=208 preset=body align=left
+End of the quarter, with a beta available next month.
+:::
+
+:::text id=s_1W74oPFQ at=top-left width=80% height=64 offsetX=80 offsetY=328 preset=caption align=left color=#F97316
+Q · DOES IT REPLACE THE OLD VERSION?
+:::
+
+:::text id=Uot7lQpCsO at=top-left width=80% height=120 offsetX=80 offsetY=368 preset=body align=left
+Eventually — but both will run side by side for at least six months.
+:::
+
+:::text id=KRzTQoFzLj at=top-left width=80% height=64 offsetX=80 offsetY=488 preset=caption align=left color=#F97316
+Q · WHAT'S THE PRICE?
+:::
+
+:::text id=l8dpSHLo1O at=top-left width=80% height=120 offsetX=80 offsetY=528 preset=body align=left
+Same as today for existing customers. New tiers available on the website.
+:::

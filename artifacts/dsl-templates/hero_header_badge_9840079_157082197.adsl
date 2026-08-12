@@ -1,0 +1,24 @@
+# @presentation_id: 9840079
+# @slide_id: 157082197
+# @purpose: hero_header_badge
+# @category: Headers & Covers
+# @description: Prominent hero header cover layout with category badge pill and big title
+# @keywords: hero, header, badge, title, cover, presentation start, headline
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::shape id=42OhC_e12B at=center width=144 height=144 offsetY=-176 kind=circle fill=surface shadow=lg
+:::
+
+:::icon id=ctxtx_POO6 at=center offsetY=-176 name=zap size=72 color=#0EA5E9
+:::
+
+:::text id=3T1kRdqM8u at=center width=80% height=144 offsetY=-32 preset=title align=center color=#0C4A6E
+# Lightning fast
+:::
+
+:::text id=4FCC2gSQ7Q at=center width=64% height=128 offsetY=72 preset=body align=center color=muted
+Render hundreds of slides in under a second — no waiting, no spinners, no excuses.
+:::
