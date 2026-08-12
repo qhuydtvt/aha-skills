@@ -1,0 +1,51 @@
+# @presentation_id: 9849171
+# @slide_id: 157144075
+# @purpose: split_screen_image_text
+# @category: Comparisons & Analysis
+# @description: 2-column split screen card layout for Pet Peeves vs Golden Rules
+# @keywords: pet peeves, golden rules, collaboration, HuyNQ
+---
+content-v2: 1280x720
+version: 1
+background: bg
+---
+
+:::text id=subTitleSlide6 at=top-left width=600 height=32 offsetX=80 offsetY=56 preset=caption color=muted
+COLLABORATION PROTOCOL
+:::
+
+:::text id=titleSlide6 at=top-left width=1120 height=80 offsetX=80 offsetY=96 preset=title align=left color=text fontSize=48
+Pet Peeves vs Golden Rules
+:::
+
+:::shape id=petPeeveCard at=top-left width=540 height=450 offsetX=80 offsetY=200 kind=rect fill=surface borderRadius=16
+:::
+
+:::icon id=petPeeveIcon at=top-left width=36 height=36 offsetX=112 offsetY=232 name=alert-triangle size=36 color=#EF4444
+:::
+
+:::text id=petPeeveHeader at=top-left width=400 height=40 offsetX=160 offsetY=236 preset=title align=left color=#EF4444 fontSize=24
+Pet Peeves
+:::
+
+:::text id=petPeeveContent at=top-left width=476 height=320 offsetX=112 offsetY=300 preset=body align=left color=text fontSize=18
+• **Unscheduled Comms:** Avoid unscheduled interruptions for non-urgent matters.
+
+• **Refusal Without Reasons:** Avoid rejecting ideas or proposals without explaining why.
+:::
+
+:::shape id=goldenRuleCard at=top-left width=540 height=450 offsetX=660 offsetY=200 kind=rect fill=surface borderRadius=16
+:::
+
+:::icon id=goldenRuleIcon at=top-left width=36 height=36 offsetX=692 offsetY=232 name=check-circle size=36 color=#10B981
+:::
+
+:::text id=goldenRuleHeader at=top-left width=400 height=40 offsetX=740 offsetY=236 preset=title align=left color=#10B981 fontSize=24
+Golden Rules
+:::
+
+:::text id=goldenRuleContent at=top-left width=476 height=320 offsetX=692 offsetY=300 preset=body align=left color=text fontSize=18
+1. **Advance Notice:** Notify me beforehand for any synchronous check-ins.
+
+2. **Reasoning & Alternatives:** Provide reasons for refusals and suggest alternative ideas when possible.
+:::

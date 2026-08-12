@@ -34,56 +34,44 @@ def _parse_num(val: Any) -> Any:
             return s
 
 
-def list_slide_elements(
-    slide_id: Any,
+def parse_adsl_to_elements(
+    dsl_text_or_path: str | Path,
     target_element_id: str | None = None,
-    client: AhaApiClient | None = None,
 ) -> list[dict[str, Any]]:
-    """Query slide attributes API and parse all element blocks (text, image, video, timer, etc.) from DSL.
+    """Parse directive blocks (:::text, :::image, :::shape, :::icon, etc.) from offline .adsl text or files.
 
     Args:
-        slide_id: ID of the slide to inspect.
+        dsl_text_or_path: Raw DSL text string OR Path/str pointing to an .adsl file.
         target_element_id: Optional element ID to filter results.
-        client: Optional AhaApiClient instance.
 
     Returns:
-        List[Dict[str, Any]]: List of extracted slide element dicts.
+        list[dict[str, Any]]: List of extracted slide element dicts.
     """
-    if client is None:
-        client = AhaApiClient()
-
-    try:
-        res = client.get(SLIDE_ATTRIBUTES_PATH, params={"slideIds": str(slide_id)})
-    except Exception as e:
-        raise RuntimeError(f"Failed to fetch slide attributes for slide ID '{slide_id}': {e}") from e
-
     dsl_text = ""
-    if isinstance(res, list):
-        for item in res:
-            if (str(item.get("slideId")) == str(slide_id) or len(res) == 1) and item.get("type") == "dsl":
-                attrs = item.get("attributes")
-                if isinstance(attrs, str):
-                    dsl_text = attrs
-                    break
-                elif isinstance(attrs, dict) and "dsl" in attrs:
-                    dsl_text = str(attrs["dsl"])
-                    break
-    elif isinstance(res, dict):
-        attrs = res.get("attributes")
-        if isinstance(attrs, str):
-            dsl_text = attrs
-        elif isinstance(attrs, dict):
-            dsl_text = str(attrs.get("dsl", ""))
-
-    if not dsl_text or not isinstance(dsl_text, str):
-        return []
+    if isinstance(dsl_text_or_path, Path):
+        dsl_text = dsl_text_or_path.read_text(encoding="utf-8")
+    elif isinstance(dsl_text_or_path, str):
+        path_obj = Path(dsl_text_or_path)
+        if dsl_text_or_path.endswith(".adsl") or (len(dsl_text_or_path) < 512 and path_obj.is_file()):
+            dsl_text = path_obj.read_text(encoding="utf-8")
+        else:
+            dsl_text = dsl_text_or_path
+    else:
+        dsl_text = str(dsl_text_or_path)
 
     elements: list[dict[str, Any]] = []
-    pattern = re.compile(r"(:::(?:text|shape|image|icon|video|timer)([^\n]*)\n(.*?)(?:\n:::\s*|\Z))", re.DOTALL)
+    pattern = re.compile(
+        r"(:::(?:text|shape|image|icon|video|timer|pattern|[a-zA-Z0-9_-]+)([^\n]*)\n(.*?)(?:\n:::\s*|\Z))",
+        re.DOTALL,
+    )
     attr_kv_pattern = re.compile(r'([\w-]+)=(?:"([^"]*)"|\'([^\']*)\'|(\S+))')
 
     for match in pattern.finditer(dsl_text):
         raw_dsl = match.group(1).strip()
+        header_line = match.group(0).splitlines()[0] if match.group(0) else ""
+        elem_type_match = re.match(r":::([a-zA-Z0-9_-]+)", header_line)
+        elem_type = elem_type_match.group(1) if elem_type_match else "text"
+
         header_attr_str = match.group(2)
         body_text = match.group(3).strip()
 
@@ -126,11 +114,69 @@ def list_slide_elements(
                 "attributes": attributes,
                 "text": body_text,
                 "raw_dsl": raw_dsl,
-                "type": match.group(1).split()[0].replace(":::", ""),
+                "type": elem_type,
             }
         )
 
     return elements
+
+
+def list_slide_elements(
+    slide_id: Any,
+    target_element_id: str | None = None,
+    client: AhaApiClient | None = None,
+) -> list[dict[str, Any]]:
+    """Query slide attributes API or read .adsl file offline and parse all element blocks.
+
+    Args:
+        slide_id: ID of the slide to inspect, OR Path/filename to an .adsl file.
+        target_element_id: Optional element ID to filter results.
+        client: Optional AhaApiClient instance.
+
+    Returns:
+        List[Dict[str, Any]]: List of extracted slide element dicts.
+    """
+    # Check if slide_id is a file path / .adsl file
+    is_file = False
+    if isinstance(slide_id, Path):
+        is_file = True
+    elif isinstance(slide_id, str):
+        if slide_id.endswith(".adsl") or Path(slide_id).is_file():
+            is_file = True
+
+    if is_file:
+        return parse_adsl_to_elements(slide_id, target_element_id=target_element_id)
+
+    if client is None:
+        client = AhaApiClient()
+
+    try:
+        res = client.get(SLIDE_ATTRIBUTES_PATH, params={"slideIds": str(slide_id)})
+    except Exception as e:
+        raise RuntimeError(f"Failed to fetch slide attributes for slide ID '{slide_id}': {e}") from e
+
+    dsl_text = ""
+    if isinstance(res, list):
+        for item in res:
+            if (str(item.get("slideId")) == str(slide_id) or len(res) == 1) and item.get("type") == "dsl":
+                attrs = item.get("attributes")
+                if isinstance(attrs, str):
+                    dsl_text = attrs
+                    break
+                elif isinstance(attrs, dict) and "dsl" in attrs:
+                    dsl_text = str(attrs["dsl"])
+                    break
+    elif isinstance(res, dict):
+        attrs = res.get("attributes")
+        if isinstance(attrs, str):
+            dsl_text = attrs
+        elif isinstance(attrs, dict):
+            dsl_text = str(attrs.get("dsl", ""))
+
+    if not dsl_text or not isinstance(dsl_text, str):
+        return []
+
+    return parse_adsl_to_elements(dsl_text, target_element_id=target_element_id)
 
 
 def main():

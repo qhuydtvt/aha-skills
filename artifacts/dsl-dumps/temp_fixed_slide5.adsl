@@ -1,0 +1,75 @@
+# @presentation_id: 9849171
+# @slide_id: 157143391
+# @purpose: faq_accordion_2col
+# @category: Comparisons & Analysis
+# @description: 2-column cards layout for Known Bugs & Support Strategies
+# @keywords: bugs, support strategies, HuyNQ, work style
+---
+content-v2: 1280x720
+version: 1
+background: bg
+---
+
+:::text id=subTitleSlide5 at=top-left width=600 height=32 offsetX=80 offsetY=56 preset=caption color=muted
+KNOWN BUGS & PATCHES
+:::
+
+:::text id=titleSlide5 at=top-left width=1120 height=80 offsetX=80 offsetY=96 preset=title align=left color=text fontSize=48
+Known Bugs & Support Strategies
+:::
+
+:::shape id=bug1Bg at=top-left width=540 height=210 offsetX=80 offsetY=200 kind=rect fill=surface borderRadius=12
+:::
+
+:::icon id=bug1Icon at=top-left width=36 height=36 offsetX=112 offsetY=224 name=help-circle size=36 color=#EF4444
+:::
+
+:::text id=bug1Title at=top-left width=440 height=36 offsetX=160 offsetY=224 preset=title align=left color=text fontSize=22
+Bug 1: Lots of Questions
+:::
+
+:::text id=bug1Text at=top-left width=480 height=110 offsetX=112 offsetY=276 preset=body align=left color=muted fontSize=17
+**Support:** Provide upfront context & relevance before diving into details.
+:::
+
+:::shape id=bug2Bg at=top-left width=540 height=210 offsetX=660 offsetY=200 kind=rect fill=surface borderRadius=12
+:::
+
+:::icon id=bug2Icon at=top-left width=36 height=36 offsetX=692 offsetY=224 name=battery-charging size=36 color=#F59E0B
+:::
+
+:::text id=bug2Title at=top-left width=440 height=36 offsetX=740 offsetY=224 preset=title align=left color=text fontSize=22
+Bug 2: Slow on Low Energy
+:::
+
+:::text id=bug2Text at=top-left width=480 height=110 offsetX=692 offsetY=276 preset=body align=left color=muted fontSize=17
+**Support:** Give time to recover; state explicitly if a request is urgent.
+:::
+
+:::shape id=bug3Bg at=top-left width=540 height=210 offsetX=80 offsetY=440 kind=rect fill=surface borderRadius=12
+:::
+
+:::icon id=bug3Icon at=top-left width=36 height=36 offsetX=112 offsetY=464 name=zap-off size=36 color=#8B5CF6
+:::
+
+:::text id=bug3Title at=top-left width=440 height=36 offsetX=160 offsetY=464 preset=title align=left color=text fontSize=22
+Bug 3: Incoherent when Excited
+:::
+
+:::text id=bug3Text at=top-left width=480 height=110 offsetX=112 offsetY=516 preset=body align=left color=muted fontSize=17
+**Support:** Let ideas sink in; echo back key points to confirm alignment.
+:::
+
+:::shape id=bug4Bg at=top-left width=540 height=210 offsetX=660 offsetY=440 kind=rect fill=surface borderRadius=12
+:::
+
+:::icon id=bug4Icon at=top-left width=36 height=36 offsetX=692 offsetY=464 name=alert-triangle size=36 color=#EC4899
+:::
+
+:::text id=bug4Title at=top-left width=440 height=36 offsetX=740 offsetY=464 preset=title align=left color=text fontSize=22
+Bug 4: Pushing Hard
+:::
+
+:::text id=bug4Text at=top-left width=480 height=110 offsetX=692 offsetY=516 preset=body align=left color=muted fontSize=17
+**Support:** Tell me directly if energy and focus are better spent elsewhere.
+:::

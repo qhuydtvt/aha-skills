@@ -1,0 +1,75 @@
+# @presentation_id: 9849171
+# @slide_id: 157143390
+# @purpose: feature_cards_4col
+# @category: Features & Products
+# @description: 4-column cards layout for Default Behaviors & Quirks
+# @keywords: default behaviors, quirks, HuyNQ, work style
+---
+content-v2: 1280x720
+version: 1
+background: bg
+---
+
+:::text id=subTitleSlide4 at=top-left width=600 height=32 offsetX=80 offsetY=56 preset=caption color=muted
+WORKING WITH HUYNQ
+:::
+
+:::text id=titleSlide4 at=top-left width=1120 height=80 offsetX=80 offsetY=96 preset=title align=left color=text fontSize=48
+Default Behaviors & Quirks
+:::
+
+:::shape id=card1Bg at=top-left width=260 height=440 offsetX=80 offsetY=200 kind=rect fill=surface borderRadius=12
+:::
+
+:::icon id=card1Icon at=top-left width=44 height=44 offsetX=112 offsetY=232 name=brain size=44 color=#3B82F6
+:::
+
+:::text id=card1Title at=top-left width=200 height=60 offsetX=112 offsetY=296 preset=title align=left color=text fontSize=22
+Out-Loud Brainstorming
+:::
+
+:::text id=card1Body at=top-left width=200 height=200 offsetX=112 offsetY=368 preset=body align=left color=muted fontSize=16
+Exploring ideas out loud before settling on final solutions.
+:::
+
+:::shape id=card2Bg at=top-left width=260 height=440 offsetX=368 offsetY=200 kind=rect fill=surface borderRadius=12
+:::
+
+:::icon id=card2Icon at=top-left width=44 height=44 offsetX=400 offsetY=232 name=target size=44 color=#8B5CF6
+:::
+
+:::text id=card2Title at=top-left width=200 height=60 offsetX=400 offsetY=296 preset=title align=left color=text fontSize=22
+Coherence-Driven
+:::
+
+:::text id=card2Body at=top-left width=200 height=200 offsetX=400 offsetY=368 preset=body align=left color=muted fontSize=16
+Easily irritated by incoherence; driven to align and sort it out.
+:::
+
+:::shape id=card3Bg at=top-left width=260 height=440 offsetX=656 offsetY=200 kind=rect fill=surface borderRadius=12
+:::
+
+:::icon id=card3Icon at=top-left width=44 height=44 offsetX=688 offsetY=232 name=zap size=44 color=#EC4899
+:::
+
+:::text id=card3Title at=top-left width=200 height=60 offsetX=688 offsetY=296 preset=title align=left color=text fontSize=22
+Topic-Selective Energy
+:::
+
+:::text id=card3Body at=top-left width=200 height=200 offsetX=688 offsetY=368 preset=body align=left color=muted fontSize=16
+High energy focused on Product & Engineering topics.
+:::
+
+:::shape id=card4Bg at=top-left width=260 height=440 offsetX=944 offsetY=200 kind=rect fill=surface borderRadius=12
+:::
+
+:::icon id=card4Icon at=top-left width=44 height=44 offsetX=976 offsetY=232 name=hammer size=44 color=#10B981
+:::
+
+:::text id=card4Title at=top-left width=200 height=60 offsetX=976 offsetY=296 preset=title align=left color=text fontSize=22
+Build & Discover
+:::
+
+:::text id=card4Body at=top-left width=200 height=200 offsetX=976 offsetY=368 preset=body align=left color=muted fontSize=16
+Love building and discovering insights simultaneously.
+:::

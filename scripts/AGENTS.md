@@ -90,10 +90,11 @@
   - **Example**: `python3 scripts/list_slide_types.py "word cloud"`
 
 - **[`scripts/list_slide_elements.py`](list_slide_elements.py)**:
-  - **Purpose**: Lists directive elements (`:::text` or `:::shape` blocks) from a slide's v2 DSL content, parsing attributes (`id`, `preset`, `at`, `width`, `offset_x`, `offset_y`, etc.) and text snippets. Supports filtering by element ID (`-e`/`--element-id`).
-  - **Usage**: `python3 scripts/list_slide_elements.py <slide_id> [-e ELEMENT_ID] [--json]`
+  - **Purpose**: Lists directive elements (`:::text`, `:::shape`, `:::image`, `:::icon`, etc.) from a slide's v2 DSL content or offline `.adsl` file, parsing attributes (`id`, `preset`, `at`, `width`, `offset_x`, `offset_y`, etc.) and text snippets. Includes `parse_adsl_to_elements(dsl_text_or_path, target_element_id=None)` to parse directive blocks offline directly without calling AhaSlides APIs. Auto-detects `.adsl` file paths for offline parsing.
+  - **Usage**: `python3 scripts/list_slide_elements.py <slide_id_or_adsl_file> [-e ELEMENT_ID] [--json]`
   - **Examples**:
     - `python3 scripts/list_slide_elements.py 156929519 --json`
+    - `python3 scripts/list_slide_elements.py artifacts/dsl-templates/feature_cards_4col_9840079_157066192.adsl`
     - `python3 scripts/list_slide_elements.py 156929519 -e A5kqSFkqgR`
 
 - **[`scripts/insert_slide_element.py`](insert_slide_element.py)**:
@@ -111,11 +112,12 @@
     - `python3 scripts/update_slide_element.py 156929519 elem123456 --src "https://images.unsplash.com/photo-bg.jpg"`
 
 - **[`scripts/lint_slide.py`](lint_slide.py)**:
-  - **Purpose**: Lints a slide's v2 DSL content by calculating bounding boxes for all elements, detecting layout overlaps, checking for canvas overflows (elements bleeding off 1280x720 canvas), auditing raw DSL/element text for syntax leaks, and evaluating WCAG 2.1 color contrast (AA/AAA) between foreground text and container/canvas backgrounds (using spatial container overlap resolution).
-  - **Usage**: `python3 scripts/lint_slide.py <slide_id> [--contrast-level AA|AAA] [--strict-contrast]`
+  - **Purpose**: Lints a live slide or offline `.adsl` file (`python3 scripts/lint_slide.py artifacts/dsl-dumps/temp_file.adsl` or `--file path/to/file.adsl`). Supports cheap offline pre-flight validation of `.adsl` files before applying to live slides (with live slide verification `--live` or numeric `slide_id` demoted to final verification). Performs **Content Length & Density Validation** (single element line count <= 8 lines, single element character length <= 350 chars, total slide character count <= 750 chars, total bullet points / list items <= 8 items with recommendation to split slide when limits are exceeded), element bounding box calculation, layout overlap detection (with spatial container shape suppression), canvas overflow checking (1280x720 canvas), raw DSL syntax leak auditing, and WCAG 2.1 color contrast evaluation (AA/AAA) with theme color alias resolution (`text`, `muted`, `surface`, `bg`).
+  - **Usage**: `python3 scripts/lint_slide.py [target] [-f FILE_PATH] [--live] [--contrast-level AA|AAA] [--strict-contrast]`
   - **Examples**:
-    - `python3 scripts/lint_slide.py 156929519`
-    - `python3 scripts/lint_slide.py 156929519 --contrast-level AAA --strict-contrast`
+    - `python3 scripts/lint_slide.py artifacts/dsl-dumps/temp_fixed_slide4.adsl` (cheap offline pre-flight validation)
+    - `python3 scripts/lint_slide.py --file artifacts/dsl-templates/feature_cards_4col_9840079_157066192.adsl`
+    - `python3 scripts/lint_slide.py 156929519 --live` (final live verification)
 
 - **[`scripts/scaffold_slides_content.py`](scaffold_slides_content.py)**:
   - **Purpose**: Scaffolds and generates the vendor-independent `slides_content.json` specification file from source material (e.g. `artifacts/inputs/manual_of_me.md` or a slide plan).
