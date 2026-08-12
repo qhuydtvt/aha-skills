@@ -1,0 +1,46 @@
+# @presentation_id: 9849280
+# @slide_id: 157144703
+# @purpose: faq_accordion_2col
+# @category: Lists & Content
+# @description: Known bugs and corresponding team support strategies
+# @keywords: bugs, support, faq, troubleshooting, collaboration, fixes
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=WtG2BqfbOq at=top-left width=1080 height=80 offsetX=100 offsetY=40 preset=title align=center color=text
+# Known Bugs & Support Strategies
+:::
+
+:::shape id=b1_card at=top-left width=520 height=230 offsetX=100 offsetY=150 kind=rect fill=surface borderRadius=16 shadow=md
+:::
+
+:::text id=-_fQGtW_LY at=top-left width=480 height=190 offsetX=120 offsetY=170 preset=body align=left color=text
+**BUG 01: Asking too many questions upfront**  
+*Support:* Provide clear context upfront and explain relevance to business or team goals.
+:::
+
+:::shape id=b2_card at=top-left width=520 height=230 offsetX=660 offsetY=150 kind=rect fill=surface borderRadius=16 shadow=md
+:::
+
+:::text id=6oHlgNrGuz at=top-left width=480 height=190 offsetX=680 offsetY=170 preset=body align=left color=text
+**BUG 02: Slow response on low energy**  
+*Support:* Give time to recover; feel free to call out if something is truly urgent.
+:::
+
+:::shape id=b3_card at=top-left width=520 height=230 offsetX=100 offsetY=410 kind=rect fill=surface borderRadius=16 shadow=md
+:::
+
+:::text id=s_1W74oPFQ at=top-left width=480 height=190 offsetX=120 offsetY=430 preset=body align=left color=text
+**BUG 03: Incoherent when over-excited**  
+*Support:* Pause, give time for ideas to sink in, and echo back what you heard.
+:::
+
+:::shape id=b4_card at=top-left width=520 height=230 offsetX=660 offsetY=410 kind=rect fill=surface borderRadius=16 shadow=md
+:::
+
+:::text id=Uot7lQpCsO at=top-left width=480 height=190 offsetX=680 offsetY=430 preset=body align=left color=text
+**BUG 04: Pushing self & team too hard**  
+*Support:* Speak up if it's ineffective or if energy is better redirected elsewhere.
+:::

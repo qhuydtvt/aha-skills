@@ -1,0 +1,35 @@
+# @presentation_id: 9849280
+# @slide_id: 157144705
+# @purpose: callout_box_note
+# @category: Lists & Content
+# @description: Outro callout note summarizing collaboration guidelines & contact line
+# @keywords: callout, outro, contact, summary, collaboration, takeaways
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=0UPrtIgpHT at=top-left width=1080 height=100 offsetX=100 offsetY=80 preset=title align=center color=text
+# Let's Build Useful Things Together!
+:::
+
+:::shape id=UCDxcLAO0U at=top-left width=960 height=320 offsetX=160 offsetY=220 kind=rect fill=surface borderRadius=20 shadow=md
+:::
+
+:::shape id=AVcbp8OGKU at=top-left width=12 height=320 offsetX=160 offsetY=220 kind=rect fill=#F59E0B
+:::
+
+:::icon id=28bZgifeDX at=top-left width=64 height=64 offsetX=210 offsetY=260 name=sparkles size=56 color=#D97706
+:::
+
+:::text id=gJfADjv3Y0 at=top-left width=780 height=240 offsetX=300 offsetY=260 preset=body align=left color=text
+**Summary for Great Collaboration:**
+
+Great work happens when clarity, continuous improvement, and open communication align. 
+
+Reach out on **Slack/Teams** anytime for quick syncs, or grab a coffee / call for complex topics!
+:::
+
+:::text id=footer_outro at=top-left width=1080 height=60 offsetX=100 offsetY=580 preset=caption align=center color=muted
+Manual of HuyNQ · Engineering & Product
+:::

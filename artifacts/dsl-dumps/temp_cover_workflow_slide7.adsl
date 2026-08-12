@@ -1,0 +1,40 @@
+# @presentation_id: 9849280
+# @slide_id: 157144704
+# @purpose: comparison_2col
+# @category: Comparisons & Analysis
+# @description: 2-column comparison split of Pet Peeves versus Golden Rules
+# @keywords: comparison, pet peeves, golden rules, collaboration, guidelines, pro con
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=fNchNYiE-9 at=top-left width=1080 height=80 offsetX=100 offsetY=40 preset=title align=center color=text
+# Pet Peeves vs Golden Rules
+:::
+
+:::shape id=W-0rLLz8NN at=top-left width=520 height=480 offsetX=100 offsetY=160 kind=rect fill=surface borderRadius=16 shadow=md
+:::
+
+:::text id=ozi4Fdz25z at=top-left width=460 height=40 offsetX=130 offsetY=190 preset=caption align=center color=#DC2626
+PET PEEVES (WHAT TO AVOID)
+:::
+
+:::text id=B5_94crorT at=top-left width=460 height=360 offsetX=130 offsetY=250 preset=body align=left color=text
+- **Unscheduled Syncs:** Unscheduled communication for non-urgent matters interrupt deep flow.
+
+- **Unexplained Refusal:** Dismissing ideas or proposals without providing context or underlying reasons.
+:::
+
+:::shape id=4Hj6BENBBR at=top-left width=520 height=480 offsetX=660 offsetY=160 kind=rect fill=surface borderRadius=16 shadow=md
+:::
+
+:::text id=-GidwZa8ml at=top-left width=460 height=40 offsetX=690 offsetY=190 preset=caption align=center color=#16A34A
+GOLDEN RULES (BEST PRACTICE)
+:::
+
+:::text id=YBuCFGA89N at=top-left width=460 height=360 offsetX=690 offsetY=250 preset=body align=left color=text
+- **Advance Notice:** Give heads-up or schedule beforehand for synchronous check-ins.
+
+- **Constructive Pushback:** Always share rationale when rejecting ideas, & suggest alternative paths.
+:::

@@ -1,0 +1,53 @@
+# @presentation_id: 9849280
+# @slide_id: 157144680
+# @purpose: feature_cards_3col
+# @category: Features & Products
+# @description: 3-column card grid highlighting HuyNQ's mission and core values
+# @keywords: mission, core values, integrity, winning mindset, build useful things
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=B0pq7v-WEZ at=top-left width=1080 height=80 offsetX=100 offsetY=40 preset=title align=center color=text
+# Mission & Core Values
+:::
+
+:::shape id=xvyV6fje9G at=top-left width=340 height=480 offsetX=90 offsetY=160 kind=rect fill=surface borderRadius=20 shadow=md
+:::
+
+:::text id=f1o4WnL5qU at=top-left width=300 height=40 offsetX=110 offsetY=190 preset=caption align=center color=#F97316
+01
+:::
+
+:::text id=22IXYmoTCy at=top-left width=300 height=360 offsetX=110 offsetY=240 preset=body align=center color=text
+**Integrity**
+
+Honesty, transparency, & accountability in all work and decisions.
+:::
+
+:::shape id=err_m4tayt at=top-left width=340 height=480 offsetX=470 offsetY=160 kind=rect fill=surface borderRadius=20 shadow=md
+:::
+
+:::text id=L3Jx_Bf7GD at=top-left width=300 height=40 offsetX=490 offsetY=190 preset=caption align=center color=#F97316
+02
+:::
+
+:::text id=vigKarzlvH at=top-left width=300 height=360 offsetX=490 offsetY=240 preset=body align=center color=text
+**Winning Mindset**
+
+Drive for excellence, resilience, & continuous personal growth.
+:::
+
+:::shape id=GAwB92__B7 at=top-left width=340 height=480 offsetX=850 offsetY=160 kind=rect fill=surface borderRadius=20 shadow=md
+:::
+
+:::text id=IzAUS693u0 at=top-left width=300 height=40 offsetX=870 offsetY=190 preset=caption align=center color=#F97316
+03
+:::
+
+:::text id=bT4iC0ZKsN at=top-left width=300 height=360 offsetX=870 offsetY=240 preset=body align=center color=text
+**My Mission**
+
+"Build useful things" that create real, lasting value for people.
+:::

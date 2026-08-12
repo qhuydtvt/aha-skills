@@ -1,0 +1,58 @@
+# @presentation_id: 9849280
+# @slide_id: 157144702
+# @purpose: feature_cards_4col
+# @category: Features & Products
+# @description: 4-card 2x2 grid summarizing HuyNQ's default working behaviors and quirks
+# @keywords: working style, quirks, behaviors, brainstorming, coherence, energy, build discover
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=3EqGiPEMNg at=top-left width=1080 height=80 offsetX=100 offsetY=40 preset=title align=center color=text
+# Working Style & Quirks
+:::
+
+:::shape id=qZUcQb5fIp at=top-left width=520 height=220 offsetX=100 offsetY=160 kind=rect fill=surface borderRadius=16 shadow=md
+:::
+
+:::icon id=GA0ouNEmXp at=top-left width=50 height=50 offsetX=130 offsetY=185 name=brain-circuit size=44 color=#F97316
+:::
+
+:::text id=rj0mmg4dUv at=top-left width=400 height=180 offsetX=200 offsetY=180 preset=body align=left color=text
+**Out-Loud Brainstorming**  
+Brainstorm and explore ideas out loud before solidifying the final solution.
+:::
+
+:::shape id=g6ReABIyBc at=top-left width=520 height=220 offsetX=660 offsetY=160 kind=rect fill=surface borderRadius=16 shadow=md
+:::
+
+:::icon id=3MpJ7pEK0z at=top-left width=50 height=50 offsetX=690 offsetY=185 name=compass size=44 color=#F97316
+:::
+
+:::text id=yqzgOQOtCo at=top-left width=400 height=180 offsetX=760 offsetY=180 preset=body align=left color=text
+**Coherence-Driven**  
+Need clarity and coherence; naturally sort out ambiguity before moving forward.
+:::
+
+:::shape id=YZsJeZbPkQ at=top-left width=520 height=220 offsetX=100 offsetY=420 kind=rect fill=surface borderRadius=16 shadow=md
+:::
+
+:::icon id=vSpeoyL8gG at=top-left width=50 height=50 offsetX=130 offsetY=445 name=zap size=44 color=#F97316
+:::
+
+:::text id=8Lr5Gms6_X at=top-left width=400 height=180 offsetX=200 offsetY=440 preset=body align=left color=text
+**Topic-Selective Energy**  
+Highly energetic on product & engineering; lower energy in non-core topics.
+:::
+
+:::shape id=Ln1BDHsa8o at=top-left width=520 height=220 offsetX=660 offsetY=420 kind=rect fill=surface borderRadius=16 shadow=md
+:::
+
+:::icon id=TIYc1BXcfZ at=top-left width=50 height=50 offsetX=690 offsetY=445 name=hammer size=44 color=#F97316
+:::
+
+:::text id=j0rtKk63-b at=top-left width=400 height=180 offsetX=760 offsetY=440 preset=body align=left color=text
+**Build & Discover**  
+Love building and discovering concurrently rather than waiting for static specs.
+:::

@@ -1,0 +1,27 @@
+# @presentation_id: 9849280
+# @slide_id: 157144966
+# @purpose: hero_header_minimal_cover
+# @category: Headers & Covers
+# @baseColour: #FFFFFF
+# @textColour: #FFFFFF
+# @description: Low contrast minimalist hero header cover layout for Manual of HuyNQ
+# @keywords: cover, hero, header, manual of me, HuyNQ
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=7ToQvnF4Tt at=top-left width=1080 height=120 offsetX=100 offsetY=140 preset=title align=left color=#FFFFFF
+# A Manual of Huy
+:::
+
+:::text id=JClVmJNce1 at=top-left width=1080 height=160 offsetX=100 offsetY=280 preset=body align=left color=#E2E8F0
+A guide on how to work, communicate, and collaborate with me.
+:::
+
+:::shape id=IR5XatROEO at=top-left width=120 height=6 offsetX=100 offsetY=470 kind=rect fill=#F97316
+:::
+
+:::text id=NnP62uRoOg at=top-left width=1080 height=64 offsetX=100 offsetY=500 preset=caption align=left color=#CBD5E1
+HuyNQ — Engineering & Product
+:::

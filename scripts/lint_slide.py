@@ -319,14 +319,8 @@ def lint_slide(
                         best_container_area = cont_area
                         bg_color = cont_bg
 
-        if not bg_color or bg_color.lower() in ["#ffffff", "white"]:
-            if fg_color and (
-                fg_color.upper() in ["#F8FAFC", "#FFFFFF", "#F1F5F9", "#06B6D4", "#38BDF8"]
-                or fg_color.lower() in ["text", "muted"]
-            ):
-                bg_color = "#0F172A"
-            else:
-                bg_color = slide_base_color
+        if not bg_color:
+            bg_color = slide_base_color or "#FFFFFF"
 
         # 3. Determine text size (Large vs Normal)
         preset = elem.get("preset", "body")
@@ -455,11 +449,10 @@ def main():
         failed = True
 
     if contrast_errors:
-        print("\nWARNING/ERROR: Low color contrast detected!")
+        print("\nERROR: Low color contrast detected!")
         for eid, err in contrast_errors:
             print(f"  Element {eid}: {err}")
-        if args.strict_contrast:
-            failed = True
+        failed = True
 
     if failed:
         sys.exit(1)
