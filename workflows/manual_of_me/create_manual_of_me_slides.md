@@ -33,7 +33,7 @@ flowchart TD
   ```bash
   python3 scripts/scaffold_slides_content.py artifacts/inputs/manual_of_me.md -o artifacts/slide-plans/manual_of_me/slides_content.json
   ```
-* **Output:** Generated vendor-independent 8-slide specification file detailing title, subtitle, required keywords, key content structures, and layout guidelines.
+* **Output:** Generated vendor-independent 8-slide specification file detailing slide numbers, unique slide ID keys, titles, optional subtitles, required keywords, and generic key content structures.
 
 ### Step 2: JSON Specification Linting
 * **Command Executed:**

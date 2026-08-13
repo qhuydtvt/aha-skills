@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """Script to scaffold and generate vendor-independent slides_content.json specification files from source material.
 
+Note: 'title' is an optional field in slide objects within slides_content.json.
+
 Usage:
     python3 scripts/scaffold_slides_content.py <input_file> [-o OUTPUT_JSON_PATH]
 
@@ -49,7 +51,6 @@ def build_manual_of_me_fixture(input_path_str: str) -> dict[str, Any]:
                 "slide_id_key": "slide_1_title_and_mission",
                 "title": "Working with HuyNQ — A User Manual",
                 "subtitle": "A practical guide on how to work, communicate, and collaborate with me",
-                "slide_type": "heading",
                 "required_keywords": [
                     "Manual of HuyNQ",
                     "Build useful things",
@@ -68,17 +69,12 @@ def build_manual_of_me_fixture(input_path_str: str) -> dict[str, Any]:
                         "Quirks & Debugging Support Strategies",
                         "Collaboration Golden Rules"
                     ]
-                },
-                "expected_elements_count": {
-                    "min": 3,
-                    "max": 8
                 }
             },
             {
                 "slide_number": 2,
                 "slide_id_key": "slide_2_mindset_and_core_values",
                 "title": "The Mindset — Core Values & Philosophy",
-                "slide_type": "content_grid",
                 "required_keywords": [
                     "Integrity",
                     "Winning Mindset",
@@ -104,17 +100,12 @@ def build_manual_of_me_fixture(input_path_str: str) -> dict[str, Any]:
                         "title": "Build & Discover Simultaneously",
                         "description": "Prefers running discovery concurrently while building products, rather than waiting for fully baked ideas."
                     }
-                },
-                "expected_elements_count": {
-                    "min": 4,
-                    "max": 10
                 }
             },
             {
                 "slide_number": 3,
                 "slide_id_key": "slide_3_communication_preferences",
                 "title": "How We Connect — Communication Preferences & Rules",
-                "slide_type": "split_matrix",
                 "required_keywords": [
                     "Slack/Teams",
                     "Face-to-Face or Call",
@@ -149,17 +140,12 @@ def build_manual_of_me_fixture(input_path_str: str) -> dict[str, Any]:
                         "2. Problem definition",
                         "3. Proposed solutions (if any)"
                     ]
-                },
-                "expected_elements_count": {
-                    "min": 4,
-                    "max": 12
                 }
             },
             {
                 "slide_number": 4,
                 "slide_id_key": "slide_4_receiving_feedback",
                 "title": "Receiving Feedback — The 3-Point Feedback Structure",
-                "slide_type": "process_flow",
                 "required_keywords": [
                     "Face-to-face",
                     "Context of the feedback",
@@ -189,17 +175,12 @@ def build_manual_of_me_fixture(input_path_str: str) -> dict[str, Any]:
                             "detail": "(Optional) Proposed solution or improvement."
                         }
                     ]
-                },
-                "expected_elements_count": {
-                    "min": 3,
-                    "max": 8
                 }
             },
             {
                 "slide_number": 5,
                 "slide_id_key": "slide_5_default_behaviors_and_quirks",
                 "title": "Inside the Engine — Default Behaviors & Quirks",
-                "slide_type": "grid_cards",
                 "required_keywords": [
                     "Out-Loud Brainstorming",
                     "Coherence-Driven",
@@ -225,17 +206,12 @@ def build_manual_of_me_fixture(input_path_str: str) -> dict[str, Any]:
                             "behavior": "Love to build and run product discovery at the same time."
                         }
                     ]
-                },
-                "expected_elements_count": {
-                    "min": 4,
-                    "max": 10
                 }
             },
             {
                 "slide_number": 6,
                 "slide_id_key": "slide_6_bugs_and_support",
                 "title": "Debugging Huy — Known Issues & Support Plan",
-                "slide_type": "split_rows",
                 "required_keywords": [
                     "too many questions",
                     "Provide clear context",
@@ -269,17 +245,12 @@ def build_manual_of_me_fixture(input_path_str: str) -> dict[str, Any]:
                             "support": "Explain if it's not working or if energy is better spent in other ways."
                         }
                     ]
-                },
-                "expected_elements_count": {
-                    "min": 4,
-                    "max": 10
                 }
             },
             {
                 "slide_number": 7,
                 "slide_id_key": "slide_7_golden_rules_and_pet_peeves",
                 "title": "Rules of Engagement — Pet Peeves & Golden Rules",
-                "slide_type": "comparison",
                 "required_keywords": [
                     "Unscheduled communication",
                     "Refusal of ideas",
@@ -295,17 +266,12 @@ def build_manual_of_me_fixture(input_path_str: str) -> dict[str, Any]:
                         "Notify me beforehand for synchronous check-ins.",
                         "Give reasons for idea/proposal refusal, and optionally suggest alternatives."
                     ]
-                },
-                "expected_elements_count": {
-                    "min": 4,
-                    "max": 8
                 }
             },
             {
                 "slide_number": 8,
                 "slide_id_key": "slide_8_conclusion_cheatsheet",
                 "title": "Conclusion — Let's Build Useful Things Together",
-                "slide_type": "summary",
                 "required_keywords": [
                     "Cheatsheet",
                     "Context upfront",
@@ -321,10 +287,6 @@ def build_manual_of_me_fixture(input_path_str: str) -> dict[str, Any]:
                         "Respect focus time (pre-notify check-ins, explain rejections)"
                     ],
                     "closing_quote": "This manual is a living document—let's keep communicating, building, and improving together!"
-                },
-                "expected_elements_count": {
-                    "min": 3,
-                    "max": 8
                 }
             }
         ]
@@ -381,35 +343,14 @@ def parse_slide_plan_markdown(content: str, rel_source_path: str) -> dict[str, A
         if not keywords:
             keywords = [main_title]
 
-        # Determine slide_type
-        lower_block = block.lower()
-        if slide_num == 1:
-            slide_type = "heading"
-        elif "grid" in lower_block or "card" in lower_block:
-            slide_type = "content_grid"
-        elif "matrix" in lower_block or "channel" in lower_block:
-            slide_type = "split_matrix"
-        elif "process" in lower_block or "flow" in lower_block or "feedback" in lower_block:
-            slide_type = "process_flow"
-        elif "bug" in lower_block or "debug" in lower_block:
-            slide_type = "split_rows"
-        elif "rule" in lower_block or "peeve" in lower_block or "comparison" in lower_block:
-            slide_type = "comparison"
-        elif "summary" in lower_block or "conclusion" in lower_block or "cheatsheet" in lower_block:
-            slide_type = "summary"
-        else:
-            slide_type = "content_grid"
-
         slide_id_key = f"slide_{slide_num}_{slugify(main_title)[:30]}"
 
         slide_dict: dict[str, Any] = {
             "slide_number": slide_num,
             "slide_id_key": slide_id_key,
             "title": main_title,
-            "slide_type": slide_type,
             "required_keywords": keywords,
             "key_content": {"summary_points": content_lines[:5]} if content_lines else {"title": main_title},
-            "expected_elements_count": {"min": 3, "max": 10}
         }
         if subtitle:
             slide_dict["subtitle"] = subtitle
@@ -467,8 +408,7 @@ def scaffold_slides_content(input_file: Path, output_file: Path | None = None) -
     # Ensure parent output directory exists
     output_file.parent.mkdir(parents=True, exist_ok=True)
 
-    with open(output_file, "w", encoding="utf-8") as f:
-        json.dump(spec_data, f, indent=2)
+    output_file.write_text(json.dumps(spec_data, indent=2) + "\n", encoding="utf-8")
 
     print("✅ Successfully scaffolded vendor-independent slides specification JSON:")
     print(f"   Input Source:  {input_file}")

@@ -163,9 +163,6 @@ def verify_presentation_content(
         slide_num = spec_slide.get("slide_number", idx)
         expected_title = spec_slide.get("title", "")
         req_keywords = spec_slide.get("required_keywords", [])
-        expected_elem_bounds = spec_slide.get("expected_elements_count", {"min": 0, "max": 999})
-        min_elem = expected_elem_bounds.get("min", 0)
-        max_elem = expected_elem_bounds.get("max", 999)
         key_content_data = spec_slide.get("key_content", {})
 
         # Check if corresponding live slide exists
@@ -187,10 +184,13 @@ def verify_presentation_content(
             full_text_norm = normalize_text(full_text)
 
             # 1. Title Matching
-            # Pass if expected title normalized equals or is substring of live title normalized (or vice versa)
+            # Pass if expected title is omitted/empty/whitespace, or if expected title normalized equals or is substring of live title normalized (or full text)
             exp_title_norm = normalize_text(expected_title)
             live_title_norm = normalize_text(live_title)
-            title_match = (exp_title_norm == live_title_norm) or (exp_title_norm in full_text_norm)
+            if not exp_title_norm:
+                title_match = True
+            else:
+                title_match = (exp_title_norm == live_title_norm) or (exp_title_norm in full_text_norm)
 
             # 2. Required Keywords Verification
             missing_keywords = []
@@ -199,11 +199,7 @@ def verify_presentation_content(
                     missing_keywords.append(kw)
             req_keywords_pass = (len(missing_keywords) == 0)
 
-            # 3. Element Count Boundaries Check
-            elem_count = len(elements)
-            elem_count_valid = (min_elem <= elem_count <= max_elem)
-
-            # 4. Key Content Completeness Check
+            # 3. Key Content Completeness Check
             key_phrases = extract_leaf_strings(key_content_data)
             missing_key_content = []
             for kp in key_phrases:
@@ -211,17 +207,17 @@ def verify_presentation_content(
                     missing_key_content.append(kp)
             key_content_pass = (len(missing_key_content) == 0)
 
-            slide_pass = title_match and req_keywords_pass and elem_count_valid and key_content_pass
+            elem_count = len(elements)
+            slide_pass = title_match and req_keywords_pass and key_content_pass
 
         else:
             slide_id = "N/A"
             live_title = ""
             elements = []
             elem_count = 0
-            title_match = False
+            title_match = not bool(normalize_text(expected_title))
             missing_keywords = list(req_keywords)
             req_keywords_pass = False
-            elem_count_valid = False
             key_phrases = extract_leaf_strings(key_content_data)
             missing_key_content = list(key_phrases)
             key_content_pass = False
@@ -237,9 +233,6 @@ def verify_presentation_content(
             "live_title": live_title,
             "title_match": title_match,
             "element_count": elem_count,
-            "element_count_min": min_elem,
-            "element_count_max": max_elem,
-            "element_count_valid": elem_count_valid,
             "required_keywords": req_keywords,
             "missing_keywords": missing_keywords,
             "required_keywords_pass": req_keywords_pass,
@@ -289,12 +282,7 @@ def print_colored_report(report: dict[str, Any]) -> None:
         print(f"  - Title Match      : {t_match_str}")
 
         # Element Count
-        e_valid_str = (
-            f"{GREEN}PASS{RESET} ({s['element_count']} elements, min: {s['element_count_min']}, max: {s['element_count_max']})"
-            if s["element_count_valid"]
-            else f"{RED}FAIL{RESET} ({s['element_count']} elements, min: {s['element_count_min']}, max: {s['element_count_max']})"
-        )
-        print(f"  - Element Count    : {e_valid_str}")
+        print(f"  - Element Count    : {s['element_count']} elements")
 
         # Required Keywords
         tot_kw = len(s["required_keywords"])

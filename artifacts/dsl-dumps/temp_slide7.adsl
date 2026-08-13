@@ -1,0 +1,40 @@
+# @presentation_id: 9852671
+# @slide_id: 157173303
+# @purpose: comparison_2col
+# @category: Comparisons & Analysis
+# @description: 2-column side-by-side comparison layout for pet peeves and golden rules
+# @keywords: Unscheduled communication, Refusal of ideas, Notify me beforehand, Give reasons
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=txt_hdr_s7 at=top-left width=80% height=80 offsetX=80 offsetY=56 preset=title align=left color=text fontSize=38
+# Rules of Engagement — Pet Peeves & Golden Rules
+:::
+
+:::shape id=card_peeves at=top-left width=530 height=480 offsetX=80 offsetY=160 kind=rect fill=surface borderRadius=12
+:::
+
+:::icon id=icn_peeves at=top-left width=36 height=36 offsetX=104 offsetY=184 name=slash size=32 color=#EF4444
+:::
+
+:::text id=txt_peeves at=top-left width=480 height=380 offsetX=104 offsetY=232 preset=body align=left color=text fontSize=17
+**Pet Peeves (What to Avoid):**
+
+- **Unscheduled communication** for non-urgent matters that interrupt focus time.
+- **Refusal of ideas** or proposals without clear reasons or context.
+:::
+
+:::shape id=card_rules at=top-left width=530 height=480 offsetX=670 offsetY=160 kind=rect fill=surface borderRadius=12
+:::
+
+:::icon id=icn_rules at=top-left width=36 height=36 offsetX=694 offsetY=184 name=check-circle size=32 color=#10B981
+:::
+
+:::text id=txt_rules at=top-left width=480 height=380 offsetX=694 offsetY=232 preset=body align=left color=text fontSize=17
+**Golden Rules (What Works Best):**
+
+- **Notify me beforehand** for synchronous check-ins to respect calendar flow.
+- **Give reasons** for idea/proposal refusal, and optionally suggest alternatives.
+:::

@@ -1,0 +1,38 @@
+# @presentation_id: 9852671
+# @slide_id: 157173295
+# @purpose: hero_header_minimal_cover
+# @category: Headers & Covers
+# @description: Manual of HuyNQ cover slide with title, subtitle, mission, and overview
+# @keywords: Manual of HuyNQ, Build useful things, Core Values, Communication, Feedback, Quirks, Golden Rules
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::icon id=icn_cover at=top-left width=64 height=64 offsetX=80 offsetY=64 name=compass size=56 color=#06B6D4
+:::
+
+:::text id=txt_title at=top-left width=80% height=120 offsetX=80 offsetY=136 preset=title align=left color=text fontSize=48
+# Working with HuyNQ — A User Manual
+:::
+
+:::text id=txt_sub at=top-left width=80% height=64 offsetX=80 offsetY=264 preset=subtitle align=left color=muted fontSize=22
+A practical guide on how to work, communicate, and collaborate with me
+:::
+
+:::shape id=shp_divider at=top-left width=720 height=4 offsetX=80 offsetY=344 kind=rect fill=#06B6D4
+:::
+
+:::shape id=card_mission at=top-left width=1120 height=100 offsetX=80 offsetY=368 kind=rect fill=surface borderRadius=12
+:::
+
+:::icon id=icn_mission at=top-left width=40 height=40 offsetX=104 offsetY=398 name=rocket size=36 color=#06B6D4
+:::
+
+:::text id=txt_mission at=top-left width=1000 height=70 offsetX=160 offsetY=383 preset=body align=left color=text fontSize=20
+**Mission:** Build useful things through clarity, radical transparency, and high collaboration standards.
+:::
+
+:::text id=txt_topics at=top-left width=1120 height=160 offsetX=80 offsetY=496 preset=body align=left color=muted fontSize=16
+**Overview Topics:** Core Values & Mindset | Communication Preferences & Rules | Feedback Guide | Quirks & Debugging Support Strategies | Collaboration Golden Rules
+:::

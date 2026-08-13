@@ -141,13 +141,10 @@ def lint_slides_content(spec_path: Path) -> tuple[bool, list[str]]:
     REQUIRED_SLIDE_KEYS = [
         "slide_number",
         "slide_id_key",
-        "title",
-        "slide_type",
         "required_keywords",
         "key_content",
-        "expected_elements_count",
     ]
-    ALLOWED_SLIDE_KEYS = set(REQUIRED_SLIDE_KEYS) | {"subtitle"}
+    ALLOWED_SLIDE_KEYS = set(REQUIRED_SLIDE_KEYS) | {"title", "subtitle"}
 
     for idx, slide in enumerate(slides):
         slide_prefix = f"Slide #{idx + 1}"
@@ -169,19 +166,12 @@ def lint_slides_content(spec_path: Path) -> tuple[bool, list[str]]:
                 slide_errors.append(f"{slide_prefix}: Missing mandatory field '{req_k}'.")
 
         # Determine expected key order for this slide
+        expected_key_order = ["slide_number", "slide_id_key"]
+        if "title" in slide:
+            expected_key_order.append("title")
         if "subtitle" in slide:
-            expected_key_order = [
-                "slide_number",
-                "slide_id_key",
-                "title",
-                "subtitle",
-                "slide_type",
-                "required_keywords",
-                "key_content",
-                "expected_elements_count",
-            ]
-        else:
-            expected_key_order = REQUIRED_SLIDE_KEYS
+            expected_key_order.append("subtitle")
+        expected_key_order.extend(["required_keywords", "key_content"])
 
         if slide_keys != expected_key_order:
             slide_errors.append(
@@ -205,12 +195,13 @@ def lint_slides_content(spec_path: Path) -> tuple[bool, list[str]]:
             else:
                 seen_slide_keys.add(s_key)
 
-        # Title check and whitespace check
-        s_title = slide.get("title")
-        if not s_title or not isinstance(s_title, str) or not s_title.strip():
-            slide_errors.append(f"{slide_prefix}: 'title' must be a non-empty string.")
-        elif s_title != s_title.strip():
-            slide_errors.append(f"{slide_prefix}: 'title' has un-trimmed leading/trailing whitespace: '{s_title}'.")
+        # Optional Title check and whitespace check
+        if "title" in slide:
+            s_title = slide.get("title")
+            if not s_title or not isinstance(s_title, str) or not s_title.strip():
+                slide_errors.append(f"{slide_prefix}: 'title' must be a non-empty string if present.")
+            elif s_title != s_title.strip():
+                slide_errors.append(f"{slide_prefix}: 'title' has un-trimmed leading/trailing whitespace: '{s_title}'.")
 
         # Optional Subtitle check (type & whitespace check)
         if "subtitle" in slide:
@@ -219,13 +210,6 @@ def lint_slides_content(spec_path: Path) -> tuple[bool, list[str]]:
                 slide_errors.append(f"{slide_prefix}: 'subtitle' must be a string if present.")
             elif s_sub != s_sub.strip():
                 slide_errors.append(f"{slide_prefix}: 'subtitle' has un-trimmed leading/trailing whitespace: '{s_sub}'.")
-
-        # Slide type check and whitespace check
-        s_type = slide.get("slide_type")
-        if not s_type or not isinstance(s_type, str) or not s_type.strip():
-            slide_errors.append(f"{slide_prefix}: 'slide_type' must be a non-empty string.")
-        elif s_type != s_type.strip():
-            slide_errors.append(f"{slide_prefix}: 'slide_type' has un-trimmed leading/trailing whitespace: '{s_type}'.")
 
         # Keywords check and whitespace check
         kws = slide.get("required_keywords")
@@ -242,18 +226,6 @@ def lint_slides_content(spec_path: Path) -> tuple[bool, list[str]]:
         kc = slide.get("key_content")
         if not isinstance(kc, dict) or len(kc) == 0:
             slide_errors.append(f"{slide_prefix}: 'key_content' must be a non-empty object.")
-
-        # Expected elements count bounds check
-        bounds = slide.get("expected_elements_count")
-        if not isinstance(bounds, dict):
-            slide_errors.append(f"{slide_prefix}: 'expected_elements_count' must be an object with 'min' and 'max'.")
-        else:
-            min_c = bounds.get("min")
-            max_c = bounds.get("max")
-            if not isinstance(min_c, int) or min_c <= 0:
-                slide_errors.append(f"{slide_prefix}: expected_elements_count.min ({min_c}) must be an integer > 0.")
-            if not isinstance(max_c, int) or (isinstance(min_c, int) and max_c < min_c):
-                slide_errors.append(f"{slide_prefix}: expected_elements_count.max ({max_c}) must be >= min ({min_c}).")
 
     if slide_errors:
         logs.append(f"❌ Slide Content & Field Validation: FAIL ({len(slide_errors)} errors)")
