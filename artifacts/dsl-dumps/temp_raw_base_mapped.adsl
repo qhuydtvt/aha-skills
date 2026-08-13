@@ -1,0 +1,24 @@
+# @presentation_id: 9852671
+# @slide_id: 157174937
+# @purpose: hero_header_minimal_cover
+# @category: Headers & Covers
+# @description: Clean content mapping into raw base template hero_header_minimal_cover
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=txt_title at=center-left width=70% height=120 offsetX=80 offsetY=-96 preset=body align=left color=text
+# Working with HuyNQ — A User Manual
+:::
+
+:::text id=txt_sub at=center-left width=70% height=264 offsetX=80 offsetY=24 preset=title align=left color=muted
+A practical guide on how to work, communicate, and collaborate with me
+:::
+
+:::shape id=shp_line at=center-left width=64 height=0 offsetX=80 offsetY=120 kind=rect fill=#06B6D4
+:::
+
+:::text id=txt_caption at=center-left width=50% height=64 offsetX=80 offsetY=160 preset=caption align=left color=muted
+Mission: Build useful things · Guide to Working & Collaborating
+:::

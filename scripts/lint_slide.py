@@ -116,6 +116,7 @@ def lint_slide(
     list[tuple[str, str]],
     list[tuple[str, str]],
     list[tuple[str, str]],
+    list[tuple[str, str]],
 ]:
     """Lint a slide or offline .adsl file.
 
@@ -133,12 +134,14 @@ def lint_slide(
             - overflows: List of (elem_id, message) canvas overflows.
             - contrast_errors: List of (elem_id, message) contrast failures.
             - density_errors: List of (elem_id, message) content length/density violations.
+            - symmetry_errors: List of (elem_id, message) right margin and inner padding symmetry violations.
     """
     boxes = {}
     syntax_errors: list[tuple[str, str]] = []
     overflows: list[tuple[str, str]] = []
     contrast_errors: list[tuple[str, str]] = []
     density_errors: list[tuple[str, str]] = []
+    symmetry_errors: list[tuple[str, str]] = []
 
     # 1. Determine if offline file or live slide
     is_file = False
@@ -271,6 +274,94 @@ def lint_slide(
         if bg_val:
             containers.append((elem, bg_val))
 
+    # Header / Divider Column Alignment & Grid Symmetry Linting
+    header_elements = []
+    for elem in elements:
+        eid_str = str(elem.get("id") or "unknown")
+        eid_lower = eid_str.lower()
+        preset = elem.get("preset")
+        if preset in ["title", "heading", "subtitle"] or "divider" in eid_lower or "title" in eid_lower:
+            header_elements.append(elem)
+
+    if header_elements:
+        min_header_left = min(boxes[str(e.get("id") or "unknown")][0] for e in header_elements)
+        max_header_right = max(boxes[str(e.get("id") or "unknown")][2] for e in header_elements)
+
+        for c_elem, _ in containers:
+            c_id = str(c_elem.get("id") or "unknown")
+            c_box = boxes[c_id]
+            c_left, c_top, c_right, c_bottom = c_box
+
+            # Check if this container is top-level (not nested inside another parent container)
+            is_nested = False
+            for parent_elem, _ in containers:
+                p_id = str(parent_elem.get("id") or "unknown")
+                if p_id == c_id:
+                    continue
+                if is_contained(c_box, boxes[p_id]):
+                    is_nested = True
+                    break
+
+            if not is_nested:
+                if abs(c_left - min_header_left) <= 30 and c_right > max_header_right + 50:
+                    c_width = c_right - c_left
+                    diff = c_right - max_header_right
+                    msg = (
+                        f"Container '{c_id}' (right edge x={c_right:.1f}, width={c_width:.1f}) "
+                        f"extends {diff:.1f}px beyond header/divider column boundary (x={max_header_right:.1f}). "
+                        f"Align container width to header column bounds."
+                    )
+                    symmetry_errors.append((c_id, msg))
+
+    # Inner Padding & Collective Slide-Level Padding Symmetry Linting
+    for elem in elements:
+        eid = str(elem.get("id") or "unknown")
+        elem_box = boxes[eid]
+        left, top, right, bottom = elem_box
+
+        # 1. Spatial search for parent container shape enclosure
+        parent_container = None
+        best_container_area = float("inf")
+        for cont_elem, _ in containers:
+            cont_id = str(cont_elem.get("id") or "unknown")
+            if cont_id == eid:
+                continue
+            cont_box = boxes[cont_id]
+            if is_contained(elem_box, cont_box):
+                cont_area = (cont_box[2] - cont_box[0]) * (cont_box[3] - cont_box[1])
+                if cont_area < best_container_area:
+                    best_container_area = cont_area
+                    parent_container = cont_elem
+
+        # 2. Evaluate inner padding symmetry rule for nested elements inside container shapes
+        if parent_container is not None:
+            parent_id = str(parent_container.get("id") or "unknown")
+            parent_left, _, parent_right, _ = boxes[parent_id]
+            inner_left_padding = left - parent_left
+            inner_right_padding = parent_right - right
+            if inner_right_padding < inner_left_padding - 1.0:
+                max_boundary = parent_right - inner_left_padding
+                msg = (
+                    f"Inner right padding ({inner_right_padding:.1f}px) inside container '{parent_id}' "
+                    f"is less than inner left padding ({inner_left_padding:.1f}px). Right edge x={right:.1f} exceeds max boundary {max_boundary:.1f}."
+                )
+                symmetry_errors.append((eid, msg))
+
+    # Collective Slide-Level Padding Lint Validation
+    non_full_bleed_boxes = [box for box in boxes.values() if (box[2] - box[0]) < CANVAS_WIDTH]
+    if non_full_bleed_boxes:
+        slide_left = min(box[0] for box in non_full_bleed_boxes)
+        slide_right = max(box[2] for box in non_full_bleed_boxes)
+        slide_left_padding = slide_left
+        slide_right_padding = CANVAS_WIDTH - slide_right
+        if slide_right_padding < slide_left_padding - 1.0:
+            msg = (
+                f"Slide content right padding ({slide_right_padding:.1f}px) is less than left padding ({slide_left_padding:.1f}px). "
+                f"Max content right edge x={slide_right:.1f}px exceeds max symmetric boundary ({CANVAS_WIDTH - slide_left_padding:.1f}px). "
+                f"Recommended: padding right = padding left for symmetrical look."
+            )
+            symmetry_errors.append(("slide_padding", msg))
+
     # Contrast Lint (Spatial Container Overlap Aware)
     for elem in elements:
         eid = str(elem.get("id") or "unknown")
@@ -389,11 +480,11 @@ def lint_slide(
 
                 overlaps.append((id1, id2))
 
-    return boxes, overlaps, syntax_errors, overflows, contrast_errors, density_errors
+    return boxes, overlaps, syntax_errors, overflows, contrast_errors, density_errors, symmetry_errors
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Lint slide or offline .adsl file for overlaps, leaks, overflows, contrast, and density.")
+    parser = argparse.ArgumentParser(description="Lint slide or offline .adsl file for overlaps, leaks, overflows, contrast, density, and symmetry.")
     parser.add_argument("target", nargs="?", default=None, help="Path to offline .adsl file OR ID of live slide.")
     parser.add_argument("-f", "--file", dest="file_path", default=None, help="Path to offline .adsl file.")
     parser.add_argument("--live", action="store_true", help="Force live slide verification via AhaSlides API.")
@@ -409,7 +500,7 @@ def main():
     client = AhaApiClient() if is_live or not (str(target_input).endswith(".adsl") or Path(target_input).is_file()) else None
 
     try:
-        boxes, overlaps, syntax_errors, overflows, contrast_errors, density_errors = lint_slide(
+        boxes, overlaps, syntax_errors, overflows, contrast_errors, density_errors, symmetry_errors = lint_slide(
             target_input, client=client, contrast_level=args.contrast_level, live=is_live
         )
     except Exception as e:
@@ -451,12 +542,16 @@ def main():
             print(f"  Element {eid}: {err}")
         failed = True
 
+    if symmetry_errors:
+        print("\nERROR: Symmetry violations detected!")
+        for eid, err in symmetry_errors:
+            print(f"  Element {eid}: {err}")
+        failed = True
+
     if failed:
         sys.exit(1)
-    print("\nSUCCESS: All layout, density, syntax, contrast, and boundary checks passed.")
+    print("\nSUCCESS: All layout, density, syntax, contrast, symmetry, and boundary checks passed.")
 
 
 if __name__ == "__main__":
     main()
-
-
