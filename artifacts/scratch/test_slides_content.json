@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "fixture_metadata": {
+    "name": "test_presentation",
+    "title": "Test Presentation",
+    "version": "1.0.0",
+    "source_file": "artifacts/scratch/test_slides_content.json",
+    "total_slides": 1
+  },
+  "slides": [
+    {
+      "slide_number": 1,
+      "slide_id_key": "slide_1_test",
+      "title": "Test Slide",
+      "subtitle": "Test Subtitle",
+      "required_keywords": [
+        "test"
+      ],
+      "content": [
+        {
+          "item_1": "Content 1"
+        },
+        {
+          "item_2": "Content 2"
+        },
+        {
+          "item_3": "Content 3"
+        },
+        {
+          "item_4": "Content 4"
+        }
+      ]
+    }
+  ]
+}

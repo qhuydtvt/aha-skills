@@ -15,10 +15,13 @@ import sys
 from pathlib import Path
 from typing import Any
 
-from scripts.shared.lib.content_density import MAX_SLIDE_CHARS, MAX_SLIDE_BULLETS, MAX_ELEM_CHARS
-
 # Base directory setup
 BASE_DIR = Path(__file__).resolve().parent.parent
+if str(BASE_DIR) not in sys.path:
+    sys.path.insert(0, str(BASE_DIR))
+
+from scripts.shared.lib.content_density import MAX_SLIDE_CHARS, MAX_SLIDE_BULLETS, MAX_ELEM_CHARS, count_json_content_items
+
 DEFAULT_SPEC_PATH = BASE_DIR / "artifacts/slide-plans/manual_of_me/slides_content.json"
 
 # Forbidden vendor/platform-specific keys (case-insensitive check)
@@ -247,27 +250,21 @@ def lint_slides_content(spec_path: Path) -> tuple[bool, list[str]]:
         # Content check
         kc = slide.get("content")
         if kc is None or not (isinstance(kc, list) or isinstance(kc, dict)):
-            slide_errors.append(f"{slide_prefix}: 'content' must be a non-empty array or object.")
-        elif len(kc) == 0:
-            slide_errors.append(f"{slide_prefix}: 'content' must not be empty.")
+            slide_errors.append(f"{slide_prefix}: 'content' must be an array or object.")
             
         # Density check
         if kc:
             string_leaves = get_string_leaves(kc)
             total_chars = sum(len(s) for s in string_leaves)
-            total_items = len(kc)
+            total_items = count_json_content_items(kc)
             max_item_chars = max([len(s) for s in string_leaves]) if string_leaves else 0
 
-            warnings = []
             if total_chars > MAX_SLIDE_CHARS:
-                warnings.append(f"Total characters ({total_chars}) exceeds recommended {MAX_SLIDE_CHARS}.")
+                slide_errors.append(f"{slide_prefix}: Density check failed — Total characters ({total_chars}) exceeds limit {MAX_SLIDE_CHARS}.")
             if total_items > MAX_SLIDE_BULLETS:
-                warnings.append(f"Total top-level items ({total_items}) exceeds recommended {MAX_SLIDE_BULLETS}.")
+                slide_errors.append(f"{slide_prefix}: Density check failed — Total items ({total_items}) exceeds limit {MAX_SLIDE_BULLETS}.")
             if max_item_chars > MAX_ELEM_CHARS:
-                warnings.append(f"Longest text item ({max_item_chars} chars) exceeds recommended {MAX_ELEM_CHARS}.")
-            
-            for w in warnings:
-                logs.append(f"⚠️ DENSITY WARNING {slide_prefix}: {w}")
+                slide_errors.append(f"{slide_prefix}: Density check failed — Longest text item ({max_item_chars} chars) exceeds limit {MAX_ELEM_CHARS}.")
 
     if slide_errors:
         logs.append(f"❌ Slide Content & Field Validation: FAIL ({len(slide_errors)} errors)")

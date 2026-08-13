@@ -1,45 +1,38 @@
 ---
 content-v2: 1280x720
 version: 1
-background: #0F172A
 ---
 
-:::text id=s5_title x=80 y=45 w=929 h=70 preset=title align=left color=#F8FAFC fontSize=44
-Inside the Engine — Default Behaviors & Quirks
+:::text id=s5_title at=top-left width=929 height=80 offsetX=80 offsetY=50 preset=title align=center color=text
+# How I Receive Feedback
 :::
 
-:::shape id=s5_card1_bg x=80 y=140 w=445 h=220 kind=rect fill=#1E293B borderRadius=8
+:::shape id=s5_card1 at=top-left width=444 height=480 offsetX=80 offsetY=160 kind=rect fill=surface borderRadius=16 shadow=md
 :::
 
-:::text id=s5_card1_txt x=100 y=155 w=405 h=190 preset=body align=left color=#F8FAFC
-:::icon[name="brain" color="#06B6D4"]:::
-**Out-Loud Brainstorming**
-Brainstorm and jump between ideas out loud before focusing on the final solution.
+:::icon id=s5_icon1 at=top-left width=40 height=40 offsetX=110 offsetY=190 name="message-circle" color=#2563EB
 :::
 
-:::shape id=s5_card2_bg x=564 y=140 w=445 h=220 kind=rect fill=#1E293B borderRadius=8
+:::text id=s5_h1 at=top-left width=284 height=40 offsetX=160 offsetY=190 preset=caption align=left color=#2563EB
+PREFERRED CHANNEL & FORMAT
 :::
 
-:::text id=s5_card2_txt x=584 y=155 w=405 h=190 preset=body align=left color=#F8FAFC
-:::icon[name="git-commit" color="#06B6D4"]:::
-**Coherence-Driven**
-Easily get irritated when things get incoherent, and tend to sort them out before moving on.
+:::text id=s5_b1 at=top-left width=334 height=340 offsetX=110 offsetY=250 preset=body align=left color=text
+Face-to-Face is the preferred Feedback Format (in private or public settings).
 :::
 
-:::shape id=s5_card3_bg x=80 y=390 w=445 h=220 kind=rect fill=#1E293B borderRadius=8
+:::shape id=s5_card2 at=top-left width=444 height=480 offsetX=565 offsetY=160 kind=rect fill=surface borderRadius=16 shadow=md
 :::
 
-:::text id=s5_card3_txt x=100 y=405 w=405 h=190 preset=body align=left color=#F8FAFC
-:::icon[name="zap" color="#06B6D4"]:::
-**Topic-Selective Energy**
-More energetic when discussing product and engineering topics; lower energy in other areas.
+:::icon id=s5_icon2 at=top-left width=40 height=40 offsetX=595 offsetY=190 name="check-circle" color=#2563EB
 :::
 
-:::shape id=s5_card4_bg x=564 y=390 w=445 h=220 kind=rect fill=#1E293B borderRadius=8
+:::text id=s5_h2 at=top-left width=284 height=40 offsetX=645 offsetY=190 preset=caption align=left color=#2563EB
+3-POINT STRUCTURE
 :::
 
-:::text id=s5_card4_txt x=584 y=405 w=405 h=190 preset=body align=left color=#F8FAFC
-:::icon[name="hammer" color="#06B6D4"]:::
-**Build & Discover**
-Love to build and run product discovery at the same time.
+:::text id=s5_b2 at=top-left width=334 height=340 offsetX=595 offsetY=250 preset=body align=left color=text
+1. Clear context upfront
+2. Shared understanding of problem & business impact
+3. Proposed solution options
 :::

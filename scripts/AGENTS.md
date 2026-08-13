@@ -11,6 +11,20 @@
 > [!IMPORTANT]
 > **SYNCHRONIZATION RULE**: Every time a script in `scripts/` is added, modified, or removed, **`scripts/AGENTS.md` MUST be updated immediately** to reflect the exact current reality of all scripts, arguments, and usage patterns.
 
+## Content Planning Workflow
+
+1. **Step 1: Structural Scaffolding**:
+   - Always run `python3 scripts/scaffold_slides_content.py -n <total_slides> -t "<title>" -s "<source_file_path>" -o <output_json_path>` to generate the vendor-independent `slides_content.json` file.
+   - `scaffold_slides_content.py` outputs purely structural metadata (`fixture_metadata`) and slide frames (`slide_number`, `slide_id_key`, `title`, `required_keywords`) with empty `content: []` arrays. It does not parse or invent loose content objects.
+
+2. **Step 2: Content Population**:
+   - Fill in the `content: [...]` array in `slides_content.json` based on available input source material (e.g. `.md` files, user prompts, context, or documents).
+   - The `content: [...]` structure is **freestyle**: it represents exact textual slide content and relative visual/logical relationships (nested items, child containers, sibling elements, list groups, key-value mappings).
+
+3. **Step 3: Specification Linting**:
+   - Always validate the populated specification using `python3 scripts/lint_slide_content.py <output_json_path>`.
+   - The linter enforces schema validity, vendor-independence (no internal key leaks), standard 2-space indentation formatting, and strict content density limits (≤ 3 items / ≤ 480 characters per slide).
+
 ## Slide Layout Workflow
 
 1. **Recommended DSL Approach (`.adsl`)**:
@@ -132,7 +146,7 @@
     - `python3 scripts/update_slide_element.py 156929519 elem123456 --src "https://images.unsplash.com/photo-bg.jpg"`
 
 - **[`scripts/lint_slide.py`](lint_slide.py)**:
-  - **Purpose**: Lints a live slide or offline `.adsl` file (`python3 scripts/lint_slide.py artifacts/dsl-dumps/temp_file.adsl` or `--file path/to/file.adsl`). Supports cheap offline pre-flight validation of `.adsl` files before applying to live slides (with live slide verification `--live` or numeric `slide_id` demoted to final verification). Performs **Content Length & Density Validation** (single element line count <= 8 lines, single element character length <= 350 chars, total slide character count <= 750 chars, total bullet points / list items <= 8 items with recommendation to split slide when limits are exceeded), **Collective Slide-Level Padding & Inner Padding Symmetry Validation** (filters top-level structural elements excluding nested child elements and full-bleed backdrop layers; enforces minimum 40px safe side margins and two-sided 15px symmetry tolerance checking for both left and right imbalanced skews, alongside `inner_right_padding < inner_left_padding - 1.0` for nested elements inside container shapes), **Visual Balance Validation** (issues a WARNING if the area-weighted horizontal centroid of top-level content deviates >96px from canvas center, utilizing markdown-stripping for left-aligned text width estimation; applies a relaxed 128px threshold for explicit >3 element left-column layouts), **Header / Divider Column Alignment & Grid Symmetry Validation** (alert if top-level containers aligned with header column extend beyond header/divider right boundary), element bounding box calculation, layout overlap detection (with spatial container shape suppression), canvas overflow checking (1280x720 canvas), raw DSL syntax leak auditing, and WCAG 2.1 color contrast evaluation (AA/AAA) with theme color alias resolution (`text`, `muted`, `surface`, `bg`).
+  - **Purpose**: Lints a live slide or offline `.adsl` file (`python3 scripts/lint_slide.py artifacts/dsl-dumps/temp_file.adsl` or `--file path/to/file.adsl`). Supports cheap offline pre-flight validation of `.adsl` files before applying to live slides (with live slide verification `--live` or numeric `slide_id` demoted to final verification). Performs **Content Length & Density Validation** (single element line count <= 8 lines, single element character length <= 350 chars, total slide character count <= 750 chars, total bullet points / list items <= 3 items with recommendation to split slide when limits are exceeded), **Collective Slide-Level Padding & Inner Padding Symmetry Validation** (filters top-level structural elements excluding nested child elements and full-bleed backdrop layers; enforces minimum 40px safe side margins and two-sided 15px symmetry tolerance checking for both left and right imbalanced skews, alongside `inner_right_padding < inner_left_padding - 1.0` for nested elements inside container shapes), **Visual Balance Validation** (issues a WARNING if the area-weighted horizontal centroid of top-level content deviates >96px from canvas center, utilizing markdown-stripping for left-aligned text width estimation; applies a relaxed 128px threshold for explicit >3 element left-column layouts), **Header / Divider Column Alignment & Grid Symmetry Validation** (alert if top-level containers aligned with header column extend beyond header/divider right boundary), element bounding box calculation, layout overlap detection (with spatial container shape suppression), canvas overflow checking (1280x720 canvas), raw DSL syntax leak auditing, and WCAG 2.1 color contrast evaluation (AA/AAA) with theme color alias resolution (`text`, `muted`, `surface`, `bg`).
   - **Usage**: `python3 scripts/lint_slide.py [target] [-f FILE_PATH] [--live] [--contrast-level AA|AAA] [--strict-contrast]`
   - **Examples**:
     - `python3 scripts/lint_slide.py artifacts/dsl-dumps/temp_fixed_slide4.adsl` (cheap offline pre-flight validation)
@@ -140,11 +154,11 @@
     - `python3 scripts/lint_slide.py 156929519 --live` (final live verification)
 
 - **[`scripts/scaffold_slides_content.py`](scaffold_slides_content.py)**:
-  - **Purpose**: Scaffolds and generates the vendor-independent `slides_content.json` specification file from source material (e.g. `artifacts/inputs/manual_of_me.md` or a slide plan).
-  - **Usage**: `python3 scripts/scaffold_slides_content.py <input_file> [-o OUTPUT_JSON_PATH]`
+  - **Purpose**: Scaffolds structural vendor-independent `slides_content.json` specification files containing mandatory metadata (`fixture_metadata`) and slide frames (`slide_number`, `slide_id_key`, `title`, `required_keywords`) with empty `content: []` arrays purely from CLI parameters. Does not parse source file contents.
+  - **Usage**: `python3 scripts/scaffold_slides_content.py [-n TOTAL_SLIDES] [-t TITLE] [-s SOURCE_FILE] [-o OUTPUT_JSON_PATH]`
   - **Examples**:
-    - `python3 scripts/scaffold_slides_content.py artifacts/inputs/manual_of_me.md`
-    - `python3 scripts/scaffold_slides_content.py artifacts/inputs/manual_of_me.md -o artifacts/slide-plans/manual_of_me/slides_content.json`
+    - `python3 scripts/scaffold_slides_content.py -n 6 -t "A Manual of Huy" -s "artifacts/inputs/manual_of_me.md" -o artifacts/slide-plans/manual_of_me/slides_content.json`
+    - `python3 scripts/scaffold_slides_content.py -n 5 -t "Product Roadmap" -o artifacts/slide-plans/roadmap/slides_content.json`
 
 - **[`scripts/lint_slide_content.py`](lint_slide_content.py)**:
   - **Purpose**: Lints and validates a vendor-independent `slides_content.json` specification file itself. Verifies JSON pretty-print & formatting uniformity (2-space indentation with a trailing newline), root schema, vendor independence (zero platform-specific internal keys), slide schema & field key order uniformity (`slide_number`, `slide_id_key`, `title` (if present), `subtitle` (if present), `required_keywords`, `content`), value whitespace & type uniformity (no un-trimmed string values), sequential slide numbering, unique `slide_id_key`s, and non-empty titles (if present)/keywords, and performs a content density check. Returns exit code 0 on PASS, 1 on FAIL.
@@ -279,4 +293,7 @@
   - **Purpose**: `parse_color`, `blend_colors`, `relative_luminance`, `contrast_ratio`, and `evaluate_contrast` functions for WCAG 2.1 color contrast calculation and evaluation.
 - **[`scripts/shared/lib/layout_padding.py`](shared/lib/layout_padding.py)**:
   - **Purpose**: `calculate_slide_margins`, `calculate_inner_padding`, and `is_contained` functions for pure mathematical calculation of collective slide-level margins, inner container element padding, and spatial containment.
+- **[`scripts/shared/lib/content_density.py`](shared/lib/content_density.py)**:
+  - **Purpose**: `count_bullet_items`, `count_json_content_items`, and `analyze_element_content` functions for calculating line counts, character counts, and recursive bullet/content item counts in slide text and JSON specifications.
+
 

@@ -3,19 +3,17 @@ content-v2: 1280x720
 version: 1
 ---
 
-:::text id=7ToQvnF4Tt at=center-left width=929 height=50 offsetX=80 offsetY=60 preset=caption align=left color=text
-# Manual of HuyNQ — Guide to Working & Collaborating
+:::text id=slide1_title at=top-left width=929 height=160 offsetX=80 offsetY=120 preset=title align=left color=text
+# A Manual of HuyNQ — Guide to Working & Collaborating
 :::
 
-:::text id=JClVmJNce1 at=center-left width=929 height=100 offsetX=80 offsetY=130 preset=title align=left color=text
-Working with HuyNQ — A User Manual
+:::text id=slide1_subtitle at=top-left width=929 height=80 offsetX=80 offsetY=310 preset=body align=left color=muted
+A guide on how to work, communicate, and collaborate with me.
 :::
 
-:::text id=IR5XatROEO at=center-left width=929 height=60 offsetX=80 offsetY=250 preset=body align=left color=muted
-A practical guide on how to work, communicate, and collaborate with me.
-Mission statement: Build useful things.
+:::shape id=slide1_divider at=top-left width=120 height=4 offsetX=80 offsetY=410 kind=rect fill=#3B82F6
 :::
 
-:::text id=NnP62uRoOg at=center-left width=929 height=50 offsetX=80 offsetY=330 preset=caption align=left color=muted
-Topics: Core Values | Communication | Feedback | Quirks | Golden Rules
+:::text id=slide1_author at=top-left width=929 height=48 offsetX=80 offsetY=440 preset=caption align=left color=muted
+Prepared by HuyNQ — 2026
 :::

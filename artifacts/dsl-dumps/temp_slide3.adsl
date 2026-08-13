@@ -1,44 +1,50 @@
 ---
 content-v2: 1280x720
 version: 1
-background: #0F172A
 ---
 
-:::text id=s3_title x=80 y=45 w=929 h=70 preset=title align=left color=#F8FAFC fontSize=44
-How We Connect — Communication Preferences & Rules
+:::text id=s3_title at=top-left width=929 height=80 offsetX=80 offsetY=50 preset=title align=center color=text
+# Communication Channels
 :::
 
-:::shape id=s3_col1_bg x=80 y=140 w=445 h=510 kind=rect fill=#1E293B borderRadius=8
+:::shape id=s3_c1 at=top-left width=283 height=480 offsetX=80 offsetY=160 kind=rect fill=surface borderRadius=16 shadow=md
 :::
 
-:::text id=s3_col1_txt x=100 y=160 w=405 h=470 preset=body align=left color=#F8FAFC
-:::icon[name="message-square" color="#06B6D4"]:::
-**Preferred Channels & Rules**
-
-• **Slack/Teams** (Chat): Quick info exchange.
-• **Face-to-Face or Call**: Complex/nuanced topics.
-• **Email**: Official decisions or external comms.
-
-**Boundaries & Rules:**
-• **Context upfront**: Provide context upfront unless already established.
-• **One at a time**: Handle only one live call or conversation at a time.
+:::icon id=s3_i1 at=top-left width=40 height=40 offsetX=105 offsetY=190 name="message-square" color=#2563EB
 :::
 
-:::shape id=s3_col2_bg x=564 y=140 w=445 h=510 kind=rect fill=#1E293B borderRadius=8
+:::text id=s3_h1 at=top-left width=133 height=40 offsetX=155 offsetY=190 preset=caption align=left color=#2563EB
+SLACK / TEAMS
 :::
 
-:::text id=s3_col2_txt x=584 y=160 w=405 h=470 preset=body align=left color=#F8FAFC
-:::icon[name="list-checks" color="#06B6D4"]:::
-**Standard 3-Step Format**
+:::text id=s3_b1 at=top-left width=208 height=340 offsetX=105 offsetY=250 preset=body align=left color=text
+Best for quick & non-mentally taxing info exchange.
+:::
 
-When bringing up questions or discussions, use this structure:
+:::shape id=s3_c2 at=top-left width=283 height=480 offsetX=403 offsetY=160 kind=rect fill=surface borderRadius=16 shadow=md
+:::
 
-**1. Context (facts only)**
-Provide the factual background clearly.
+:::icon id=s3_i2 at=top-left width=40 height=40 offsetX=428 offsetY=190 name="users" color=#2563EB
+:::
 
-**2. Problem definition**
-Define the exact challenge or issue.
+:::text id=s3_h2 at=top-left width=133 height=40 offsetX=478 offsetY=190 preset=caption align=left color=#2563EB
+F2F / CALL
+:::
 
-**3. Proposed solutions**
-Share potential options or recommendations (if any).
+:::text id=s3_b2 at=top-left width=208 height=340 offsetX=428 offsetY=250 preset=body align=left color=text
+Best for complex or easily misunderstood topics.
+:::
+
+:::shape id=s3_c3 at=top-left width=283 height=480 offsetX=726 offsetY=160 kind=rect fill=surface borderRadius=16 shadow=md
+:::
+
+:::icon id=s3_i3 at=top-left width=40 height=40 offsetX=751 offsetY=190 name="mail" color=#2563EB
+:::
+
+:::text id=s3_h3 at=top-left width=133 height=40 offsetX=801 offsetY=190 preset=caption align=left color=#2563EB
+EMAIL
+:::
+
+:::text id=s3_b3 at=top-left width=208 height=340 offsetX=751 offsetY=250 preset=body align=left color=text
+Best for official decisions or third-party comms.
 :::

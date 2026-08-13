@@ -1,49 +1,50 @@
 ---
 content-v2: 1280x720
 version: 1
-background: #0F172A
 ---
 
-:::text id=s6_title x=80 y=45 w=929 h=70 preset=title align=left color=#F8FAFC fontSize=44
-Debugging Huy — Known Issues & Support Plan
+:::text id=s6_title at=top-left width=929 height=80 offsetX=80 offsetY=50 preset=title align=center color=text
+# Working Quirks & Default Behaviors
 :::
 
-:::shape id=s6_card1_bg x=80 y=140 w=445 h=220 kind=rect fill=#1E293B borderRadius=8
+:::shape id=s6_c1 at=top-left width=283 height=480 offsetX=80 offsetY=160 kind=rect fill=surface borderRadius=16 shadow=md
 :::
 
-:::text id=s6_card1_txt x=100 y=155 w=405 h=190 preset=body align=left color=#F8FAFC
-:::icon[name="help-circle" color="#06B6D4"]:::
-**Issue #1: Asks too many questions**
-*Behavior*: Asks too many questions before committing.
-*Support*: Provide clear context on its business, product, or team relevance.
+:::icon id=s6_i1 at=top-left width=40 height=40 offsetX=105 offsetY=190 name="zap" color=#2563EB
 :::
 
-:::shape id=s6_card2_bg x=564 y=140 w=445 h=220 kind=rect fill=#1E293B borderRadius=8
+:::text id=s6_h1 at=top-left width=133 height=40 offsetX=155 offsetY=190 preset=caption align=left color=#2563EB
+BRAINSTORMING
 :::
 
-:::text id=s6_card2_txt x=584 y=155 w=405 h=190 preset=body align=left color=#F8FAFC
-:::icon[name="battery-low" color="#06B6D4"]:::
-**Issue #2: Low energy response**
-*Behavior*: Slow response when running on low energy.
-*Support*: Give time to recover, feel free to ask for faster response if urgent.
+:::text id=s6_b1 at=top-left width=208 height=340 offsetX=105 offsetY=250 preset=body align=left color=text
+Out-Loud Brainstorming: Jump between ideas out loud before focusing.
 :::
 
-:::shape id=s6_card3_bg x=80 y=390 w=445 h=220 kind=rect fill=#1E293B borderRadius=8
+:::shape id=s6_c2 at=top-left width=283 height=480 offsetX=403 offsetY=160 kind=rect fill=surface borderRadius=16 shadow=md
 :::
 
-:::text id=s6_card3_txt x=100 y=405 w=405 h=190 preset=body align=left color=#F8FAFC
-:::icon[name="activity" color="#06B6D4"]:::
-**Issue #3: Over-excited communication**
-*Behavior*: Incoherent when getting over-excited.
-*Support*: Give time to sink in; echo back what you hear.
+:::icon id=s6_i2 at=top-left width=40 height=40 offsetX=428 offsetY=190 name="compass" color=#2563EB
 :::
 
-:::shape id=s6_card4_bg x=564 y=390 w=445 h=220 kind=rect fill=#1E293B borderRadius=8
+:::text id=s6_h2 at=top-left width=133 height=40 offsetX=478 offsetY=190 preset=caption align=left color=#2563EB
+COHERENCE-DRIVEN
 :::
 
-:::text id=s6_card4_txt x=584 y=405 w=405 h=190 preset=body align=left color=#F8FAFC
-:::icon[name="alert-triangle" color="#06B6D4"]:::
-**Issue #4: Pushing too hard**
-*Behavior*: Sometimes pushing too hard on self and people.
-*Support*: Explain if not working or if energy is better spent elsewhere.
+:::text id=s6_b2 at=top-left width=208 height=340 offsetX=428 offsetY=250 preset=body align=left color=text
+Irritated by incoherence; must sort out core issues before moving on.
+:::
+
+:::shape id=s6_c3 at=top-left width=283 height=480 offsetX=726 offsetY=160 kind=rect fill=surface borderRadius=16 shadow=md
+:::
+
+:::icon id=s6_i3 at=top-left width=40 height=40 offsetX=751 offsetY=190 name="hammer" color=#2563EB
+:::
+
+:::text id=s6_h3 at=top-left width=133 height=40 offsetX=801 offsetY=190 preset=caption align=left color=#2563EB
+BUILD & DISCOVER
+:::
+
+:::text id=s6_b3 at=top-left width=208 height=340 offsetX=751 offsetY=250 preset=body align=left color=text
+High energy on tech & product; run discovery while building.
 :::
