@@ -1,0 +1,57 @@
+# @presentation_id: 9852671
+# @slide_id: 157173298
+# @purpose: process_flow_diagram
+# @category: Processes & Workflows
+# @description: 3-step process flow layout for receiving feedback and evaluating impact
+# @keywords: Face-to-face, Context of the feedback, Shared understanding, impact, business, product, team, Proposed solution
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=txt_hdr_s4 at=top-left width=80% height=80 offsetX=80 offsetY=56 preset=title align=left color=text fontSize=38
+# Receiving Feedback — The 3-Point Feedback Structure
+:::
+
+:::shape id=card_pref at=top-left width=1120 height=80 offsetX=80 offsetY=150 kind=rect fill=surface borderRadius=12
+:::
+
+:::icon id=icn_pref at=top-left width=32 height=32 offsetX=104 offsetY=174 name=users size=28 color=#06B6D4
+:::
+
+:::text id=txt_pref at=top-left width=1020 height=50 offsetX=152 offsetY=165 preset=body align=left color=text fontSize=17
+**Preferred Channel:** Face-to-face communication (does not matter if private or public).
+:::
+
+:::shape id=card_s1 at=top-left width=350 height=340 offsetX=80 offsetY=260 kind=rect fill=surface borderRadius=12
+:::
+
+:::icon id=icn_s1 at=top-left width=36 height=36 offsetX=104 offsetY=284 name=file-text size=32 color=#06B6D4
+:::
+
+:::text id=txt_s1 at=top-left width=300 height=240 offsetX=104 offsetY=330 preset=body align=left color=text fontSize=16
+**Step 1: Context**  
+Provide the full Context of the feedback upfront to set baseline facts.
+:::
+
+:::shape id=card_s2 at=top-left width=350 height=340 offsetX=465 offsetY=260 kind=rect fill=surface borderRadius=12
+:::
+
+:::icon id=icn_s2 at=top-left width=36 height=36 offsetX=489 offsetY=284 name=target size=32 color=#06B6D4
+:::
+
+:::text id=txt_s2 at=top-left width=300 height=240 offsetX=489 offsetY=330 preset=body align=left color=text fontSize=16
+**Step 2: Shared Understanding**  
+Build Shared understanding of the problem and its impact on the business, product, or team.
+:::
+
+:::shape id=card_s3 at=top-left width=350 height=340 offsetX=850 offsetY=260 kind=rect fill=surface borderRadius=12
+:::
+
+:::icon id=icn_s3 at=top-left width=36 height=36 offsetX=874 offsetY=284 name=lightbulb size=32 color=#06B6D4
+:::
+
+:::text id=txt_s3 at=top-left width=300 height=240 offsetX=874 offsetY=330 preset=body align=left color=text fontSize=16
+**Step 3: Proposed Solution**  
+Offer an optional Proposed solution or improvement ideas to resolve it together.
+:::

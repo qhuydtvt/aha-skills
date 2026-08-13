@@ -1,0 +1,58 @@
+# @presentation_id: 9852671
+# @slide_id: 157173296
+# @purpose: feature_cards_4col
+# @category: Features & Products
+# @description: Core values 3-card grid plus driving philosophy callout card
+# @keywords: Integrity, Winning Mindset, Continuous improvement, Build & Discover
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=txt_hdr_s2 at=top-left width=80% height=80 offsetX=80 offsetY=64 preset=title align=left color=text fontSize=40
+# The Mindset — Core Values & Philosophy
+:::
+
+:::shape id=card_val1 at=top-left width=350 height=220 offsetX=80 offsetY=164 kind=rect fill=surface borderRadius=12
+:::
+
+:::icon id=icn_val1 at=top-left width=36 height=36 offsetX=104 offsetY=188 name=shield-check size=32 color=#06B6D4
+:::
+
+:::text id=txt_val1 at=top-left width=300 height=140 offsetX=104 offsetY=232 preset=body align=left color=text fontSize=16
+**Integrity**  
+Radical transparency, honesty, and doing what is right even when difficult.
+:::
+
+:::shape id=card_val2 at=top-left width=350 height=220 offsetX=465 offsetY=164 kind=rect fill=surface borderRadius=12
+:::
+
+:::icon id=icn_val2 at=top-left width=36 height=36 offsetX=489 offsetY=188 name=trophy size=32 color=#06B6D4
+:::
+
+:::text id=txt_val2 at=top-left width=300 height=140 offsetX=489 offsetY=232 preset=body align=left color=text fontSize=16
+**Winning Mindset**  
+High standards, drive to solve tough problems, and commitment to meaningful outcomes.
+:::
+
+:::shape id=card_val3 at=top-left width=350 height=220 offsetX=850 offsetY=164 kind=rect fill=surface borderRadius=12
+:::
+
+:::icon id=icn_val3 at=top-left width=36 height=36 offsetX=874 offsetY=188 name=trending-up size=32 color=#06B6D4
+:::
+
+:::text id=txt_val3 at=top-left width=300 height=140 offsetX=874 offsetY=232 preset=body align=left color=text fontSize=16
+**Continuous improvement**  
+Constant iteration, learning from mistakes, and incremental daily gains.
+:::
+
+:::shape id=card_phil at=top-left width=1120 height=150 offsetX=80 offsetY=416 kind=rect fill=surface borderRadius=12
+:::
+
+:::icon id=icn_phil at=top-left width=40 height=40 offsetX=104 offsetY=440 name=sparkles size=36 color=#06B6D4
+:::
+
+:::text id=txt_phil at=top-left width=1020 height=100 offsetX=160 offsetY=436 preset=body align=left color=text fontSize=18
+**Driving Philosophy: Build & Discover Simultaneously**  
+Prefers running discovery concurrently while building products, rather than waiting for fully baked ideas.
+:::

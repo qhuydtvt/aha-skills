@@ -1,0 +1,58 @@
+# @presentation_id: 9852671
+# @slide_id: 157173302
+# @purpose: faq_accordion_2col
+# @category: Lists & Content
+# @description: 2x2 issue and support matrix for known bugs and support strategies
+# @keywords: too many questions, Provide clear context, low energy, time to recover, over-excited, echo back, pushing too hard, Explain if not working
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=txt_hdr_s6 at=top-left width=80% height=80 offsetX=80 offsetY=56 preset=title align=left color=text fontSize=38
+# Debugging Huy — Known Issues & Support Plan
+:::
+
+:::shape id=card_b1 at=top-left width=530 height=210 offsetX=80 offsetY=160 kind=rect fill=surface borderRadius=12
+:::
+
+:::icon id=icn_b1 at=top-left width=36 height=36 offsetX=104 offsetY=184 name=help-circle size=32 color=#06B6D4
+:::
+
+:::text id=txt_b1 at=top-left width=480 height=130 offsetX=104 offsetY=228 preset=body align=left color=text fontSize=15
+**Bug #1: Questions**  
+Ask a lot of questions when a problem is not fully understood before committing. Provide clear context and explain how it is relevant to the business, product, or team.
+:::
+
+:::shape id=card_b2 at=top-left width=530 height=210 offsetX=670 offsetY=160 kind=rect fill=surface borderRadius=12
+:::
+
+:::icon id=icn_b2 at=top-left width=36 height=36 offsetX=694 offsetY=184 name=battery-charging size=32 color=#06B6D4
+:::
+
+:::text id=txt_b2 at=top-left width=480 height=130 offsetX=694 offsetY=228 preset=body align=left color=text fontSize=15
+**Bug #2: Energy**  
+Respond slowly when running on low energy. Give time to recover, still feel free to ask for faster response if urgent.
+:::
+
+:::shape id=card_b3 at=top-left width=530 height=210 offsetX=80 offsetY=400 kind=rect fill=surface borderRadius=12
+:::
+
+:::icon id=icn_b3 at=top-left width=36 height=36 offsetX=104 offsetY=424 name=repeat size=32 color=#06B6D4
+:::
+
+:::text id=txt_b3 at=top-left width=480 height=130 offsetX=104 offsetY=468 preset=body align=left color=text fontSize=15
+**Bug #3: Over-excited**  
+Tend to be incoherent when getting over-excited. Give time to let things sink in, and echo back what you hear if possible.
+:::
+
+:::shape id=card_b4 at=top-left width=530 height=210 offsetX=670 offsetY=400 kind=rect fill=surface borderRadius=12
+:::
+
+:::icon id=icn_b4 at=top-left width=36 height=36 offsetX=694 offsetY=424 name=alert-triangle size=32 color=#06B6D4
+:::
+
+:::text id=txt_b4 at=top-left width=480 height=130 offsetX=694 offsetY=468 preset=body align=left color=text fontSize=15
+**Bug #4: Pushing hard**  
+Sometimes push self and people too hard. Explain if it's not working or if energy is better spent in other ways.
+:::
