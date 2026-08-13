@@ -61,8 +61,8 @@ def parse_adsl_to_elements(
 
     elements: list[dict[str, Any]] = []
     pattern = re.compile(
-        r"(:::(?:text|shape|image|icon|video|timer|pattern|[a-zA-Z0-9_-]+)([^\n]*)\n(.*?)(?:\n:::\s*|\Z))",
-        re.DOTALL,
+        r"(:::(?:[a-zA-Z0-9_-]+)([^\n]*)\n([\s\S]*?)(?:(?<=\n):::|(?<=^):::|\Z))",
+        re.MULTILINE,
     )
     attr_kv_pattern = re.compile(r'([\w-]+)=(?:"([^"]*)"|\'([^\']*)\'|(\S+))')
 
@@ -74,6 +74,8 @@ def parse_adsl_to_elements(
 
         header_attr_str = match.group(2)
         body_text = match.group(3).strip()
+        if body_text.endswith(":::"):
+            body_text = body_text[:-3].strip()
 
         attributes: dict[str, str] = {}
         for attr_match in attr_kv_pattern.finditer(header_attr_str):

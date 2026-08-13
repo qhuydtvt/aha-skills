@@ -9,7 +9,7 @@ content-v2: 1280x720
 version: 1
 ---
 
-:::text id=txt_hdr_s2 at=top-left width=80% height=80 offsetX=80 offsetY=64 preset=title align=left color=text fontSize=40
+:::text id=txt_hdr_s2 at=top-left width=1120 height=80 offsetX=80 offsetY=64 preset=title align=left color=text fontSize=40
 # The Mindset — Core Values & Philosophy
 :::
 
@@ -52,7 +52,7 @@ Constant iteration, learning from mistakes, and incremental daily gains.
 :::icon id=icn_phil at=top-left width=40 height=40 offsetX=104 offsetY=440 name=sparkles size=36 color=#06B6D4
 :::
 
-:::text id=txt_phil at=top-left width=1020 height=100 offsetX=160 offsetY=436 preset=body align=left color=text fontSize=18
+:::text id=txt_phil at=top-left width=960 height=100 offsetX=160 offsetY=436 preset=body align=left color=text fontSize=18
 **Driving Philosophy: Build & Discover Simultaneously**  
 Prefers running discovery concurrently while building products, rather than waiting for fully baked ideas.
 :::

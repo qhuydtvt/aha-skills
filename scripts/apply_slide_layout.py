@@ -409,16 +409,31 @@ def apply_slide_layout(
     lint_report = None
     lint_passed = True
     if lint:
-        boxes, overlaps, syntax_errors, overflows, contrast_errors = lint_slide(
-            str(slide_id), client=client
+        (
+            boxes,
+            overlaps,
+            syntax_errors,
+            overflows,
+            contrast_errors,
+            density_errors,
+            symmetry_errors,
+        ) = lint_slide(str(slide_id), client=client)
+        lint_passed = not (
+            overlaps
+            or syntax_errors
+            or overflows
+            or contrast_errors
+            or density_errors
+            or symmetry_errors
         )
-        lint_passed = not (overlaps or syntax_errors or overflows or contrast_errors)
         lint_report = {
             "elements_count": len(boxes),
             "overlaps": overlaps,
             "syntax_errors": syntax_errors,
             "overflows": overflows,
             "contrast_errors": contrast_errors,
+            "density_errors": density_errors,
+            "symmetry_errors": symmetry_errors,
             "passed": lint_passed,
         }
 
@@ -426,7 +441,8 @@ def apply_slide_layout(
             raise RuntimeError(
                 f"Visual linting failed for slide ID '{slide_id}'! "
                 f"Overlaps: {len(overlaps)}, Syntax Errors: {len(syntax_errors)}, "
-                f"Overflows: {len(overflows)}, Contrast Errors: {len(contrast_errors)}. "
+                f"Overflows: {len(overflows)}, Contrast Errors: {len(contrast_errors)}, "
+                f"Density Errors: {len(density_errors)}, Symmetry Errors: {len(symmetry_errors)}. "
                 "Use --force to override linting failure."
             )
 
