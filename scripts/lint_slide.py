@@ -1,3 +1,4 @@
+from __future__ import annotations
 #!/usr/bin/env python3
 """Lint a slide or offline .adsl file for overlaps, syntax leaks, canvas overflows, color contrast, and content density."""
 
@@ -15,6 +16,11 @@ from scripts.list_slide_elements import list_slide_elements, parse_adsl_to_eleme
 from scripts.read_slide import read_slide
 from scripts.shared.api import AhaApiClient
 from scripts.shared.lib.contrast import evaluate_contrast
+from scripts.shared.lib.layout_padding import (
+    calculate_inner_padding,
+    calculate_slide_margins,
+    is_contained,
+)
 
 CANVAS_WIDTH = 1280
 CANVAS_HEIGHT = 720
@@ -71,6 +77,12 @@ def get_bounding_box(elem: dict[str, Any]) -> tuple[float, float, float, float]:
     if at == "center":
         left = CANVAS_WIDTH / 2 + offset_x - width / 2
         top = CANVAS_HEIGHT / 2 + offset_y - height / 2
+    elif at == "top-center":
+        left = CANVAS_WIDTH / 2 + offset_x - width / 2
+        top = offset_y
+    elif at == "bottom-center":
+        left = CANVAS_WIDTH / 2 + offset_x - width / 2
+        top = CANVAS_HEIGHT + offset_y - height
     else:
         left, top = offset_x, offset_y
 
@@ -336,29 +348,78 @@ def lint_slide(
         # 2. Evaluate inner padding symmetry rule for nested elements inside container shapes
         if parent_container is not None:
             parent_id = str(parent_container.get("id") or "unknown")
-            parent_left, _, parent_right, _ = boxes[parent_id]
-            inner_left_padding = left - parent_left
-            inner_right_padding = parent_right - right
-            if inner_right_padding < inner_left_padding - 1.0:
-                max_boundary = parent_right - inner_left_padding
+            inner_res = calculate_inner_padding(elem_box, boxes[parent_id])
+            if inner_res["is_right_deficient"]:
+                inner_left = inner_res["inner_left_padding"]
+                inner_right = inner_res["inner_right_padding"]
+                parent_right = boxes[parent_id][2]
+                max_boundary = parent_right - inner_left
                 msg = (
-                    f"Inner right padding ({inner_right_padding:.1f}px) inside container '{parent_id}' "
-                    f"is less than inner left padding ({inner_left_padding:.1f}px). Right edge x={right:.1f} exceeds max boundary {max_boundary:.1f}."
+                    f"Inner right padding ({inner_right:.1f}px) inside container '{parent_id}' "
+                    f"is less than inner left padding ({inner_left:.1f}px). Right edge x={right:.1f} exceeds max boundary {max_boundary:.1f}."
                 )
                 symmetry_errors.append((eid, msg))
 
-    # Collective Slide-Level Padding Lint Validation
-    non_full_bleed_boxes = [box for box in boxes.values() if (box[2] - box[0]) < CANVAS_WIDTH]
-    if non_full_bleed_boxes:
-        slide_left = min(box[0] for box in non_full_bleed_boxes)
-        slide_right = max(box[2] for box in non_full_bleed_boxes)
-        slide_left_padding = slide_left
-        slide_right_padding = CANVAS_WIDTH - slide_right
-        if slide_right_padding < slide_left_padding - 1.0:
+    # Collective Slide-Level Padding & Margin Symmetry Validation
+    margin_res = calculate_slide_margins(
+        boxes=boxes,
+        elements=elements,
+        canvas_width=CANVAS_WIDTH,
+        min_safe_left_margin=40.0,
+        min_safe_right_margin=240.0,
+        symmetry_tolerance=15.0,
+    )
+
+    slide_left_padding = margin_res["slide_left_padding"]
+    slide_right_padding = margin_res["slide_right_padding"]
+    min_left_id = margin_res["min_left_id"]
+    max_right_id = margin_res["max_right_id"]
+
+    # 1. Minimum Edge Margin Safety Check (asymmetric: left >= 40px, right >= 80px)
+    if not margin_res["meets_left_minimum"]:
+        msg = (
+            f"Slide content left padding ({slide_left_padding:.1f}px, element '{min_left_id}') "
+            f"is below minimum safe left margin ({margin_res['min_safe_left_margin']:.1f}px). "
+            f"Min content left edge x={slide_left_padding:.1f}px is too close to left canvas boundary."
+        )
+        symmetry_errors.append(("slide_padding", msg))
+
+    if not margin_res["meets_right_minimum"]:
+        msg = (
+            f"Slide content right padding ({slide_right_padding:.1f}px, element '{max_right_id}') "
+            f"is below minimum safe right margin ({margin_res['min_safe_right_margin']:.1f}px). "
+            f"Max content right edge x={CANVAS_WIDTH - slide_right_padding:.1f}px is too close to "
+            f"right canvas boundary (AhaSlides presenter UI chrome occupies rightmost ~80px). "
+            f"Recommended: reduce right edge to x<={CANVAS_WIDTH - margin_res['min_safe_right_margin']:.0f}px."
+        )
+        symmetry_errors.append(("slide_padding", msg))
+
+    # 2. Visual Symmetry Tolerance Check (DSL-space, calibrated)
+    # Calibrated (2026-08-13): AhaSlides logo starts at DSL x~=1089.
+    # The safe right content boundary mirrors the left margin against this logo anchor:
+    #   visual_left  = slide_left_padding           (DSL units from canvas left)
+    #   visual_right = CANVAS_LOGO_START - max_right_dsl  (DSL units from logo start)
+    # For visual balance: visual_left ≈ visual_right
+    CANVAS_LOGO_START = 1089.0  # AhaSlides logo left edge in DSL px (calibrated)
+    max_right_dsl = CANVAS_WIDTH - slide_right_padding
+    visual_left_dsl = slide_left_padding
+    visual_right_dsl = CANVAS_LOGO_START - max_right_dsl
+
+    visual_diff = abs(visual_left_dsl - visual_right_dsl)
+    if visual_diff > margin_res["symmetry_tolerance"]:
+        if visual_right_dsl < visual_left_dsl - margin_res["symmetry_tolerance"]:
             msg = (
-                f"Slide content right padding ({slide_right_padding:.1f}px) is less than left padding ({slide_left_padding:.1f}px). "
-                f"Max content right edge x={slide_right:.1f}px exceeds max symmetric boundary ({CANVAS_WIDTH - slide_left_padding:.1f}px). "
-                f"Recommended: padding right = padding left for symmetrical look."
+                f"Slide visual right margin ({visual_right_dsl:.1f}px from logo, '{max_right_id}' at x={max_right_dsl:.0f}) "
+                f"is less than visual left margin ({visual_left_dsl:.1f}px, '{min_left_id}') by {visual_left_dsl - visual_right_dsl:.1f}px. "
+                f"Content extends into AhaSlides presenter chrome (logo starts at DSL x={CANVAS_LOGO_START:.0f}). "
+                f"Recommended: reduce '{max_right_id}' right edge to x<={CANVAS_LOGO_START - visual_left_dsl:.0f}."
+            )
+            symmetry_errors.append(("slide_padding", msg))
+        elif visual_left_dsl < visual_right_dsl - margin_res["symmetry_tolerance"]:
+            msg = (
+                f"Slide visual left margin ({visual_left_dsl:.1f}px, '{min_left_id}') "
+                f"is less than visual right margin ({visual_right_dsl:.1f}px from logo) by {visual_right_dsl - visual_left_dsl:.1f}px. "
+                f"Consider moving '{min_left_id}' left edge closer to x={visual_right_dsl:.0f}."
             )
             symmetry_errors.append(("slide_padding", msg))
 

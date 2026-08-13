@@ -1,3 +1,4 @@
+from __future__ import annotations
 #!/usr/bin/env python3
 """Script to list elements (:::text, :::image, :::video, :::timer, etc.) from a slide's DSL content."""
 

@@ -1,3 +1,4 @@
+from __future__ import annotations
 #!/usr/bin/env python3
 """Script to populate complete, verified slide content for Presentation 9828288 matching slides_content.json spec."""
 

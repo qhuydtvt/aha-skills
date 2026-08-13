@@ -1,3 +1,4 @@
+from __future__ import annotations
 #!/usr/bin/env python3
 """Script to delete slide(s) from an AhaSlides presentation using AhaApiClient."""
 

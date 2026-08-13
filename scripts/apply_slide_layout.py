@@ -1,3 +1,4 @@
+from __future__ import annotations
 #!/usr/bin/env python3
 """Script to apply vendor-independent layout presets or layout DSLs to live slides on AhaSlides."""
 

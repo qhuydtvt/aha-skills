@@ -1,3 +1,4 @@
+from __future__ import annotations
 #!/usr/bin/env python3
 """Script to insert a new element (:::text directive block) into a slide's DSL content on AhaSlides."""
 

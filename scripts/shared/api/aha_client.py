@@ -1,3 +1,4 @@
+from __future__ import annotations
 """Shared AhaSlides API Client."""
 
 import sys

@@ -1,3 +1,4 @@
+from __future__ import annotations
 #!/usr/bin/env python3
 """Script to list and inspect slide layout templates and v2 DSL structures.
 

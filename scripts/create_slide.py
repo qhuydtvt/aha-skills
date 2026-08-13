@@ -1,3 +1,4 @@
+from __future__ import annotations
 #!/usr/bin/env python3
 """Script to create a new slide in an AhaSlides presentation using AhaApiClient."""
 

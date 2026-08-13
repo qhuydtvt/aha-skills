@@ -1,3 +1,4 @@
+from __future__ import annotations
 #!/usr/bin/env python3
 """Script to update an existing element (:::text or :::shape block) in a slide's DSL content on AhaSlides."""
 

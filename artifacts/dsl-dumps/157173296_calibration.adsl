@@ -1,0 +1,65 @@
+# @presentation_id: 9852671
+# @slide_id: 157173296
+# CALIBRATION MODE — markers at known DSL x coords for pixel mapping
+---
+content-v2: 1280x720
+version: 1
+---
+
+# --- CALIBRATION MARKERS ---
+# Left edge marker: x=0 (canvas absolute left boundary)
+:::shape id=mrk_left at=top-left width=4 height=720 offsetX=0 offsetY=0 kind=rect fill=#FF0000
+:::
+
+# x=80 marker (old left anchor)
+:::shape id=mrk_x80 at=top-left width=4 height=720 offsetX=80 offsetY=0 kind=rect fill=#FF6600
+:::
+
+# x=120 marker (current left anchor)
+:::shape id=mrk_x120 at=top-left width=4 height=720 offsetX=120 offsetY=0 kind=rect fill=#FFCC00
+:::
+
+# x=640 marker (canvas center)
+:::shape id=mrk_center at=top-left width=4 height=720 offsetX=640 offsetY=0 kind=rect fill=#00AA00
+:::
+
+# x=1160 marker (current right anchor)
+:::shape id=mrk_x1160 at=top-left width=4 height=720 offsetX=1160 offsetY=0 kind=rect fill=#FFCC00
+:::
+
+# x=1200 marker (old right anchor)
+:::shape id=mrk_x1200 at=top-left width=4 height=720 offsetX=1200 offsetY=0 kind=rect fill=#FF6600
+:::
+
+# Right edge marker: x=1276 (canvas absolute right boundary)
+:::shape id=mrk_right at=top-left width=4 height=720 offsetX=1276 offsetY=0 kind=rect fill=#FF0000
+:::
+
+# --- LABEL TEXT ---
+:::text id=lbl_0 at=top-left width=60 height=20 offsetX=4 offsetY=4 preset=body align=left color=text fontSize=10
+x=0
+:::
+
+:::text id=lbl_80 at=top-left width=60 height=20 offsetX=84 offsetY=4 preset=body align=left color=text fontSize=10
+x=80
+:::
+
+:::text id=lbl_120 at=top-left width=60 height=20 offsetX=124 offsetY=20 preset=body align=left color=text fontSize=10
+x=120
+:::
+
+:::text id=lbl_640 at=top-left width=60 height=20 offsetX=644 offsetY=4 preset=body align=left color=text fontSize=10
+x=640
+:::
+
+:::text id=lbl_1160 at=top-left width=70 height=20 offsetX=1100 offsetY=20 preset=body align=left color=text fontSize=10
+x=1160
+:::
+
+:::text id=lbl_1200 at=top-left width=70 height=20 offsetX=1140 offsetY=4 preset=body align=left color=text fontSize=10
+x=1200
+:::
+
+:::text id=lbl_1276 at=top-left width=70 height=20 offsetX=1206 offsetY=36 preset=body align=left color=text fontSize=10
+x=1276
+:::
