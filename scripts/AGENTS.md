@@ -1,5 +1,11 @@
 # Scripts Directory Guide & Maintenance Rules
 
+## Communication & Response Length Guidelines
+
+- **Concise Default**: Keep responses concise and under 200 words by default.
+- **Elaboration Limit**: When the user explicitly asks for details or elaboration, responses may extend up to 500 words max.
+- **Hard Cap**: Responses MUST NEVER exceed 500 words under any circumstances.
+
 ## Mandatory Maintenance Rule
 
 > [!IMPORTANT]
@@ -141,14 +147,14 @@
     - `python3 scripts/scaffold_slides_content.py artifacts/inputs/manual_of_me.md -o artifacts/slide-plans/manual_of_me/slides_content.json`
 
 - **[`scripts/lint_slide_content.py`](lint_slide_content.py)**:
-  - **Purpose**: Lints and validates a vendor-independent `slides_content.json` specification file itself. Verifies JSON pretty-print & formatting uniformity (2-space indentation with a trailing newline), root schema, vendor independence (zero platform-specific internal keys), slide schema & field key order uniformity (`slide_number`, `slide_id_key`, `title` (if present), `subtitle` (if present), `required_keywords`, `key_content`), value whitespace & type uniformity (no un-trimmed string values), sequential slide numbering, unique `slide_id_key`s, and non-empty titles (if present)/keywords. Returns exit code 0 on PASS, 1 on FAIL.
+  - **Purpose**: Lints and validates a vendor-independent `slides_content.json` specification file itself. Verifies JSON pretty-print & formatting uniformity (2-space indentation with a trailing newline), root schema, vendor independence (zero platform-specific internal keys), slide schema & field key order uniformity (`slide_number`, `slide_id_key`, `title` (if present), `subtitle` (if present), `required_keywords`, `content`), value whitespace & type uniformity (no un-trimmed string values), sequential slide numbering, unique `slide_id_key`s, and non-empty titles (if present)/keywords, and performs a content density check. Returns exit code 0 on PASS, 1 on FAIL.
   - **Usage**: `python3 scripts/lint_slide_content.py <json_path> [--json]`
   - **Examples**:
     - `python3 scripts/lint_slide_content.py artifacts/slide-plans/manual_of_me/slides_content.json`
     - `python3 scripts/lint_slide_content.py artifacts/slide-plans/manual_of_me/slides_content.json --json`
 
 - **[`scripts/verify_presentation_content.py`](verify_presentation_content.py)**:
-  - **Purpose**: Verifies live AhaSlides presentation content against a vendor-independent `slides_content.json` specification file slide-by-slide. Checks slide count matching, slide title matching (if title present), all `required_keywords` presence, and `key_content` completeness. Outputs a clean colorized report or JSON payload (`--json`). Returns exit code 0 on PASS, 1 on FAIL.
+  - **Purpose**: Verifies live AhaSlides presentation content against a vendor-independent `slides_content.json` specification file slide-by-slide. Checks slide count matching, slide title matching (if title present), all `required_keywords` presence, and `content` completeness. Outputs a clean colorized report or JSON payload (`--json`). Returns exit code 0 on PASS, 1 on FAIL.
   - **Usage**: `python3 scripts/verify_presentation_content.py <presentation_id> [json_spec_path] [--json]`
   - **Examples**:
     - `python3 scripts/verify_presentation_content.py 9828288 artifacts/slide-plans/manual_of_me/slides_content.json`

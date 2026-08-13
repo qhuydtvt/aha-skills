@@ -1,0 +1,59 @@
+# @purpose: faq_accordion_2col
+# @category: FAQ & Accordion
+---
+content-v2: 1280x720
+version: 1
+background: bg
+---
+
+:::text id=slide6_caption x=80 y=60 w=929 h=32 preset=caption color=#0891B2
+05 · KNOWN ISSUES & SUPPORT
+:::
+
+:::text id=slide6_title x=80 y=95 w=929 h=64 preset=title align=left color=text fontSize=40
+# Debugging Huy — Known Issues & Support Plan
+:::
+
+:::shape id=slide6_row1 x=80 y=175 w=929 h=95 kind=rect fill=surface borderRadius=10
+:::
+
+:::icon id=slide6_icon1 name=help-circle x=104 y=190 w=32 h=32 color=#0891B2
+:::
+
+:::text id=slide6_text1 x=150 y=185 w=780 h=75 preset=body align=left color=text
+**Bug #1:** Ask too many questions when a problem is not fully understood before committing.
+**Support:** Provide clear context and explain how it is relevant to the business, product, or team.
+:::
+
+:::shape id=slide6_row2 x=80 y=285 w=929 h=95 kind=rect fill=surface borderRadius=10
+:::
+
+:::icon id=slide6_icon2 name=battery-low x=104 y=300 w=32 h=32 color=#0891B2
+:::
+
+:::text id=slide6_text2 x=150 y=295 w=780 h=75 preset=body align=left color=text
+**Bug #2:** Respond slowly when running on low energy.
+**Support:** Give time to recover, still feel free to ask for faster response if urgent.
+:::
+
+:::shape id=slide6_row3 x=80 y=395 w=929 h=95 kind=rect fill=surface borderRadius=10
+:::
+
+:::icon id=slide6_icon3 name=activity x=104 y=410 w=32 h=32 color=#0891B2
+:::
+
+:::text id=slide6_text3 x=150 y=405 w=780 h=75 preset=body align=left color=text
+**Bug #3:** Tend to be incoherent when getting over-excited.
+**Support:** Give time to let things sink in, and echo back what you hear if possible.
+:::
+
+:::shape id=slide6_row4 x=80 y=505 w=929 h=95 kind=rect fill=surface borderRadius=10
+:::
+
+:::icon id=slide6_icon4 name=alert-triangle x=104 y=520 w=32 h=32 color=#0891B2
+:::
+
+:::text id=slide6_text4 x=150 y=515 w=780 h=75 preset=body align=left color=text
+**Bug #4:** Sometimes pushing too hard on self and people.
+**Support:** Explain if it's not working or if energy is better spent in other ways.
+:::

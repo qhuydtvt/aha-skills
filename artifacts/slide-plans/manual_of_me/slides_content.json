@@ -5,12 +5,7 @@
     "title": "A Manual of HuyNQ \u2014 Guide to Working & Collaborating",
     "version": "1.0.0",
     "source_file": "artifacts/inputs/manual_of_me.md",
-    "total_slides": 8,
-    "theme": {
-      "base_color": "#0F172A",
-      "text_color": "#F8FAFC",
-      "accent_color": "#06B6D4"
-    }
+    "total_slides": 8
   },
   "slides": [
     {
@@ -27,16 +22,20 @@
         "Quirks",
         "Golden Rules"
       ],
-      "key_content": {
-        "mission_statement": "Build useful things",
-        "overview_topics": [
-          "Core Values & Mindset",
-          "Communication Preferences & Rules",
-          "Feedback Guide",
-          "Quirks & Debugging Support Strategies",
-          "Collaboration Golden Rules"
-        ]
-      }
+      "content": [
+        {
+          "mission_statement": "Build useful things"
+        },
+        {
+          "overview_topics": [
+            "Core Values & Mindset",
+            "Communication Preferences & Rules",
+            "Feedback Guide",
+            "Quirks & Debugging Support Strategies",
+            "Collaboration Golden Rules"
+          ]
+        }
+      ]
     },
     {
       "slide_number": 2,
@@ -48,26 +47,30 @@
         "Continuous improvement",
         "Build & Discover"
       ],
-      "key_content": {
-        "core_values": [
-          {
-            "name": "Integrity",
-            "description": "Radical transparency, honesty, and doing what is right even when difficult."
-          },
-          {
-            "name": "Winning Mindset",
-            "description": "High standards, drive to solve tough problems, and commitment to meaningful outcomes."
-          },
-          {
-            "name": "Continuous improvement",
-            "description": "Constant iteration, learning from mistakes, and incremental daily gains."
+      "content": [
+        {
+          "core_values": [
+            {
+              "name": "Integrity",
+              "description": "Radical transparency, honesty, and doing what is right even when difficult."
+            },
+            {
+              "name": "Winning Mindset",
+              "description": "High standards, drive to solve tough problems, and commitment to meaningful outcomes."
+            },
+            {
+              "name": "Continuous improvement",
+              "description": "Constant iteration, learning from mistakes, and incremental daily gains."
+            }
+          ]
+        },
+        {
+          "driving_philosophy": {
+            "title": "Build & Discover Simultaneously",
+            "description": "Prefers running discovery concurrently while building products, rather than waiting for fully baked ideas."
           }
-        ],
-        "driving_philosophy": {
-          "title": "Build & Discover Simultaneously",
-          "description": "Prefers running discovery concurrently while building products, rather than waiting for fully baked ideas."
         }
-      }
+      ]
     },
     {
       "slide_number": 3,
@@ -83,31 +86,37 @@
         "Problem definition",
         "Proposed solutions"
       ],
-      "key_content": {
-        "preferred_channels": [
-          {
-            "channel": "Slack/Teams (Chat)",
-            "best_for": "Best for non-mentally taxing and quick info exchange."
-          },
-          {
-            "channel": "Face-to-Face or Call",
-            "best_for": "Best for complex or easily misunderstood topics."
-          },
-          {
-            "channel": "Email",
-            "best_for": "Best for official decisions or third-party communications."
-          }
-        ],
-        "boundaries": [
-          "Context upfront: Context provided upfront unless mutual understanding is established.",
-          "One at a time: Only handle one face-to-face or live call conversation at a time."
-        ],
-        "standard_3_step_format": [
-          "1. Context (facts only)",
-          "2. Problem definition",
-          "3. Proposed solutions (if any)"
-        ]
-      }
+      "content": [
+        {
+          "preferred_channels": [
+            {
+              "channel": "Slack/Teams (Chat)",
+              "best_for": "Best for non-mentally taxing and quick info exchange."
+            },
+            {
+              "channel": "Face-to-Face or Call",
+              "best_for": "Best for complex or easily misunderstood topics."
+            },
+            {
+              "channel": "Email",
+              "best_for": "Best for official decisions or third-party communications."
+            }
+          ]
+        },
+        {
+          "boundaries": [
+            "Context upfront: Context provided upfront unless mutual understanding is established.",
+            "One at a time: Only handle one face-to-face or live call conversation at a time."
+          ]
+        },
+        {
+          "standard_3_step_format": [
+            "1. Context (facts only)",
+            "2. Problem definition",
+            "3. Proposed solutions (if any)"
+          ]
+        }
+      ]
     },
     {
       "slide_number": 4,
@@ -123,26 +132,30 @@
         "team",
         "Proposed solution"
       ],
-      "key_content": {
-        "preferred_channel": "Face-to-face (does not matter if private or public)",
-        "feedback_structure": [
-          {
-            "step": 1,
-            "title": "Context",
-            "detail": "Context of the feedback."
-          },
-          {
-            "step": 2,
-            "title": "Shared Understanding of Impact",
-            "detail": "Establishing a shared understanding of the problem and its impact on the business, product, or team."
-          },
-          {
-            "step": 3,
-            "title": "Proposed Solution",
-            "detail": "(Optional) Proposed solution or improvement."
-          }
-        ]
-      }
+      "content": [
+        {
+          "preferred_channel": "Face-to-face (does not matter if private or public)"
+        },
+        {
+          "feedback_structure": [
+            {
+              "step": 1,
+              "title": "Context",
+              "detail": "Context of the feedback."
+            },
+            {
+              "step": 2,
+              "title": "Shared Understanding of Impact",
+              "detail": "Establishing a shared understanding of the problem and its impact on the business, product, or team."
+            },
+            {
+              "step": 3,
+              "title": "Proposed Solution",
+              "detail": "(Optional) Proposed solution or improvement."
+            }
+          ]
+        }
+      ]
     },
     {
       "slide_number": 5,
@@ -154,26 +167,28 @@
         "Topic-Selective Energy",
         "Build & Discover"
       ],
-      "key_content": {
-        "default_behaviors": [
-          {
-            "name": "Out-Loud Brainstorming",
-            "behavior": "Brainstorm and jump between ideas out loud before focusing on the final solution."
-          },
-          {
-            "name": "Coherence-Driven",
-            "behavior": "Easily get irritated when things get incoherent, and tend to sort them out before moving on."
-          },
-          {
-            "name": "Topic-Selective Energy",
-            "behavior": "More energetic when discussing product and engineering topics; lower energy in other areas."
-          },
-          {
-            "name": "Build & Discover",
-            "behavior": "Love to build and run product discovery at the same time."
-          }
-        ]
-      }
+      "content": [
+        {
+          "default_behaviors": [
+            {
+              "name": "Out-Loud Brainstorming",
+              "behavior": "Brainstorm and jump between ideas out loud before focusing on the final solution."
+            },
+            {
+              "name": "Coherence-Driven",
+              "behavior": "Easily get irritated when things get incoherent, and tend to sort them out before moving on."
+            },
+            {
+              "name": "Topic-Selective Energy",
+              "behavior": "More energetic when discussing product and engineering topics; lower energy in other areas."
+            },
+            {
+              "name": "Build & Discover",
+              "behavior": "Love to build and run product discovery at the same time."
+            }
+          ]
+        }
+      ]
     },
     {
       "slide_number": 6,
@@ -189,30 +204,32 @@
         "pushing too hard",
         "Explain if not working"
       ],
-      "key_content": {
-        "bugs": [
-          {
-            "bug_id": 1,
-            "issue": "Ask a lot of questions when a problem is not fully understood before committing.",
-            "support": "Provide clear context and explain how it is relevant to the business, product, or team."
-          },
-          {
-            "bug_id": 2,
-            "issue": "Respond slowly when running on low energy.",
-            "support": "Give time to recover, still feel free to ask for faster response if urgent."
-          },
-          {
-            "bug_id": 3,
-            "issue": "Tend to be incoherent when getting over-excited.",
-            "support": "Give time to let things sink in, and echo back what you hear if possible."
-          },
-          {
-            "bug_id": 4,
-            "issue": "Sometimes push self and people too hard.",
-            "support": "Explain if it's not working or if energy is better spent in other ways."
-          }
-        ]
-      }
+      "content": [
+        {
+          "bugs": [
+            {
+              "bug_id": 1,
+              "issue": "Ask a lot of questions when a problem is not fully understood before committing.",
+              "support": "Provide clear context and explain how it is relevant to the business, product, or team."
+            },
+            {
+              "bug_id": 2,
+              "issue": "Respond slowly when running on low energy.",
+              "support": "Give time to recover, still feel free to ask for faster response if urgent."
+            },
+            {
+              "bug_id": 3,
+              "issue": "Tend to be incoherent when getting over-excited.",
+              "support": "Give time to let things sink in, and echo back what you hear if possible."
+            },
+            {
+              "bug_id": 4,
+              "issue": "Sometimes push self and people too hard.",
+              "support": "Explain if it's not working or if energy is better spent in other ways."
+            }
+          ]
+        }
+      ]
     },
     {
       "slide_number": 7,
@@ -224,16 +241,20 @@
         "Notify me beforehand",
         "Give reasons"
       ],
-      "key_content": {
-        "pet_peeves": [
-          "Unscheduled communication for non-urgent matters.",
-          "Refusal of ideas or proposals without clear reasons."
-        ],
-        "golden_rules": [
-          "Notify me beforehand for synchronous check-ins.",
-          "Give reasons for idea/proposal refusal, and optionally suggest alternatives."
-        ]
-      }
+      "content": [
+        {
+          "pet_peeves": [
+            "Unscheduled communication for non-urgent matters.",
+            "Refusal of ideas or proposals without clear reasons."
+          ]
+        },
+        {
+          "golden_rules": [
+            "Notify me beforehand for synchronous check-ins.",
+            "Give reasons for idea/proposal refusal, and optionally suggest alternatives."
+          ]
+        }
+      ]
     },
     {
       "slide_number": 8,
@@ -246,15 +267,19 @@
         "Support the bugs",
         "Build useful things"
       ],
-      "key_content": {
-        "cheatsheet_summary": [
-          "Context upfront (Context -> Problem -> Solution)",
-          "Face-to-face for feedback (focus on impact)",
-          "Support the bugs (echo back, tag urgency, protect energy)",
-          "Respect focus time (pre-notify check-ins, explain rejections)"
-        ],
-        "closing_quote": "This manual is a living document\u2014let's keep communicating, building, and improving together!"
-      }
+      "content": [
+        {
+          "cheatsheet_summary": [
+            "Context upfront (Context -> Problem -> Solution)",
+            "Face-to-face for feedback (focus on impact)",
+            "Support the bugs (echo back, tag urgency, protect energy)",
+            "Respect focus time (pre-notify check-ins, explain rejections)"
+          ]
+        },
+        {
+          "closing_quote": "This manual is a living document\u2014let's keep communicating, building, and improving together!"
+        }
+      ]
     }
   ]
 }

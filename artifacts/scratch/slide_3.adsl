@@ -1,0 +1,42 @@
+# @presentation_id: 9855829
+# @slide_id: 157201732
+# @purpose: bullet_list_icon_grid
+# @category: Lists & Content
+# @description: Bullet points list layout paired with decorative icon visual anchors
+# @keywords: bullet list, icons, features, key points, takeaway, list grid
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=Hq5tyvbKvt at=top-center width=86% height=144 preset=title align=center
+# How We Connect — Communication Preferences & Rules
+:::
+
+:::shape id=Vpo6jtC3I4 at=center width=480 height=424 offsetX=-256 offsetY=80 kind=rect fill=surface borderRadius=16
+:::
+
+:::text id=khe44S3pM1 at=center width=424 height=64 offsetX=-256 offsetY=-80 preset=caption align=center color=#06B6D4
+PREFERRED CHANNELS & BOUNDARIES
+:::
+
+:::text id=VnIHUGWqKk at=center width=424 height=312 offsetX=-256 offsetY=104 preset=body align=left color=text
+- **Slack/Teams** (Chat): Best for non-mentally taxing and quick info exchange.
+- **Face-to-Face or Call**: Best for complex or easily misunderstood topics.
+- **Email**: Best for official decisions or third-party communications.
+- **Context upfront**: Context provided upfront unless mutual understanding is established.
+- **One at a time**: Only handle one face-to-face or live call conversation at a time.
+:::
+
+:::shape id=Gd-emq4NLM at=center width=480 height=424 offsetX=264 offsetY=80 kind=rect fill=surface borderRadius=16
+:::
+
+:::text id=Zo0pYXOIvk at=center width=424 height=64 offsetX=264 offsetY=-80 preset=caption align=center color=#166534
+STANDARD 3-STEP FORMAT
+:::
+
+:::text id=puoTqy2qXA at=center width=424 height=272 offsetX=264 offsetY=104 preset=body align=left color=text
+- **1. Context (facts only)**: State background and factual basis clearly.
+- **2. Problem definition**: Clearly define the exact problem being addressed.
+- **3. Proposed solutions**: Present actionable recommendations or options (if any).
+:::

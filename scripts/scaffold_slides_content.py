@@ -39,12 +39,7 @@ def build_manual_of_me_fixture(input_path_str: str) -> dict[str, Any]:
             "title": "A Manual of HuyNQ — Guide to Working & Collaborating",
             "version": "1.0.0",
             "source_file": input_path_str,
-            "total_slides": 8,
-            "theme": {
-                "base_color": "#0F172A",
-                "text_color": "#F8FAFC",
-                "accent_color": "#06B6D4"
-            }
+            "total_slides": 8
         },
         "slides": [
             {
@@ -61,16 +56,16 @@ def build_manual_of_me_fixture(input_path_str: str) -> dict[str, Any]:
                     "Quirks",
                     "Golden Rules"
                 ],
-                "key_content": {
-                    "mission_statement": "Build useful things",
-                    "overview_topics": [
+                "content": [
+                    {"mission_statement": "Build useful things"},
+                    {"overview_topics": [
                         "Core Values & Mindset",
                         "Communication Preferences & Rules",
                         "Feedback Guide",
                         "Quirks & Debugging Support Strategies",
                         "Collaboration Golden Rules"
-                    ]
-                }
+                    ]}
+                ]
             },
             {
                 "slide_number": 2,
@@ -82,8 +77,8 @@ def build_manual_of_me_fixture(input_path_str: str) -> dict[str, Any]:
                     "Continuous improvement",
                     "Build & Discover"
                 ],
-                "key_content": {
-                    "core_values": [
+                "content": [
+                    {"core_values": [
                         {
                             "name": "Integrity",
                             "description": "Radical transparency, honesty, and doing what is right even when difficult."
@@ -96,12 +91,12 @@ def build_manual_of_me_fixture(input_path_str: str) -> dict[str, Any]:
                             "name": "Continuous improvement",
                             "description": "Constant iteration, learning from mistakes, and incremental daily gains."
                         }
-                    ],
-                    "driving_philosophy": {
+                    ]},
+                    {"driving_philosophy": {
                         "title": "Build & Discover Simultaneously",
                         "description": "Prefers running discovery concurrently while building products, rather than waiting for fully baked ideas."
-                    }
-                }
+                    }}
+                ]
             },
             {
                 "slide_number": 3,
@@ -117,8 +112,8 @@ def build_manual_of_me_fixture(input_path_str: str) -> dict[str, Any]:
                     "Problem definition",
                     "Proposed solutions"
                 ],
-                "key_content": {
-                    "preferred_channels": [
+                "content": [
+                    {"preferred_channels": [
                         {
                             "channel": "Slack/Teams (Chat)",
                             "best_for": "Best for non-mentally taxing and quick info exchange."
@@ -131,17 +126,17 @@ def build_manual_of_me_fixture(input_path_str: str) -> dict[str, Any]:
                             "channel": "Email",
                             "best_for": "Best for official decisions or third-party communications."
                         }
-                    ],
-                    "boundaries": [
+                    ]},
+                    {"boundaries": [
                         "Context upfront: Context provided upfront unless mutual understanding is established.",
                         "One at a time: Only handle one face-to-face or live call conversation at a time."
-                    ],
-                    "standard_3_step_format": [
+                    ]},
+                    {"standard_3_step_format": [
                         "1. Context (facts only)",
                         "2. Problem definition",
                         "3. Proposed solutions (if any)"
-                    ]
-                }
+                    ]}
+                ]
             },
             {
                 "slide_number": 4,
@@ -157,9 +152,9 @@ def build_manual_of_me_fixture(input_path_str: str) -> dict[str, Any]:
                     "team",
                     "Proposed solution"
                 ],
-                "key_content": {
-                    "preferred_channel": "Face-to-face (does not matter if private or public)",
-                    "feedback_structure": [
+                "content": [
+                    {"preferred_channel": "Face-to-face (does not matter if private or public)"},
+                    {"feedback_structure": [
                         {
                             "step": 1,
                             "title": "Context",
@@ -175,8 +170,8 @@ def build_manual_of_me_fixture(input_path_str: str) -> dict[str, Any]:
                             "title": "Proposed Solution",
                             "detail": "(Optional) Proposed solution or improvement."
                         }
-                    ]
-                }
+                    ]}
+                ]
             },
             {
                 "slide_number": 5,
@@ -188,8 +183,8 @@ def build_manual_of_me_fixture(input_path_str: str) -> dict[str, Any]:
                     "Topic-Selective Energy",
                     "Build & Discover"
                 ],
-                "key_content": {
-                    "default_behaviors": [
+                "content": [
+                    {"default_behaviors": [
                         {
                             "name": "Out-Loud Brainstorming",
                             "behavior": "Brainstorm and jump between ideas out loud before focusing on the final solution."
@@ -206,8 +201,8 @@ def build_manual_of_me_fixture(input_path_str: str) -> dict[str, Any]:
                             "name": "Build & Discover",
                             "behavior": "Love to build and run product discovery at the same time."
                         }
-                    ]
-                }
+                    ]}
+                ]
             },
             {
                 "slide_number": 6,
@@ -223,8 +218,8 @@ def build_manual_of_me_fixture(input_path_str: str) -> dict[str, Any]:
                     "pushing too hard",
                     "Explain if not working"
                 ],
-                "key_content": {
-                    "bugs": [
+                "content": [
+                    {"bugs": [
                         {
                             "bug_id": 1,
                             "issue": "Ask a lot of questions when a problem is not fully understood before committing.",
@@ -245,8 +240,8 @@ def build_manual_of_me_fixture(input_path_str: str) -> dict[str, Any]:
                             "issue": "Sometimes push self and people too hard.",
                             "support": "Explain if it's not working or if energy is better spent in other ways."
                         }
-                    ]
-                }
+                    ]}
+                ]
             },
             {
                 "slide_number": 7,
@@ -258,16 +253,16 @@ def build_manual_of_me_fixture(input_path_str: str) -> dict[str, Any]:
                     "Notify me beforehand",
                     "Give reasons"
                 ],
-                "key_content": {
-                    "pet_peeves": [
+                "content": [
+                    {"pet_peeves": [
                         "Unscheduled communication for non-urgent matters.",
                         "Refusal of ideas or proposals without clear reasons."
-                    ],
-                    "golden_rules": [
+                    ]},
+                    {"golden_rules": [
                         "Notify me beforehand for synchronous check-ins.",
                         "Give reasons for idea/proposal refusal, and optionally suggest alternatives."
-                    ]
-                }
+                    ]}
+                ]
             },
             {
                 "slide_number": 8,
@@ -280,15 +275,15 @@ def build_manual_of_me_fixture(input_path_str: str) -> dict[str, Any]:
                     "Support the bugs",
                     "Build useful things"
                 ],
-                "key_content": {
-                    "cheatsheet_summary": [
+                "content": [
+                    {"cheatsheet_summary": [
                         "Context upfront (Context -> Problem -> Solution)",
                         "Face-to-face for feedback (focus on impact)",
                         "Support the bugs (echo back, tag urgency, protect energy)",
                         "Respect focus time (pre-notify check-ins, explain rejections)"
-                    ],
-                    "closing_quote": "This manual is a living document—let's keep communicating, building, and improving together!"
-                }
+                    ]},
+                    {"closing_quote": "This manual is a living document—let's keep communicating, building, and improving together!"}
+                ]
             }
         ]
     }
@@ -351,7 +346,7 @@ def parse_slide_plan_markdown(content: str, rel_source_path: str) -> dict[str, A
             "slide_id_key": slide_id_key,
             "title": main_title,
             "required_keywords": keywords,
-            "key_content": {"summary_points": content_lines[:5]} if content_lines else {"title": main_title},
+            "content": content_lines[:5] if content_lines else [main_title],
         }
         if subtitle:
             slide_dict["subtitle"] = subtitle
@@ -366,12 +361,7 @@ def parse_slide_plan_markdown(content: str, rel_source_path: str) -> dict[str, A
             "title": doc_title,
             "version": "1.0.0",
             "source_file": rel_source_path,
-            "total_slides": len(slides),
-            "theme": {
-                "base_color": "#0F172A",
-                "text_color": "#F8FAFC",
-                "accent_color": "#06B6D4"
-            }
+            "total_slides": len(slides)
         },
         "slides": slides
     }

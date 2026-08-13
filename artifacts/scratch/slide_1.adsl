@@ -1,0 +1,32 @@
+# @presentation_id: 9855829
+# @slide_id: 157201688
+# @purpose: hero_header_minimal_cover
+# @category: Headers & Covers
+# @description: Minimalist hero header cover layout with main title and subtitle text
+# @keywords: cover, hero, header, minimal, title, headline, cover slide
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=7ToQvnF4Tt at=center-left width=70% height=120 offsetX=80 offsetY=-96 preset=body align=left color=text
+# Working with HuyNQ — A User Manual
+:::
+
+:::text id=JClVmJNce1 at=center-left width=70% height=264 offsetX=80 offsetY=24 preset=title align=left color=muted
+### Mission: Build useful things
+
+A practical guide on how to work, communicate, and collaborate with me:
+- Core Values & Mindset
+- Communication Preferences & Rules
+- Feedback Guide
+- Quirks & Debugging Support Strategies
+- Collaboration Golden Rules
+:::
+
+:::shape id=IR5XatROEO at=center-left width=64 height=0 offsetX=80 offsetY=120 kind=rect fill=#0F172A
+:::
+
+:::text id=NnP62uRoOg at=center-left width=50% height=64 offsetX=80 offsetY=160 preset=caption align=left color=muted
+Manual of HuyNQ · Core Values · Communication · Feedback · Quirks · Golden Rules
+:::

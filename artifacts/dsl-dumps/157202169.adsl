@@ -1,0 +1,59 @@
+# @purpose: feature_cards_4col
+# @category: Features & Products
+---
+content-v2: 1280x720
+version: 1
+background: bg
+---
+
+:::text id=slide5_caption x=80 y=60 w=929 h=32 preset=caption color=#0891B2
+04 · BEHAVIORS & QUIRKS
+:::
+
+:::text id=slide5_title x=80 y=95 w=929 h=64 preset=title align=left color=text fontSize=40
+# Inside the Engine — Default Behaviors & Quirks
+:::
+
+:::shape id=slide5_card1 x=80 y=175 w=450 h=205 kind=rect fill=surface borderRadius=12
+:::
+
+:::icon id=slide5_icon1 name=zap x=104 y=195 w=32 h=32 color=#0891B2
+:::
+
+:::text id=slide5_text1 x=104 y=235 w=400 h=130 preset=body align=left color=text
+**Out-Loud Brainstorming**
+Brainstorm and jump between ideas out loud before focusing on the final solution.
+:::
+
+:::shape id=slide5_card2 x=550 y=175 w=459 h=205 kind=rect fill=surface borderRadius=12
+:::
+
+:::icon id=slide5_icon2 name=compass x=574 y=195 w=32 h=32 color=#0891B2
+:::
+
+:::text id=slide5_text2 x=574 y=235 w=410 h=130 preset=body align=left color=text
+**Coherence-Driven**
+Easily get irritated when things get incoherent, and tend to sort them out before moving on.
+:::
+
+:::shape id=slide5_card3 x=80 y=400 w=450 h=205 kind=rect fill=surface borderRadius=12
+:::
+
+:::icon id=slide5_icon3 name=battery-charging x=104 y=420 w=32 h=32 color=#0891B2
+:::
+
+:::text id=slide5_text3 x=104 y=460 w=400 h=130 preset=body align=left color=text
+**Topic-Selective Energy**
+More energetic when discussing product and engineering topics; lower energy in other areas.
+:::
+
+:::shape id=slide5_card4 x=550 y=400 w=459 h=205 kind=rect fill=surface borderRadius=12
+:::
+
+:::icon id=slide5_icon4 name=layers x=574 y=420 w=32 h=32 color=#0891B2
+:::
+
+:::text id=slide5_text4 x=574 y=460 w=410 h=130 preset=body align=left color=text
+**Build & Discover**
+Love to build and run product discovery at the same time.
+:::

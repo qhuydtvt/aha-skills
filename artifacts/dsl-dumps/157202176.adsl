@@ -1,0 +1,42 @@
+# @purpose: quote_testimonial_card
+# @category: Outro & Callouts
+---
+content-v2: 1280x720
+version: 1
+background: bg
+---
+
+:::text id=slide8_caption x=80 y=60 w=929 h=32 preset=caption color=#0891B2
+07 · CONCLUSION & CHEATSHEET
+:::
+
+:::text id=slide8_title x=80 y=95 w=929 h=64 preset=title align=left color=text fontSize=40
+# Conclusion — Let's Build Useful Things Together
+:::
+
+:::shape id=slide8_card1 x=80 y=175 w=929 h=270 kind=rect fill=surface borderRadius=12
+:::
+
+:::icon id=slide8_icon1 name=check-square x=104 y=195 w=32 h=32 color=#0891B2
+:::
+
+:::text id=slide8_text1 x=150 y=190 w=780 h=230 preset=body align=left color=text
+**Quick Cheatsheet Summary:**
+
+• **Context upfront:** Always follow Context -> Problem -> Solution.
+• **Face-to-face:** Preferred for feedback; focus on impact.
+• **Support the bugs:** Echo back, tag urgency, and protect energy.
+• **Respect focus time:** Pre-notify check-ins and explain rejections.
+:::
+
+:::shape id=slide8_card2 x=80 y=465 w=929 h=140 kind=rect fill=surface borderRadius=12
+:::
+
+:::icon id=slide8_icon2 name=heart-handshake x=104 y=485 w=40 h=40 color=#0891B2
+:::
+
+:::text id=slide8_text2 x=160 y=485 w=760 h=100 preset=body align=left color=text
+**Let's Build useful things together!**
+
+*\"This manual is a living document—let's keep communicating, building, and improving together!\"*
+:::

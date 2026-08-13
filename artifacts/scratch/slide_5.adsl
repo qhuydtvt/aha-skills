@@ -1,0 +1,54 @@
+# @presentation_id: 9855829
+# @slide_id: 157201734
+# @purpose: feature_cards_4col
+# @category: Features & Products
+# @description: 4-column card grid layout for feature summaries and capability overviews
+# @keywords: features, 4-column, cards, grid, benefits, product overview
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=3EqGiPEMNg at=top-center width=86% height=208 preset=title align=center
+# Inside the Engine — Default Behaviors & Quirks
+:::
+
+:::shape id=qZUcQb5fIp at=center width=440 height=184 offsetX=-240 offsetY=-32 kind=rect fill=surface borderRadius=16 shadow=md
+:::
+
+:::icon id=GA0ouNEmXp at=center width=40 height=40 offsetX=-440 offsetY=-80 name=zap size=36 color=#F97316
+:::
+
+:::text id=rj0mmg4dUv at=center width=360 height=160 offsetX=-200 offsetY=0 preset=body align=left color=text
+**Out-Loud Brainstorming** — Brainstorm and jump between ideas out loud before focusing on final solution.
+:::
+
+:::shape id=g6ReABIyBc at=center width=440 height=184 offsetX=240 offsetY=-32 kind=rect fill=surface borderRadius=16 shadow=md
+:::
+
+:::icon id=3MpJ7pEK0z at=center width=40 height=40 offsetX=40 offsetY=-80 name=shield size=36 color=#F97316
+:::
+
+:::text id=yqzgOQOtCo at=center width=360 offsetX=280 offsetY=0 preset=body align=left color=text
+**Coherence-Driven** — Easily get irritated when things get incoherent, sorting them before moving on.
+:::
+
+:::shape id=YZsJeZbPkQ at=center width=440 height=184 offsetX=-240 offsetY=184 kind=rect fill=surface borderRadius=16 shadow=md
+:::
+
+:::icon id=vSpeoyL8gG at=center width=40 height=40 offsetX=-440 offsetY=128 name=heart size=36 color=#F97316
+:::
+
+:::text id=8Lr5Gms6_X at=center width=360 height=160 offsetX=-200 offsetY=208 preset=body align=left color=text
+**Topic-Selective Energy** — More energetic discussing product and engineering topics; lower in other areas.
+:::
+
+:::shape id=Ln1BDHsa8o at=center width=440 height=184 offsetX=240 offsetY=184 kind=rect fill=surface borderRadius=16 shadow=md
+:::
+
+:::icon id=TIYc1BXcfZ at=center width=40 height=40 offsetX=40 offsetY=128 name=sparkles size=36 color=#F97316
+:::
+
+:::text id=j0rtKk63-b at=center width=360 height=128 offsetX=280 offsetY=208 preset=body align=left color=text
+**Build & Discover** — Love to build and run product discovery at the same time.
+:::

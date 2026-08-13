@@ -21,6 +21,13 @@ from scripts.shared.lib.layout_padding import (
     calculate_slide_margins,
     is_contained,
 )
+from scripts.shared.lib.content_density import (
+    MAX_ELEM_LINES,
+    MAX_ELEM_CHARS,
+    MAX_SLIDE_CHARS,
+    MAX_SLIDE_BULLETS,
+    analyze_element_content,
+)
 
 CANVAS_WIDTH = 1280
 CANVAS_HEIGHT = 720
@@ -106,14 +113,6 @@ def is_contained(inner: tuple[float, float, float, float], outer: tuple[float, f
     if inter_r > inter_l and inter_b > inter_t:
         return ((inter_r - inter_l) * (inter_b - inter_t)) / max(1.0, (r1 - l1) * (b1 - t1)) >= 0.5
     return False
-
-
-def count_bullet_items(text: str) -> int:
-    """Count bullet points or numbered list items in text."""
-    if not text:
-        return 0
-    p = re.compile(r"^\s*(?:[•\-*+→]|\d+[\.\)]|[a-zA-Z][\.\)])\s*\S+")
-    return sum(1 for line in text.splitlines() if p.match(line))
 
 
 def lint_slide(
@@ -223,14 +222,22 @@ def lint_slide(
     elif not slide_base_color:
         slide_base_color = "#FFFFFF"
 
-    # Raw DSL Lint: Check raw DSL text for malformed directives like :::::: or missing newline block breaks
-    if dsl_text and ("::::::" in dsl_text or "::::" in dsl_text):
-        syntax_errors.append(
-            (
-                "slide_dsl",
-                "Malformed directive boundary detected in raw DSL (e.g. '::::::text' without proper newline separation).",
+    # Raw DSL Lint: Check raw DSL text for malformed directives or inline syntax leaks
+    if dsl_text:
+        if "::::::" in dsl_text or "::::" in dsl_text:
+            syntax_errors.append(
+                (
+                    "slide_dsl",
+                    "Malformed directive boundary detected in raw DSL (e.g. '::::::text' without proper newline separation).",
+                )
             )
-        )
+        if re.search(r":::[a-zA-Z0-9_-]+\[", dsl_text):
+            syntax_errors.append(
+                (
+                    "slide_dsl",
+                    "Inline directive syntax leak detected in raw DSL (e.g. ':::icon[...]' inside text body instead of standalone ':::icon' element).",
+                )
+            )
 
     # Total slide counters for content density check
     total_slide_chars = 0
@@ -243,13 +250,14 @@ def lint_slide(
         # Content Lint: Check for leaked DSL or HTML syntax
         text = elem.get("text", "")
         if (
-            ":::text" in text
-            or "::::::" in text
+            ":::" in text
             or "preset=" in text
             or "offsetY=" in text
+            or "offsetX=" in text
             or "<br>" in text.lower()
+            or re.search(r"\[name=[\"'][^\"']+[\"']", text)
         ):
-            syntax_errors.append((eid, "Leaked DSL or HTML syntax detected in element text."))
+            syntax_errors.append((eid, f"Leaked DSL or HTML syntax detected in element text: {text[:60]!r}"))
 
         # Overflow Lint: Check if element bleeds off the canvas (1280x720)
         l, t, r, b = boxes[eid]
@@ -262,24 +270,21 @@ def lint_slide(
             )
 
         # Content Length & Density Validation (Single Element Level)
-        text_lines = text.splitlines() if text else []
-        elem_line_count = len(text_lines)
-        elem_char_count = len(text)
-        elem_bullet_count = count_bullet_items(text)
+        elem_line_count, elem_char_count, elem_bullet_count = analyze_element_content(text)
 
         total_slide_chars += elem_char_count
         total_slide_bullets += elem_bullet_count
 
-        if elem_line_count > 8:
-            density_errors.append((eid, f"Single element lines ({elem_line_count}) exceeds 8 max limit."))
-        if elem_char_count > 350:
-            density_errors.append((eid, f"Single element length ({elem_char_count} chars) exceeds 350 max limit."))
+        if elem_line_count > MAX_ELEM_LINES:
+            density_errors.append((eid, f"Single element lines ({elem_line_count}) exceeds {MAX_ELEM_LINES} max limit."))
+        if elem_char_count > MAX_ELEM_CHARS:
+            density_errors.append((eid, f"Single element length ({elem_char_count} chars) exceeds {MAX_ELEM_CHARS} max limit."))
 
     # Content Length & Density Validation (Slide Level)
-    if total_slide_chars > 750:
-        density_errors.append(("slide_content", f"Total slide chars ({total_slide_chars}) exceeds 750 max. Recommend splitting into 2 slides."))
-    if total_slide_bullets > 8:
-        density_errors.append(("slide_content", f"Total slide items ({total_slide_bullets}) exceeds 8 max. Recommend splitting into 2 slides."))
+    if total_slide_chars > MAX_SLIDE_CHARS:
+        density_errors.append(("slide_content", f"Total slide chars ({total_slide_chars}) exceeds {MAX_SLIDE_CHARS} max. Recommend splitting into 2 slides."))
+    if total_slide_bullets > MAX_SLIDE_BULLETS:
+        density_errors.append(("slide_content", f"Total slide items ({total_slide_bullets}) exceeds {MAX_SLIDE_BULLETS} max. Recommend splitting into 2 slides."))
 
     # Identify potential container elements (shapes/boxes with background/bg/fill)
     containers = []

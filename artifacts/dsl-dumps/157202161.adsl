@@ -1,0 +1,36 @@
+# @purpose: hero_header_minimal_cover
+# @category: Headers & Covers
+---
+content-v2: 1280x720
+version: 1
+background: bg
+---
+
+:::text id=slide1_badge x=80 y=70 w=929 h=32 preset=caption color=#0891B2
+Manual of HuyNQ · Core Values · Communication · Feedback · Quirks · Golden Rules
+:::
+
+:::text id=slide1_title x=80 y=115 w=929 h=140 preset=title align=left color=text fontSize=48
+# Working with HuyNQ — A User Manual
+:::
+
+:::text id=slide1_sub x=80 y=265 w=929 h=60 preset=subtitle align=left color=muted
+A practical guide on how to work, communicate, and collaborate with me
+:::
+
+:::shape id=slide1_line x=80 y=340 w=929 h=4 kind=rect fill=#0891B2
+:::
+
+:::shape id=slide1_card x=80 y=370 w=929 h=260 kind=rect fill=surface borderRadius=12
+:::
+
+:::text id=slide1_mission x=112 y=390 w=865 h=220 preset=body align=left color=text
+**Mission Statement:** Build useful things
+
+**Overview Topics:**
+• Core Values & Mindset
+• Communication Preferences & Rules
+• Feedback Guide
+• Quirks & Debugging Support Strategies
+• Collaboration Golden Rules
+:::
