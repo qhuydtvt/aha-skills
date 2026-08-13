@@ -129,6 +129,7 @@ def lint_slide(
     list[tuple[str, str]],
     list[tuple[str, str]],
     list[tuple[str, str]],
+    list[tuple[str, str]],
 ]:
     """Lint a slide or offline .adsl file.
 
@@ -147,6 +148,7 @@ def lint_slide(
             - contrast_errors: List of (elem_id, message) contrast failures.
             - density_errors: List of (elem_id, message) content length/density violations.
             - symmetry_errors: List of (elem_id, message) right margin and inner padding symmetry violations.
+            - visual_warnings: List of (elem_id, message) visual balance warnings.
     """
     boxes = {}
     syntax_errors: list[tuple[str, str]] = []
@@ -154,6 +156,7 @@ def lint_slide(
     contrast_errors: list[tuple[str, str]] = []
     density_errors: list[tuple[str, str]] = []
     symmetry_errors: list[tuple[str, str]] = []
+    visual_warnings: list[tuple[str, str]] = []
 
     # 1. Determine if offline file or live slide
     is_file = False
@@ -423,6 +426,97 @@ def lint_slide(
             )
             symmetry_errors.append(("slide_padding", msg))
 
+    # Visual Balance Check: Horizontal centroid deviation
+    # Compute area-weighted centroid of all top-level elements (not nested inside containers).
+    # Container shapes (elements with a background/bg/fill attribute) are used for enclosure detection.
+    container_boxes = [(str(e.get("id") or "unknown"), boxes[str(e.get("id") or "unknown")]) for e, _ in containers]
+
+    centroid_weighted_x = 0.0
+    centroid_total_weight = 0.0
+    top_level_left_edges: list[float] = []
+    top_level_elem_count = 0
+
+    for elem in elements:
+        eid = str(elem.get("id") or "unknown")
+        elem_box = boxes[eid]
+        el, et, er, eb = elem_box
+        elem_center_x = (el + er) / 2.0
+        elem_center_y = (et + eb) / 2.0
+
+        # Skip elements whose center is inside any container shape
+        is_nested_elem = False
+        for cont_id, cont_box in container_boxes:
+            if cont_id == eid:
+                continue
+            cl, ct, cr, cb = cont_box
+            if cl <= elem_center_x <= cr and ct <= elem_center_y <= cb:
+                is_nested_elem = True
+                break
+        if is_nested_elem:
+            continue
+
+        # For left-aligned text elements, estimate effective visual right edge from text content
+        # to avoid wide-declared-but-short text boxes skewing the centroid toward center.
+        attrs = elem.get("attributes", {})
+        text_align = attrs.get("align") or attrs.get("textAlign") or attrs.get("text-align") or ""
+        elem_text = elem.get("text", "") or ""
+        is_left_aligned_text = (
+            elem.get("type") in [None, "text"]
+            and str(text_align).lower() in ["left", ""]
+            and bool(elem_text.strip())
+        )
+        if is_left_aligned_text:
+            # Estimate rendered text width: longest line × char_width factor
+            fs_raw = attrs.get("fontSize") or attrs.get("font-size") or elem.get("fontSize") or elem.get("font-size")
+            try:
+                fs = float(re.sub(r"[^\d\.]", "", str(fs_raw))) if fs_raw else 28.0
+            except ValueError:
+                fs = 28.0
+            char_width_factor = 0.55  # approximate avg char width as fraction of font size
+            # Strip common markdown markers before estimating rendered width
+            clean_text = re.sub(r"^#+\s*", "", elem_text, flags=re.MULTILINE)
+            clean_text = re.sub(r"\*\*([^*]+)\*\*", r"\1", clean_text)
+            clean_text = re.sub(r"\*([^*]+)\*", r"\1", clean_text)
+            max_line_len = max((len(line) for line in clean_text.splitlines() if line.strip()), default=1)
+            estimated_text_width = min(er - el, max_line_len * fs * char_width_factor)
+            effective_right = el + max(1.0, estimated_text_width)
+            elem_center_x = (el + effective_right) / 2.0
+            effective_width = effective_right - el
+            effective_height = eb - et
+        else:
+            effective_width = er - el
+            effective_height = eb - et
+
+        area = max(1.0, effective_width * effective_height)
+        centroid_weighted_x += elem_center_x * area
+        centroid_total_weight += area
+        top_level_left_edges.append(el)
+        top_level_elem_count += 1
+
+    if centroid_total_weight > 0 and top_level_elem_count > 0:
+        centroid_x = centroid_weighted_x / centroid_total_weight
+        canvas_mid = CANVAS_WIDTH / 2.0  # 640
+        deviation = centroid_x - canvas_mid
+
+        # Detect left-column layout: all top-level elements share the same left boundary (within 5px)
+        is_left_column = (
+            top_level_elem_count > 3
+            and len(top_level_left_edges) > 0
+            and (max(top_level_left_edges) - min(top_level_left_edges)) <= 5.0
+        )
+
+        threshold = 128.0 if is_left_column else 96.0  # 128px for left-column layout, 96px otherwise (per spec)
+
+        if abs(deviation) > threshold:
+            direction = "left" if deviation < 0 else "right"
+            layout_note = " (left-column layout detected)" if is_left_column else ""
+            msg = (
+                f"slide_balance: Content centroid (x={centroid_x:.1f}) deviates {abs(deviation):.1f}px "
+                f"{direction} of canvas center (x=640). "
+                f"Consider redistributing content for better visual balance.{layout_note}"
+            )
+            visual_warnings.append(("slide_balance", msg))
+
     # Contrast Lint (Spatial Container Overlap Aware)
     for elem in elements:
         eid = str(elem.get("id") or "unknown")
@@ -541,7 +635,7 @@ def lint_slide(
 
                 overlaps.append((id1, id2))
 
-    return boxes, overlaps, syntax_errors, overflows, contrast_errors, density_errors, symmetry_errors
+    return boxes, overlaps, syntax_errors, overflows, contrast_errors, density_errors, symmetry_errors, visual_warnings
 
 
 def main():
@@ -561,7 +655,7 @@ def main():
     client = AhaApiClient() if is_live or not (str(target_input).endswith(".adsl") or Path(target_input).is_file()) else None
 
     try:
-        boxes, overlaps, syntax_errors, overflows, contrast_errors, density_errors, symmetry_errors = lint_slide(
+        boxes, overlaps, syntax_errors, overflows, contrast_errors, density_errors, symmetry_errors, visual_warnings = lint_slide(
             target_input, client=client, contrast_level=args.contrast_level, live=is_live
         )
     except Exception as e:
@@ -611,6 +705,12 @@ def main():
 
     if failed:
         sys.exit(1)
+
+    if visual_warnings:
+        print("\nWARNING: Visual balance issues detected!")
+        for _eid, warn in visual_warnings:
+            print(f"  {warn}")
+
     print("\nSUCCESS: All layout, density, syntax, contrast, symmetry, and boundary checks passed.")
 
 
