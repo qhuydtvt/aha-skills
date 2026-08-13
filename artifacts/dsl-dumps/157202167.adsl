@@ -1,0 +1,47 @@
+# @purpose: comparison_2col
+# @category: Comparisons & Matrix
+---
+content-v2: 1280x720
+version: 1
+background: bg
+---
+
+:::text id=slide3_caption x=80 y=60 w=929 h=32 preset=caption color=#0891B2
+02 · COMMUNICATION PREFERENCES
+:::
+
+:::text id=slide3_title x=80 y=95 w=929 h=64 preset=title align=left color=text fontSize=40
+# How We Connect — Communication Preferences & Rules
+:::
+
+:::shape id=slide3_card1 x=80 y=175 w=450 h=430 kind=rect fill=surface borderRadius=12
+:::
+
+:::icon id=slide3_icon1 name=message-square x=104 y=190 w=28 h=28 color=#0891B2
+:::
+
+:::text id=slide3_text1a x=104 y=225 w=400 h=180 preset=body align=left color=text
+**Preferred Channels:**
+Slack/Teams (Chat): Best for non-mentally taxing and quick info exchange.
+Face-to-Face or Call: Best for complex or easily misunderstood topics.
+Email: Best for official decisions or third-party communications.
+:::
+
+:::text id=slide3_text1b x=104 y=415 w=400 h=170 preset=body align=left color=text
+**Boundaries:**
+Context upfront: Context provided upfront unless mutual understanding is established.
+One at a time: Only handle one face-to-face or live call conversation at a time.
+:::
+
+:::shape id=slide3_card2 x=550 y=175 w=459 h=430 kind=rect fill=surface borderRadius=12
+:::
+
+:::icon id=slide3_icon2 name=list-checks x=574 y=190 w=28 h=28 color=#0891B2
+:::
+
+:::text id=slide3_text2 x=574 y=225 w=410 h=360 preset=body align=left color=text
+**Standard 3-Step Format:**
+1. Context (facts only)
+2. Problem definition
+3. Proposed solutions (if any)
+:::

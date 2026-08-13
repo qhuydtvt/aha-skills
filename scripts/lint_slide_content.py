@@ -15,6 +15,8 @@ import sys
 from pathlib import Path
 from typing import Any
 
+from scripts.shared.lib.content_density import MAX_SLIDE_CHARS, MAX_SLIDE_BULLETS, MAX_ELEM_CHARS
+
 # Base directory setup
 BASE_DIR = Path(__file__).resolve().parent.parent
 DEFAULT_SPEC_PATH = BASE_DIR / "artifacts/slide-plans/manual_of_me/slides_content.json"
@@ -34,10 +36,29 @@ FORBIDDEN_VENDOR_KEYS = {
     "offsetx",
     "offsety",
     "basecolour",
+    "basecolor",
+    "base_color",
     "textcolour",
+    "textcolor",
+    "text_color",
+    "accentcolour",
+    "accentcolor",
+    "accent_color",
     "backgroundimage",
+    "theme",
 }
 
+
+
+def get_string_leaves(obj: Any) -> list[str]:
+    """Recursively walk JSON object/array to collect all string values."""
+    if isinstance(obj, str):
+        return [obj]
+    elif isinstance(obj, dict):
+        return [s for v in obj.values() for s in get_string_leaves(v)]
+    elif isinstance(obj, list):
+        return [s for v in obj for s in get_string_leaves(v)]
+    return []
 
 def find_vendor_keys(obj: Any, path: str = "$") -> list[tuple[str, str]]:
     """Recursively search object for forbidden platform-specific vendor keys."""
@@ -143,7 +164,7 @@ def lint_slides_content(spec_path: Path) -> tuple[bool, list[str]]:
         "slide_number",
         "slide_id_key",
         "required_keywords",
-        "key_content",
+        "content",
     ]
     ALLOWED_SLIDE_KEYS = set(REQUIRED_SLIDE_KEYS) | {"title", "subtitle"}
 
@@ -172,7 +193,7 @@ def lint_slides_content(spec_path: Path) -> tuple[bool, list[str]]:
             expected_key_order.append("title")
         if "subtitle" in slide:
             expected_key_order.append("subtitle")
-        expected_key_order.extend(["required_keywords", "key_content"])
+        expected_key_order.extend(["required_keywords", "content"])
 
         if slide_keys != expected_key_order:
             slide_errors.append(
@@ -223,10 +244,30 @@ def lint_slides_content(spec_path: Path) -> tuple[bool, list[str]]:
                 elif kw != kw.strip():
                     slide_errors.append(f"{slide_prefix}: Keyword '{kw}' at index {kw_idx} has un-trimmed leading/trailing whitespace.")
 
-        # Key content check
-        kc = slide.get("key_content")
-        if not isinstance(kc, dict) or len(kc) == 0:
-            slide_errors.append(f"{slide_prefix}: 'key_content' must be a non-empty object.")
+        # Content check
+        kc = slide.get("content")
+        if kc is None or not (isinstance(kc, list) or isinstance(kc, dict)):
+            slide_errors.append(f"{slide_prefix}: 'content' must be a non-empty array or object.")
+        elif len(kc) == 0:
+            slide_errors.append(f"{slide_prefix}: 'content' must not be empty.")
+            
+        # Density check
+        if kc:
+            string_leaves = get_string_leaves(kc)
+            total_chars = sum(len(s) for s in string_leaves)
+            total_items = len(kc)
+            max_item_chars = max([len(s) for s in string_leaves]) if string_leaves else 0
+
+            warnings = []
+            if total_chars > MAX_SLIDE_CHARS:
+                warnings.append(f"Total characters ({total_chars}) exceeds recommended {MAX_SLIDE_CHARS}.")
+            if total_items > MAX_SLIDE_BULLETS:
+                warnings.append(f"Total top-level items ({total_items}) exceeds recommended {MAX_SLIDE_BULLETS}.")
+            if max_item_chars > MAX_ELEM_CHARS:
+                warnings.append(f"Longest text item ({max_item_chars} chars) exceeds recommended {MAX_ELEM_CHARS}.")
+            
+            for w in warnings:
+                logs.append(f"⚠️ DENSITY WARNING {slide_prefix}: {w}")
 
     if slide_errors:
         logs.append(f"❌ Slide Content & Field Validation: FAIL ({len(slide_errors)} errors)")

@@ -1,0 +1,61 @@
+# @presentation_id: 9855829
+# @slide_id: 157201733
+# @purpose: timeline_roadmap_4step
+# @category: Processes & Workflows
+# @description: 4-step chronological timeline roadmap layout for project milestone tracking
+# @keywords: timeline, roadmap, 4-step, milestones, schedule, strategy, phase
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=uv3XDgcf7O at=top-center width=86% height=144 offsetY=24 preset=title align=left
+# Receiving Feedback — The 3-Point Feedback Structure
+:::
+
+:::shape id=Hk6suhDKIi at=center-left width=24 height=368 offsetX=160 offsetY=24 kind=rect fill=#E2E8F0 borderRadius=10
+:::
+
+:::shape id=Y2BEKYsonb at=center-left width=24 height=24 offsetX=160 offsetY=-128 kind=circle fill=#06B6D4
+:::
+
+:::text id=kx3Kq6ciOh at=center-left width=70% height=64 offsetX=200 offsetY=-128 preset=caption align=left color=#06B6D4
+CHANNEL
+:::
+
+:::text id=cIbn5Lt_px at=center-left width=70% height=80 offsetX=200 offsetY=-88 preset=body align=left
+**Face-to-face** — preferred channel (does not matter if private or public).
+:::
+
+:::shape id=7YKYmlth5I at=center-left width=24 height=24 offsetX=160 offsetY=-32 kind=circle fill=#22C55E
+:::
+
+:::text id=sWjfJEr8bb at=center-left width=70% height=64 offsetX=200 offsetY=-32 preset=caption align=left color=#22C55E
+STEP 1
+:::
+
+:::text id=tjPJI5YA4H at=center-left width=70% height=80 offsetX=200 offsetY=8 preset=body align=left
+**Context** — Context of the feedback.
+:::
+
+:::shape id=t5emWYanu_ at=center-left width=24 height=24 offsetX=160 offsetY=72 kind=circle fill=#FBBF24
+:::
+
+:::text id=OlPo-po34I at=center-left width=70% height=64 offsetX=200 offsetY=72 preset=caption align=left color=#92400E
+STEP 2
+:::
+
+:::text id=MJ_yAmH4i1 at=center-left width=70% height=80 offsetX=200 offsetY=112 preset=body align=left
+**Shared understanding** — Establishing shared understanding of impact on business, product, or team.
+:::
+
+:::shape id=KhuZJAaStl at=center-left width=24 height=24 offsetX=160 offsetY=168 kind=circle fill=#94A3B8
+:::
+
+:::text id=TWYDnPGd8g at=center-left width=70% height=64 offsetX=200 offsetY=168 preset=caption align=left color=muted
+STEP 3
+:::
+
+:::text id=H5-MDYQpQx at=center-left width=70% height=80 offsetX=200 offsetY=208 preset=body align=left
+**Proposed solution** — (Optional) Proposed solution or improvement.
+:::

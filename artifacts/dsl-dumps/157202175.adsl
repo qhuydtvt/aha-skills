@@ -1,0 +1,43 @@
+# @purpose: comparison_2col
+# @category: Comparisons & Matrix
+---
+content-v2: 1280x720
+version: 1
+background: bg
+---
+
+:::text id=slide7_caption x=80 y=60 w=929 h=32 preset=caption color=#0891B2
+06 · RULES OF ENGAGEMENT
+:::
+
+:::text id=slide7_title x=80 y=95 w=929 h=64 preset=title align=left color=text fontSize=40
+# Rules of Engagement — Pet Peeves & Golden Rules
+:::
+
+:::shape id=slide7_card1 x=80 y=175 w=450 h=430 kind=rect fill=surface borderRadius=12
+:::
+
+:::icon id=slide7_icon1 name=thumbs-down x=104 y=195 w=32 h=32 color=#0891B2
+:::
+
+:::text id=slide7_text1 x=104 y=235 w=400 h=350 preset=body align=left color=text
+**Pet Peeves (What to Avoid):**
+
+• **Unscheduled communication:** Avoid unscheduled calls or check-ins for non-urgent matters.
+
+• **Refusal of ideas:** Avoid Refusal of ideas or proposals without clear explanations.
+:::
+
+:::shape id=slide7_card2 x=550 y=175 w=459 h=430 kind=rect fill=surface borderRadius=12
+:::
+
+:::icon id=slide7_icon2 name=star x=574 y=195 w=32 h=32 color=#0891B2
+:::
+
+:::text id=slide7_text2 x=574 y=235 w=410 h=350 preset=body align=left color=text
+**Golden Rules (Best Practices):**
+
+• **Notify me beforehand:** Notify me beforehand for synchronous check-ins.
+
+• **Give reasons:** Give reasons for idea/proposal refusal, and suggest alternatives.
+:::

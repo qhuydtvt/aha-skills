@@ -62,7 +62,7 @@ def parse_adsl_to_elements(
 
     elements: list[dict[str, Any]] = []
     pattern = re.compile(
-        r"(:::(?:[a-zA-Z0-9_-]+)([^\n]*)\n([\s\S]*?)(?:(?<=\n):::|(?<=^):::|\Z))",
+        r"(:::(?:[a-zA-Z0-9_-]+)([^\n]*)\n([\s\S]*?)(?:(?<=\n):::(?!\w)|(?<=^):::(?!\w)|\Z))",
         re.MULTILINE,
     )
     attr_kv_pattern = re.compile(r'([\w-]+)=(?:"([^"]*)"|\'([^\']*)\'|(\S+))')

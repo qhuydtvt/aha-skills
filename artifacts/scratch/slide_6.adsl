@@ -1,0 +1,46 @@
+# @presentation_id: 9855829
+# @slide_id: 157201735
+# @purpose: feature_cards_4col
+# @category: Features & Products
+# @description: 4-column card grid layout for feature summaries and capability overviews
+# @keywords: features, 4-column, cards, grid, benefits, product overview
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=OB25Ef4kd_ at=top-center width=86% height=144 offsetY=64 preset=title align=center
+# Debugging Huy — Known Issues & Support Plan
+:::
+
+:::icon id=tNwlHZ7LqT at=center width=240 offsetX=-416 offsetY=-56 name=help-circle size=56 color=#F97316
+:::
+
+:::text id=8DcEHmx24p at=center width=240 height=160 offsetX=-416 offsetY=80 preset=body align=center
+**Ask too many questions when a problem is not fully understood before committing.**
+*Support*: Provide clear context and explain how it is relevant to the business, product, or team.
+:::
+
+:::icon id=u9eba6JwGf at=center width=240 offsetX=-136 offsetY=-56 name=battery-charging size=56 color=#F97316
+:::
+
+:::text id=MUbhAwp5Tl at=center width=240 height=160 offsetX=-136 offsetY=80 preset=body align=center
+**Respond slowly when running on low energy.**
+*Support*: Give time to recover, still feel free to ask for faster response if urgent.
+:::
+
+:::icon id=PWzBe0Qdar at=center width=240 offsetX=144 offsetY=-56 name=message-square size=56 color=#F97316
+:::
+
+:::text id=wV0xYU0pWH at=center width=240 height=128 offsetX=144 offsetY=80 preset=body align=center
+**Tend to be incoherent when getting over-excited.**
+*Support*: Give time to let things sink in, and echo back what you hear if possible.
+:::
+
+:::icon id=dp-_D28Ib_ at=center width=240 offsetX=424 offsetY=-56 name=alert-triangle size=56 color=#F97316
+:::
+
+:::text id=bGhkOHNcAU at=center width=240 height=128 offsetX=424 offsetY=80 preset=body align=center
+**Sometimes pushing too hard on self and people.**
+*Support*: Explain if it's not working or if energy is better spent in other ways.
+:::

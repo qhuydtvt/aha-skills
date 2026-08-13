@@ -1,0 +1,75 @@
+# @presentation_id: 9855829
+# @slide_id: 157201730
+# @purpose: feature_cards_3col
+# @category: Features & Products
+# @description: 3-column card grid layout highlighting key product features or benefits
+# @keywords: features, 3-column, cards, grid, benefits, product, services
+---
+content-v2: 1280x720
+version: 1
+background: bg
+---
+
+:::text id=4vG_l6rO0F x=80 y=72 w=720 h=32 preset=caption color=muted
+CORE PHILOSOPHY & MINDSET
+:::
+
+:::text id=Cq0gklscRH x=80 y=136 w=720 h=88 preset=title align=left color=text fontSize=56
+The Mindset — Core Values & Philosophy
+:::
+
+:::shape id=8Yd_ynBQtl x=80 y=288 w=360 h=336 kind=rect fill=surface borderRadius=8
+:::
+
+:::icon id=vZ9A0X1OQx x=120 y=312 w=32 h=32 name=shield size=32 color=muted
+:::
+
+:::text id=VBK0fzuPxq x=120 y=360 w=296 h=120 preset=quote color=text fontSize=22
+**Integrity** — Radical transparency, honesty, and doing what is right even when difficult.
+:::
+
+:::text id=TaXZEeNNxD x=120 y=520 w=296 h=24 preset=caption color=text
+Core Value 1
+:::
+
+:::text id=IDOltL_K5X x=120 y=552 w=296 h=24 preset=caption color=muted
+Radical Transparency
+:::
+
+:::shape id=4n3qEUvD4U x=464 y=288 w=360 h=336 kind=rect fill=surface borderRadius=8
+:::
+
+:::icon id=FziNl8MmZX x=504 y=312 w=32 h=32 name=trophy size=32 color=muted
+:::
+
+:::text id=MtSTNkfJkv x=504 y=360 w=296 h=120 preset=quote color=text fontSize=22
+**Winning Mindset** — High standards, drive to solve tough problems, and commitment to meaningful outcomes.
+:::
+
+:::text id=eIoNF14jve x=504 y=520 w=296 h=24 preset=caption color=text
+Core Value 2
+:::
+
+:::text id=CyrW22fmQ- x=504 y=552 w=296 h=24 preset=caption color=muted
+High Standards & Outcomes
+:::
+
+:::shape id=ndMF20RTBk x=848 y=288 w=352 h=336 kind=rect fill=surface borderRadius=8
+:::
+
+:::icon id=18P2-6vyZf x=888 y=312 w=32 h=32 name=trending-up size=32 color=muted
+:::
+
+:::text id=l5W501oiyp x=888 y=360 w=288 h=160 preset=quote color=text fontSize=18
+**Continuous improvement** — Constant iteration, learning from mistakes, and incremental daily gains.
+
+**Build & Discover** — Prefers running discovery concurrently while building products, rather than waiting for fully baked ideas.
+:::
+
+:::text id=0BkV4Jz55G x=888 y=520 w=288 h=24 preset=caption color=text
+Core Value 3 & Philosophy
+:::
+
+:::text id=HrliIxYVRZ x=888 y=552 w=288 h=24 preset=caption color=muted
+Build & Discover Simultaneously
+:::

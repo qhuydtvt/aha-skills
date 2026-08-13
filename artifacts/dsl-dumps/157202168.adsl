@@ -1,0 +1,61 @@
+# @purpose: process_flow_diagram
+# @category: Processes & Workflows
+---
+content-v2: 1280x720
+version: 1
+background: bg
+---
+
+:::text id=slide4_caption x=80 y=60 w=929 h=32 preset=caption color=#0891B2
+03 · FEEDBACK GUIDE
+:::
+
+:::text id=slide4_title x=80 y=95 w=929 h=64 preset=title align=left color=text fontSize=40
+# Receiving Feedback — The 3-Point Feedback Structure
+:::
+
+:::shape id=slide4_banner x=80 y=175 w=929 h=70 kind=rect fill=surface borderRadius=12
+:::
+
+:::icon id=slide4_banner_icon name=users x=104 y=194 w=32 h=32 color=#0891B2
+:::
+
+:::text id=slide4_banner_text x=150 y=190 w=780 h=40 preset=body align=left color=text
+**Preferred Channel:** Face-to-face (does not matter if private or public)
+:::
+
+:::shape id=slide4_card1 x=80 y=265 w=296 h=340 kind=rect fill=surface borderRadius=12
+:::
+
+:::icon id=slide4_icon1 name=file-text x=104 y=285 w=32 h=32 color=#0891B2
+:::
+
+:::text id=slide4_text1 x=104 y=325 w=248 h=260 preset=body align=left color=text
+**Step 1: Context**
+
+Provide the Context of the feedback clearly upfront.
+:::
+
+:::shape id=slide4_card2 x=396 y=265 w=296 h=340 kind=rect fill=surface borderRadius=12
+:::
+
+:::icon id=slide4_icon2 name=target x=420 y=285 w=32 h=32 color=#0891B2
+:::
+
+:::text id=slide4_text2 x=420 y=325 w=248 h=260 preset=body align=left color=text
+**Step 2: Shared Understanding**
+
+Establish a Shared understanding of the problem and its impact on the business, product, or team.
+:::
+
+:::shape id=slide4_card3 x=712 y=265 w=297 h=340 kind=rect fill=surface borderRadius=12
+:::
+
+:::icon id=slide4_icon3 name=lightbulb x=736 y=285 w=32 h=32 color=#0891B2
+:::
+
+:::text id=slide4_text3 x=736 y=325 w=249 h=260 preset=body align=left color=text
+**Step 3: Proposed Solution**
+
+(Optional) Offer a Proposed solution or actionable improvement.
+:::

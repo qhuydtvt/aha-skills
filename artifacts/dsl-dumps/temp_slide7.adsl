@@ -1,40 +1,33 @@
-# @presentation_id: 9852671
-# @slide_id: 157173303
-# @purpose: comparison_2col
-# @category: Comparisons & Analysis
-# @description: 2-column side-by-side comparison layout for pet peeves and golden rules
-# @keywords: Unscheduled communication, Refusal of ideas, Notify me beforehand, Give reasons
 ---
 content-v2: 1280x720
 version: 1
+background: #0F172A
 ---
 
-:::text id=txt_hdr_s7 at=top-left width=80% height=80 offsetX=80 offsetY=56 preset=title align=left color=text fontSize=38
-# Rules of Engagement — Pet Peeves & Golden Rules
+:::text id=s7_title x=80 y=45 w=929 h=70 preset=title align=left color=#F8FAFC fontSize=44
+Rules of Engagement — Pet Peeves & Golden Rules
 :::
 
-:::shape id=card_peeves at=top-left width=530 height=480 offsetX=80 offsetY=160 kind=rect fill=surface borderRadius=12
+:::shape id=s7_col1_bg x=80 y=140 w=445 h=510 kind=rect fill=#1E293B borderRadius=8
 :::
 
-:::icon id=icn_peeves at=top-left width=36 height=36 offsetX=104 offsetY=184 name=slash size=32 color=#EF4444
+:::text id=s7_col1_txt x=100 y=160 w=405 h=470 preset=body align=left color=#F8FAFC
+:::icon[name="x-circle" color="#EF4444"]:::
+**Pet Peeves (What to Avoid)**
+
+• **Unscheduled communication** for non-urgent matters without warning.
+
+• **Refusal of ideas** or proposals without clear reasons or context.
 :::
 
-:::text id=txt_peeves at=top-left width=480 height=380 offsetX=104 offsetY=232 preset=body align=left color=text fontSize=17
-**Pet Peeves (What to Avoid):**
-
-- **Unscheduled communication** for non-urgent matters that interrupt focus time.
-- **Refusal of ideas** or proposals without clear reasons or context.
+:::shape id=s7_col2_bg x=564 y=140 w=445 h=510 kind=rect fill=#1E293B borderRadius=8
 :::
 
-:::shape id=card_rules at=top-left width=530 height=480 offsetX=670 offsetY=160 kind=rect fill=surface borderRadius=12
-:::
+:::text id=s7_col2_txt x=584 y=160 w=405 h=470 preset=body align=left color=#F8FAFC
+:::icon[name="check-circle" color="#10B981"]:::
+**Golden Rules (Best Practices)**
 
-:::icon id=icn_rules at=top-left width=36 height=36 offsetX=694 offsetY=184 name=check-circle size=32 color=#10B981
-:::
+• **Notify me beforehand** for synchronous check-ins or live meetings.
 
-:::text id=txt_rules at=top-left width=480 height=380 offsetX=694 offsetY=232 preset=body align=left color=text fontSize=17
-**Golden Rules (What Works Best):**
-
-- **Notify me beforehand** for synchronous check-ins to respect calendar flow.
-- **Give reasons** for idea/proposal refusal, and optionally suggest alternatives.
+• **Give reasons** for idea/proposal refusal, and optionally suggest alternatives.
 :::
