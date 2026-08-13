@@ -1,0 +1,53 @@
+# @presentation_id: 9849280
+# @slide_id: 157144700
+# @purpose: process_flow_diagram
+# @category: Processes & Workflows
+# @description: 3-step feedback reception framework flow diagram
+# @keywords: feedback, framework, 3-step, context, impact, solution
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=tdWw53yIKc at=top-left width=1080 height=80 offsetX=100 offsetY=40 preset=title align=center color=text
+# How I Receive Feedback
+:::
+
+:::text id=sub_head_fb at=top-left width=1080 height=40 offsetX=100 offsetY=120 preset=caption align=center color=muted
+Preferred Channel: Face-to-Face (In private or public — both work well)
+:::
+
+:::shape id=ylDNgvEZJg at=top-left width=280 height=360 offsetX=100 offsetY=220 kind=rect fill=surface borderRadius=16 shadow=md
+:::
+
+:::text id=TxV1irf97j at=top-left width=240 height=280 offsetX=120 offsetY=260 preset=body align=center color=text
+**Step 1: Context**
+
+Provide the specific background & situation upfront.
+:::
+
+:::text id=hFSNWoQBUM at=top-left width=60 height=60 offsetX=400 offsetY=370 preset=body align=center color=muted fontSize=40
+→
+:::
+
+:::shape id=jJEOsZQoLt at=top-left width=280 height=360 offsetX=480 offsetY=220 kind=rect fill=surface borderRadius=16 shadow=md
+:::
+
+:::text id=XKW6EhxpAw at=top-left width=240 height=280 offsetX=500 offsetY=260 preset=body align=center color=text
+**Step 2: Impact**
+
+Build shared understanding of impact on product/team.
+:::
+
+:::text id=IhKd-f8N_T at=top-left width=60 height=60 offsetX=780 offsetY=370 preset=body align=center color=muted fontSize=40
+→
+:::
+
+:::shape id=h9VXmiy3hV at=top-left width=280 height=360 offsetX=860 offsetY=220 kind=rect fill=surface borderRadius=16 shadow=md
+:::
+
+:::text id=IVbPR21Wmt at=top-left width=240 height=280 offsetX=880 offsetY=260 preset=body align=center color=text
+**Step 3: Solution**
+
+(Optional) Propose actionable ideas or improvements.
+:::

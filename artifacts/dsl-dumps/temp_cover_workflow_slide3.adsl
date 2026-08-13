@@ -1,0 +1,49 @@
+# @presentation_id: 9849280
+# @slide_id: 157144699
+# @purpose: bullet_list_icon_grid
+# @category: Lists & Content
+# @description: Communication channels and preferred 3-step problem presentation format
+# @keywords: communication, slack, call, email, channels, 3-step format
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=vOyR2-WdqK at=top-left width=1080 height=80 offsetX=100 offsetY=40 preset=title align=center color=text
+# Communication Channels & Format
+:::
+
+:::icon id=E90BEe4CoO at=top-left width=80 height=80 offsetX=200 offsetY=160 name=message-square size=72 color=primary
+:::
+
+:::text id=0uuZiSNXgD at=top-left width=300 height=180 offsetX=90 offsetY=260 preset=body align=center color=text
+**Slack / Teams**
+
+Quick, non-mentally taxing updates & day-to-day chat.
+:::
+
+:::icon id=aOlmABGx8w at=top-left width=80 height=80 offsetX=600 offsetY=160 name=video size=72 color=primary
+:::
+
+:::text id=YqeGbiOh21 at=top-left width=300 height=180 offsetX=490 offsetY=260 preset=body align=center color=text
+**Face-to-Face / Call**
+
+Complex, sensitive, or easily misunderstood topics.
+:::
+
+:::icon id=d3etzhcaRM at=top-left width=80 height=80 offsetX=1000 offsetY=160 name=mail size=72 color=primary
+:::
+
+:::text id=p-YCIblVGW at=top-left width=300 height=180 offsetX=890 offsetY=260 preset=body align=center color=text
+**Email**
+
+Official decisions, records, & external party sync.
+:::
+
+:::shape id=j3Ujsry1DG at=top-left width=1080 height=160 offsetX=100 offsetY=480 kind=rect fill=surface borderRadius=16 shadow=md
+:::
+
+:::text id=W9_SAOgcxH at=top-left width=1040 height=120 offsetX=120 offsetY=500 preset=body align=center color=text
+**Preferred 3-Step Problem Format:**  
+1. Context (facts only) → 2. Problem Definition → 3. Proposed Solutions
+:::
