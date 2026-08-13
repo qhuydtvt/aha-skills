@@ -1,3 +1,4 @@
+from __future__ import annotations
 #!/usr/bin/env python3
 """Snapshot and diff tool for AhaSlides presentation state.
 

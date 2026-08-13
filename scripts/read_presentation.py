@@ -1,3 +1,4 @@
+from __future__ import annotations
 #!/usr/bin/env python3
 """Script to read and display presentation details and slide content on AhaSlides using the shared API client."""
 

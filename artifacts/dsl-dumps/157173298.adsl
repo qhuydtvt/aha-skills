@@ -1,0 +1,51 @@
+---
+content-v2: 1280x720
+version: 1
+---
+
+:::text id=txt_hdr_s4 at=top-left width=1120 height=80 offsetX=80 offsetY=56 preset=title align=left color=text fontSize=38
+# Receiving Feedback — The 3-Point Feedback Structure
+:::
+
+:::shape id=card_pref at=top-left width=1120 height=80 offsetX=80 offsetY=152 kind=rect fill=surface borderRadius=12
+:::
+
+:::icon id=icn_pref at=top-left width=32 height=32 offsetX=104 offsetY=176 name=users size=28 color=#06B6D4
+:::
+
+:::text id=txt_pref at=top-left width=976 height=48 offsetX=152 offsetY=168 preset=body align=left color=text fontSize=17
+**Preferred Channel:** Face-to-face communication (does not matter if private or public).
+:::
+
+:::shape id=card_s1 at=top-left width=352 height=344 offsetX=80 offsetY=264 kind=rect fill=surface borderRadius=12
+:::
+
+:::icon id=icn_s1 at=top-left width=40 height=40 offsetX=104 offsetY=288 name=file-text size=32 color=#06B6D4
+:::
+
+:::text id=txt_s1 at=top-left width=304 height=240 offsetX=104 offsetY=328 preset=body align=left color=text fontSize=16
+**Step 1: Context**  
+Provide the full Context of the feedback upfront to set baseline facts.
+:::
+
+:::shape id=card_s2 at=top-left width=352 height=344 offsetX=464 offsetY=264 kind=rect fill=surface borderRadius=12
+:::
+
+:::icon id=icn_s2 at=top-left width=40 height=40 offsetX=488 offsetY=288 name=target size=32 color=#06B6D4
+:::
+
+:::text id=txt_s2 at=top-left width=304 height=240 offsetX=488 offsetY=328 preset=body align=left color=text fontSize=16
+**Step 2: Shared Understanding**  
+Build Shared understanding of the problem and its impact on the business, product, or team.
+:::
+
+:::shape id=card_s3 at=top-left width=352 height=344 offsetX=848 offsetY=264 kind=rect fill=surface borderRadius=12
+:::
+
+:::icon id=icn_s3 at=top-left width=40 height=40 offsetX=872 offsetY=288 name=lightbulb size=32 color=#06B6D4
+:::
+
+:::text id=txt_s3 at=top-left width=304 height=240 offsetX=872 offsetY=328 preset=body align=left color=text fontSize=16
+**Step 3: Proposed Solution**  
+Offer an optional Proposed solution or improvement ideas to resolve it together.
+:::

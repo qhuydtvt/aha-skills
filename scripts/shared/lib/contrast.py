@@ -1,3 +1,4 @@
+from __future__ import annotations
 """WCAG 2.1 Color Contrast calculation and evaluation utilities."""
 
 import re

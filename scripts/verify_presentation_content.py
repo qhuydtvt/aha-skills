@@ -1,3 +1,4 @@
+from __future__ import annotations
 #!/usr/bin/env python3
 """Script to verify live AhaSlides presentation content against a vendor-independent slides_content.json specification file slide-by-slide.
 

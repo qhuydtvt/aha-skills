@@ -1,3 +1,4 @@
+from __future__ import annotations
 #!/usr/bin/env python3
 """Batch or single-file annotation script to bake structured header metadata comments into ADSL files.
 

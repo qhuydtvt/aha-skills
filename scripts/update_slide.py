@@ -1,3 +1,4 @@
+from __future__ import annotations
 #!/usr/bin/env python3
 """Script to update slide-level properties on AhaSlides."""
 

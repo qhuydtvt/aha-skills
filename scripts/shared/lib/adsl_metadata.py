@@ -1,3 +1,4 @@
+from __future__ import annotations
 """Shared ADSL metadata embedding, parsing, and filename helper library."""
 
 import re

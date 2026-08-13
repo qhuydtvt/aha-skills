@@ -1,3 +1,4 @@
+from __future__ import annotations
 #!/usr/bin/env python3
 """Script to scaffold and generate vendor-independent slides_content.json specification files from source material.
 

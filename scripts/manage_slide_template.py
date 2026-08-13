@@ -1,3 +1,4 @@
+from __future__ import annotations
 #!/usr/bin/env python3
 """Manage AhaSlides freestyle-v2 public slide templates.
 
