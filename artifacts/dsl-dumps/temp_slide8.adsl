@@ -1,30 +1,50 @@
 ---
 content-v2: 1280x720
 version: 1
-background: #0F172A
 ---
 
-:::text id=s8_title x=80 y=45 w=929 h=70 preset=title align=left color=#F8FAFC fontSize=44
-Conclusion — Let's Build Useful Things Together
+:::text id=s8_title at=top-left width=929 height=80 offsetX=80 offsetY=50 preset=title align=center color=text
+# Support & Golden Rules of Collaboration
 :::
 
-:::shape id=s8_card1_bg x=80 y=135 w=929 h=330 kind=rect fill=#1E293B borderRadius=8
+:::shape id=s8_c1 at=top-left width=283 height=480 offsetX=80 offsetY=160 kind=rect fill=surface borderRadius=16 shadow=md
 :::
 
-:::text id=s8_card1_txt x=110 y=155 w=869 h=290 preset=body align=left color=#F8FAFC
-:::icon[name="bookmark" color="#06B6D4"]:::
-**Cheatsheet Summary**
-
-• **Context upfront** — Frame discussions with Context -> Problem -> Solution.
-• **Face-to-face** — Preferred for feedback & high-bandwidth alignment.
-• **Support the bugs** — Echo back excited ideas, tag urgency, protect focus.
-• **Respect focus time** — Pre-notify check-ins & give reasons for rejections.
+:::icon id=s8_i1 at=top-left width=40 height=40 offsetX=105 offsetY=190 name="x-circle" color=#2563EB
 :::
 
-:::shape id=s8_quote_bg x=80 y=490 w=929 h=160 kind=rect fill=#0E7490 borderRadius=8
+:::text id=s8_h1 at=top-left width=133 height=40 offsetX=155 offsetY=190 preset=caption align=left color=#2563EB
+PET PEEVES
 :::
 
-:::text id=s8_quote_txt x=120 y=515 w=849 h=110 preset=body align=left color=#F8FAFC
-:::icon[name="quote" color="#67E8F9"]:::
-*This manual is a living document—let's keep communicating, building, and improving together!*
+:::text id=s8_b1 at=top-left width=208 height=340 offsetX=105 offsetY=250 preset=body align=left color=text
+Unscheduled non-urgent comms & idea refusal without clear reasons.
+:::
+
+:::shape id=s8_c2 at=top-left width=283 height=480 offsetX=403 offsetY=160 kind=rect fill=surface borderRadius=16 shadow=md
+:::
+
+:::icon id=s8_i2 at=top-left width=40 height=40 offsetX=428 offsetY=190 name="bell" color=#2563EB
+:::
+
+:::text id=s8_h2 at=top-left width=133 height=40 offsetX=478 offsetY=190 preset=caption align=left color=#2563EB
+GOLDEN RULE 1
+:::
+
+:::text id=s8_b2 at=top-left width=208 height=340 offsetX=428 offsetY=250 preset=body align=left color=text
+Notify beforehand for synchronous check-ins.
+:::
+
+:::shape id=s8_c3 at=top-left width=283 height=480 offsetX=726 offsetY=160 kind=rect fill=surface borderRadius=16 shadow=md
+:::
+
+:::icon id=s8_i3 at=top-left width=40 height=40 offsetX=751 offsetY=190 name="lightbulb" color=#2563EB
+:::
+
+:::text id=s8_h3 at=top-left width=133 height=40 offsetX=801 offsetY=190 preset=caption align=left color=#2563EB
+GOLDEN RULE 2
+:::
+
+:::text id=s8_b3 at=top-left width=208 height=340 offsetX=751 offsetY=250 preset=body align=left color=text
+Give reasons for idea refusal and suggest alternatives when possible.
 :::

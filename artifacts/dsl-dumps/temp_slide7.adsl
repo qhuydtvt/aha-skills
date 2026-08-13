@@ -1,33 +1,56 @@
 ---
 content-v2: 1280x720
 version: 1
-background: #0F172A
 ---
 
-:::text id=s7_title x=80 y=45 w=929 h=70 preset=title align=left color=#F8FAFC fontSize=44
-Rules of Engagement — Pet Peeves & Golden Rules
+:::text id=s7_title at=top-left width=929 height=80 offsetX=80 offsetY=50 preset=title align=center color=text
+# Bugs & How to Support Me
 :::
 
-:::shape id=s7_col1_bg x=80 y=140 w=445 h=510 kind=rect fill=#1E293B borderRadius=8
+:::shape id=s7_c1 at=top-left width=283 height=480 offsetX=80 offsetY=160 kind=rect fill=surface borderRadius=16 shadow=md
 :::
 
-:::text id=s7_col1_txt x=100 y=160 w=405 h=470 preset=body align=left color=#F8FAFC
-:::icon[name="x-circle" color="#EF4444"]:::
-**Pet Peeves (What to Avoid)**
-
-• **Unscheduled communication** for non-urgent matters without warning.
-
-• **Refusal of ideas** or proposals without clear reasons or context.
+:::icon id=s7_i1 at=top-left width=40 height=40 offsetX=105 offsetY=190 name="bug" color=#2563EB
 :::
 
-:::shape id=s7_col2_bg x=564 y=140 w=445 h=510 kind=rect fill=#1E293B borderRadius=8
+:::text id=s7_h1 at=top-left width=133 height=40 offsetX=155 offsetY=190 preset=caption align=left color=#2563EB
+UNCLEAR PROBLEMS
 :::
 
-:::text id=s7_col2_txt x=584 y=160 w=405 h=470 preset=body align=left color=#F8FAFC
-:::icon[name="check-circle" color="#10B981"]:::
-**Golden Rules (Best Practices)**
+:::text id=s7_b1 at=top-left width=208 height=340 offsetX=105 offsetY=250 preset=body align=left color=text
+Bug: Asks many questions when unclear.
 
-• **Notify me beforehand** for synchronous check-ins or live meetings.
+Support: Provide clear context and relevance.
+:::
 
-• **Give reasons** for idea/proposal refusal, and optionally suggest alternatives.
+:::shape id=s7_c2 at=top-left width=283 height=480 offsetX=403 offsetY=160 kind=rect fill=surface borderRadius=16 shadow=md
+:::
+
+:::icon id=s7_i2 at=top-left width=40 height=40 offsetX=428 offsetY=190 name="battery-charging" color=#2563EB
+:::
+
+:::text id=s7_h2 at=top-left width=133 height=40 offsetX=478 offsetY=190 preset=caption align=left color=#2563EB
+ENERGY FLUX
+:::
+
+:::text id=s7_b2 at=top-left width=208 height=340 offsetX=428 offsetY=250 preset=body align=left color=text
+Bug: Slow on low energy / incoherent when excited.
+
+Support: Give time to recover; echo back.
+:::
+
+:::shape id=s7_c3 at=top-left width=283 height=480 offsetX=726 offsetY=160 kind=rect fill=surface borderRadius=16 shadow=md
+:::
+
+:::icon id=s7_i3 at=top-left width=40 height=40 offsetX=751 offsetY=190 name="alert-triangle" color=#2563EB
+:::
+
+:::text id=s7_h3 at=top-left width=133 height=40 offsetX=801 offsetY=190 preset=caption align=left color=#2563EB
+OVER-DRIVING
+:::
+
+:::text id=s7_b3 at=top-left width=208 height=340 offsetX=751 offsetY=250 preset=body align=left color=text
+Bug: Pushes self & team too hard.
+
+Support: Advise if energy is better spent elsewhere.
 :::

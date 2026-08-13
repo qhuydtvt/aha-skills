@@ -1,49 +1,52 @@
 ---
 content-v2: 1280x720
 version: 1
-background: #0F172A
 ---
 
-:::text id=s4_title x=80 y=45 w=929 h=60 preset=title align=left color=#F8FAFC fontSize=42
-Receiving Feedback — The 3-Point Feedback Structure
+:::text id=s4_title at=top-left width=929 height=80 offsetX=80 offsetY=50 preset=title align=center color=text
+# Communication Boundaries & Structure
 :::
 
-:::text id=s4_sub x=80 y=115 w=929 h=40 preset=caption align=left color=#06B6D4
-Preferred channel: Face-to-face (private or public)
+:::shape id=s4_c1 at=top-left width=283 height=480 offsetX=80 offsetY=160 kind=rect fill=surface borderRadius=16 shadow=md
 :::
 
-:::shape id=s4_card1_bg x=80 y=175 w=295 h=480 kind=rect fill=#1E293B borderRadius=8
+:::icon id=s4_i1 at=top-left width=40 height=40 offsetX=105 offsetY=190 name="file-text" color=#2563EB
 :::
 
-:::text id=s4_card1_txt x=95 y=190 w=265 h=450 preset=body align=left color=#F8FAFC
-:::icon[name="file-text" color="#06B6D4"]:::
-**Step 1: Context**
-
-Context of the feedback.
-
-Establish clear background and specific instances first.
+:::text id=s4_h1 at=top-left width=133 height=40 offsetX=155 offsetY=190 preset=caption align=left color=#2563EB
+CONTEXT UPFRONT
 :::
 
-:::shape id=s4_card2_bg x=397 y=175 w=295 h=480 kind=rect fill=#1E293B borderRadius=8
+:::text id=s4_b1 at=top-left width=208 height=340 offsetX=105 offsetY=250 preset=body align=left color=text
+Provide context upfront unless mutual understanding exists.
 :::
 
-:::text id=s4_card2_txt x=412 y=190 w=265 h=450 preset=body align=left color=#F8FAFC
-:::icon[name="target" color="#06B6D4"]:::
-**Step 2: Impact**
-
-Shared understanding of impact.
-
-Establishing a shared understanding of the problem and its impact on the business, product, or team.
+:::shape id=s4_c2 at=top-left width=283 height=480 offsetX=403 offsetY=160 kind=rect fill=surface borderRadius=16 shadow=md
 :::
 
-:::shape id=s4_card3_bg x=714 y=175 w=295 h=480 kind=rect fill=#1E293B borderRadius=8
+:::icon id=s4_i2 at=top-left width=40 height=40 offsetX=428 offsetY=190 name="disc" color=#2563EB
 :::
 
-:::text id=s4_card3_txt x=729 y=190 w=265 h=450 preset=body align=left color=#F8FAFC
-:::icon[name="lightbulb" color="#06B6D4"]:::
-**Step 3: Solution**
+:::text id=s4_h2 at=top-left width=133 height=40 offsetX=478 offsetY=190 preset=caption align=left color=#2563EB
+SINGLE FOCUS
+:::
 
-Proposed solution.
+:::text id=s4_b2 at=top-left width=208 height=340 offsetX=428 offsetY=250 preset=body align=left color=text
+Handle one live call or face-to-face conversation at a time.
+:::
 
-(Optional) Proposed solution or actionable improvement path.
+:::shape id=s4_c3 at=top-left width=283 height=480 offsetX=726 offsetY=160 kind=rect fill=surface borderRadius=16 shadow=md
+:::
+
+:::icon id=s4_i3 at=top-left width=40 height=40 offsetX=751 offsetY=190 name="layers" color=#2563EB
+:::
+
+:::text id=s4_h3 at=top-left width=133 height=40 offsetX=801 offsetY=190 preset=caption align=left color=#2563EB
+3-STEP FORMAT
+:::
+
+:::text id=s4_b3 at=top-left width=208 height=340 offsetX=751 offsetY=250 preset=body align=left color=text
+Step 1: Context (facts)
+Step 2: Problem definition
+Step 3: Proposed solutions
 :::

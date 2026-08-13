@@ -1,45 +1,40 @@
 ---
 content-v2: 1280x720
 version: 1
-background: #0F172A
 ---
 
-:::text id=s2_title x=80 y=45 w=929 h=70 preset=title align=left color=#F8FAFC fontSize=44
-The Mindset — Core Values & Philosophy
+:::text id=s2_title at=top-left width=929 height=80 offsetX=80 offsetY=50 preset=title align=center color=text
+# About Me
 :::
 
-:::shape id=s2_card1_bg x=80 y=140 w=445 h=220 kind=rect fill=#1E293B borderRadius=8
+:::shape id=s2_card1 at=top-left width=444 height=480 offsetX=80 offsetY=160 kind=rect fill=surface borderRadius=16 shadow=md
 :::
 
-:::text id=s2_card1_txt x=100 y=155 w=405 h=190 preset=body align=left color=#F8FAFC
-:::icon[name="shield-check" color="#06B6D4"]:::
-**Integrity**
-Radical transparency, honesty, and doing what is right even when difficult.
+:::icon id=s2_icon1 at=top-left width=40 height=40 offsetX=110 offsetY=190 name="target" color=#2563EB
 :::
 
-:::shape id=s2_card2_bg x=564 y=140 w=445 h=220 kind=rect fill=#1E293B borderRadius=8
+:::text id=s2_h1 at=top-left width=284 height=40 offsetX=160 offsetY=190 preset=caption align=left color=#2563EB
+CORE IDENTITY & MISSION
 :::
 
-:::text id=s2_card2_txt x=584 y=155 w=405 h=190 preset=body align=left color=#F8FAFC
-:::icon[name="trophy" color="#06B6D4"]:::
-**Winning Mindset**
-High standards, drive to solve tough problems, and commitment to outcomes.
+:::text id=s2_b1 at=top-left width=334 height=340 offsetX=110 offsetY=250 preset=body align=left color=text
+HuyNQ — Mission: "Build useful things"
+
+Focusing on high-impact software with clear execution.
 :::
 
-:::shape id=s2_card3_bg x=80 y=390 w=445 h=220 kind=rect fill=#1E293B borderRadius=8
+:::shape id=s2_card2 at=top-left width=444 height=480 offsetX=565 offsetY=160 kind=rect fill=surface borderRadius=16 shadow=md
 :::
 
-:::text id=s2_card3_txt x=100 y=405 w=405 h=190 preset=body align=left color=#F8FAFC
-:::icon[name="trending-up" color="#06B6D4"]:::
-**Continuous improvement**
-Constant iteration, learning from mistakes, and incremental daily gains.
+:::icon id=s2_icon2 at=top-left width=40 height=40 offsetX=595 offsetY=190 name="award" color=#2563EB
 :::
 
-:::shape id=s2_card4_bg x=564 y=390 w=445 h=220 kind=rect fill=#1E293B borderRadius=8
+:::text id=s2_h2 at=top-left width=284 height=40 offsetX=645 offsetY=190 preset=caption align=left color=#2563EB
+CORE VALUES
 :::
 
-:::text id=s2_card4_txt x=584 y=405 w=405 h=190 preset=body align=left color=#F8FAFC
-:::icon[name="compass" color="#06B6D4"]:::
-**Build & Discover**
-Build & Discover Simultaneously — running discovery concurrently while building.
+:::text id=s2_b2 at=top-left width=334 height=340 offsetX=595 offsetY=250 preset=body align=left color=text
+Integrity: Honesty & transparency.
+Winning Mindset: Outcome focus.
+Improvement: Continuous learning.
 :::
